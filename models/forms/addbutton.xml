@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+				<field name="button_name"
+				label="FLEXI_ADMIN_NAME_BUTTON"
+				description="FLEXI_ADMIN_NAME_BUTTON_DESC"
+				size="30"
+				type="text" />
+				<field name="button_type"
+				label="FLEXI_ADMIN_TYPES"
+				description="FLEXI_ADMIN_TYPES_DESC"
+				size="5"
+				type="types"
+				multiple="false"
+				hide_default="true"
+				hide_none="true" />
+				<field name="catid"
+				type="flexicategories"
+				multiple="false"
+				label="FLEXI_ADMIN_CAT"
+				description="FLEXI_ADMIN_CAT_DESC" />
+				<field name="button_lang"
+				type="Fclanguage"
+				multiple="false"
+				label="FLEXI_ADMIN_LANG"
+				description="FLEXI_ADMIN_LANG_DESC" />
+
+</form>

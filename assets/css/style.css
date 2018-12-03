@@ -1,0 +1,54 @@
+.action{
+    width:98% !important;
+}
+.action.span12, .modulemessage.span12 {
+    margin-left: 0 !important;
+}
+button.itemlist {
+  margin: 4px;
+  max-width: 116px;
+  min-height: 66px;
+}
+.block {
+min-height:155px !important;
+margin-left: -1px !important;
+    margin-right: 15px !important;
+}
+.block > .row-striped{
+	overflow-y: auto;
+  overflow-x: hidden;
+}
+.adminlink{
+  color:#000;
+  font-weight:bold;
+}
+.pending.well.well-small.span12 {
+  margin-left: 0;
+}
+.revised.well.well-small.span12 {
+  margin-left: 0;
+}
+.youritems.well.well-small.span12 {
+  margin-left: 0;
+}
+.trashed.well.well-small.span12 {
+  margin-left: 0;
+}
+.inprogress.well.well-small.span12 {
+  margin-left: 0;
+}
+.inprogress.well.well-small.span6 {
+  margin-left: 0;
+}
+h2.nav-header {
+    border-bottom: 1px solid #E3E3E3;
+}
+/** max size for image **/
+.youritems img.fc_field_image {
+    max-height: 80px !important;
+}
+.info-bar {
+    float: right;
+    margin-top: -33px;
+    margin-right: -14px;
+}

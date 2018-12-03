@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+  <field name="freebutton"
+    type="text"
+    label="FLEXI_ADMIN_FREE_NAME_BUTTON"
+    description="FLEXI_ADMIN_FREE_NAME_BUTTON_DESC"/>
+  <field name="linkbutton"
+    type="text"
+    label="FLEXI_ADMIN_FREE_LINK"
+    description="FLEXI_ADMIN_FREE_LINK_DESC"/>
+  <field name="iconbutton"
+    type="iconlist"
+    label="FLEXI_ADMIN_ICON"
+    description="FLEXI_ADMIN_ICON_DESC"/>
+</form>
