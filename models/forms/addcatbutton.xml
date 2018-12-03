@@ -2,17 +2,17 @@
 <form>
 <field name="namecatfilter"
   type="text"
-  label="FLEXI_ADMIN_NAME_BUTTON"
-  description="FLEXI_ADMIN_NAME_BUTTON_DESC" />
-<field name="filtercatids"
-  type="flexicategories"
-  multiple="false"
-  default=""
-  label="FLEXI_ADMIN_CAT"
-  description="FLEXI_ADMIN_CAT_DESC" />
-  <field name="button_lang"
-  type="Fclanguage"
-  multiple="false"
-  label="FLEXI_ADMIN_LANG"
-  description="FLEXI_ADMIN_LANG_DESC" />
+  label="JOOMLA_ADMIN_NAME_BUTTON"
+  description="JOOMLA_ADMIN_NAME_BUTTON_DESC" />
+<field name="catidlist"
+      type="category"
+      extension="com_content"
+      multiple="false"
+      label="JOOMLA_ADMIN_CAT"
+      description="JOOMLA_ADMIN_CAT_DESC" />
+<field name="button_lang" 
+		type="language" 
+		client="site"
+		label="JOOMLA_ADMIN_LANG" 
+		description="JOOMLA_ADMIN_LANG_DESC" />
 </form>

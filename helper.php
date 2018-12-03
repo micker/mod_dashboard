@@ -111,7 +111,7 @@ abstract class modJoomadminHelper
 	public static function getCustomlist(&$params)
 	{
 		$list_customblocks = $params->get('add_customblock');
-		//print_r ($list_customblocks);
+		if ($list_customblocks){
 		$db = JFactory::getDbo();
 		global $globalcats;
 		// loop your result
@@ -129,6 +129,7 @@ abstract class modJoomadminHelper
 			}
 			$customblock->listitems = $itemCustomlist;
 		}
+	}
 		return $list_customblocks;
 	}
 	/**

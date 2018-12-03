@@ -74,11 +74,6 @@ $user = JFactory::getUser();
 
 
 jimport( 'joomla.application.component.controller' );
-// Check if component is installed
-if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
-   echo 'This modules requires component FLEXIcontent!';
-   return;
-}
 ?>
 
 
@@ -133,10 +128,10 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 		<div class="tab-content">
 				<?php if ($displaycustomtab) : ?>
 					<div class="tab-pane fade in active" id="custom<?php echo $module->id;?>">
-                  <?php $list_buttons = $params->get('add_button');
-               //print_r ($list_buttons);
-              // loop your result
-              foreach( $list_buttons as $list_buttons_idx => $add_button ) :?>
+                  <?php
+								$list_buttons = $params->get('add_button');
+								if ($list_buttons): ?>
+              <?php foreach( $list_buttons as $list_buttons_idx => $add_button ) :?>
 
                  <a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $add_button->button_type;?>&maincat=<?php echo $add_button->catid; ?>&filter_lang=<?php echo $add_button->button_lang; ?>" >
                           <button type="button" class="btn btn-default btn-lg itemlist">
@@ -146,11 +141,11 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
                     </a>
 
               <?php endforeach; ?>
+							<?php endif; ?>
               <?php if ($params->get('displayline1')) : ?><hr /><?php endif; ?>
               <?php $list_catbuttons = $params->get('add_cat_button');
-              //print_r ($list_catbuttons);
-              // loop your result
-              foreach( $list_catbuttons as $list_catbuttons_idx => $cat_button ) :?>
+							if ($list_catbuttons): ?>
+              <?php foreach( $list_catbuttons as $list_catbuttons_idx => $cat_button ) :?>
 
               <a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $cat_button->filtercatids; ?>&filter_lang=<?php echo $cat_button->button_lang; ?>" >
                     <button type="button" class="btn btn-default btn-lg itemlist">
@@ -159,13 +154,12 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
                     </button>
               </a>
 
-              <?php endforeach; ?>
-
+						<?php endforeach; ?>
+					<?php endif; ?>
              <?php if ($params->get('displayline2')) : ?> <hr /><?php endif; ?>
               <?php $list_edititembuttons = $params->get('edit_item_button');
-              //print_r ($list_edititembuttons);
-              // loop your result
-              foreach( $list_edititembuttons as $list_edititembuttons_idx => $edit_item_button ) :?>
+							if ($list_edititembuttons): ?>
+              <?php foreach( $list_edititembuttons as $list_edititembuttons_idx => $edit_item_button ) :?>
 
               <a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $edit_item_button->itemid; ?>" >
                     <button type="button" class="btn btn-default btn-lg itemlist">
@@ -175,6 +169,7 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
               </a>
 
               <?php endforeach; ?>
+							<?php endif; ?>
 					</div>
 					<?php endif; ?>
 										<?php if ($displaycreattab) : ?>
@@ -331,9 +326,8 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 			<div class="tab-pane fade" id="free<?php echo $module->id;?>">
 
             <?php $list_freebuttons = $params->get('free_button');
-            //print_r ($list_edititembuttons);
-            // loop your result
-            foreach( $list_freebuttons as $list_freebuttons_idx => $free_button ) :?>
+						if ($list_freebuttons): ?>
+            <?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_button ) :?>
 
             <a href="<?php echo $free_button->linkbutton; ?>" >
                   <button type="button" class="btn btn-default btn-lg itemlist">
@@ -343,6 +337,7 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
             </a>
 
          <?php endforeach; ?>
+				 <?php endif; ?>
 			</div>
 			<?php endif; ?>
 
@@ -573,8 +568,8 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
    </div>
 	</div>
 <?php endif; ?>
+<?php if($listCustomlist) : ?>
 <?php
-// loop your result
 foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
 
 <div class="block youritems well well-small span<?php echo $column; ?>">
@@ -662,7 +657,7 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
 </div>
 
 <?php endforeach; ?>
-
+<?php endif; ?>
 </div>
 </div>
 </div>

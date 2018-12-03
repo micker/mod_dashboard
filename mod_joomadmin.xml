@@ -12,7 +12,7 @@
 	<version>0.1.0</version>
 	<copyright>Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<description>JOOM_ADMIN_INTRO</description>
+	<description>JOOMLA_ADMIN_INTRO</description>
 	<files>
 		<filename module="mod_joomadmin">mod_joomadmin.php</filename>
 		<folder>tmpl</folder>
@@ -31,27 +31,27 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="administrator/modules/mod_joomadmin/elements/">
-				<field name="displayconfigmodule" type="radio" default="1" label="JOOM_ADMIN_DISPLAY_CONFIG_MODULE" description="JOOM_ADMIN_DISPLAY_CONFIG_MODULE_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+				<field name="displayconfigmodule" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAY_CONFIG_MODULE" description="JOOMLA_ADMIN_DISPLAY_CONFIG_MODULE_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 
-			<field name="		displayinfosystem" type="radio" default="1" label="JOOM_ADMIN_DISPLAY_SYSTEM_INFO" description="JOOM_ADMIN_DISPLAY_SYSTEM_INFO_DESC" class="btn-group btn-group-yesno">
-			<option value="0">FLEXI_NO</option>
-			<option value="1">FLEXI_YES</option>
+			<field name="displayinfosystem" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAY_SYSTEM_INFO" description="JOOMLA_ADMIN_DISPLAY_SYSTEM_INFO_DESC" class="btn-group btn-group-yesno">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</field>
 
 
-                <field name="displaycustomtext" type="radio" default="0" label="JOOM_ADMIN_DISPLAY_CUSTOMTEXT" description="JOOM_ADMIN_DISPLAY_CUSTOMTEXT_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+                <field name="displaycustomtext" type="radio" default="0" label="JOOMLA_ADMIN_DISPLAY_CUSTOMTEXT" description="JOOMLA_ADMIN_DISPLAY_CUSTOMTEXT_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-                <field name="customtext" label ="JOOM_ADMIN_CUSTOMTEXT" description="JOOM_ADMIN_CUSTOMTEXT_DESC" type="editor" width="200px" height="100px"  buttons="false" filter="safehtml" showon="displaycustomtext:1"/>
-			<field name="" type="separator" default="JOOM_ADMIN_NB_ITEM_DISPLAY" level="level1" />
+                <field name="customtext" label ="JOOMLA_ADMIN_CUSTOMTEXT" description="JOOMLA_ADMIN_CUSTOMTEXT_DESC" type="editor" width="200px" height="100px"  buttons="false" filter="safehtml" showon="displaycustomtext:1"/>
+			<field name="" type="separator" default="JOOMLA_ADMIN_NB_ITEM_DISPLAY" level="level1" />
 			<field
 				name="count" type="list"
-				default="5" label="JOOM_ADMIN_NBITEM"
-				description="JOOM_ADMIN_NBITEM">
+				default="5" label="JOOMLA_ADMIN_NBITEM"
+				description="JOOMLA_ADMIN_NBITEM">
 				<option	value="1">1</option>
 				<option	value="3">3</option>
 				<option	value="5">5</option>
@@ -61,72 +61,72 @@
 			</field>
 			<field
 				name="column" type="list"
-				default="4" label="JOOM_ADMIN_COLUMN"
-				description="JOOM_ADMIN_COLUMN_DESC">
+				default="4" label="JOOMLA_ADMIN_COLUMN"
+				description="JOOMLA_ADMIN_COLUMN_DESC">
 				<option	value="12">1</option>
 				<option	value="6">2</option>
 				<option	value="4">3</option>
 
 			</field>
-			<field name="" type="separator" default="JOOM_ADMIN_SIDEBAR_OPTIONS" level="level1" />
-			<field name="tabmodsidebar" type="radio" default="1" label="JOOM_ADMIN_SIDEBAR_TABS_MOD" description="JOOM_ADMIN_SIDEBAR_TABS_MOD_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="" type="separator" default="JOOMLA_ADMIN_SIDEBAR_OPTIONS" level="level1" />
+			<field name="tabmodsidebar" type="radio" default="1" label="JOOMLA_ADMIN_SIDEBAR_TABS_MOD" description="JOOMLA_ADMIN_SIDEBAR_TABS_MOD_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="" type="separator" default="JOOM_ADMIN_TABS" level="level1" />
-			<field name="displaycustomtab" type="radio" default="1" label="JOOM_ADMIN_TABS_CUSTOM" description="JOOM_ADMIN_TABS_CUSTOM_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="" type="separator" default="JOOMLA_ADMIN_TABS" level="level1" />
+			<field name="displaycustomtab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_CUSTOM" description="JOOMLA_ADMIN_TABS_CUSTOM_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="displaycreattab" type="radio" default="1" label="JOOM_ADMIN_TABS_CREATE" description="JOOM_ADMIN_TABS_CREATE_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="displaycreattab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_CREATE" description="JOOMLA_ADMIN_TABS_CREATE_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="displaymanagetab" type="radio" default="1" label="JOOM_ADMIN_TABS_MANAGE" description="JOOM_ADMIN_TABS_MANAGE_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="displaymanagetab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_MANAGE" description="JOOMLA_ADMIN_TABS_MANAGE_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="displayadmintab" type="radio" default="1" label="JOOM_ADMIN_TABS_ADMIN" description="JOOM_ADMIN_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="displayadmintab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_ADMIN" description="JOOMLA_ADMIN_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="displayfreetab" type="radio" default="1" label="FLEXI_FREE_TABS_ADMIN" description="FLEXI_FREE_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="displayfreetab" type="radio" default="1" label="JOOMLA_FREE_TABS_ADMIN" description="JOOMLA_FREE_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
 
-		<field name="" type="separator" default="JOOM_ADMIN_BLOCK_DISPLAY" level="level1" />
-		<field name="hiddefeatured" type="radio" default="1" label="JOOM_ADMIN_DISPLAYBLOCK_FEATURED" description="JOOM_ADMIN_DISPLAYBLOCK_FEATURED_DESC" class="btn-group btn-group-yesno">
-			<option value="0">FLEXI_NO</option>
-			<option value="1">FLEXI_YES</option>
+		<field name="" type="separator" default="JOOMLA_ADMIN_BLOCK_DISPLAY" level="level1" />
+		<field name="hiddefeatured" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED" description="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED_DESC" class="btn-group btn-group-yesno">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</field>
-			<field name="hiddepending" type="radio" default="1" label="JOOM_ADMIN_DISPLAYBLOCK_PENDING" description="JOOM_ADMIN_DISPLAYBLOCK_PENDING_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="hiddepending" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_PENDING" description="JOOMLA_ADMIN_DISPLAYBLOCK_PENDING_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="hidderevised" type="radio" default="1" label="JOOM_ADMIN_DISPLAYBLOCK_REVISED" description="JOOM_ADMIN_DISPLAYBLOCK_REVISED_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="hidderevised" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_REVISED" description="JOOMLA_ADMIN_DISPLAYBLOCK_REVISED_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="hiddeinprogess" type="radio" default="1" label="JOOM_ADMIN_DISPLAYBLOCK_INPROGRESS" description="JOOM_ADMIN_DISPLAYBLOCK_INPROGRESS_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="hiddeinprogess" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_INPROGRESS" description="JOOMLA_ADMIN_DISPLAYBLOCK_INPROGRESS_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="hiddedraft" type="radio" default="1" label="JOOM_ADMIN_DISPLAYBLOCK_DRAFT" description="JOOM_ADMIN_DISPLAYBLOCK_DRAFT_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="hiddedraft" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_DRAFT" description="JOOMLA_ADMIN_DISPLAYBLOCK_DRAFT_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="hiddeyouritem" type="radio" default="1" label="JOOM_ADMIN_DISPLAYBLOCK_YOURITEM" description="JOOM_ADMIN_DISPLAYBLOCK_YOURITEM_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="hiddeyouritem" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_YOURITEM" description="JOOMLA_ADMIN_DISPLAYBLOCK_YOURITEM_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="hiddetrashed" type="radio" default="1" label="JOOM_ADMIN_DISPLAYBLOCK_TRASHED" description="JOOM_ADMIN_DISPLAYBLOCK_TRASHED_DESC" class="btn-group btn-group-yesno">
-				<option value="0">FLEXI_NO</option>
-				<option value="1">FLEXI_YES</option>
+			<field name="hiddetrashed" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_TRASHED" description="JOOMLA_ADMIN_DISPLAYBLOCK_TRASHED_DESC" class="btn-group btn-group-yesno">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
 			</field>
-			<field name="forceheightblock" type="text" default="" size="50" label="JOOM_ADMIN_BLOCKHEIGHT" description="JOOM_ADMIN_BLOCKHEIGHT_DESC"/>
+			<field name="forceheightblock" type="text" default="" size="50" label="JOOMLA_ADMIN_BLOCKHEIGHT" description="JOOMLA_ADMIN_BLOCKHEIGHT_DESC"/>
 
-			<field name="" type="separator" default="JOOM_ADMIN_BLOCKCUSTOM_DESC" level="level1" />
+			<field name="" type="separator" default="JOOMLA_ADMIN_BLOCKCUSTOM_DESC" level="level1" />
 
 				<field name= "add_customblock"
 				 description= ""
@@ -143,9 +143,9 @@
 
 			</fieldset>
 
-			<fieldset name="custom_tab" label="JOOM_ADMIN_CUSTOM_TAB" description="JOOM_ADMIN_CUSTOM_TAB_DESC" >
-				<field name="nametab" type="text"  default="JOOM_ADMIN_CUSTOM_TAB_NAME" label="JOOM_ADMIN_NAME_TAB" description="JOOM_ADMIN_NAME_TAB_DESC" />
-			<field name="" type="separator" default="JOOM_ADMIN_BUTTON_ITEM_ADD" level="level1" />
+			<fieldset name="custom_tab" label="JOOMLA_ADMIN_CUSTOM_TAB" description="JOOMLA_ADMIN_CUSTOM_TAB_DESC" >
+				<field name="nametab" type="text"  default="JOOMLA_ADMIN_CUSTOM_TAB_NAME" label="JOOMLA_ADMIN_NAME_TAB" description="JOOMLA_ADMIN_NAME_TAB_DESC" />
+			<field name="" type="separator" default="JOOMLA_ADMIN_BUTTON_ITEM_ADD" level="level1" />
 				<field name= "add_button"
 				 description= ""
 				 type= "subform"
@@ -159,12 +159,12 @@
 	layout="joomla.form.field.subform.repeatable-table"
 				 groupByFieldset="false"/>
 
-				 <field name="displayline1" label="JOOM_ADMIN_DISPLAY_LINE" description="JOOM_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
+				 <field name="displayline1" label="JOOMLA_ADMIN_DISPLAY_LINE" description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
 					 <option value="1">JYES</option>
 					 <option value="0">JNO</option>
 				 </field>
 
-				<field name="" type="separator" default="JOOM_ADMIN_CAT_FILTERING" level="level1" />
+				<field name="" type="separator" default="JOOMLA_ADMIN_CAT_FILTERING" level="level1" />
 
 					<field name= "add_cat_button"
 					 description= ""
@@ -179,12 +179,12 @@
 				layout="joomla.form.field.subform.repeatable-table"
 					 groupByFieldset="false"/>
 
-					 <field name="displayline2" label="JOOM_ADMIN_DISPLAY_LINE"  description="JOOM_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
+					 <field name="displayline2" label="JOOMLA_ADMIN_DISPLAY_LINE"  description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
 						<option value="1">JYES</option>
 						<option value="0">JNO</option>
 					</field>
 
-				<field name="" type="separator" default="JOOM_ADMIN_ITEM_EDIT" level="level1" />
+				<field name="" type="separator" default="JOOMLA_ADMIN_ITEM_EDIT" level="level1" />
 
 					<field name= "edit_item_button"
 					 description= ""
@@ -204,98 +204,98 @@
 
 
 			</fieldset>
-			<fieldset name="creation_tab" label="JOOM_ADMIN_CREATION_TAB" description="JOOM_ADMIN_CREATION_TAB_DESC">
-				<field name="hiddebuttonadditem" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_ADDITEM"              description="JOOM_ADMIN_DISPLAYBUTTON_ADDITEM_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+			<fieldset name="creation_tab" label="JOOMLA_ADMIN_CREATION_TAB" description="JOOMLA_ADMIN_CREATION_TAB_DESC">
+				<field name="hiddebuttonadditem" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_ADDITEM"              description="JOOMLA_ADMIN_DISPLAYBUTTON_ADDITEM_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonaddcategory" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_ADDCATEGORY"              description="JOOM_ADMIN_DISPLAYBUTTON_ADDCATEGORY_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+				<field name="hiddebuttonaddcategory" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_ADDCATEGORY"              description="JOOMLA_ADMIN_DISPLAYBUTTON_ADDCATEGORY_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonaddtag" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_ADDTAG"              description="JOOM_ADMIN_DISPLAYBUTTON_ADDTAG_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+				<field name="hiddebuttonaddtag" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_ADDTAG"              description="JOOMLA_ADMIN_DISPLAYBUTTON_ADDTAG_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonadduser" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_ADDUSER"              description="JOOM_ADMIN_DISPLAYBUTTON_ADDUSER_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+				<field name="hiddebuttonadduser" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_ADDUSER"              description="JOOMLA_ADMIN_DISPLAYBUTTON_ADDUSER_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonaddgroup" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_ADDGROUP"              description="JOOM_ADMIN_DISPLAYBUTTON_ADDGROUP_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+				<field name="hiddebuttonaddgroup" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_ADDGROUP"              description="JOOMLA_ADMIN_DISPLAYBUTTON_ADDGROUP_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 
 
 			</fieldset>
-			<fieldset name="gestion_tab" label="JOOM_ADMIN_GESTION_TAB" description="JOOM_ADMIN_GESTION_TAB_DESC">
-				<field name="hiddebuttonmanageitems" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_MANAGEITEMS"              description="JOOM_ADMIN_DISPLAYBUTTON_MANAGEITEMS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+			<fieldset name="gestion_tab" label="JOOMLA_ADMIN_GESTION_TAB" description="JOOMLA_ADMIN_GESTION_TAB_DESC">
+				<field name="hiddebuttonmanageitems" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_MANAGEITEMS"              description="JOOMLA_ADMIN_DISPLAYBUTTON_MANAGEITEMS_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonmanagecategories" type="radio" default="1" label="JOOM_ADMIN_DISPLAYBUTTON_BUTTONMANAGECATEGORIES"   description="JOOM_ADMIN_DISPLAYBUTTON_BUTTONMANAGECATEGORIES_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
-				</field>
-
-				<field name="hiddebuttonmanagetags" type="radio" default="1"       label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS"    description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+				<field name="hiddebuttonmanagecategories" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBUTTON_BUTTONMANAGECATEGORIES"   description="JOOMLA_ADMIN_DISPLAYBUTTON_BUTTONMANAGECATEGORIES_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 
-				<field name="hiddebuttonmanageauthors" type="radio" default="1"    label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS" description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+				<field name="hiddebuttonmanagetags" type="radio" default="1"       label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS"    description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonmanagegroups" type="radio" default="1"     label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS"  description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+
+				<field name="hiddebuttonmanageauthors" type="radio" default="1"    label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS" description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonmanagefiles" type="radio" default="1"     label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES"  description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
+				<field name="hiddebuttonmanagegroups" type="radio" default="1"     label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS"  description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="hiddebuttonmanagefiles" type="radio" default="1"     label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES"  description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 
 
-
-			</fieldset>
-			<fieldset name="administration_tab" label="JOOM_ADMIN_ADMIN_TAB" description="JOOM_ADMIN_ADMIN_TAB_DESC">
-				<field name="hiddebuttonimportcontent" type="radio" default="1"    label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONIMPORTCONTENT" description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONIMPORTCONTENT_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
-				</field>
-				<field name="hiddebuttonstats" type="radio" default="1"            label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONSTATS"         description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONSTATS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
-				</field>
-				<field name="hiddebuttonindex" type="radio" default="1"            label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONINDEX"         description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONINDEX_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
-				</field>
-				<field name="hiddebuttonaddfields" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDFIELDS"   description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDFIELDS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
-				</field>
-				<field name="hiddebuttonmanagefields" type="radio" default="1"     label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFIELDS"  description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFIELDS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
-				</field>
-				<field name="hiddebuttonmanagetypes" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETYPES"   description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETYPES_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
-				</field>
-				<field name="hiddebuttonaddtypes" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDTYPES"   description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDTYPES_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
-				</field>
-				<field name="hiddebuttonadmin" type="radio" default="1"      label="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADMIN"   description="JOOM_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADMIN_DESC" class="btn-group btn-group-yesno">
-					<option value="0">FLEXI_NO</option>
-					<option value="1">FLEXI_YES</option>
-				</field>
 
 			</fieldset>
-			<fieldset name="free_tab" label="JOOM_ADMIN_FREE_TAB" description="JOOM_ADMIN_FREE_TAB_DESC" level="level1">
-			<field name="freenametab" type="text"  default="JOOM_ADMIN_FREE_TAB_NAME" label="JOOM_ADMIN_FREE_TAB_NAME_2" description="JOOM_ADMIN_FREE_TAB_NAME_2_DESC" />
+			<fieldset name="administration_tab" label="JOOMLA_ADMIN_ADMIN_TAB" description="JOOMLA_ADMIN_ADMIN_TAB_DESC">
+				<field name="hiddebuttonimportcontent" type="radio" default="1"    label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONIMPORTCONTENT" description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONIMPORTCONTENT_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="hiddebuttonstats" type="radio" default="1"            label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONSTATS"         description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONSTATS_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="hiddebuttonindex" type="radio" default="1"            label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONINDEX"         description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONINDEX_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="hiddebuttonaddfields" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDFIELDS"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDFIELDS_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="hiddebuttonmanagefields" type="radio" default="1"     label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFIELDS"  description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFIELDS_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="hiddebuttonmanagetypes" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETYPES"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETYPES_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="hiddebuttonaddtypes" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDTYPES"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDTYPES_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="hiddebuttonadmin" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADMIN"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADMIN_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+			</fieldset>
+			<fieldset name="free_tab" label="JOOMLA_ADMIN_FREE_TAB" description="JOOMLA_ADMIN_FREE_TAB_DESC" level="level1">
+			<field name="freenametab" type="text"  default="JOOMLA_ADMIN_FREE_TAB_NAME" label="JOOMLA_ADMIN_FREE_TAB_NAME_2" description="JOOMLA_ADMIN_FREE_TAB_NAME_2_DESC" />
 
 			<field name="free_button"
 			 description= ""

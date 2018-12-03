@@ -2,12 +2,12 @@
 <form>
 <field name="nameitemedit"
   type="text"
-  label="FLEXI_ADMIN_NAME_BUTTON"
-  description="FLEXI_ADMIN_NAME_BUTTON_DESC" />
+  label="JOOMLA_ADMIN_NAME_BUTTON"
+  description="JOOMLA_ADMIN_NAME_BUTTON_DESC" />
 	<field name="itemid" 
     type="text"
     size="5"
-    label="FLEXI_ADMIN_ITEM"
-    description="FLEXI_ADMIN_ITEM_DESC" />
+    label="JOOMLA_ADMIN_ITEM"
+    description="JOOMLA_ADMIN_ITEM_DESC" />
 
 </form>

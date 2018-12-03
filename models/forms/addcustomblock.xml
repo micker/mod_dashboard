@@ -2,16 +2,16 @@
 <form>
   <field name="nameblockcustom"
     type="text"
-    label="JOOM_ADMIN_BLOCKCUSTOM"
-    description="JOOM_ADMIN_BLOCKCUSTOM_DESC"/>
+    label="JOOMLA_ADMIN_BLOCKCUSTOM"
+    description="JOOMLA_ADMIN_BLOCKCUSTOM_DESC"/>
     <field name="catidlist"
       type="category"
       extension="com_content"
       multiple="false"
-      label="JOOM_ADMIN_CAT"
-      description="JOOM_ADMIN_CAT_DESC" />
+      label="JOOMLA_ADMIN_CAT"
+      description="JOOMLA_ADMIN_CAT_DESC" />
   <field name="displautblock"
-    label="JOOM_ADMIN_DISPLAY_AUTHOR"
+    label="JOOMLA_ADMIN_DISPLAY_AUTHOR"
     type="radio"
     default="1"
     class="btn-group">
@@ -19,7 +19,7 @@
     <option value="0">JNO</option>
   </field>
   <field name="displdateblock"
-    label="JOOM_ADMIN_DISPLAY_DATE"
+    label="JOOMLA_ADMIN_DISPLAY_DATE"
     type="radio"
     default="1"
     class="btn-group">
