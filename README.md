@@ -1,6 +1,6 @@
-mod_flexiadmin
+Admin module for Joomla 3.x 
 ==============
-Admin module for Joomla 3.x
+mod_flexiadmin
 
 
 ## Module Joomadmin features
