@@ -31,6 +31,9 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="administrator/modules/mod_joomadmin/elements/">
+			
+			<field name="testlist" type="iconpicker" default="" label="iconpicker" description="JOOMLA_ADMIN_DISPLAY_CONFIG_MODULE_DESC" />
+			
 				<field name="displayconfigmodule" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAY_CONFIG_MODULE" description="JOOMLA_ADMIN_DISPLAY_CONFIG_MODULE_DESC" class="btn-group btn-group-yesno">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
