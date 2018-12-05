@@ -5,16 +5,20 @@
 				description="JOOMLA_ADMIN_NAME_BUTTON_DESC"
 				size="30"
 				type="text" />
-<field name="catidlist"
+<field name="catid"
       type="category"
       extension="com_content"
       multiple="false"
       label="JOOMLA_ADMIN_CAT"
       description="JOOMLA_ADMIN_CAT_DESC" />
-<field name="button_lang" 
-		type="language" 
+<field name="button_lang"
+		type="language"
 		client="site"
-		label="JOOMLA_ADMIN_LANG" 
+		label="JOOMLA_ADMIN_LANG"
 		description="JOOMLA_ADMIN_LANG_DESC" />
+		<field name="displayline" label="JOOMLA_ADMIN_DISPLAY_LINE" description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
 
 </form>

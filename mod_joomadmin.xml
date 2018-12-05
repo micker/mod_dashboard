@@ -47,109 +47,105 @@
 				<option value="1">JYES</option>
 			</field>
                 <field name="customtext" label ="JOOMLA_ADMIN_CUSTOMTEXT" description="JOOMLA_ADMIN_CUSTOMTEXT_DESC" type="editor" width="200px" height="100px"  buttons="false" filter="safehtml" showon="displaycustomtext:1"/>
-			<field name="" type="separator" default="JOOMLA_ADMIN_NB_ITEM_DISPLAY" level="level1" />
-			<field
-				name="count" type="list"
-				default="5" label="JOOMLA_ADMIN_NBITEM"
-				description="JOOMLA_ADMIN_NBITEM">
-				<option	value="1">1</option>
-				<option	value="3">3</option>
-				<option	value="5">5</option>
-				<option	value="10">10</option>
-				<option	value="15">15</option>
-				<option	value="20">20</option>
-			</field>
-			<field
-				name="column" type="list"
-				default="4" label="JOOMLA_ADMIN_COLUMN"
-				description="JOOMLA_ADMIN_COLUMN_DESC">
-				<option	value="12">1</option>
-				<option	value="6">2</option>
-				<option	value="4">3</option>
 
-			</field>
-			<field name="" type="separator" default="JOOMLA_ADMIN_SIDEBAR_OPTIONS" level="level1" />
+
 			<field name="tabmodsidebar" type="radio" default="1" label="JOOMLA_ADMIN_SIDEBAR_TABS_MOD" description="JOOMLA_ADMIN_SIDEBAR_TABS_MOD_DESC" class="btn-group btn-group-yesno">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
 			</field>
-			<field name="" type="separator" default="JOOMLA_ADMIN_TABS" level="level1" />
-			<field name="displaycustomtab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_CUSTOM" description="JOOMLA_ADMIN_TABS_CUSTOM_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="displaycreattab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_CREATE" description="JOOMLA_ADMIN_TABS_CREATE_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="displaymanagetab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_MANAGE" description="JOOMLA_ADMIN_TABS_MANAGE_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="displayadmintab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_ADMIN" description="JOOMLA_ADMIN_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="displayfreetab" type="radio" default="1" label="JOOMLA_FREE_TABS_ADMIN" description="JOOMLA_FREE_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-
-		<field name="" type="separator" default="JOOMLA_ADMIN_BLOCK_DISPLAY" level="level1" />
-		<field name="hiddefeatured" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED" description="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED_DESC" class="btn-group btn-group-yesno">
-			<option value="0">JNO</option>
-			<option value="1">JYES</option>
-		</field>
-			<field name="hiddepending" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_PENDING" description="JOOMLA_ADMIN_DISPLAYBLOCK_PENDING_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="hidderevised" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_REVISED" description="JOOMLA_ADMIN_DISPLAYBLOCK_REVISED_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="hiddeinprogess" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_INPROGRESS" description="JOOMLA_ADMIN_DISPLAYBLOCK_INPROGRESS_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="hiddedraft" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_DRAFT" description="JOOMLA_ADMIN_DISPLAYBLOCK_DRAFT_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="hiddeyouritem" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_YOURITEM" description="JOOMLA_ADMIN_DISPLAYBLOCK_YOURITEM_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="hiddetrashed" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_TRASHED" description="JOOMLA_ADMIN_DISPLAYBLOCK_TRASHED_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-			<field name="forceheightblock" type="text" default="" size="50" label="JOOMLA_ADMIN_BLOCKHEIGHT" description="JOOMLA_ADMIN_BLOCKHEIGHT_DESC"/>
-
-			<field name="" type="separator" default="JOOMLA_ADMIN_BLOCKCUSTOM_DESC" level="level1" />
-
-				<field name= "add_customblock"
-				 description= ""
-				 type= "subform"
-				 label= ""
-				 min= "0"
-				 max= "1000"
-				 required= "false"
-				 formsource= "administrator/modules/mod_joomadmin/models/forms/addcustomblock.xml"
-				 multiple= "true"
-				 buttons= "add,remove,move"
-			layout="joomla.form.field.subform.repeatable-table"
-				 groupByFieldset="false"/>
-
 			</fieldset>
 
+			<fieldset name="tab_config" label="JOOMLA_ADMIN_TAB_CONFIG" description="JOOMLA_ADMIN_TAB_CONFIG_DESC" >
+				<field
+					name="count" type="list"
+					default="5" label="JOOMLA_ADMIN_NBITEM"
+					description="JOOMLA_ADMIN_NBITEM">
+					<option	value="1">1</option>
+					<option	value="3">3</option>
+					<option	value="5">5</option>
+					<option	value="10">10</option>
+					<option	value="15">15</option>
+					<option	value="20">20</option>
+				</field>
+				<field
+					name="column" type="list"
+					default="4" label="JOOMLA_ADMIN_COLUMN"
+					description="JOOMLA_ADMIN_COLUMN_DESC">
+					<option	value="12">1</option>
+					<option	value="6">2</option>
+					<option	value="4">3</option>
+				</field>
+				<field name="displaycustomtab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_CUSTOM" description="JOOMLA_ADMIN_TABS_CUSTOM_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="displaycreattab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_CREATE" description="JOOMLA_ADMIN_TABS_CREATE_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="displaymanagetab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_MANAGE" description="JOOMLA_ADMIN_TABS_MANAGE_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="displayadmintab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_ADMIN" description="JOOMLA_ADMIN_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="displayfreetab" type="radio" default="1" label="JOOMLA_FREE_TABS_ADMIN" description="JOOMLA_FREE_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+
+						<fieldset name="block_config" label="JOOMLA_ADMIN_BLOCK_CONFIG" description="JOOMLA_ADMIN_BLOCK_CONFIG_DESC" >
+							<field name="hiddefeatured" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED" description="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED_DESC" class="btn-group btn-group-yesno">
+								<option value="0">JNO</option>
+								<option value="1">JYES</option>
+							</field>
+								<field name="hiddepublished" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_PUBLISHED" description="JOOMLA_ADMIN_DISPLAYBLOCK_PUBLISHED_DESC" class="btn-group btn-group-yesno">
+									<option value="0">JNO</option>
+									<option value="1">JYES</option>
+								</field>
+								<field name="hiddeunpublished" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_UNPUBLISHED" description="JOOMLA_ADMIN_DISPLAYBLOCK_UNPUBLISHED_DESC" class="btn-group btn-group-yesno">
+									<option value="0">JNO</option>
+									<option value="1">JYES</option>
+								</field>
+								<field name="hiddearchived" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_ARCHIVED" description="JOOMLA_ADMIN_DISPLAYBLOCK_ARCHIVED_DESC" class="btn-group btn-group-yesno">
+									<option value="0">JNO</option>
+									<option value="1">JYES</option>
+								</field>
+								<field name="hiddeyouritem" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_YOURITEM" description="JOOMLA_ADMIN_DISPLAYBLOCK_YOURITEM_DESC" class="btn-group btn-group-yesno">
+									<option value="0">JNO</option>
+									<option value="1">JYES</option>
+								</field>
+								<field name="hiddetrashed" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_TRASHED" description="JOOMLA_ADMIN_DISPLAYBLOCK_TRASHED_DESC" class="btn-group btn-group-yesno">
+									<option value="0">JNO</option>
+									<option value="1">JYES</option>
+								</field>
+								<field name="actionsloglist" type="radio" default="1" label="JOOMLA_ADMIN_ADD_ACTIONSBLOCK" description="JOOMLA_ADMIN_ADD_ACTIONSBLOCK_DESC" class="btn-group btn-group-yesno">
+									<option value="0">JNO</option>
+									<option value="1">JYES</option>
+								</field>
+								<field name="forceheightblock" type="text" default="" size="50" label="JOOMLA_ADMIN_BLOCKHEIGHT" description="JOOMLA_ADMIN_BLOCKHEIGHT_DESC"/>
+								<field name= "add_customblock"
+								 description= "JOOMLA_ADMIN_ADD_CUSTOMBLOCK_DESC"
+								 type= "subform"
+								 label= "JOOMLA_ADMIN_ADD_CUSTOMBLOCK"
+								 min= "0"
+								 max= "1000"
+								 required= "false"
+								 formsource= "administrator/modules/mod_joomadmin/models/forms/addcustomblock.xml"
+								 multiple= "true"
+								 buttons= "add,remove,move"
+								layout="joomla.form.field.subform.repeatable-table"
+								 groupByFieldset="false"/>
+			</fieldset>
 			<fieldset name="custom_tab" label="JOOMLA_ADMIN_CUSTOM_TAB" description="JOOMLA_ADMIN_CUSTOM_TAB_DESC" >
 				<field name="nametab" type="text"  default="JOOMLA_ADMIN_CUSTOM_TAB_NAME" label="JOOMLA_ADMIN_NAME_TAB" description="JOOMLA_ADMIN_NAME_TAB_DESC" />
-			<field name="" type="separator" default="JOOMLA_ADMIN_BUTTON_ITEM_ADD" level="level1" />
 				<field name= "add_button"
-				 description= ""
+				 description= "JOOMLA_ADMIN_ADD_CUSTOMBUTTON_DESC"
 				 type= "subform"
-				 label= ""
+				 label= "JOOMLA_ADMIN_ADD_CUSTOMBUTTON"
 				 min= "0"
 				 max= "1000"
 				 required= "false"
@@ -159,17 +155,10 @@
 	layout="joomla.form.field.subform.repeatable-table"
 				 groupByFieldset="false"/>
 
-				 <field name="displayline1" label="JOOMLA_ADMIN_DISPLAY_LINE" description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
-					 <option value="1">JYES</option>
-					 <option value="0">JNO</option>
-				 </field>
-
-				<field name="" type="separator" default="JOOMLA_ADMIN_CAT_FILTERING" level="level1" />
-
 					<field name= "add_cat_button"
-					 description= ""
+					 description= "JOOMLA_ADMIN_CAT_FILTERING_DESC"
 					 type= "subform"
-					 label= ""
+					 label= "JOOMLA_ADMIN_CAT_FILTERING"
 					 min= "0"
 					 max= "1000"
 					 required= "false"
@@ -179,17 +168,10 @@
 				layout="joomla.form.field.subform.repeatable-table"
 					 groupByFieldset="false"/>
 
-					 <field name="displayline2" label="JOOMLA_ADMIN_DISPLAY_LINE"  description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
-						<option value="1">JYES</option>
-						<option value="0">JNO</option>
-					</field>
-
-				<field name="" type="separator" default="JOOMLA_ADMIN_ITEM_EDIT" level="level1" />
-
 					<field name= "edit_item_button"
-					 description= ""
+					 description= "JOOMLA_ADMIN_ITEM_EDIT_DESC"
 					 type= "subform"
-					 label= ""
+					 label= "JOOMLA_ADMIN_ITEM_EDIT"
 					 min= "0"
 					 max= "1000"
 					 required= "false"
@@ -198,11 +180,6 @@
 					 buttons= "add,remove,move"
 				layout="joomla.form.field.subform.repeatable-table"
 					 groupByFieldset="false"/>
-
-
-
-
-
 			</fieldset>
 			<fieldset name="creation_tab" label="JOOMLA_ADMIN_CREATION_TAB" description="JOOMLA_ADMIN_CREATION_TAB_DESC">
 				<field name="hiddebuttonadditem" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_ADDITEM"              description="JOOMLA_ADMIN_DISPLAYBUTTON_ADDITEM_DESC" class="btn-group btn-group-yesno">
@@ -260,31 +237,19 @@
 
 			</fieldset>
 			<fieldset name="administration_tab" label="JOOMLA_ADMIN_ADMIN_TAB" description="JOOMLA_ADMIN_ADMIN_TAB_DESC">
-				<field name="hiddebuttonimportcontent" type="radio" default="1"    label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONIMPORTCONTENT" description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONIMPORTCONTENT_DESC" class="btn-group btn-group-yesno">
+				<field name="hiddebuttonprivacy" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTON_PRIVACY"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTON_PRIVACY_DESC" class="btn-group btn-group-yesno">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonstats" type="radio" default="1"            label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONSTATS"         description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONSTATS_DESC" class="btn-group btn-group-yesno">
+				<field name="hiddebuttonlogs" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTON_LOGS"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTON_LOG_DESC" class="btn-group btn-group-yesno">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonindex" type="radio" default="1"            label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONINDEX"         description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONINDEX_DESC" class="btn-group btn-group-yesno">
+				<field name="hiddebuttonmanagefieldsarticle" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONU_ARTICLE_FIELD"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTON_ARTICLE_FIELdD_DESC" class="btn-group btn-group-yesno">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonaddfields" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDFIELDS"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDFIELDS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field name="hiddebuttonmanagefields" type="radio" default="1"     label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFIELDS"  description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGEFIELDS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field name="hiddebuttonmanagetypes" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETYPES"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONMANAGETYPES_DESC" class="btn-group btn-group-yesno">
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field name="hiddebuttonaddtypes" type="radio" default="1"      label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDTYPES"   description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONADDTYPES_DESC" class="btn-group btn-group-yesno">
+				<field name="hiddebuttonmanagefieldsusers" type="radio" default="1"     label="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTONU_USER_FIELD"  description="JOOMLA_ADMIN_DISPLAYBUTTON_HIDDEBUTTON_USER_FIELD_DESC" class="btn-group btn-group-yesno">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
@@ -298,9 +263,9 @@
 			<field name="freenametab" type="text"  default="JOOMLA_ADMIN_FREE_TAB_NAME" label="JOOMLA_ADMIN_FREE_TAB_NAME_2" description="JOOMLA_ADMIN_FREE_TAB_NAME_2_DESC" />
 
 			<field name="free_button"
-			 description= ""
+			 description= "JOOMLA_ADMIN_FREE_BUTTON_DESC"
 			 type= "subform"
-			 label= ""
+			 label= "JOOMLA_ADMIN_FREE_BUTTON"
 			 min= "0"
 			 max= "1000"
 			 required= "false"

@@ -18,6 +18,7 @@
 //blocage des accés directs sur ce script
 defined('_JEXEC') or die('Accés interdit');
 jimport( 'joomla.application.component.controller' );
+JLoader::register('ModLatestActionsHelper', __DIR__ . '/helper.php');
 
 // Inclut les méthodes du script de soutien
 require_once dirname(__FILE__).'/helper.php';
@@ -30,6 +31,7 @@ $listUseritem     = modJoomadminHelper::getUseritem($params);
 $listCustomlist   = modJoomadminHelper::getCustomlist($params);
 $moduleclass_sfx  = htmlspecialchars($params->get('moduleclass_sfx'));
 $systme_buttons   = modJoomadminHelper::getIconFromPlugins($params);
+$actionlist       = modJoomadminHelper::getActionlogList($params);
 
 // Get Joomla Layout
 require JModuleHelper::getLayoutPath('mod_joomadmin', $params->get('layout', 'default'));

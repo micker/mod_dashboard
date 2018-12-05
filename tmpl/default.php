@@ -28,9 +28,10 @@ $document->addStyleSheet("./modules/mod_flexiadmin/assets/css/style.css",'text/c
 $hiddefeatured       = $params->get('hiddefeatured', '1' );
 $hiddepublished      = $params->get('hiddepublished', '1' );
 $hiddeunpublished    = $params->get('hiddeunpblished', '1' );
-$hiddearchived      = $params->get('hiddearchived', '1' );
+$hiddearchived       = $params->get('hiddearchived', '1' );
 $hiddeyouritem       = $params->get('hiddeyouritem', '1' );
 $hiddetrashed        = $params->get('hiddetrashed', '1' );
+$actionsloglist	     = $params->get('actionsloglist', '1' );
 $column              = $params->get('column', '4' );
 $displaycustomtab    = $params->get('displaycustomtab', '1' );
 $displaycreattab     = $params->get('displaycreattab', '1' );
@@ -49,14 +50,12 @@ $nametab = $params->get('nametab', 'JOOMLA_ADMIN_CUSTOM_TAB_NAME' );
 //Get Buttom Sections
 $hiddebuttonmanageitems      = $params->get('hiddebuttonmanageitems'     , '1');
 $hiddebuttonmanagecategories = $params->get('hiddebuttonmanagecategories', '1');
-$hiddebuttonmanagetypes      = $params->get('hiddebuttonmanagetypes'     , '1');
 $hiddebuttonmanagetags       = $params->get('hiddebuttonmanagetags'      , '1');
-$hiddebuttonmanagefields     = $params->get('hiddebuttonmanagefields'    , '1');
 $hiddebuttonmanageauthors    = $params->get('hiddebuttonmanageauthors'   , '1');
 $hiddebuttonmanagegroups     = $params->get('hiddebuttonmanagegroups'    , '1');
 $hiddebuttonmanagefiles      = $params->get('hiddebuttonmanagefiles'     , '1');
 $hiddebuttonprivacy         = $params->get('hiddebuttonprivacy'        , '1');
-$hiddebuttonlogs            = $params->get('hiddebuttonaddlogs'       , '1');
+$hiddebuttonlogs            = $params->get('hiddebuttonlogs'       , '1');
 $hiddebuttonmanagefieldsarticle            = $params->get('hiddebuttonmanagefieldsarticle'           , '1');
 $hiddebuttonmanagefieldsuser           = $params->get('hiddebuttonmanagefieldsusers'           , '1');
 $hiddebuttonadditem          = $params->get('hiddebuttonadditem'         , '1');
@@ -79,6 +78,7 @@ jimport( 'joomla.application.component.controller' );
 
 <div class="row-fluid">
 
+<?php if ($displayinfosystem || $displayconfigmodule ) : ?>
 	<div class="info-bar">
 	<ul class="breadcrumb">
 		<?php if ($displayinfosystem) : ?>
@@ -102,9 +102,8 @@ jimport( 'joomla.application.component.controller' );
 	</li>
 			<?php endif; ?>
 	</ul>
-
-
 	</div>
+	<?php endif; ?>
 
             <?php if ($displaycustomtext) : ?>
                 <div class="modulemessage span12">
@@ -133,30 +132,28 @@ jimport( 'joomla.application.component.controller' );
 								if ($list_buttons): ?>
               <?php foreach( $list_buttons as $list_buttons_idx => $add_button ) :?>
 
-                 <a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $add_button->button_type;?>&maincat=<?php echo $add_button->catid; ?>&filter_lang=<?php echo $add_button->button_lang; ?>" >
+                 <a href="index.php?option=com_content&task=article.add&filter_category_id=<?php //echo $add_button->catid; ?>&filter[language]=<?php echo $add_button->button_lang; ?>" >
                           <button type="button" class="btn btn-default btn-lg itemlist">
                              <i class="icon-large icon-plus"></i><br/>
                           <?php echo JText::_($add_button->button_name); ?>
                           </button>
                     </a>
-
+							<?php if ($add_button->displayline) : ?><hr /><?php endif; ?>
               <?php endforeach; ?>
 							<?php endif; ?>
-              <?php if ($params->get('displayline1')) : ?><hr /><?php endif; ?>
               <?php $list_catbuttons = $params->get('add_cat_button');
 							if ($list_catbuttons): ?>
               <?php foreach( $list_catbuttons as $list_catbuttons_idx => $cat_button ) :?>
 
-              <a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $cat_button->filtercatids; ?>&filter_lang=<?php echo $cat_button->button_lang; ?>" >
+              <a href="index.php?option=com_flexicontent&view=items&filter_category_id=<?php //echo $cat_button->catid; ?>&filter[language]=<?php echo $cat_button->button_lang; ?>" >
                     <button type="button" class="btn btn-default btn-lg itemlist">
                        <i class="icon-large icon-list"></i><br/>
                     <?php echo JText::_($cat_button->namecatfilter); ?>
                     </button>
               </a>
-
+<?php if ($cat_button->displayline) : ?><hr /><?php endif; ?>
 						<?php endforeach; ?>
 					<?php endif; ?>
-             <?php if ($params->get('displayline2')) : ?> <hr /><?php endif; ?>
               <?php $list_edititembuttons = $params->get('edit_item_button');
 							if ($list_edititembuttons): ?>
               <?php foreach( $list_edititembuttons as $list_edititembuttons_idx => $edit_item_button ) :?>
@@ -167,7 +164,7 @@ jimport( 'joomla.application.component.controller' );
                     <?php echo JText::_($edit_item_button->nameitemedit); ?>
                     </button>
               </a>
-
+<?php if ($edit_item_button->displayline) : ?><hr /><?php endif; ?>
               <?php endforeach; ?>
 							<?php endif; ?>
 					</div>
@@ -335,7 +332,7 @@ jimport( 'joomla.application.component.controller' );
                   <?php echo JText::_($free_button->freebutton); ?>
                   </button>
             </a>
-
+<?php if ($free_button->displayline) : ?><hr /><?php endif; ?>
          <?php endforeach; ?>
 				 <?php endif; ?>
 			</div>
@@ -350,9 +347,10 @@ jimport( 'joomla.application.component.controller' );
 	<!-- end tabs zone -->
 </div>
 </div>
+</div>
 
-<!--start pending block -->
 
+<div class="row-fluid">
 
 <?php if ($hiddefeatured) : ?>
     <div class="block featured well well-small span<?php echo $column; ?> ">
@@ -393,7 +391,7 @@ jimport( 'joomla.application.component.controller' );
     <div class="block pending well well-small span<?php echo $column; ?> ">
 	<h3 class="module-title nav-header"><i class="icon-large icon-thumbs-down"></i> <?php echo JText::_( 'JOOMLA_ADMIN_PUBLISHED' ); ?></h3>
 
-	<?php $show_all_link = 'index.php?option=com_content&amp;view=articles'; ?>
+	<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=1'; ?>
 	<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
 		<?php
@@ -568,6 +566,44 @@ jimport( 'joomla.application.component.controller' );
    </div>
 	</div>
 <?php endif; ?>
+
+<?php if($actionsloglist) : ?>
+<div class="block youritems well well-small span<?php echo $column; ?>">
+   <h3 class="module-title nav-header">
+   <i class="icon-large icon-user"></i>
+   <?php echo JText::_('JOOMLA_ADMIN_ACTIONLOGS_BLOCK_NAME'); ?> : </h3>
+   <?php		$show_all_link = 'index.php?option=com_actionlogs'; ?>
+   <div style='text-align:right;'>
+   <a href='<?php echo $show_all_link ?>' class='adminlink'>
+   <?php
+   echo JText::_( 'JOOMLA_ADMIN_ALL' );
+   echo "</a></div>";	?>
+<div class="row-striped">
+	<?php if (count($actionlist)) : ?>
+		<?php foreach ($actionlist as $i => $item) : ?>
+			<div class="row-fluid">
+				<div class="span8 truncate">
+					<?php echo $item->message; ?>
+				</div>
+				<div class="span4">
+					<div class="small pull-right hasTooltip" title="<?php echo JHtml::_('tooltipText', 'JGLOBAL_FIELD_CREATED_LABEL'); ?>">
+						<span class="icon-calendar" aria-hidden="true"></span> <?php echo JHtml::_('date', $item->log_date, JText::_('DATE_FORMAT_LC5')); ?>
+					</div>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	<?php else : ?>
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="alert"><?php echo JText::_('MOD_LATEST_ACTIONS_NO_MATCHING_RESULTS');?></div>
+			</div>
+		</div>
+	<?php endif; ?>
+</div>
+<?php endif; ?>
+
+
+
 <?php if($listCustomlist) : ?>
 <?php
 foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
@@ -576,7 +612,7 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
    <h3 class="module-title nav-header">
    <i class="icon-large icon-user"></i>
    <?php echo JText::_($customblock->nameblockcustom); ?> : </h3>
-   <?php		$show_all_link = 'index.php?option=com_content&amp;&filter_category_id='.$customblock->catidlist; ?>
+   <?php		$show_all_link = 'index.php?option=com_content&filter_category_id='.$customblock->catidlist; ?>
    <div style='text-align:right;'>
    <a href='<?php echo $show_all_link ?>' class='adminlink'>
    <?php
@@ -655,10 +691,9 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
       </table>
 </div>
 </div>
-
+</div>
 <?php endforeach; ?>
 <?php endif; ?>
-</div>
 </div>
 </div>
 
