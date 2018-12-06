@@ -20,8 +20,10 @@ defined('_JEXEC') or die('Accés interdit');
 
 JHtml::_('bootstrap.tooltip');
 JHTML::_('behavior.modal');
+JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 $document = JFactory::getDocument();
-$document->addStyleSheet("./modules/mod_flexiadmin/assets/css/style.css",'text/css',"screen");
+JHtml::_('stylesheet', 'media/mod_flexiadmin/css/style.css');
+JHtml::_('script', 'media/mod_joomadmin/css/bootstrap-iconpicker.css');
 
 
 //module config
@@ -328,7 +330,7 @@ jimport( 'joomla.application.component.controller' );
 
             <a href="<?php echo $free_button->linkbutton; ?>" >
                   <button type="button" class="btn btn-default btn-lg itemlist">
-                     <i class="icon-large <?php echo $free_button->iconbutton; ?>"></i><br/>
+                     <i class="fa <?php echo $free_button->iconbutton; ?> fa-2x"></i><br/>
                   <?php echo JText::_($free_button->freebutton); ?>
                   </button>
             </a>
@@ -599,6 +601,7 @@ jimport( 'joomla.application.component.controller' );
 			</div>
 		</div>
 	<?php endif; ?>
+</div>
 </div>
 <?php endif; ?>
 

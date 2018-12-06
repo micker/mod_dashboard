@@ -8,10 +8,7 @@
     type="text"
     label="JOOMLA_ADMIN_FREE_LINK"
     description="JOOMLA_ADMIN_FREE_LINK_DESC"/>
-  <field name="iconbutton"
-    type="iconlist"
-    label="JOOMLA_ADMIN_ICON"
-    description="JOOMLA_ADMIN_ICON_DESC"/>
+			<field name="iconbutton" type="iconpicker" default="" label="JOOMLA_ADMIN_ICON" description="JOOMLA_ADMIN_ICON_DESC" />
     <field name="displayline" label="JOOMLA_ADMIN_DISPLAY_LINE" description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>

@@ -24,11 +24,11 @@ class JFormFieldIconpicker extends JFormField {
 	public function getInput() {
                        JHtml::_('jquery.framework');
                        JHtml::_('bootstrap.framework');
-                       JHtml::_('stylesheet', 'modules/mod_joomadmin/assets/css/bootstrap-iconpicker.css');
+                       JHtml::_('script', 'media/mod_joomadmin/css/bootstrap-iconpicker.css');
+                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap-iconpicker-iconset-all.js');
+                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap-iconpicker.js');
                        JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-                       JHtml::_('script', 'modules/mod_joomadmin/assets/js/bootstrap-iconpicker-iconset-all.js');
-                       JHtml::_('script', 'modules/mod_joomadmin/assets/js/bootstrap-iconpicker.js');
-                       $iconlist = ' <div id="'. $this->id .'-wrapper" /></div>';
+                       $iconlist = ' <div id="'. $this->id .'-wrapper" name="iconpicker"/></div>';
                        $iconlist .="
                        <script>
                        (function ($) {
@@ -38,15 +38,15 @@ class JFormFieldIconpicker extends JFormField {
                        arrowPrevIconClass: 'fa fa-arrow-left',
                        arrowNextIconClass: 'fa fa-arrow-right',
                        cols: 5,
-                       rows:2,
+                       rows:3,
                        footer: true,
                        header: true,
                        iconset: 'fontawesome',
-                       labelHeader: '" . JText::sprintf( 'PLG_FIELDS_ICONLINK_PAGESINDEX', '{0}', '{1}' ) . "',
-                       labelFooter: '" . JText::sprintf( 'PLG_FIELDS_ICONLINK_ICONSINDEX', '{0}', '{1}', '{2}' ) . "',
+                       labelHeader: '" . JText::sprintf( 'JOOMLA_ADMIN_ICONLINK_PAGESINDEX', '{0}', '{1}' ) . "',
+                       labelFooter: '" . JText::sprintf( 'JOOMLA_ADMIN_ICONLINK_ICONSINDEX', '{0}', '{1}', '{2}' ) . "',
                        placement: 'bottom',
                        search: true,
-                       searchText: '". JText::_('PLG_FIELDS_ICONLINK_SEARCHTEXT') . "',
+                       searchText: '". JText::_('JOOMLA_ADMIN_ICONLINK_SEARCHTEXT') . "',
                        selectedClass: 'btn-primary',
                        unselectedClass: 'btn-default',
                        iconClass: 'fontawesome',
