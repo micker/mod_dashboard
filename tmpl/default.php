@@ -45,6 +45,13 @@ $forceheightblock    = $params->get('forceheightblock', '' );
 $displaycustomtext   = $params->get('displaycustomtext','');
 $customtext          = $params->get('customtext','');
 $displayinfosystem   = $params->get('displayinfosystem','1');
+$featurewidth      = $params->get('featuredwidth','48');
+$publishedwidth      = $params->get('publishedwidth','48');
+$unpublishedwidth    = $params->get('unpublishedwidth','48');
+$youritemwidth       = $params->get('youritemwidth','48');
+$trashedwidth     = $params->get('trashedlogwidth','48');
+$archivedwidth       = $params->get('archivedwidth','48');
+$actionslogwidth     = $params->get('actionslogwidth','48');
 
 //customtab
 $nametab = $params->get('nametab', 'JOOMLA_ADMIN_CUSTOM_TAB_NAME' );
@@ -108,7 +115,7 @@ jimport( 'joomla.application.component.controller' );
 	<?php endif; ?>
 
             <?php if ($displaycustomtext) : ?>
-                <div class="modulemessage span12">
+                <div class="modulemessage">
                     <?php echo $customtext; ?>
                 </div>
     <?php endif; ?>
@@ -116,7 +123,7 @@ jimport( 'joomla.application.component.controller' );
 
 
 <?php if ($displaycustomtab || $displaycreattab || $displaymanagetab || $displayadmintab || $displayfreetab) : ?>
-    <div class="action span12">
+    <div class="action">
 
 	<ul class="nav nav-tabs" role="tablist" id="myTab">
 	<?php if ($displaycustomtab) : ?><li class=""><a href="#custom<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($nametab); ?></a></li> <?php endif; ?>
@@ -136,7 +143,7 @@ jimport( 'joomla.application.component.controller' );
 
                  <a href="index.php?option=com_content&task=article.add&filter_category_id=<?php //echo $add_button->catid; ?>&filter[language]=<?php echo $add_button->button_lang; ?>" >
                           <button type="button" class="btn btn-default btn-lg itemlist">
-                             <i class="icon-large icon-plus"></i><br/>
+                             <i class="fa <?php echo $add_button->iconbutton; ?> fa-2x"></i><br/>
                           <?php echo JText::_($add_button->button_name); ?>
                           </button>
                     </a>
@@ -146,10 +153,9 @@ jimport( 'joomla.application.component.controller' );
               <?php $list_catbuttons = $params->get('add_cat_button');
 							if ($list_catbuttons): ?>
               <?php foreach( $list_catbuttons as $list_catbuttons_idx => $cat_button ) :?>
-
               <a href="index.php?option=com_flexicontent&view=items&filter_category_id=<?php //echo $cat_button->catid; ?>&filter[language]=<?php echo $cat_button->button_lang; ?>" >
                     <button type="button" class="btn btn-default btn-lg itemlist">
-                       <i class="icon-large icon-list"></i><br/>
+                       <i class="fa <?php echo $cat_button->iconbutton; ?> fa-2x"></i><br/>
                     <?php echo JText::_($cat_button->namecatfilter); ?>
                     </button>
               </a>
@@ -162,7 +168,7 @@ jimport( 'joomla.application.component.controller' );
 
               <a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $edit_item_button->itemid; ?>" >
                     <button type="button" class="btn btn-default btn-lg itemlist">
-                       <i class="icon-large icon-pencil"></i><br/>
+                       <i class="fa <?php echo $edit_item_button->iconbutton; ?> fa-2x"></i><br/>
                     <?php echo JText::_($edit_item_button->nameitemedit); ?>
                     </button>
               </a>
@@ -352,10 +358,10 @@ jimport( 'joomla.application.component.controller' );
 </div>
 
 
-<div class="row-fluid">
+<div class="contentbloc" style="display: flex;flex-wrap: wrap; justify-content: space-between;align-content:space-between;">
 
 <?php if ($hiddefeatured) : ?>
-    <div class="block featured well well-small span<?php echo $column; ?> ">
+    <div class="block featured well well-small" style="width:<?php echo $featurewidth; ?>%">
 	<h3 class="module-title nav-header"><i class="icon-large icon-featured"></i> <?php echo JText::_( 'JOOMLA_ADMIN_FEATURED' ); ?></h3>
 
 	<?php $show_all_link = 'index.php?option=com_content&amp;view=featured'; ?>
@@ -390,7 +396,7 @@ jimport( 'joomla.application.component.controller' );
 	</div>
 	<?php endif; ?>
 <?php if ($hiddepublished) : ?>
-    <div class="block pending well well-small span<?php echo $column; ?> ">
+    <div class="block pending well well-small" style="width:<?php echo $publishedwidth; ?>%">
 	<h3 class="module-title nav-header"><i class="icon-large icon-thumbs-down"></i> <?php echo JText::_( 'JOOMLA_ADMIN_PUBLISHED' ); ?></h3>
 
 	<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=1'; ?>
@@ -427,7 +433,7 @@ jimport( 'joomla.application.component.controller' );
 
 	<?php if ($hiddeunpublished) : ?>
 
-	<div class="block revised well well-small span<?php echo $column; ?> ">
+	<div class="block revised well well-small"  style="width:<?php echo $unpublishedwidth; ?>%">
 		<h3 class="module-title nav-header"><i class="icon-large icon-thumbs-up"></i> <?php echo JText::_( 'JOOMLA_ADMIN_UNPUBLISHED' ); ?></h3>
 		<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=0'; ?>
 		<div style='text-align:right;'>
@@ -460,7 +466,7 @@ jimport( 'joomla.application.component.controller' );
 	</div>
 <?php endif; ?>
 <?php if ($hiddearchived) : ?>
-	<div class="block inprogress well well-small span<?php echo $column; ?> ">
+	<div class="block inprogress well well-small" style="width:<?php echo $archivedwidth; ?>%">
 		<h3 class="module-title nav-header"><i class="icon-large icon-checkin"></i> <?php echo JText::_( 'JOOMLA_ADMIN_ARCHIVED' ); ?></h3>
 		<?php		$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=2'; ?>
 		<div style='text-align:right;'>
@@ -492,7 +498,7 @@ jimport( 'joomla.application.component.controller' );
 	</div>
 <?php endif; ?>
 <?php if ($hiddeyouritem) : ?>
-	<div class="block youritems well well-small span<?php echo $column; ?>">
+	<div class="block youritems well well-small" style="width:<?php echo $youritemwidth; ?>%">
 		<?php $user = JFactory::getUser();		?>
 		<h3 class="module-title nav-header">
 		<i class="icon-large icon-user"></i>
@@ -531,7 +537,7 @@ jimport( 'joomla.application.component.controller' );
 </div>
 <?php endif; ?>
 <?php if ($hiddetrashed) : ?>
-	<div class="block trashed well well-small span<?php echo $column; ?>">
+	<div class="block trashed well well-small"  style="width:<?php echo $trashedwidth; ?>%">
 	<h3 class="module-title nav-header"><i class="icon-large icon-trash"></i>
 	<?php echo JText::_( 'JOOMLA_ADMIN_TRASHED' ); ?></h3>
 	<?php //TODO filtrage trashed
@@ -570,7 +576,7 @@ jimport( 'joomla.application.component.controller' );
 <?php endif; ?>
 
 <?php if($actionsloglist) : ?>
-<div class="block youritems well well-small span<?php echo $column; ?>">
+<div class="block youritems well well-small"  style="width:<?php echo $actionslogwidth; ?>%">
    <h3 class="module-title nav-header">
    <i class="icon-large icon-user"></i>
    <?php echo JText::_('JOOMLA_ADMIN_ACTIONLOGS_BLOCK_NAME'); ?> : </h3>
@@ -610,8 +616,7 @@ jimport( 'joomla.application.component.controller' );
 <?php if($listCustomlist) : ?>
 <?php
 foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
-
-<div class="block youritems well well-small span<?php echo $column; ?>">
+<div class="block <?php echo $customblock->catidlist; ?> well well-small"  style="width:<?php echo $customblock->width; ?>%">
    <h3 class="module-title nav-header">
    <i class="icon-large icon-user"></i>
    <?php echo JText::_($customblock->nameblockcustom); ?> : </h3>
@@ -694,11 +699,11 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
       </table>
 </div>
 </div>
-</div>
+
 <?php endforeach; ?>
 <?php endif; ?>
 </div>
-</div>
+
 
 
 <script  type="text/javascript">

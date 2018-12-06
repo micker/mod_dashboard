@@ -117,10 +117,7 @@ abstract class modJoomadminHelper
 		// loop your result
 		foreach( $list_customblocks as $list_customblocks_idx => $customblock ){
         		$_catid = $customblock->catidlist;
-        		$catlist = !empty($globalcats[$_catid]->descendants) ? $globalcats[$_catid]->descendants : $_catid;
-        		$catids_join = ' JOIN #__flexicontent_cats_item_relations AS rel ON rel.itemid = a.id ';
-       			$catids_where = ' rel.catid IN ('.$catlist.') ';
-			$queryCustomlist = 'SELECT DISTINCT  a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id '.$catids_join.'WHERE '.  $catids_where.' AND state = 1 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
+			$queryCustomlist = 'SELECT DISTINCT  a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE '. $_catid .' AND state = 1 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
 			$db->setQuery( $queryCustomlist );
 			$itemsCustomlist = $db->loadObjectList();
 			//print_r ($itemsCustomlist) ;

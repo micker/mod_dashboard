@@ -15,6 +15,7 @@
 		client="site"
 		label="JOOMLA_ADMIN_LANG"
 		description="JOOMLA_ADMIN_LANG_DESC" />
+    <field name="iconbutton" type="iconpicker" default="fa-list" label="JOOMLA_ADMIN_ICON" description="JOOMLA_ADMIN_ICON_DESC" />
     <field name="displayline" label="JOOMLA_ADMIN_DISPLAY_LINE" description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>

@@ -61,25 +61,7 @@
 			</fieldset>
 
 			<fieldset name="tab_config" label="JOOMLA_ADMIN_TAB_CONFIG" description="JOOMLA_ADMIN_TAB_CONFIG_DESC" >
-				<field
-					name="count" type="list"
-					default="5" label="JOOMLA_ADMIN_NBITEM"
-					description="JOOMLA_ADMIN_NBITEM">
-					<option	value="1">1</option>
-					<option	value="3">3</option>
-					<option	value="5">5</option>
-					<option	value="10">10</option>
-					<option	value="15">15</option>
-					<option	value="20">20</option>
-				</field>
-				<field
-					name="column" type="list"
-					default="4" label="JOOMLA_ADMIN_COLUMN"
-					description="JOOMLA_ADMIN_COLUMN_DESC">
-					<option	value="12">1</option>
-					<option	value="6">2</option>
-					<option	value="4">3</option>
-				</field>
+
 				<field name="displaycustomtab" type="radio" default="1" label="JOOMLA_ADMIN_TABS_CUSTOM" description="JOOMLA_ADMIN_TABS_CUSTOM_DESC" class="btn-group btn-group-yesno">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -103,34 +85,52 @@
 			</fieldset>
 
 						<fieldset name="block_config" label="JOOMLA_ADMIN_BLOCK_CONFIG" description="JOOMLA_ADMIN_BLOCK_CONFIG_DESC" >
+							<field
+								name="count" type="list"
+								default="5" label="JOOMLA_ADMIN_NBITEM"
+								description="JOOMLA_ADMIN_NBITEM">
+								<option	value="1">1</option>
+								<option	value="3">3</option>
+								<option	value="5">5</option>
+								<option	value="10">10</option>
+								<option	value="15">15</option>
+								<option	value="20">20</option>
+							</field>
 							<field name="hiddefeatured" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED" description="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED_DESC" class="btn-group btn-group-yesno">
 								<option value="0">JNO</option>
 								<option value="1">JYES</option>
 							</field>
+							<field name="featuredwidth" type="number" default="48" label="JOOMLA_ADMIN_WIDTHCOL" description="JOOMLA_ADMIN_WIDTHCOL_DESC"  min="0" max="100" step="5" />
 								<field name="hiddepublished" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_PUBLISHED" description="JOOMLA_ADMIN_DISPLAYBLOCK_PUBLISHED_DESC" class="btn-group btn-group-yesno">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
+								<field name="publishedwidth" type="number" default="48" label="JOOMLA_ADMIN_WIDTHCOL" description="JOOMLA_ADMIN_WIDTHCOL_DESC"  min="0" max="100" step="5" />
 								<field name="hiddeunpublished" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_UNPUBLISHED" description="JOOMLA_ADMIN_DISPLAYBLOCK_UNPUBLISHED_DESC" class="btn-group btn-group-yesno">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
+								<field name="unpublishedwidth" type="number" default="48" label="JOOMLA_ADMIN_WIDTHCOL" description="JOOMLA_ADMIN_WIDTHCOL_DESC"  min="0" max="100" step="5" />
 								<field name="hiddearchived" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_ARCHIVED" description="JOOMLA_ADMIN_DISPLAYBLOCK_ARCHIVED_DESC" class="btn-group btn-group-yesno">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
+								<field name="archivedwidth" type="number" default="48" label="JOOMLA_ADMIN_WIDTHCOL" description="JOOMLA_ADMIN_WIDTHCOL_DESC"  min="0" max="100" step="5" />
 								<field name="hiddeyouritem" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_YOURITEM" description="JOOMLA_ADMIN_DISPLAYBLOCK_YOURITEM_DESC" class="btn-group btn-group-yesno">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
+								<field name="youritemwidth" type="number" default="48" label="JOOMLA_ADMIN_WIDTHCOL" description="JOOMLA_ADMIN_WIDTHCOL_DESC"  min="0" max="100" step="5" />
 								<field name="hiddetrashed" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_TRASHED" description="JOOMLA_ADMIN_DISPLAYBLOCK_TRASHED_DESC" class="btn-group btn-group-yesno">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
+								<field name="trashedwidth" type="number" default="48" label="JOOMLA_ADMIN_WIDTHCOL" description="JOOMLA_ADMIN_WIDTHCOL_DESC"  min="0" max="100" step="5" />
 								<field name="actionsloglist" type="radio" default="1" label="JOOMLA_ADMIN_ADD_ACTIONSBLOCK" description="JOOMLA_ADMIN_ADD_ACTIONSBLOCK_DESC" class="btn-group btn-group-yesno">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
+								<field name="actionslogwidth" type="number" default="48" label="JOOMLA_ADMIN_WIDTHCOL" description="JOOMLA_ADMIN_WIDTHCOL_DESC"  min="0" max="100" step="5" />
 								<field name="forceheightblock" type="text" default="" size="50" label="JOOMLA_ADMIN_BLOCKHEIGHT" description="JOOMLA_ADMIN_BLOCKHEIGHT_DESC"/>
 								<field name= "add_customblock"
 								 description= "JOOMLA_ADMIN_ADD_CUSTOMBLOCK_DESC"
