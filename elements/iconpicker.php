@@ -24,11 +24,21 @@ class JFormFieldIconpicker extends JFormField {
 	public function getInput() {
                        JHtml::_('jquery.framework');
                        JHtml::_('bootstrap.framework');
-                       JHtml::_('script', 'media/mod_joomadmin/css/bootstrap-iconpicker.css');
-                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap-iconpicker-iconset-all.js');
-                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap-iconpicker.js');
-                       JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-                       $iconlist = ' <div id="'. $this->id .'-wrapper" name="iconpicker"/></div>';
+                       JHtml::_('stylesheet', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+                       JHtml::_('stylesheet', 'media/mod_joomadmin/css/bootstrap-iconpicker.min.css');
+                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap.min.js');
+                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap-iconpicker-iconset-all.min.js');
+                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap-iconpicker.min.js');
+
+
+                       //LOADING VIA CDN
+                       //JHtml::_('stylesheet', ' https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.9.0/css/bootstrap-iconpicker.min.css');
+                       //JHtml::_('script', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
+                       //JHtml::_('script', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.9.0/js/bootstrap-iconpicker-iconset-all.min.js');
+                       //JHtml::_('script', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.9.0/js/bootstrap-iconpicker.min.js');
+
+                       $iconlist = ' <button id="'. $this->id .'-wrapper" class="btn btn-secondary"/></button>';
                        $iconlist .="
                        <script>
                        (function ($) {
@@ -38,7 +48,7 @@ class JFormFieldIconpicker extends JFormField {
                        arrowPrevIconClass: 'fa fa-arrow-left',
                        arrowNextIconClass: 'fa fa-arrow-right',
                        cols: 5,
-                       rows:3,
+                       rows:5,
                        footer: true,
                        header: true,
                        iconset: 'fontawesome',
@@ -50,7 +60,8 @@ class JFormFieldIconpicker extends JFormField {
                        selectedClass: 'btn-primary',
                        unselectedClass: 'btn-default',
                        iconClass: 'fontawesome',
-                       iconClassFix: 'fa fa-'
+                       iconClassFix: 'fa fa-',
+                       icon:'" . $this->value . "'
                        });
 
                        var myfield = $('#" . $this->id . "-wrapper'),
