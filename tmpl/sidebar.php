@@ -12,7 +12,7 @@
 * FLEXIadmin module is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-* GNU General Public License for more details. 
+* GNU General Public License for more details.
 **/
 
 //blocage des accés directs sur ce script
@@ -265,10 +265,10 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 	<?php if ($displayconfigmodule) : ?>
 	<a href="index.php?option=com_modules&task=module.edit&id=<?php echo $module->id;?>" style="float:right;">
 			<i class="icon-small icon-options"></i>
-		
+
 	</a>
 	<?php endif; ?>
-	
+
 	<?php if ($tabmodsidebar) : ?>
 	<ul class="nav nav-tabs" role="tablist" id="myTab2">
 	<?php if ($displaycustomtab) : ?><li class="active"><a href="#custom<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($nametab); ?></a></li> <?php endif; ?>
@@ -276,11 +276,11 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 	<?php if ($displaymanagetab) : ?><li class=""><a href="#manage<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('FLEXI_ADMIN_TAB_MANAGE_D'); ?></a></li>  <?php endif; ?>
 	<?php if ($displayadmintab) : ?><li class=""><a href="#admin<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('FLEXI_ADMIN_TAB_ADMIN_D'); ?></a></li>  <?php endif; ?>
 	<?php if ($displayfreetab) : ?><li class=""><a href="#free<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($freenametab); ?></a></li> <?php endif; ?>
-	</ul>  
+	</ul>
 	<?php endif; ?>
 	<?php if ($tabmodsidebar) : ?>
-		<div class="tab-content">  
-	<?php endif; ?>	
+		<div class="tab-content">
+	<?php endif; ?>
 		<?php if ($displaycustomtab) : ?>
 			<div class="tab-pane " id="custom<?php echo $module->id;?>">
 			<ul class="j-links-group nav nav-list">
@@ -290,316 +290,316 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 			<?php if ($dispb1) : ?>
 			<li>
 			<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type1;?>&maincat=<?php echo $maincat1; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton1); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispb2) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type2;?>&maincat=<?php echo $maincat2; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton2); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispb3) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type3;?>&maincat=<?php echo $maincat3; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton3); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispb4) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type4;?>&maincat=<?php echo $maincat4; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton4); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispb5) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type5;?>&maincat=<?php echo $maincat5; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton5); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispb6) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type6;?>&maincat=<?php echo $maincat6; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton6); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispb7) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type7;?>&maincat=<?php echo $maincat7; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton7); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispb8) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type8;?>&maincat=<?php echo $maincat8; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton8); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispb9) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type9;?>&maincat=<?php echo $maincat9; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton9); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispb10) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&controller=items&task=items.add&typeid=<?php echo $type10;?>&maincat=<?php echo $maincat10; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($namebutton10); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<li>
 			<?php if ($dispc1) : ?>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat1; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter1); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispc2) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat2; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter2); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispc3) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat3; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter3); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispc4) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat4; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter4); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispc5) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat5; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter5); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispc6) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat6; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter6); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispc7) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat7; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter7); ?>
-						
+
 				</a>
-			</li>	
+			</li>
 			<?php endif; ?>
 			<?php if ($dispc8) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat8; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter8); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispc9) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat9; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter9); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispc10) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&view=items&filter_cats=<?php echo $filtercat10; ?>" >
-						
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 						<?php echo JText::_($namecatfilter10); ?>
-						
+
 				</a>
-			</li>	
+			</li>
 			<?php endif; ?>
 			<?php if ($dispi1) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit1; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit1); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispi2) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit2; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit2); ?>
-						
+
 				</a>
-			</li>	
+			</li>
 			<?php endif; ?>
 			<?php if ($dispi3) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit3; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit3); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispi4) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit4; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit4); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispi5) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit5; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit5); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispi6) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit6; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit6); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispi7) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit7; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit7); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispi8) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit8; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit8); ?>
-						
+
 				</a>
 			</li>
 			<?php endif; ?>
 			<?php if ($dispi9) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit9; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit9); ?>
-						
+
 				</a>
-			</li>	
+			</li>
 			<?php endif; ?>
 			<?php if ($dispi10) : ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $itemedit10; ?>" >
-						
-							<i class="icon-large icon-file-plus"></i> 
+
+							<i class="icon-large icon-file-plus"></i>
 						<?php echo JText::_($nameitemedit10); ?>
-						
+
 				</a>
-			</li>	
+			</li>
 			<?php endif; ?>
 			</ul>
 			</div>
 			<?php endif; ?>
 			<?php if ($displaycreattab) : ?>
-			<div class="tab-pane " id="create<?php echo $module->id;?>"> 
+			<div class="tab-pane " id="create<?php echo $module->id;?>">
 			<ul class="j-links-group nav nav-list">
 			<?php if ($tabmodsidebar == 0) : ?>
 			<li><h2 class="nav-header"><?php echo JText::_('FLEXI_ADMIN_TAB_CREATE_D'); ?></h2></li>
 			<?php endif; ?>
 			<?php if($hiddebuttonadditem): ?>
 			<li>
-				<a href="index.php?option=com_flexicontent&view=types&format=raw" 
-							class="modal" 
+				<a href="index.php?option=com_flexicontent&view=types&format=raw"
+							class="modal"
 							rel="{size: {x: 700, y: 300}, closable: true}">
 							<i class="icon-large icon-file-plus"></i>
 						<span class="j-links-link"><?php echo JText::_( 'FLEXI_ADMIN_ADDITEM' ); ?></span>
@@ -608,7 +608,7 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 				<?php endif; ?>
 				<?php if($hiddebuttonaddcategory): ?>
 			<li>
-				<a href="index.php?option=com_flexicontent&view=category"> 
+				<a href="index.php?option=com_flexicontent&view=category">
 					<i class="icon-large icon-list"></i>
 					<span class="j-links-link"><?php echo JText::_( 'FLEXI_ADMIN_ADDCATEGORY' ); ?></span>
 				</a>
@@ -625,7 +625,7 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 				<?php if($hiddebuttonadduser): ?>
 			<li>
 				<a href="index.php?option=com_flexicontent&task=users.add">
-					<i class="icon-large icon-user"></i> 
+					<i class="icon-large icon-user"></i>
 					<span class="j-links-link"><?php echo JText::_( 'FLEXI_ADMIN_ADDAUTHOR' ); ?></span>
 				</a>
 			</li>
@@ -639,10 +639,10 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 			</li>
 				<?php endif; ?>
 				</ul>
-			</div>  
+			</div>
 			<?php endif; ?>
 			<?php if ($displaymanagetab) : ?>
-			<div class="tab-pane " id="manage<?php echo $module->id;?>">  
+			<div class="tab-pane " id="manage<?php echo $module->id;?>">
 			<ul class="j-links-group nav nav-list">
 			<?php if ($tabmodsidebar == 0) : ?>
 			<li><h2 class="nav-header"><?php echo JText::_('FLEXI_ADMIN_TAB_MANAGE_D'); ?></h2></li>
@@ -650,8 +650,8 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 				<?php if($hiddebuttonmanageitems): ?>
 				<li>
 					<a href="index.php?option=com_flexicontent&view=items">
-						
-							<i class="icon-large icon-file-2"></i> 
+
+							<i class="icon-large icon-file-2"></i>
 							<?php echo JText::_( 'FLEXI_ADMIN_ITEMLIST' ); ?></span>
 
 					</a>
@@ -660,61 +660,61 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 				<?php if($hiddebuttonmanagecategories): ?>
 				<li>
 					<a href="index.php?option=com_flexicontent&view=categories">
-						  
-							<i class="icon-large icon-list"></i> 
+
+							<i class="icon-large icon-list"></i>
 							<?php echo JText::_( 'FLEXI_ADMIN_CATLIST' ); ?>
-						
+
 					</a>
 				</li>
 					<?php endif; ?>
 				<?php if($hiddebuttonmanagetags): ?>
 				<li>
 	<a href="index.php?option=com_flexicontent&view=tags">
-		  
-			<i class="icon-large icon-tag"></i> 
+
+			<i class="icon-large icon-tag"></i>
 			<?php echo JText::_( 'FLEXI_ADMIN_TAGLIST' ); ?>
-		
+
 	</a>
 	</li>
 	<?php endif; ?>
 	<?php if($hiddebuttonmanageauthors): ?>
 	<li>
 	<a href="index.php?option=com_flexicontent&view=users">
-		  
-			<i class="icon-large icon-user"></i> 
+
+			<i class="icon-large icon-user"></i>
 			<?php echo JText::_( 'FLEXI_ADMIN_AUTHORLIST' ); ?>
-		
+
 	</a>
 	</li>
 	<?php endif; ?>
-	
+
 	<?php if($hiddebuttonmanagegroups): ?>
 	<li>
 	<a href="index.php?option=com_flexicontent&view=groups">
-		  
-			<i class="icon-large icon-users"></i> 
+
+			<i class="icon-large icon-users"></i>
 			<?php echo JText::_( 'FLEXI_ADMIN_GROUPSLIST' ); ?>
-		
+
 	</a>
 	</li>
 	<?php endif; ?>
-		
+
 	<?php if($hiddebuttonmanagefiles): ?>
 	<li>
 	<a href="index.php?option=com_flexicontent&view=filemanager">
-		  
-			<i class="icon-large icon-upload"></i> 
+
+			<i class="icon-large icon-upload"></i>
 			<?php echo JText::_( 'FLEXI_ADMIN_FILEMANAGER' ); ?>
-		
+
 	</a>
 	</li>
 	<?php endif; ?>
 	</ul>
-			</div>  
+			</div>
 			<?php endif; ?>
 			<?php if ($displayadmintab) : ?>
-			<div class="tab-pane " id="admin<?php echo $module->id;?>"> 
-			
+			<div class="tab-pane " id="admin<?php echo $module->id;?>">
+
 			<ul class="j-links-group nav nav-list">
 			<?php if ($tabmodsidebar == 0) : ?>
 			<li><h2 class="nav-header"><?php echo JText::_('FLEXI_ADMIN_TAB_ADMIN_D'); ?></h2></li>
@@ -722,88 +722,88 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 					<?php if($hiddebuttonmanagetypes): ?>
 					<li>
 					<a href="index.php?option=com_flexicontent&view=types">
-						  
-							<i class="icon-large icon-book"></i> 
+
+							<i class="icon-large icon-book"></i>
 							<?php echo JText::_( 'FLEXI_ADMIN_TYPELIST' ); ?>
-						
+
 					</a>
 					</li>
 					<?php endif; ?>
 				<?php if($hiddebuttonaddtypes): ?>
 				<li>
 				<a href="index.php?option=com_flexicontent&view=type">
-					  
-					<i class="icon-large icon-book"></i> 
+
+					<i class="icon-large icon-book"></i>
 					<?php echo JText::_( 'FLEXI_ADMIN_ADDTYPE' ); ?>
-					
+
 				</a>
-				</li>				
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonmanagefields): ?>
 				<li>
 				<a href="index.php?option=com_flexicontent&view=fields">
-					  
-						<i class="icon-large icon-stack"></i> 
+
+						<i class="icon-large icon-stack"></i>
 						<?php echo JText::_( 'FLEXI_ADMIN_FIELDLIST' ); ?>
-					
+
 				</a>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonaddfields): ?>
 				<li>
 				<a href="index.php?option=com_flexicontent&view=field">
-					  
-					<i class="icon-large icon-stack"></i> 
+
+					<i class="icon-large icon-stack"></i>
 					<?php echo JText::_( 'FLEXI_ADMIN_ADDFIELD' ); ?>
-					
+
 				</a>
 				</li>
 				<?php endif; ?>
 	<?php if($hiddebuttonimportcontent): ?><li>
 	<a href="index.php?option=com_flexicontent&view=import">
-		  
-			<i class="icon-large icon-loop"></i> 
+
+			<i class="icon-large icon-loop"></i>
 			<?php echo JText::_( 'FLEXI_ADMIN_IMPORT' ); ?>
-		
+
 	</a>
 	</li>
 	<?php endif; ?>
 	<?php if($hiddebuttonstats): ?>
 	<li>
 	<a href="index.php?option=com_flexicontent&view=stats">
-		  
-			<i class="icon-large icon-pie"></i> 
+
+			<i class="icon-large icon-pie"></i>
 			<?php echo JText::_( 'FLEXI_ADMIN_STATS' ); ?>
-		
+
 	</a>
 	</li>
 	<?php endif; ?>
 	<?php if($hiddebuttonindex): ?>
 	<li>
 	<a href="index.php?option=com_flexicontent&view=search">
-		  
-			<i class="icon-large icon-search"></i> 
+
+			<i class="icon-large icon-search"></i>
 			<?php echo JText::_( 'FLEXI_ADMIN_SEARCH' ); ?>
-		
+
 	</a>
 	</li>
     <?php endif; ?>
 	<?php if($hiddebuttonadmin): ?>
 	<li>
 				<a href="index.php?option=com_flexicontent">
-					  
-						<i class="icon-large icon-options"></i> 
+
+						<i class="icon-large icon-options"></i>
 						<?php echo JText::_( 'FLEXI_ADMIN_GEN' ); ?>
-					
+
 				</a>
 				</li>
 				<?php endif; ?>
 				</ul>
-			</div> 
+			</div>
 			<?php endif; ?>
 			<?php if ($displayfreetab) : ?>
-			<div class="tab-pane " id="free<?php echo $module->id;?>"> 
-			
+			<div class="tab-pane " id="free<?php echo $module->id;?>">
+
 			<ul class="j-links-group nav nav-list" style="margin-top:20px;">
 			<?php if ($tabmodsidebar == 0) : ?>
 			<li><h2 class="nav-header"><?php echo JText::_($freenametab); ?></h2></li>
@@ -811,7 +811,7 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 <?php if ($dispfreebutton1) : ?>
 <li>
 						<a href="<?php echo $linkbutton1; ?>" >
-									<i class="icon-large <?php echo $iconbutton1; ?>"></i> 
+									<i class="icon-large <?php echo $iconbutton1; ?>"></i>
 								<?php echo JText::_($freebutton1); ?>
 						</a>
 						</li>
@@ -835,7 +835,7 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 			<?php if ($dispfreebutton4) : ?>
 			<li>
 						<a href="<?php echo $linkbutton4; ?>" >
-									<i class="icon-large <?php echo $iconbutton4; ?>"></i> 
+									<i class="icon-large <?php echo $iconbutton4; ?>"></i>
 								<?php echo JText::_($freebutton4); ?>
 						</a>
 						</li>
@@ -843,7 +843,7 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 						<?php if ($dispfreebutton5) : ?>
 						<li>
 						<a href="<?php echo $linkbutton5; ?>" >
-									<i class="icon-large <?php echo $iconbutton5; ?>"></i> 
+									<i class="icon-large <?php echo $iconbutton5; ?>"></i>
 								<?php echo JText::_($freebutton5); ?>
 						</a>
 						</li>
@@ -853,7 +853,7 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 						<a href="<?php echo $linkbutton6; ?>" >
 									<i class="icon-large <?php echo $iconbutton6; ?>"></i>
 								<?php echo JText::_($freebutton6); ?>
-						
+
 						</a>
 						</li>
 			<?php endif; ?>
@@ -862,47 +862,47 @@ if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
 						<a href="<?php echo $linkbutton7; ?>" >
 									<i class="icon-large <?php echo $iconbutton7; ?>"></i>
 								<?php echo JText::_($freebutton7); ?>
-								
+
 						</a>
 						</li>
 			<?php endif; ?>
 						<?php if ($dispfreebutton8) : ?>
 						<li>
 						<a href="<?php echo $linkbutton8; ?>" >
-								
+
 									<i class="icon-large <?php echo $iconbutton8; ?>"></i>
 								<?php echo JText::_($freebutton8); ?>
-								
+
 						</a></li>
 			<?php endif; ?>
 						<?php if ($dispfreebutton9) : ?>
 						<li>
 						<a href="<?php echo $linkbutton9; ?>" >
-								
+
 									<i class="icon-large <?php echo $iconbutton9; ?>"></i>
 								<?php echo JText::_($freebutton9); ?>
-								
+
 						</a>
 						</li>
 			<?php endif; ?>
 						<?php if ($dispfreebutton10) : ?>
 						<li>
 						<a href="<?php echo $linkbutton10; ?>" >
-								
-									<i class="icon-large <?php echo $iconbutton10; ?>"></i> 
+
+									<i class="icon-large <?php echo $iconbutton10; ?>"></i>
 								<?php echo JText::_($freebutton10); ?>
-								
+
 						</a>
 						</li>
 						</ul>
 			<?php endif; ?>
 			</div>
 			<?php endif; ?>
-			
-		<?php if ($tabmodsidebar) : ?>	
-		</div>  
-		<?php endif; ?>		
-	</div> 
+
+		<?php if ($tabmodsidebar) : ?>
+		</div>
+		<?php endif; ?>
+	</div>
 
 	<?php endif; ?>
 </div>
@@ -912,8 +912,3 @@ jQuery(document).ready(function($){
 $('#myTab2 a:first').tab('show');
 });
 </script>
-
-
-
-
-

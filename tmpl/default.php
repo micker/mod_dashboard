@@ -22,8 +22,8 @@ JHtml::_('bootstrap.tooltip');
 JHTML::_('behavior.modal');
 JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 $document = JFactory::getDocument();
-JHtml::_('stylesheet', 'media/mod_flexiadmin/css/style.css');
-JHtml::_('script', 'media/mod_joomadmin/css/bootstrap-iconpicker.css');
+$document->addStyleSheet(JUri::base(true)."/modules/mod_joomadmin/assets/css/style.css",'text/css',"screen");
+JHtml::_('stylesheet', 'media/mod_joomadmin/css/bootstrap-iconpicker.css');
 
 
 //module config
@@ -52,6 +52,7 @@ $youritemwidth       = $params->get('youritemwidth','48');
 $trashedwidth     = $params->get('trashedlogwidth','48');
 $archivedwidth       = $params->get('archivedwidth','48');
 $actionslogwidth     = $params->get('actionslogwidth','48');
+$iconsize     = $params->get('iconsize','fa-2x');
 
 //customtab
 $nametab = $params->get('nametab', 'JOOMLA_ADMIN_CUSTOM_TAB_NAME' );
@@ -143,7 +144,7 @@ jimport( 'joomla.application.component.controller' );
 
                  <a href="index.php?option=com_content&task=article.add&filter_category_id=<?php //echo $add_button->catid; ?>&filter[language]=<?php echo $add_button->button_lang; ?>" >
                           <button type="button" class="btn btn-default btn-lg itemlist">
-                             <i class="fa <?php echo $add_button->iconbutton; ?> fa-2x"></i><br/>
+                             <i class="fa <?php echo $add_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br/>
                           <?php echo JText::_($add_button->button_name); ?>
                           </button>
                     </a>
@@ -155,7 +156,7 @@ jimport( 'joomla.application.component.controller' );
               <?php foreach( $list_catbuttons as $list_catbuttons_idx => $cat_button ) :?>
               <a href="index.php?option=com_flexicontent&view=items&filter_category_id=<?php //echo $cat_button->catid; ?>&filter[language]=<?php echo $cat_button->button_lang; ?>" >
                     <button type="button" class="btn btn-default btn-lg itemlist">
-                       <i class="fa <?php echo $cat_button->iconbutton; ?> fa-2x"></i><br/>
+                       <i class="fa <?php echo $cat_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br/>
                     <?php echo JText::_($cat_button->namecatfilter); ?>
                     </button>
               </a>
@@ -168,7 +169,7 @@ jimport( 'joomla.application.component.controller' );
 
               <a href="index.php?option=com_flexicontent&task=items.edit&cid[]=<?php echo $edit_item_button->itemid; ?>" >
                     <button type="button" class="btn btn-default btn-lg itemlist">
-                       <i class="fa <?php echo $edit_item_button->iconbutton; ?> fa-2x"></i><br/>
+                       <i class="fa <?php echo $edit_item_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br/>
                     <?php echo JText::_($edit_item_button->nameitemedit); ?>
                     </button>
               </a>
@@ -182,7 +183,7 @@ jimport( 'joomla.application.component.controller' );
 										<?php if($hiddebuttonadditem): ?>
 											<a href="index.php?option=com_content&task=article.add">
 													<button type="button" class="btn btn-default btn-lg itemlist">
-														<i class="icon-large icon-file-plus"></i><br/>
+														<i class="fa fa-plus-circle <?php echo $iconsize; ?> "></i><br/>
 													<?php echo JText::_( 'JOOMLA_ADMIN_ADDITEM' ); ?>
 													</button>
 											</a>
@@ -190,7 +191,7 @@ jimport( 'joomla.application.component.controller' );
 											<?php if($hiddebuttonaddcategory): ?>
 											<a href="index.php?option=com_categories&task=category.add&extension=com_content">
 												<button type="button" class="btn btn-default btn-lg itemlist">
-												<i class="icon-large icon-list"></i><br/>
+												<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i><br/>
 												<?php echo JText::_( 'JOOMLA_ADMIN_ADDCATEGORY' ); ?>
 												</button>
 											</a>
@@ -198,7 +199,7 @@ jimport( 'joomla.application.component.controller' );
 											<?php if($hiddebuttonaddtag): ?>
 											<a href="index.php?option=com_tags&view=tag&task=tag.add">
 												<button type="button" class="btn btn-default btn-lg itemlist">
-												<i class="icon-large icon-tag"></i><br/>
+												<i class="fa fa-tags <?php echo $iconsize; ?> "></i><br/>
 												<?php echo JText::_( 'JOOMLA_ADMIN_ADDTAG' ); ?>
 												</button>
 											</a>
@@ -206,7 +207,7 @@ jimport( 'joomla.application.component.controller' );
 											<?php if($hiddebuttonadduser): ?>
 											<a href="index.php?option=com_users&task=user.add">
 												<button type="button" class="btn btn-default btn-lg itemlist">
-												<i class="icon-large icon-user"></i><br/>
+												<i class="fa fa-user <?php echo $iconsize; ?> "></i><br/>
 												<?php echo JText::_( 'JOOMLA_ADMIN_ADDAUTHOR' ); ?>
 												</button>
 											</a>
@@ -214,7 +215,7 @@ jimport( 'joomla.application.component.controller' );
 											<?php if($hiddebuttonaddgroup): ?>
 											<a href="index.php?option=com_users&task=group.add">
 												<button type="button" class="btn btn-default btn-lg itemlist">
-												<i class="icon-large icon-users"></i><br/>
+												<i class="fa fa-users <?php echo $iconsize; ?> "></i><br/>
 												<?php echo JText::_( 'JOOMLA_ADMIN_ADDGROUPS' ); ?>
 												</button>
 											</a>
@@ -225,9 +226,9 @@ jimport( 'joomla.application.component.controller' );
 										<?php if ($displaymanagetab) : ?>
 										<div class="tab-pane fade" id="manage<?php echo $module->id;?>">
 											<?php if($hiddebuttonmanageitems): ?>
-												<a href="index.php?option=com_flexicontent&view=items">
+												<a href="index.php?option=com_content&view=articles">
 													<button type="button" class="btn btn-default btn-lg itemlist">
-														<i class="icon-large icon-file-2"></i><br/>
+														<i class="fa fa-th-list <?php echo $iconsize; ?> "></i><br/>
 														<?php echo JText::_( 'JOOMLA_ADMIN_ITEMLIST' ); ?>
 													</button>
 												</a>
@@ -235,7 +236,7 @@ jimport( 'joomla.application.component.controller' );
 											<?php if($hiddebuttonmanagecategories): ?>
 												<a href="index.php?option=com_categories&extension=com_content">
 													<button type="button" class="btn btn-default btn-lg itemlist">
-														<i class="icon-large icon-list"></i><br/>
+														<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i><br/>
 														<?php echo JText::_( 'JOOMLA_ADMIN_CATLIST' ); ?>
 													</button>
 												</a>
@@ -243,7 +244,7 @@ jimport( 'joomla.application.component.controller' );
 											<?php if($hiddebuttonmanagetags): ?>
 								<a href="index.php?option=com_tags">
 									<button type="button" class="btn btn-default btn-lg itemlist">
-										<i class="icon-large icon-tag"></i><br/>
+										<i class="fa fa-tags <?php echo $iconsize; ?> "></i><br/>
 										<?php echo JText::_( 'JOOMLA_ADMIN_TAGLIST' ); ?>
 									</button>
 								</a>
@@ -251,7 +252,7 @@ jimport( 'joomla.application.component.controller' );
 								<?php if($hiddebuttonmanageauthors): ?>
 								<a href="index.php?option=com_users&view=users">
 									<button type="button" class="btn btn-default btn-lg itemlist">
-										<i class="icon-large icon-user"></i><br/>
+										<i class="fa fa-user <?php echo $iconsize; ?> "></i><br/>
 										<?php echo JText::_( 'JOOMLA_ADMIN_AUTHORLIST' ); ?>
 									</button>
 								</a>
@@ -260,7 +261,7 @@ jimport( 'joomla.application.component.controller' );
 								<?php if($hiddebuttonmanagegroups): ?>
 								<a href="index.php?option=com_users&view=groups">
 									<button type="button" class="btn btn-default btn-lg itemlist">
-										<i class="icon-large icon-users"></i><br/>
+										<i class="fa fa-users <?php echo $iconsize; ?> "></i><br/>
 										<?php echo JText::_( 'JOOMLA_ADMIN_GROUPSLIST' ); ?>
 									</button>
 								</a>
@@ -269,7 +270,7 @@ jimport( 'joomla.application.component.controller' );
 								<?php if($hiddebuttonmanagefiles): ?>
 								<a href="index.php?option=com_media">
 									<button type="button" class="btn btn-default btn-lg itemlist">
-										<i class="icon-large icon-upload"></i><br/>
+										<i class="fa fa-upload <?php echo $iconsize; ?> "></i><br/>
 										<?php echo JText::_( 'JOOMLA_ADMIN_FILEMANAGER' ); ?>
 									</button>
 								</a>
@@ -283,7 +284,7 @@ jimport( 'joomla.application.component.controller' );
 										<?php if($hiddebuttonprivacy): ?>
 										<a href="index.php?option=com_privacy">
 											<button type="button" class="btn btn-default btn-lg itemlist">
-												<i class="icon-large icon-lock"></i><br/>
+												<i class="fa fa-lock <?php echo $iconsize; ?> "></i><br/>
 												<?php echo JText::_( 'JOOMLA_ADMIN_PRIVACY' ); ?>
 											</button>
 										</a>
@@ -291,7 +292,7 @@ jimport( 'joomla.application.component.controller' );
 									<?php if($hiddebuttonlogs): ?>
 									<a href="index.php?option=com_actionlogs">
 										<button type="button" class="btn btn-default btn-lg itemlist">
-										<i class="icon-large icon-list-2"></i><br/>
+										<i class="fa fa-list-alt <?php echo $iconsize; ?> "></i><br/>
 										<?php echo JText::_( 'JOOMLA_ADMIN_LOGS' ); ?>
 										</button>
 									</a>
@@ -303,7 +304,7 @@ jimport( 'joomla.application.component.controller' );
 									<?php if($hiddebuttonmanagefieldsuser): ?>
 									<a href="index.php?option=com_fields&context=com_users.user">
 										<button type="button" class="btn btn-default btn-lg itemlist">
-											<i class="icon-large icon-user"></i><br/>
+											<i class="fa fa-user <?php echo $iconsize; ?> "></i><br/>
 											<?php echo JText::_( 'JOOMLA_ADMIN_FIELDLIST_USER' ); ?>
 										</button>
 									</a>
@@ -311,7 +312,7 @@ jimport( 'joomla.application.component.controller' );
 									<?php if($hiddebuttonmanagefieldsarticle): ?>
 									<a href="index.php?option=com_fields&context=com_content.article">
 										<button type="button" class="btn btn-default btn-lg itemlist">
-										<i class="icon-large icon-stack"></i><br/>
+										<i class="fa fa-th-list <?php echo $iconsize; ?> "></i><br/>
 										<?php echo JText::_( 'JOOMLA_ADMIN_FIELDLIST_ARTICLE' ); ?>
 										</button>
 									</a>
@@ -319,7 +320,7 @@ jimport( 'joomla.application.component.controller' );
 						<?php if($hiddebuttonadmin): ?>
 					<a href="index.php?option=com_config">
 						<button type="button" class="btn btn-default btn-lg itemlist">
-							<i class="icon-large icon-options"></i><br/>
+							<i class="fa fa-cogs <?php echo $iconsize; ?> "></i><br/>
 						<?php echo JText::_( 'JOOMLA_ADMIN_GEN' ); ?>
 						</button>
 					</a>
@@ -336,7 +337,7 @@ jimport( 'joomla.application.component.controller' );
 
             <a href="<?php echo $free_button->linkbutton; ?>" >
                   <button type="button" class="btn btn-default btn-lg itemlist">
-                     <i class="fa <?php echo $free_button->iconbutton; ?> fa-2x"></i><br/>
+                     <i class="fa <?php echo $free_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br/>
                   <?php echo JText::_($free_button->freebutton); ?>
                   </button>
             </a>
@@ -358,7 +359,7 @@ jimport( 'joomla.application.component.controller' );
 </div>
 
 
-<div class="contentbloc" style="display: flex;flex-wrap: wrap; justify-content: space-between;align-content:space-between;">
+<div class="contentbloc">
 
 <?php if ($hiddefeatured) : ?>
     <div class="block featured well well-small" style="width:<?php echo $featurewidth; ?>%">

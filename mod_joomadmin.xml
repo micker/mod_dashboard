@@ -18,6 +18,7 @@
 		<folder>tmpl</folder>
 		<folder>language</folder>
 		<folder>elements</folder>
+		<folder>assets</folder>
 		<folder>models</folder>
 		<filename>helper.php</filename>
 		<filename>index.html</filename>
@@ -53,7 +54,13 @@
 			</field>
                 <field name="customtext" label ="JOOMLA_ADMIN_CUSTOMTEXT" description="JOOMLA_ADMIN_CUSTOMTEXT_DESC" type="editor" width="200px" height="100px"  buttons="false" filter="safehtml" showon="displaycustomtext:1"/>
 
-
+								<field name="iconsize" type="radio" default="fa-2x" label="JOOMLA_ICON_SIZE" description="JOOMLA_ICON_SIZE_DESC" class="btn-group btn-group-yesno">
+									<option value="fa-lg">Small</option>
+									<option value="fa-2x">2X</option>
+									<option value="fa-3x">3X</option>
+									<option value="fa-4x">4X</option>
+									<option value="fa-5x">5X</option>
+								</field>
 			<field name="tabmodsidebar" type="radio" default="1" label="JOOMLA_ADMIN_SIDEBAR_TABS_MOD" description="JOOMLA_ADMIN_SIDEBAR_TABS_MOD_DESC" class="btn-group btn-group-yesno">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
