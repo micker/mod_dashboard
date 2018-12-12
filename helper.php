@@ -113,11 +113,10 @@ abstract class modJoomadminHelper
 		$list_customblocks = $params->get('add_customblock');
 		if ($list_customblocks){
 		$db = JFactory::getDbo();
-		global $globalcats;
 		// loop your result
 		foreach( $list_customblocks as $list_customblocks_idx => $customblock ){
-        		$_catid = $customblock->catidlist;
-			$queryCustomlist = 'SELECT DISTINCT  a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE '. $_catid .' AND state = 1 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
+        		//$catid = $customblock->catidlist;
+			$queryCustomlist = 'SELECT a.id, a.title, b.name , a.catid, a.created, a.created_by, a.modified, a.modified_by, a.featured FROM #__content  AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE catid= '. $customblock->catidlist .' AND state = 1 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
 			$db->setQuery( $queryCustomlist );
 			$itemsCustomlist = $db->loadObjectList();
 			//print_r ($itemsCustomlist) ;
