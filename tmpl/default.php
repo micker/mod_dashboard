@@ -1,15 +1,12 @@
 <?php
 /**
-* @version 0.9.3 stable $Id: default.php yannick berges
+* @version 0.2.0 stable $Id: default.php yannick berges
 * @package Joomla
-* @subpackage FLEXIcontent
-* @copyright (C) 2016 Berges Yannick - www.com3elles.com
+* @copyright (C) 2018 Berges Yannick - www.com3elles.com
 * @license GNU/GPL v2
 
-* special thanks to ggppdk and emmanuel dannan for flexicontent
-* special thanks to my master Marc Studer
 
-* FLEXIadmin module is distributed in the hope that it will be useful,
+* JOOMadmin module is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
@@ -29,7 +26,7 @@ JHtml::_('stylesheet', 'media/mod_joomadmin/css/bootstrap-iconpicker.css');
 //module config
 $hiddefeatured       = $params->get('hiddefeatured', '1' );
 $hiddepublished      = $params->get('hiddepublished', '1' );
-$hiddeunpublished    = $params->get('hiddeunpblished', '1' );
+$hiddeunpublished    = $params->get('hiddeunpublished', '1' );
 $hiddearchived       = $params->get('hiddearchived', '1' );
 $hiddeyouritem       = $params->get('hiddeyouritem', '1' );
 $hiddetrashed        = $params->get('hiddetrashed', '1' );

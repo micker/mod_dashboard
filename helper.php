@@ -93,16 +93,16 @@ abstract class modJoomadminHelper
 			$itemUseritem->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemUseritem->id);
 			switch ($itemUseritem->state){
 				case 0:
-					$itemUseritem->state=JText::_('FLEXI_UNPUBLISHED');
+					$itemUseritem->state=JText::_('JUNPUBLISHED');
 				break;
 				case 1:
-					$itemUseritem->state=JText::_('FLEXI_PUBLISHED');
+					$itemUseritem->state=JText::_('JPUBLISHED');
 				break;
 				case 2:
-					$itemUseritem->state=JText::_('FLEXI_ARCHIVED');
+					$itemUseritem->state=JText::_('JARCHIVED');
 				break;
 				case -2:
-					$itemUseritem->state=JText::_('FLEXI_TRASHED');
+					$itemUseritem->state=JText::_('JTRASHED');
 				break;
 			}
 		}
