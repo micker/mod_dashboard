@@ -392,8 +392,8 @@ jimport( 'joomla.application.component.controller' );
 	</div>
 	<?php endif; ?>
 <?php if ($hiddepublished) : ?>
-    <div class="block pending well well-small" style="width:<?php echo $publishedwidth; ?>%">
-	<h3 class="module-title nav-header"><i class="icon-large icon-thumbs-down"></i> <?php echo JText::_( 'JOOMLA_ADMIN_PUBLISHED' ); ?></h3>
+    <div class="block published well well-small" style="width:<?php echo $publishedwidth; ?>%">
+	<h3 class="module-title nav-header"><i class="fa fa-check"></i> <?php echo JText::_( 'JOOMLA_ADMIN_PUBLISHED' ); ?></h3>
 
 	<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=1'; ?>
 	<div style='text-align:right;'>
@@ -429,8 +429,8 @@ jimport( 'joomla.application.component.controller' );
 
 	<?php if ($hiddeunpublished) : ?>
 
-	<div class="block revised well well-small"  style="width:<?php echo $unpublishedwidth; ?>%">
-		<h3 class="module-title nav-header"><i class="icon-large icon-thumbs-up"></i> <?php echo JText::_( 'JOOMLA_ADMIN_UNPUBLISHED' ); ?></h3>
+	<div class="block unpublished well well-small"  style="width:<?php echo $unpublishedwidth; ?>%">
+		<h3 class="module-title nav-header"><i class="fa fa-thumbs-down"></i> <?php echo JText::_( 'JOOMLA_ADMIN_UNPUBLISHED' ); ?></h3>
 		<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=0'; ?>
 		<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
@@ -462,8 +462,8 @@ jimport( 'joomla.application.component.controller' );
 	</div>
 <?php endif; ?>
 <?php if ($hiddearchived) : ?>
-	<div class="block inprogress well well-small" style="width:<?php echo $archivedwidth; ?>%">
-		<h3 class="module-title nav-header"><i class="icon-large icon-checkin"></i> <?php echo JText::_( 'JOOMLA_ADMIN_ARCHIVED' ); ?></h3>
+	<div class="block archived well well-small" style="width:<?php echo $archivedwidth; ?>%">
+		<h3 class="module-title nav-header"><i class="fa fa-archive"></i> <?php echo JText::_( 'JOOMLA_ADMIN_ARCHIVED' ); ?></h3>
 		<?php		$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=2'; ?>
 		<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
@@ -497,7 +497,7 @@ jimport( 'joomla.application.component.controller' );
 	<div class="block youritems well well-small" style="width:<?php echo $youritemwidth; ?>%">
 		<?php $user = JFactory::getUser();		?>
 		<h3 class="module-title nav-header">
-		<i class="icon-large icon-user"></i>
+		<i class="fa fa-user"></i>
 		<?php echo JText::_( 'JOOMLA_YOUR_ITEM' ); ?> : <?php echo $user->name; ?></h3>
 		<?php		$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[author_id]='.$user->id; //TODO add user id?>
 		<div style='text-align:right;'>
@@ -534,7 +534,7 @@ jimport( 'joomla.application.component.controller' );
 <?php endif; ?>
 <?php if ($hiddetrashed) : ?>
 	<div class="block trashed well well-small"  style="width:<?php echo $trashedwidth; ?>%">
-	<h3 class="module-title nav-header"><i class="icon-large icon-trash"></i>
+	<h3 class="module-title nav-header"><i class="fa fa-trash"></i>
 	<?php echo JText::_( 'JOOMLA_ADMIN_TRASHED' ); ?></h3>
 	<?php //TODO filtrage trashed
 	$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=-2'; ?>
@@ -572,9 +572,9 @@ jimport( 'joomla.application.component.controller' );
 <?php endif; ?>
 
 <?php if($actionsloglist) : ?>
-<div class="block youritems well well-small"  style="width:<?php echo $actionslogwidth; ?>%">
+<div class="block actionlog well well-small"  style="width:<?php echo $actionslogwidth; ?>%">
    <h3 class="module-title nav-header">
-   <i class="icon-large icon-user"></i>
+   <i class="fa fa-list-alt"></i>
    <?php echo JText::_('JOOMLA_ADMIN_ACTIONLOGS_BLOCK_NAME'); ?> : </h3>
    <?php		$show_all_link = 'index.php?option=com_actionlogs'; ?>
    <div style='text-align:right;'>
@@ -614,7 +614,7 @@ jimport( 'joomla.application.component.controller' );
 foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
 <div class="block <?php echo $customblock->catidlist; ?> well well-small"  style="width:<?php echo $customblock->width; ?>%">
    <h3 class="module-title nav-header">
-   <i class="icon-large icon-user"></i>
+   <i class="fa fa-user"></i>
    <?php echo JText::_($customblock->nameblockcustom); ?> : </h3>
    <?php		$show_all_link = 'index.php?option=com_content&filter_category_id='.$customblock->catidlist; ?>
    <div style='text-align:right;'>
