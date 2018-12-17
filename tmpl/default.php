@@ -123,7 +123,7 @@ jimport( 'joomla.application.component.controller' );
 <?php if ($displaycustomtab || $displaycreattab || $displaymanagetab || $displayadmintab || $displayfreetab) : ?>
     <div class="action">
 
-	<ul class="nav nav-tabs" role="tablist" id="myTab">
+	<ul class="nav nav-tabs" role="tablist" id="myTab<?php echo $module->id;?>">
 	<?php if ($displaycustomtab) : ?><li class=""><a href="#custom<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($nametab); ?></a></li> <?php endif; ?>
 	<?php if ($displaycreattab) : ?><li class=""><a href="#create<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_CREATE_D'); ?></a></li>  <?php endif; ?>
 	<?php if ($displaymanagetab) : ?><li class=""><a href="#manage<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_MANAGE_D'); ?></a></li>  <?php endif; ?>
@@ -713,6 +713,6 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
 
 <script  type="text/javascript">
 jQuery(document).ready(function($){
-$('#myTab a:first').tab('show');
+$('#myTab<?php echo $module->id;?> a:first').tab('show');
 });
 </script>
