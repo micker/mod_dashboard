@@ -21,7 +21,7 @@ defined('_JEXEC') or die('Accés interdit');
 JHtml::_('bootstrap.tooltip');
 JHTML::_('behavior.modal');
 $document = JFactory::getDocument();
-$document->addStyleSheet(JUri::base(true)."/modules/mod_flexiadmin/assets/css/style.css",'text/css',"screen");
+$document->addStyleSheet(JUri::base(true)."/modules/mod_joomadmin/assets/css/style.css",'text/css',"screen");
 
 //module config
 $hiddepending        = $params->get('hiddepending', '1' );
@@ -70,11 +70,6 @@ $freenametab = $params->get('freenametab', 'JOOMLA_ADMIN_FREE_TAB_NAME' );
 $user = JFactory::getUser();
 
 jimport( 'joomla.application.component.controller' );
-// Check if component is installed
-if ( !JComponentHelper::isEnabled( 'com_flexicontent', true) ) {
-   echo 'This modules requires component FLEXIcontent!';
-   return;
-}
 ?>
 
 <div class="row-fluid">

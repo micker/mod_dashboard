@@ -28,7 +28,7 @@
   </field>
   <field name="width"
 	type="number"
-	default="48"
+	default="45"
 	label="JOOMLA_ADMIN_WIDTHCOL"
 	description="JOOMLA_ADMIN_WIDTHCOL_DESC"
 	min="0" max="100"
