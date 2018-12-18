@@ -308,6 +308,6 @@
 	</config>
 
 	<updateservers>
-        <server type="extension" priority="1" name="FLEXI admin update">https://update.com3elles.com/mod_joomadmin/mod_joomadmin_update.xml</server>
+        <server type="extension" priority="1" name="JoomlaAdmin module update">https://raw.githubusercontent.com/micker/mod_joomadmin/master/update.xml</server>
     </updateservers>
 </extension>
