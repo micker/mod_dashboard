@@ -61,7 +61,7 @@
 									<option value="fa-4x">4X</option>
 									<option value="fa-5x">5X</option>
 								</field>
-			<field name="tabmodsidebar" type="radio" default="1" label="JOOMLA_ADMIN_SIDEBAR_TABS_MOD" description="JOOMLA_ADMIN_SIDEBAR_TABS_MOD_DESC" class="btn-group btn-group-yesno">
+			<field name="tabmodsidebar" type="radio" default="0" label="JOOMLA_ADMIN_SIDEBAR_TABS_MOD" description="JOOMLA_ADMIN_SIDEBAR_TABS_MOD_DESC" class="btn-group btn-group-yesno">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
 			</field>
