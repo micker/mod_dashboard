@@ -119,7 +119,7 @@
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
-								<field name="unpublishedwidth" type="number" default="45" label="JOOMLA_ADMIN_WIDTHCOL" description="JOOMLA_ADMIN_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddeuunpublished:1" />
+								<field name="unpublishedwidth" type="number" default="45" label="JOOMLA_ADMIN_WIDTHCOL" description="JOOMLA_ADMIN_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddeunpublished:1" />
 								<field name="hiddearchived" type="radio" default="0" label="JOOMLA_ADMIN_DISPLAYBLOCK_ARCHIVED" description="JOOMLA_ADMIN_DISPLAYBLOCK_ARCHIVED_DESC" class="btn-group btn-group-yesno">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
