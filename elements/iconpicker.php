@@ -1,11 +1,18 @@
 <?php
 /**
- * @package     Joomla.Platform
- * @subpackage  Form
- *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- */
+* @version 0.5.0 stable $Id: iconpicker.php yannick berges
+* @package Joomla
+* @copyright (C) 2015 Berges Yannick - www.com3elles.com
+* @license GNU/GPL v2
+
+* special thanks to my master Marc Studer
+* Elisa Foltyn coolcat-creations
+
+* JOOMLAdmin module is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+**/
 
 defined('JPATH_PLATFORM') or die;
 

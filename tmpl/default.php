@@ -1,12 +1,13 @@
 <?php
 /**
-* @version 0.2.0 stable $Id: default.php yannick berges
+* @version 0.5.0 stable $Id: default.php yannick berges
 * @package Joomla
 * @copyright (C) 2018 Berges Yannick - www.com3elles.com
 * @license GNU/GPL v2
 
+* special thanks to my master Marc Studer
 
-* JOOMadmin module is distributed in the hope that it will be useful,
+* JOOMLAdmin module is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
