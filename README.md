@@ -36,13 +36,15 @@ Think to publish it in **`cpanel position`** after installation.
   - Last Trashed article
   - Last Archived article
   - Last USER connected article
+  - Last actions in action logs
 
 ## Crédits
   - Yannick Berges
+  - Céline Robert
   - Com3elles
 
 
 ## Change Log
-
+v0.5.0 First beta
 v0.1.0 init version
  
