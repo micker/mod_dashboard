@@ -537,7 +537,7 @@ jimport( 'joomla.application.component.controller' );
 	<div class="block trashed well well-small"  style="width:<?php echo $trashedwidth; ?>%">
 	<h3 class="module-title nav-header"><i class="fa fa-trash"></i>
 	<?php echo JText::_( 'JOOMLA_ADMIN_TRASHED' ); ?></h3>
-	<?php //TODO filtrage trashed
+	<?php
 	$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=-2'; ?>
 		<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
@@ -629,31 +629,11 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
             <tr>
             <th><?php echo JText::_( 'JOOMLA_ADMIN_TITLE' ); ?></th>
             <?php if ($customblock->displautblock) : ?><th><?php echo JText::_( 'JOOMLA_ADMIN_AUTHOR' ); ?></th><?php endif; ?>
-            <?php
-            if(!empty($customblock->extrafieldlist)) {
-                      //$customblock= $customblock->listitems;
-               $item = $itemmodel->getItem($customblock->listitems->id, $check_view_access=false);
-               $items = array(&$item);
-                 // Get fields values from the DB,
-               FlexicontentFields::getFields($items);
-                $arrayExtrafield = explode(',', $customblock->extrafieldlist);
-               if(isset($arrayExtrafield[0])) {
-               foreach ($arrayExtrafield as $extrafield){
-                  FlexicontentFields::getFieldDisplay($item, $extrafield);
-                  $label= $item->fields[$extrafield]->label;
-                  echo '<th>';
-                  echo JText::_($label);
-                  echo '</th>';
-               }
-             }
-           }
-            ?>
             <?php if ($customblock->displdateblock) : ?><th><?php echo JText::_( 'JOOMLA_ADMIN_DATE' ); ?></th><?php endif; ?>
             </tr>
          </thead>
 
          <tbody>
-         <?php /*foreach ($listCustomlist as $listCustomlist_idx => $customblock) : */?>
             <tr>
             <td>
                <a href="<?php echo $customblock->listitems->link; ?>"><?php echo $customblock->listitems->title; ?>
@@ -667,31 +647,6 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
                </span>
             </td>
             <?php endif; ?>
-
-			<?php
-			JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/helpers/fields.php');
-			print_r ($customblock->listitems);
-			foreach($article->jcfields as $jcfield)
-				{
-				$article->jcFields[$jcfield->name] = $jcfield;
-			}
-			//echo $customblock->listitems->jcfields[1]->value; ?>
-            <?php
-            if(!empty($customblock->extrafieldlist)) {
-               $item = $itemmodel->getItem($customblock->listitems->id, $check_view_access=false);
-               $items = array(&$item);
-               $arrayExtrafield = explode(',', $customblock->extrafieldlist);
-               if(isset($arrayExtrafield[0])) {
-               foreach ($arrayExtrafield as $extrafield){
-                 FlexicontentFields::getFieldDisplay($item, $extrafield);
-                  $value= $item->fields[$extrafield]->display;
-                  echo '<td>';
-                  echo $value;
-                  echo '</td>';
-               }
-             }
-           }
-            ?>
             <?php if ($customblock->displdateblock) : ?>
             <td>
             <span class="small">
