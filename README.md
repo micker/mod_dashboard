@@ -46,5 +46,5 @@ Think to publish it in **`cpanel position`** after installation.
 
 
 ## Change Log
-v0.5.0 First beta
-v0.1.0 init version
+  - v0.5.0 First beta
+  - v0.1.0 init version
