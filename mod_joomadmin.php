@@ -7,7 +7,7 @@
 
 * special thanks to my master Marc Studer
 
-* Joomladmin module is distributed in the hope that it will be useful,
+* Joomla admin module by Com3elles is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.

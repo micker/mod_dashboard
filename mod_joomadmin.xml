@@ -4,13 +4,13 @@
 	version="3.0"
 	client="administrator"
 	method="upgrade">
-	<name>Joomla Admin Dashboard</name>
+	<name>Joomla Admin Dashboard by Com3elles</name>
 	<author>Berges Yannick</author>
 	<creationDate>Dec 2018</creationDate>
 	<authorEmail>yannick@com3elles.com</authorEmail>
 	<authorUrl>www.com3elles.com</authorUrl>
 	<version>0.5.0</version>
-	<copyright>Copyright (C) 2005 - 2019 Open Source Matters. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2008 - 2019 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<description>JOOMLA_ADMIN_INTRO</description>
 	<files>

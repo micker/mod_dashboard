@@ -1,9 +1,9 @@
 <updates>
 	<update>
 
-		<name>Joomla Admin Module</name>
-		<description>Joomla Admin Module</description>
-		<element>mod_joomadmin </element>
+		<name>Joomla Admin Module by Com3elles</name>
+		<description>Joomla Admin Module by Com3elles</description>
+		<element>mod_joomadmin</element>
 		<type>module</type>
 		<client>administrator</client>
 		<version>0.5</version>

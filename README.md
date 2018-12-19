@@ -1,4 +1,4 @@
-Admin module for Joomla 3.x 
+Joomla Admin module by Com3elles for Joomla 3.x
 ==============
 mod_flexiadmin
 
@@ -29,7 +29,7 @@ Think to publish it in **`cpanel position`** after installation.
   - Manage groupe
   - Manage your Privacy request
   - Quick acces to actions log
-  
+
 - **Block list of content** :
   - Last Published article
   - Last UnPublished article
@@ -42,9 +42,9 @@ Think to publish it in **`cpanel position`** after installation.
   - Yannick Berges
   - Céline Robert
   - Com3elles
+  - Elisa Foltyn coolcat-creations
 
 
 ## Change Log
 v0.5.0 First beta
 v0.1.0 init version
- 

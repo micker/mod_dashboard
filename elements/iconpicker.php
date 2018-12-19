@@ -2,13 +2,13 @@
 /**
 * @version 0.5.0 stable $Id: iconpicker.php yannick berges
 * @package Joomla
-* @copyright (C) 2015 Berges Yannick - www.com3elles.com
+* @copyright (C) 2018 Berges Yannick - www.com3elles.com
 * @license GNU/GPL v2
 
 * special thanks to my master Marc Studer
 * Elisa Foltyn coolcat-creations
 
-* JOOMLAdmin module is distributed in the hope that it will be useful,
+* JOOMLA admin module by Com3elles is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
