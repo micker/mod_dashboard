@@ -1,6 +1,6 @@
 Joomla Admin module by Com3elles for Joomla 3.x
 ==============
-mod_flexiadmin
+mod_joomadmin
 
 
 ## Module Joomadmin features
