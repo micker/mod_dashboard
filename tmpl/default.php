@@ -348,11 +348,15 @@ jimport( 'joomla.application.component.controller' );
 		<!-- end tabs -->
 
 
-	</div>
+</div>
 	<!-- end tabs zone -->
 </div>
 </div>
 </div>
+
+
+
+
 
 
 <div class="contentbloc">
@@ -659,11 +663,10 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
                   </tbody>
       </table>
 </div>
-</div>
 
 <?php endforeach; ?>
 <?php endif; ?>
-</div>
+
 
 
 
