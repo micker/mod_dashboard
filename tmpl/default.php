@@ -663,9 +663,10 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
                   </tbody>
       </table>
 </div>
-
+</div>
 <?php endforeach; ?>
 <?php endif; ?>
+</div>
 
 
 
