@@ -129,7 +129,14 @@ jimport( 'joomla.application.component.controller' );
 	<?php if ($displaycreattab) : ?><li class=""><a href="#create<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_CREATE_D'); ?></a></li>  <?php endif; ?>
 	<?php if ($displaymanagetab) : ?><li class=""><a href="#manage<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_MANAGE_D'); ?></a></li>  <?php endif; ?>
 	<?php if ($displayadmintab) : ?><li class=""><a href="#admin<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_ADMIN_D'); ?></a></li>  <?php endif; ?>
-	<?php if ($displayfreetab) : ?><li class=""><a href="#free<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($freenametab); ?></a></li> <?php endif; ?>
+	<?php if ($displayfreetab) : ?>
+		<?php $list_freebuttons = $params->get('free_button');
+		if ($list_freebuttons): ?>
+		<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
+		<li class=""><a href="#free<?php echo $module->id.''.$free_buttons->freenametab;?>" data-toggle="tab"><?php echo JText::_($free_buttons->freenametab); ?></a></li>
+		<?php endforeach; ?>
+	<?php endif; ?>
+	<?php endif; ?>
 	</ul>
 
 		<div class="tab-content">
@@ -325,11 +332,9 @@ jimport( 'joomla.application.component.controller' );
 			<?php endif; ?>
 			<!-- end of admin tabs-->
 			<?php if ($displayfreetab) : ?>
-			<div class="tab-pane fade" id="free<?php echo $module->id;?>">
-
-            <?php $list_freebuttons = $params->get('free_button');
-						if ($list_freebuttons): ?>
-            <?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_button ) :?>
+				<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
+			<div class="tab-pane fade" id="free<?php echo $module->id.''.$free_buttons->freenametab;?>">
+					<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
 
             <a href="<?php echo $free_button->linkbutton; ?>" >
                   <button type="button" class="btn btn-default btn-lg itemlist">
@@ -339,9 +344,10 @@ jimport( 'joomla.application.component.controller' );
             </a>
 <?php if ($free_button->displayline) : ?><hr /><?php endif; ?>
          <?php endforeach; ?>
-				 <?php endif; ?>
 			</div>
+			<?php endforeach; ?>
 			<?php endif; ?>
+
 
  		</div>
 		<?php endif; ?>

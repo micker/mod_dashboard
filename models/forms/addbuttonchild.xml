@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+				<field name="button_name"
+				label="JOOMLA_ADMIN_NAME_BUTTON"
+				description="JOOMLA_ADMIN_NAME_BUTTON_DESC"
+				size="30"
+				type="text" />
+<field name="catid"
+      type="category"
+      extension="com_content"
+      multiple="false"
+      label="JOOMLA_ADMIN_CAT"
+      description="JOOMLA_ADMIN_CAT_DESC" />
+<field name="button_lang"
+		type="contentlanguage"
+		label="JOOMLA_ADMIN_LANG"
+		description="JOOMLA_ADMIN_LANG_DESC"
+		class="span12 small">
+		<option value="*">JALL</option>
+</field>
+		<field name="iconbutton" type="iconpicker" default="fa-plus-circle" label="JOOMLA_ADMIN_ICON" description="JOOMLA_ADMIN_ICON_DESC" />
+		<field name="displayline" label="JOOMLA_ADMIN_DISPLAY_LINE" description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+</form>

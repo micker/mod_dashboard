@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-  <field name="freebutton"
-    type="text"
-    label="JOOMLA_ADMIN_FREE_NAME_BUTTON"
-    description="JOOMLA_ADMIN_FREE_NAME_BUTTON_DESC"/>
-  <field name="linkbutton"
-    type="text"
-    label="JOOMLA_ADMIN_FREE_LINK"
-    description="JOOMLA_ADMIN_FREE_LINK_DESC"/>
-			<field name="iconbutton" type="iconpicker" default="" label="JOOMLA_ADMIN_ICON" description="JOOMLA_ADMIN_ICON_DESC" />
-    <field name="displayline" label="JOOMLA_ADMIN_DISPLAY_LINE" description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
-			<option value="1">JYES</option>
-			<option value="0">JNO</option>
-		</field>
+<field name="freenametab" type="text"  default="JOOMLA_ADMIN_FREE_TAB_NAME" label="JOOMLA_ADMIN_FREE_TAB_NAME_2" description="JOOMLA_ADMIN_FREE_TAB_NAME_2_DESC" />
+  <field name="free_button"
+			 description= "JOOMLA_ADMIN_FREE_BUTTON_DESC"
+			 type= "subform"
+			 label= "JOOMLA_ADMIN_FREE_BUTTON"
+			 min= "0"
+			 max= "1000"
+			 required= "false"
+			 formsource= "administrator/modules/mod_joomadmin/models/forms/freebuttonchild.xml"
+			 multiple= "true"
+			 buttons= "add,remove,move"
+			layout="joomla.form.field.subform.repeatable-table"
+			 groupByFieldset="false"/>
 </form>
