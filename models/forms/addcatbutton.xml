@@ -10,11 +10,13 @@
       multiple="false"
       label="JOOMLA_ADMIN_CAT"
       description="JOOMLA_ADMIN_CAT_DESC" />
-<field name="button_lang"
-		type="language"
-		client="site"
-		label="JOOMLA_ADMIN_LANG"
-		description="JOOMLA_ADMIN_LANG_DESC" />
+      <field name="button_lang"
+      		type="contentlanguage"
+      		label="JOOMLA_ADMIN_LANG"
+      		description="JOOMLA_ADMIN_LANG_DESC"
+      		class="span12 small">
+      		<option value="*">JALL</option>
+      </field>
     <field name="iconbutton" type="iconpicker" default="fa-list" label="JOOMLA_ADMIN_ICON" description="JOOMLA_ADMIN_ICON_DESC" />
     <field name="displayline" label="JOOMLA_ADMIN_DISPLAY_LINE" description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
 			<option value="1">JYES</option>
