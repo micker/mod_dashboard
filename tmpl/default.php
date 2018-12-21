@@ -133,7 +133,7 @@ jimport( 'joomla.application.component.controller' );
 		<?php $list_freebuttons = $params->get('free_button');
 		if ($list_freebuttons): ?>
 		<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
-		<li class=""><a href="#free<?php echo $module->id.''.$free_buttons->freenametab;?>" data-toggle="tab"><?php echo JText::_($free_buttons->freenametab); ?></a></li>
+		<li class=""><a href="#free<?php $tabname = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $free_buttons->freenametab)); echo $module->id.''.$tabname;?>" data-toggle="tab"><?php echo JText::_($free_buttons->freenametab); ?></a></li>
 		<?php endforeach; ?>
 	<?php endif; ?>
 	<?php endif; ?>
@@ -333,7 +333,7 @@ jimport( 'joomla.application.component.controller' );
 			<!-- end of admin tabs-->
 			<?php if ($displayfreetab) : ?>
 				<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
-			<div class="tab-pane fade" id="free<?php echo $module->id.''.$free_buttons->freenametab;?>">
+			<div class="tab-pane fade" id="free<?php $tabname = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $free_buttons->freenametab)); echo $module->id.''.$tabname;?>">
 					<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
 
             <a href="<?php echo $free_button->linkbutton; ?>" >
