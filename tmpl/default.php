@@ -146,7 +146,7 @@ jimport( 'joomla.application.component.controller' );
 								$list_buttons = $params->get('add_button');
 								if ($list_buttons): ?>
               <?php foreach( $list_buttons as $list_buttons_idx => $add_button ) :?>
-                 <a href="index.php?option=com_content&view=article&layout=edit&catid=<?php echo $add_button->catid; ?>&language=<?php echo $add_button->button_lang; ?>" >
+                 <a href="index.php?option=com_content&view=article&layout=edit&catid=<?php echo $add_button->catid; ?>&language=<?php echo $add_button->button_lang; ?>" target="<?php echo $add_button->targetlink; ?>" >
                           <button type="button" class="btn btn-default btn-lg itemlist">
                              <i class="fa <?php echo $add_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br/>
                           <?php echo JText::_($add_button->button_name); ?>
@@ -158,7 +158,7 @@ jimport( 'joomla.application.component.controller' );
               <?php $list_catbuttons = $params->get('add_cat_button');
 							if ($list_catbuttons): ?>
               <?php foreach( $list_catbuttons as $list_catbuttons_idx => $cat_button ) :?>
-              <a href="index.php?option=com_content&view=articles&filter[category_id]=<?php echo $cat_button->catidlist; ?>&filter[language]=<?php echo $cat_button->button_lang; ?>" >
+              <a href="index.php?option=com_content&view=articles&filter[category_id]=<?php echo $cat_button->catidlist; ?>&filter[language]=<?php echo $cat_button->button_lang; ?>" target="<?php echo $cat_button->targetlink; ?>" >
                     <button type="button" class="btn btn-default btn-lg itemlist">
                        <i class="fa <?php echo $cat_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br/>
                     <?php echo JText::_($cat_button->namecatfilter); ?>
@@ -336,7 +336,7 @@ jimport( 'joomla.application.component.controller' );
 			<div class="tab-pane fade" id="free<?php $tabname = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $free_buttons->freenametab)); echo $module->id.''.$tabname;?>">
 					<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
 
-            <a href="<?php echo $free_button->linkbutton; ?>" >
+            <a href="<?php echo $free_button->linkbutton; ?>" target="<?php echo $free_button->targetlink; ?>" >
                   <button type="button" class="btn btn-default btn-lg itemlist">
                      <i class="fa <?php echo $free_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br/>
                   <?php echo JText::_($free_button->freebutton); ?>

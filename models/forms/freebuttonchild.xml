@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-  <field name="freebutton"
+	<field name="freebutton"
     type="text"
     label="JOOMLA_ADMIN_FREE_NAME_BUTTON"
     description="JOOMLA_ADMIN_FREE_NAME_BUTTON_DESC"/>
-  <field name="linkbutton"
+	<field name="linkbutton"
     type="text"
     label="JOOMLA_ADMIN_FREE_LINK"
     description="JOOMLA_ADMIN_FREE_LINK_DESC"/>
-			<field name="iconbutton" type="iconpicker" default="" label="JOOMLA_ADMIN_ICON" description="JOOMLA_ADMIN_ICON_DESC" />
+	<field name="iconbutton" type="iconpicker" default="" label="JOOMLA_ADMIN_ICON" description="JOOMLA_ADMIN_ICON_DESC" />
+	<field name="targetlink" label="JOOMLA_ADMIN_TARGETLINK" description="JOOMLA_ADMIN_TARGETLINK_DESC" type="radio" default="_self" class="btn-group btn-group-yesno">
+			<option value="_self">JOOMLA_ADMIN_SELF</option>
+			<option value="_blank">JOOMLA_ADMIN_BLANK</option>
+	</field>
     <field name="displayline" label="JOOMLA_ADMIN_DISPLAY_LINE" description="JOOMLA_ADMIN_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
-		</field>
+	</field>
 </form>
