@@ -31,10 +31,7 @@ h2.nav-header {
     max-height: 80px !important;
 }
 .info-bar {
-    float: right;
-    margin-top: -33px;
-    margin-right: -14px;
-	max-width: 90%;
+
 }
 .contentbloc{
   display: flex;
