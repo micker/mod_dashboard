@@ -1,5 +1,6 @@
 .action{
     width:98% !important;
+	margin-top: 20px;
 }
 .action.span12, .modulemessage.span12 {
     margin-left: 0 !important;
@@ -33,6 +34,7 @@ h2.nav-header {
     float: right;
     margin-top: -33px;
     margin-right: -14px;
+	max-width: 90%;
 }
 .contentbloc{
   display: flex;
@@ -55,4 +57,8 @@ h2.nav-header {
 }
 .btn.btn-secondary.iconpicker {
     display: inline !important;
+}
+.modulemessage {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

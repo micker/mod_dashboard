@@ -9,7 +9,8 @@
       extension="com_content"
       multiple="false"
       label="JOOMLA_ADMIN_CAT"
-      description="JOOMLA_ADMIN_CAT_DESC" />
+      description="JOOMLA_ADMIN_CAT_DESC"
+	  class="advancedSelect" />
   <field name="displautblock"
     label="JOOMLA_ADMIN_DISPLAY_AUTHOR"
     type="radio"

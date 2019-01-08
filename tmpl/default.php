@@ -87,7 +87,7 @@ jimport( 'joomla.application.component.controller' );
 <div class="row-fluid">
 
 <?php if ($displayinfosystem || $displayconfigmodule ) : ?>
-	<div class="info-bar">
+	<div class="info-bar top">
 	<ul class="breadcrumb">
 		<?php if ($displayinfosystem) : ?>
 	<?php foreach ($systme_buttons as $sys_buttons) :?>
