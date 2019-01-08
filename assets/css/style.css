@@ -59,3 +59,6 @@ h2.nav-header {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+ul.j-links-group.nav.nav-list {
+    padding-top: 13px;
+}

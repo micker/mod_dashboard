@@ -37,6 +37,7 @@ $displayconfigmodule = $params->get('displayconfigmodule', '1' );
 $tabmodsidebar       = $params->get('tabmodsidebar', '0' );
 $displayfreetab  = $params->get('displayfreetab', '0' );
 $iconsize     = $params->get('iconsize','fa-2x');
+$list_freebuttons = $params->get('free_button');
 
 
 //customtab
@@ -308,28 +309,33 @@ jimport( 'joomla.application.component.controller' );
 				</ul>
 			</div>
 			<?php endif; ?>
+			
 			<?php if ($displayfreetab) : ?>
+				<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
 			<div class="tab-pane " id="free<?php echo $module->id;?>">
-
-			<ul class="j-links-group nav nav-list" style="margin-top:20px;">
-			<?php if ($tabmodsidebar == 0) : ?>
-			<li><h2 class="nav-header"><?php echo JText::_($freenametab); ?></h2></li>
-			<?php endif; ?>
-
-      <?php $list_freebuttons = $params->get('free_button');
-						if ($list_freebuttons): ?>
-            <?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_button ) :?>
-<li>
-            <a href="<?php echo $free_button->linkbutton; ?>" >
+			<ul class="j-links-group nav nav-list">
+			<li><h2 class="nav-header"><?php echo $free_buttons->freenametab;?></h2></li>
+					<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
+					<li>
+            <a href="<?php echo $free_button->linkbutton; ?>" target="<?php echo $free_button->targetlink; ?>" >
                      <i class="fa <?php echo $free_button->iconbutton; ?> <?php echo $iconsize; ?> "></i>
                   <?php echo JText::_($free_button->freebutton); ?>
             </a>
-          </li>
+			</li>
 <?php if ($free_button->displayline) : ?><hr /><?php endif; ?>
          <?php endforeach; ?>
-				 <?php endif; ?>
+			</ul>
 			</div>
+			<?php endforeach; ?>
 			<?php endif; ?>
+			
+			
+			
+			
+			
+			
+			
+			
 
 		<?php if ($tabmodsidebar) : ?>
 		</div>

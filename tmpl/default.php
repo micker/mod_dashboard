@@ -335,7 +335,6 @@ jimport( 'joomla.application.component.controller' );
 				<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
 			<div class="tab-pane fade" id="free<?php $tabname = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $free_buttons->freenametab)); echo $module->id.''.$tabname;?>">
 					<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
-
             <a href="<?php echo $free_button->linkbutton; ?>" target="<?php echo $free_button->targetlink; ?>" >
                   <button type="button" class="btn btn-default btn-lg itemlist">
                      <i class="fa <?php echo $free_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br/>
