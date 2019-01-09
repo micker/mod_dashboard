@@ -77,7 +77,16 @@ class JFormFieldIconpicker extends JFormField {
                        input.val('" . $this->value . "');
 
                        })(jQuery);
-                       </script>";
+                       </script>
+                      <script>
+                      jQuery(document).ready(function(){
+                          jQuery(document).on('subform-row-add', function(event, row){
+                              jQuery(row).find('button').iconpicker();
+                              jQuery(row).find('select').chosen();
+                          })
+                      });
+                      </script>
+                       ";
 
                        return $iconlist;
                        }
