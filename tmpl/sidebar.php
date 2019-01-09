@@ -82,8 +82,8 @@ jimport( 'joomla.application.component.controller' );
 	<?php endif; ?>
 
 	<?php if ($tabmodsidebar) : ?>
-	<ul class="nav nav-tabs" role="tablist" id="myTab2<?php echo $module->id;?>>
-	<?php if ($displaycustomtab) : ?><li class="active" "><a href="#custom<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($nametab); ?></a></li> <?php endif; ?>
+	<ul class="nav nav-tabs" role="tablist" id="myTab2<?php echo $module->id;?>">
+	<?php if ($displaycustomtab) : ?><li class="active"><a href="#custom<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($nametab); ?></a></li> <?php endif; ?>
 	<?php if ($displaycreattab) : ?><li class=""><a href="#create<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_CREATE_D'); ?></a></li>  <?php endif; ?>
 	<?php if ($displaymanagetab) : ?><li class=""><a href="#manage<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_MANAGE_D'); ?></a></li>  <?php endif; ?>
 	<?php if ($displayadmintab) : ?><li class=""><a href="#admin<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_ADMIN_D'); ?></a></li>  <?php endif; ?>
@@ -309,10 +309,14 @@ jimport( 'joomla.application.component.controller' );
 				</ul>
 			</div>
 			<?php endif; ?>
-			
+								<?php if ($tabmodsidebar) : ?>
+			<div class="tab-pane " id="free<?php echo $module->id;?>">
+			<?php endif;?>
+
 			<?php if ($displayfreetab) : ?>
 				<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
-			<div class="tab-pane " id="free<?php echo $module->id;?>">
+
+
 			<ul class="j-links-group nav nav-list">
 			<li><h2 class="nav-header"><?php echo $free_buttons->freenametab;?></h2></li>
 					<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
@@ -325,18 +329,12 @@ jimport( 'joomla.application.component.controller' );
 <?php if ($free_button->displayline) : ?><hr /><?php endif; ?>
          <?php endforeach; ?>
 			</ul>
-			</div>
+
 			<?php endforeach; ?>
 			<?php endif; ?>
-			
-			
-			
-			
-			
-			
-			
-			
-
+			<?php if ($tabmodsidebar) : ?>
+			</div>
+		<?php endif;?>
 		<?php if ($tabmodsidebar) : ?>
 		</div>
 		<?php endif; ?>
