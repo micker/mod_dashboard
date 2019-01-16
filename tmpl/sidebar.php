@@ -238,7 +238,7 @@ jimport( 'joomla.application.component.controller' );
 	<li>
 	<a href="index.php?option=com_flexicontent&view=groups">
 
-			<i class="icon-large icon-users"></i>
+			<i class="fa fa-user <?php echo $iconsize; ?> "></i>
 			<?php echo JText::_( 'JOOMLA_ADMIN_GROUPSLIST' ); ?>
 
 	</a>

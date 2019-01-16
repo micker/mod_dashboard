@@ -19,7 +19,6 @@
 		<option value="*">JALL</option>
 </field>
 		<field name="iconbutton" type="iconpicker" default="fa-plus-circle" label="JOOMLA_ADMIN_ICON" description="JOOMLA_ADMIN_ICON_DESC" />
-				<field name="iconbutton" type="iconpicker" default="fa-plus-circle" label="JOOMLA_ADMIN_ICON" description="JOOMLA_ADMIN_ICON_DESC" />
 			<field name="targetlink" label="JOOMLA_ADMIN_TARGETLINK" description="JOOMLA_ADMIN_TARGETLINK_DESC" type="radio" default="_self" class="btn-group btn-group-yesno">
 			<option value="_self">JOOMLA_ADMIN_SELF</option>
 			<option value="_blank">JOOMLA_ADMIN_BLANK</option>

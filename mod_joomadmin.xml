@@ -103,7 +103,7 @@
 								<option	value="15">15</option>
 								<option	value="20">20</option>
 								<option	value="50">50</option>
-								<option	value="100">20</option>
+								<option	value="100">100</option>
 							</field>
 							<field name="hiddefeatured" type="radio" default="1" label="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED" description="JOOMLA_ADMIN_DISPLAYBLOCK_FEATURED_DESC" class="btn-group btn-group-yesno">
 								<option value="0">JNO</option>

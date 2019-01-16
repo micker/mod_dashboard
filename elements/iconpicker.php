@@ -79,12 +79,12 @@ class JFormFieldIconpicker extends JFormField {
                        })(jQuery);
                        </script>
                       <script>
-                      jQuery(document).ready(function(){
-                          jQuery(document).on('subform-row-add', function(event, row){
-                              jQuery(row).find('button').iconpicker();
-                              jQuery(row).find('select').chosen();
+                      (function ($) {
+                      $(document).on('subform-row-add', function(event, row){
+                                      $(row).prev().find('button.hasPicker').iconpicker();
+                                      $(row).find('button.hasPicker').iconpicker();
                           })
-                      });
+                      })(jQuery);
                       </script>
                        ";
 
