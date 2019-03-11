@@ -1,13 +1,13 @@
-Joomla Admin module by Com3elles for Joomla 3.x
+Dashboard Admin module by Com3elles for Joomla 3.x
 ==============
-mod_joomadmin
+mod_dashboard
 
 
-## Module Joomadmin features
+## Module dashboard admin features
 
-Joomla admin module is a lighter and flexible module admin for Joomla!. No need component or big framwork. All is in module, with font-icon. You can display it in cpanel position for icon and custom list of article OR AND icon position for a vertical list of action link. With Joomla! admin module you can easly do a powerfull admin for your user.
+Dashboard admin module is a lighter and flexible module admin for Joomla!. No need component or big framwork. All is in module, with font-icon. You can display it in cpanel position for icon and custom list of article OR AND icon position for a vertical list of action link. With Joomla! admin module you can easly do a powerfull admin for your user.
 
-Joomla **module admin** for cpanel position.
+Joomla **module dashboard** for cpanel position.
  Compatibilty : joomla 3 and isis template
 
 Think to publish it in **`cpanel position`** after installation.
