@@ -20,16 +20,16 @@ JLoader::register('ModLatestActionsHelper', __DIR__ . '/helper.php');
 
 // Inclut les méthodes du script de soutien
 require_once dirname(__FILE__).'/helper.php';
-$listFeatured     = modJoomadminHelper::getFeatured($params);
-$listPublished    = modJoomadminHelper::getPublished($params);
-$listUnpublished  = modJoomadminHelper::getUnpublished($params);
-$listArchived     = modJoomadminHelper::getArchived($params);
-$listTrashed      = modJoomadminHelper::getTrashed($params);
-$listUseritem     = modJoomadminHelper::getUseritem($params);
-$listCustomlist   = modJoomadminHelper::getCustomlist($params);
+$listFeatured     = modDashboardHelper::getFeatured($params);
+$listPublished    = modDashboardHelper::getPublished($params);
+$listUnpublished  = modDashboardHelper::getUnpublished($params);
+$listArchived     = modDashboardHelper::getArchived($params);
+$listTrashed      = modDashboardHelper::getTrashed($params);
+$listUseritem     = modDashboardHelper::getUseritem($params);
+$listCustomlist   = modDashboardHelper::getCustomlist($params);
 $moduleclass_sfx  = htmlspecialchars($params->get('moduleclass_sfx'));
-$systme_buttons   = modJoomadminHelper::getIconFromPlugins($params);
-$actionlist       = modJoomadminHelper::getActionlogList($params);
+$systme_buttons   = modDashboardHelper::getIconFromPlugins($params);
+$actionlist       = modDashboardHelper::getActionlogList($params);
 
 // Get Joomla Layout
-require JModuleHelper::getLayoutPath('mod_joomadmin', $params->get('layout', 'default'));
+require JModuleHelper::getLayoutPath('mod_dashboard', $params->get('layout', 'default'));

@@ -53,7 +53,7 @@ $actionslogwidth     = $params->get('actionslogwidth','48');
 $iconsize     = $params->get('iconsize','fa-2x');
 
 //customtab
-$nametab = $params->get('nametab', 'JOOMLA_ADMIN_CUSTOM_TAB_NAME' );
+$nametab = $params->get('nametab', 'MOD_DASHBOARD_CUSTOM_TAB_NAME' );
 
 //Get Buttom Sections
 $hiddebuttonmanageitems      = $params->get('hiddebuttonmanageitems'     , '1');
@@ -74,7 +74,7 @@ $hiddebuttonaddgroup         = $params->get('hiddebuttonaddgroup'        , '1');
 $hiddebuttonadmin        = $params->get('hiddebuttonadmin'        , '1');
 
 //freetab
-$freenametab = $params->get('freenametab', 'JOOMLA_ADMIN_FREE_TAB_NAME' );
+$freenametab = $params->get('freenametab', 'MOD_DASHBOARD_FREE_TAB_NAME' );
 
 //
 $user = JFactory::getUser();
@@ -105,7 +105,7 @@ jimport( 'joomla.application.component.controller' );
 		<?php if ($displayconfigmodule) : ?>
 	<li>
 		<a href="index.php?option=com_modules&task=module.edit&id=<?php echo $module->id;?>">
-				<span class="icon-small icon-options" aria-hidden="true"></span><span class="j-links-link"><?php echo JText::_('JOOMLA_ADMIN_DISPLAY_CONFIG_MODULE_TEXT'); ?></span>
+				<span class="icon-small icon-options" aria-hidden="true"></span><span class="j-links-link"><?php echo JText::_('MOD_DASHBOARD_DISPLAY_CONFIG_MODULE_TEXT'); ?></span>
 		</a>
 	</li>
 			<?php endif; ?>
@@ -126,9 +126,9 @@ jimport( 'joomla.application.component.controller' );
 
 	<ul class="nav nav-tabs" role="tablist" id="myTab<?php echo $module->id;?>">
 	<?php if ($displaycustomtab) : ?><li class=""><a href="#custom<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($nametab); ?></a></li> <?php endif; ?>
-	<?php if ($displaycreattab) : ?><li class=""><a href="#create<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_CREATE_D'); ?></a></li>  <?php endif; ?>
-	<?php if ($displaymanagetab) : ?><li class=""><a href="#manage<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_MANAGE_D'); ?></a></li>  <?php endif; ?>
-	<?php if ($displayadmintab) : ?><li class=""><a href="#admin<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_ADMIN_D'); ?></a></li>  <?php endif; ?>
+	<?php if ($displaycreattab) : ?><li class=""><a href="#create<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('MOD_DASHBOARD_TAB_CREATE_D'); ?></a></li>  <?php endif; ?>
+	<?php if ($displaymanagetab) : ?><li class=""><a href="#manage<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('MOD_DASHBOARD_TAB_MANAGE_D'); ?></a></li>  <?php endif; ?>
+	<?php if ($displayadmintab) : ?><li class=""><a href="#admin<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('MOD_DASHBOARD_TAB_ADMIN_D'); ?></a></li>  <?php endif; ?>
 	<?php if ($displayfreetab) : ?>
 		<?php $list_freebuttons = $params->get('free_button');
 		if ($list_freebuttons): ?>
@@ -187,7 +187,7 @@ jimport( 'joomla.application.component.controller' );
 											<a href="index.php?option=com_content&task=article.add">
 													<button type="button" class="btn btn-default btn-lg itemlist">
 														<i class="fa fa-plus-circle <?php echo $iconsize; ?> "></i><br/>
-													<?php echo JText::_( 'JOOMLA_ADMIN_ADDITEM' ); ?>
+													<?php echo JText::_( 'MOD_DASHBOARD_ADDITEM' ); ?>
 													</button>
 											</a>
 											<?php endif; ?>
@@ -195,7 +195,7 @@ jimport( 'joomla.application.component.controller' );
 											<a href="index.php?option=com_categories&task=category.add&extension=com_content">
 												<button type="button" class="btn btn-default btn-lg itemlist">
 												<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i><br/>
-												<?php echo JText::_( 'JOOMLA_ADMIN_ADDCATEGORY' ); ?>
+												<?php echo JText::_( 'MOD_DASHBOARD_ADDCATEGORY' ); ?>
 												</button>
 											</a>
 											<?php endif; ?>
@@ -203,7 +203,7 @@ jimport( 'joomla.application.component.controller' );
 											<a href="index.php?option=com_tags&view=tag&task=tag.add">
 												<button type="button" class="btn btn-default btn-lg itemlist">
 												<i class="fa fa-tags <?php echo $iconsize; ?> "></i><br/>
-												<?php echo JText::_( 'JOOMLA_ADMIN_ADDTAG' ); ?>
+												<?php echo JText::_( 'MOD_DASHBOARD_ADDTAG' ); ?>
 												</button>
 											</a>
 											<?php endif; ?>
@@ -211,7 +211,7 @@ jimport( 'joomla.application.component.controller' );
 											<a href="index.php?option=com_users&task=user.add">
 												<button type="button" class="btn btn-default btn-lg itemlist">
 												<i class="fa fa-user <?php echo $iconsize; ?> "></i><br/>
-												<?php echo JText::_( 'JOOMLA_ADMIN_ADDAUTHOR' ); ?>
+												<?php echo JText::_( 'MOD_DASHBOARD_ADDAUTHOR' ); ?>
 												</button>
 											</a>
 											<?php endif; ?>
@@ -219,7 +219,7 @@ jimport( 'joomla.application.component.controller' );
 											<a href="index.php?option=com_users&task=group.add">
 												<button type="button" class="btn btn-default btn-lg itemlist">
 												<i class="fa fa-users <?php echo $iconsize; ?> "></i><br/>
-												<?php echo JText::_( 'JOOMLA_ADMIN_ADDGROUPS' ); ?>
+												<?php echo JText::_( 'MOD_DASHBOARD_ADDGROUPS' ); ?>
 												</button>
 											</a>
 											<?php endif; ?>
@@ -232,7 +232,7 @@ jimport( 'joomla.application.component.controller' );
 												<a href="index.php?option=com_content&view=articles">
 													<button type="button" class="btn btn-default btn-lg itemlist">
 														<i class="fa fa-th-list <?php echo $iconsize; ?> "></i><br/>
-														<?php echo JText::_( 'JOOMLA_ADMIN_ITEMLIST' ); ?>
+														<?php echo JText::_( 'MOD_DASHBOARD_ITEMLIST' ); ?>
 													</button>
 												</a>
 											<?php endif;?>
@@ -240,7 +240,7 @@ jimport( 'joomla.application.component.controller' );
 												<a href="index.php?option=com_categories&extension=com_content">
 													<button type="button" class="btn btn-default btn-lg itemlist">
 														<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i><br/>
-														<?php echo JText::_( 'JOOMLA_ADMIN_CATLIST' ); ?>
+														<?php echo JText::_( 'MOD_DASHBOARD_CATLIST' ); ?>
 													</button>
 												</a>
 												<?php endif; ?>
@@ -248,7 +248,7 @@ jimport( 'joomla.application.component.controller' );
 								<a href="index.php?option=com_tags">
 									<button type="button" class="btn btn-default btn-lg itemlist">
 										<i class="fa fa-tags <?php echo $iconsize; ?> "></i><br/>
-										<?php echo JText::_( 'JOOMLA_ADMIN_TAGLIST' ); ?>
+										<?php echo JText::_( 'MOD_DASHBOARD_TAGLIST' ); ?>
 									</button>
 								</a>
 								<?php endif; ?>
@@ -256,7 +256,7 @@ jimport( 'joomla.application.component.controller' );
 								<a href="index.php?option=com_users&view=users">
 									<button type="button" class="btn btn-default btn-lg itemlist">
 										<i class="fa fa-user <?php echo $iconsize; ?> "></i><br/>
-										<?php echo JText::_( 'JOOMLA_ADMIN_AUTHORLIST' ); ?>
+										<?php echo JText::_( 'MOD_DASHBOARD_AUTHORLIST' ); ?>
 									</button>
 								</a>
 								<?php endif; ?>
@@ -265,7 +265,7 @@ jimport( 'joomla.application.component.controller' );
 								<a href="index.php?option=com_users&view=groups">
 									<button type="button" class="btn btn-default btn-lg itemlist">
 										<i class="fa fa-users <?php echo $iconsize; ?> "></i><br/>
-										<?php echo JText::_( 'JOOMLA_ADMIN_GROUPSLIST' ); ?>
+										<?php echo JText::_( 'MOD_DASHBOARD_GROUPSLIST' ); ?>
 									</button>
 								</a>
 								<?php endif; ?>
@@ -274,7 +274,7 @@ jimport( 'joomla.application.component.controller' );
 								<a href="index.php?option=com_media">
 									<button type="button" class="btn btn-default btn-lg itemlist">
 										<i class="fa fa-upload <?php echo $iconsize; ?> "></i><br/>
-										<?php echo JText::_( 'JOOMLA_ADMIN_FILEMANAGER' ); ?>
+										<?php echo JText::_( 'MOD_DASHBOARD_FILEMANAGER' ); ?>
 									</button>
 								</a>
 								<?php endif; ?>
@@ -288,7 +288,7 @@ jimport( 'joomla.application.component.controller' );
 										<a href="index.php?option=com_privacy">
 											<button type="button" class="btn btn-default btn-lg itemlist">
 												<i class="fa fa-lock <?php echo $iconsize; ?> "></i><br/>
-												<?php echo JText::_( 'JOOMLA_ADMIN_PRIVACY' ); ?>
+												<?php echo JText::_( 'MOD_DASHBOARD_PRIVACY' ); ?>
 											</button>
 										</a>
 										<?php endif; ?>
@@ -296,7 +296,7 @@ jimport( 'joomla.application.component.controller' );
 									<a href="index.php?option=com_actionlogs">
 										<button type="button" class="btn btn-default btn-lg itemlist">
 										<i class="fa fa-list-alt <?php echo $iconsize; ?> "></i><br/>
-										<?php echo JText::_( 'JOOMLA_ADMIN_LOGS' ); ?>
+										<?php echo JText::_( 'MOD_DASHBOARD_LOGS' ); ?>
 										</button>
 									</a>
 									<?php endif; ?>
@@ -308,7 +308,7 @@ jimport( 'joomla.application.component.controller' );
 									<a href="index.php?option=com_fields&context=com_users.user">
 										<button type="button" class="btn btn-default btn-lg itemlist">
 											<i class="fa fa-user <?php echo $iconsize; ?> "></i><br/>
-											<?php echo JText::_( 'JOOMLA_ADMIN_FIELDLIST_USER' ); ?>
+											<?php echo JText::_( 'MOD_DASHBOARD_FIELDLIST_USER' ); ?>
 										</button>
 									</a>
 									<?php endif; ?>
@@ -316,7 +316,7 @@ jimport( 'joomla.application.component.controller' );
 									<a href="index.php?option=com_fields&context=com_content.article">
 										<button type="button" class="btn btn-default btn-lg itemlist">
 										<i class="fa fa-th-list <?php echo $iconsize; ?> "></i><br/>
-										<?php echo JText::_( 'JOOMLA_ADMIN_FIELDLIST_ARTICLE' ); ?>
+										<?php echo JText::_( 'MOD_DASHBOARD_FIELDLIST_ARTICLE' ); ?>
 										</button>
 									</a>
 									<?php endif; ?>
@@ -324,7 +324,7 @@ jimport( 'joomla.application.component.controller' );
 					<a href="index.php?option=com_config">
 						<button type="button" class="btn btn-default btn-lg itemlist">
 							<i class="fa fa-cogs <?php echo $iconsize; ?> "></i><br/>
-						<?php echo JText::_( 'JOOMLA_ADMIN_GEN' ); ?>
+						<?php echo JText::_( 'MOD_DASHBOARD_GEN' ); ?>
 						</button>
 					</a>
 				<?php endif; ?>
@@ -368,13 +368,13 @@ jimport( 'joomla.application.component.controller' );
 
 <?php if ($hiddefeatured) : ?>
     <div class="block featured well well-small" style="width:<?php echo $featurewidth; ?>%">
-	<h3 class="module-title nav-header"><i class="icon-large icon-featured"></i> <?php echo JText::_( 'JOOMLA_ADMIN_FEATURED' ); ?></h3>
+	<h3 class="module-title nav-header"><i class="icon-large icon-featured"></i> <?php echo JText::_( 'MOD_DASHBOARD_FEATURED' ); ?></h3>
 
 	<?php $show_all_link = 'index.php?option=com_content&amp;view=featured'; ?>
 	<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
 		<?php
-		echo JText::_( 'JOOMLA_ADMIN_ALL' );
+		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
 			<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
 				<?php foreach ($listFeatured as $itemFeatured) : ?>
@@ -387,7 +387,7 @@ jimport( 'joomla.application.component.controller' );
 						<div class="span3" style="margin-left: 0 !important;">
 							<span class="small">
 							<i class="icon-user"></i>
-							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('JOOMLA_ADMIN_MODIFIED_BY')." ". $itemFeatured->name; ?>"><?php echo $itemFeatured->name;?> </small>
+							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemFeatured->name; ?>"><?php echo $itemFeatured->name;?> </small>
 							</span>
 						</div>
 						<div class="span3">
@@ -403,13 +403,13 @@ jimport( 'joomla.application.component.controller' );
 	<?php endif; ?>
 <?php if ($hiddepublished) : ?>
     <div class="block published well well-small" style="width:<?php echo $publishedwidth; ?>%">
-	<h3 class="module-title nav-header"><i class="fa fa-check"></i> <?php echo JText::_( 'JOOMLA_ADMIN_PUBLISHED' ); ?></h3>
+	<h3 class="module-title nav-header"><i class="fa fa-check"></i> <?php echo JText::_( 'MOD_DASHBOARD_PUBLISHED' ); ?></h3>
 
 	<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=1'; ?>
 	<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
 		<?php
-		echo JText::_( 'JOOMLA_ADMIN_ALL' );
+		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
 			<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
 				<?php foreach ($listPublished as $itemPublished) : ?>
@@ -422,7 +422,7 @@ jimport( 'joomla.application.component.controller' );
 						<div class="span3" style="margin-left: 0 !important;">
 							<span class="small">
 							<i class="icon-user"></i>
-							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('JOOMLA_ADMIN_MODIFIED_BY')." ". $itemPublished->name; ?>"><?php echo $itemPublished->name;?> </small>
+							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemPublished->name; ?>"><?php echo $itemPublished->name;?> </small>
 							</span>
 						</div>
 						<div class="span3">
@@ -440,12 +440,12 @@ jimport( 'joomla.application.component.controller' );
 	<?php if ($hiddeunpublished) : ?>
 
 	<div class="block unpublished well well-small"  style="width:<?php echo $unpublishedwidth; ?>%">
-		<h3 class="module-title nav-header"><i class="fa fa-thumbs-down"></i> <?php echo JText::_( 'JOOMLA_ADMIN_UNPUBLISHED' ); ?></h3>
+		<h3 class="module-title nav-header"><i class="fa fa-thumbs-down"></i> <?php echo JText::_( 'MOD_DASHBOARD_UNPUBLISHED' ); ?></h3>
 		<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=0'; ?>
 		<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
 		<?php
-		echo JText::_( 'JOOMLA_ADMIN_ALL' );
+		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
 			<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
 				<?php foreach ($listUnpublished as $itemUnpublished) : ?>
@@ -457,7 +457,7 @@ jimport( 'joomla.application.component.controller' );
 						</div>
 						<div class="span3" style="margin-left: 0 !important;">
 							<span class="small">
-							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('JOOMLA_ADMIN_MODIFIED_BY')." ". $itemUnpublished->name; ?>"><i class="icon-user"></i> <?php echo $itemUnpublished->name; ?></small>
+							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemUnpublished->name; ?>"><i class="icon-user"></i> <?php echo $itemUnpublished->name; ?></small>
 							</span>
 						</div>
 						<div class="span3">
@@ -473,12 +473,12 @@ jimport( 'joomla.application.component.controller' );
 <?php endif; ?>
 <?php if ($hiddearchived) : ?>
 	<div class="block archived well well-small" style="width:<?php echo $archivedwidth; ?>%">
-		<h3 class="module-title nav-header"><i class="fa fa-archive"></i> <?php echo JText::_( 'JOOMLA_ADMIN_ARCHIVED' ); ?></h3>
+		<h3 class="module-title nav-header"><i class="fa fa-archive"></i> <?php echo JText::_( 'MOD_DASHBOARD_ARCHIVED' ); ?></h3>
 		<?php		$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=2'; ?>
 		<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
 		<?php
-		echo JText::_( 'JOOMLA_ADMIN_ALL' );
+		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
 			<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
 				<?php foreach ($listArchived as $itemArchived) : ?>
@@ -491,7 +491,7 @@ jimport( 'joomla.application.component.controller' );
 						<div class="span3" style="margin-left: 0 !important;">
 							<span class="small">
 							<i class="icon-user"></i>
-							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('JOOMLA_ADMIN_MODIFIED_BY')." ". $itemArchived->name; ?>"><?php echo $itemArchived->name;?> </small>
+							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemArchived->name; ?>"><?php echo $itemArchived->name;?> </small>
 							</span>
 						</div>
 						<div class="span3">
@@ -513,7 +513,7 @@ jimport( 'joomla.application.component.controller' );
 		<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
 		<?php
-		echo JText::_( 'JOOMLA_ADMIN_ALL' );
+		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
 		<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
 			<?php foreach ($listUseritem as $itemUseritem) : ?>
@@ -527,7 +527,7 @@ jimport( 'joomla.application.component.controller' );
 						<span class="small">
 							<i class="icon-user"></i>
 
-							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('JOOMLA_ADMIN_CREATED_BY')." ". $user->name; ?>"><?php echo $user->name; ?> </small>
+							<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_CREATED_BY')." ". $user->name; ?>"><?php echo $user->name; ?> </small>
 						</span>
 					</div>
 					<div class="span3">
@@ -545,13 +545,13 @@ jimport( 'joomla.application.component.controller' );
 <?php if ($hiddetrashed) : ?>
 	<div class="block trashed well well-small"  style="width:<?php echo $trashedwidth; ?>%">
 	<h3 class="module-title nav-header"><i class="fa fa-trash"></i>
-	<?php echo JText::_( 'JOOMLA_ADMIN_TRASHED' ); ?></h3>
+	<?php echo JText::_( 'MOD_DASHBOARD_TRASHED' ); ?></h3>
 	<?php
 	$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=-2'; ?>
 		<div style='text-align:right;'>
 		<a href='<?php echo $show_all_link ?>' class='adminlink'>
 		<?php
-		echo JText::_( 'JOOMLA_ADMIN_ALL' );
+		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
       <div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
          <?php foreach ($listTrashed as $itemTrashed) : ?>
@@ -565,7 +565,7 @@ jimport( 'joomla.application.component.controller' );
                   <span class="small">
                      <i class="icon-user"></i>
 
-                     <small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('JOOMLA_ADMIN_CREATED_BY')." ". $user->name; ?>"><?php echo $user->name; ?> </small>
+                     <small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_CREATED_BY')." ". $user->name; ?>"><?php echo $user->name; ?> </small>
                   </span>
                </div>
                <div class="span3">
@@ -585,12 +585,12 @@ jimport( 'joomla.application.component.controller' );
 <div class="block actionlog well well-small"  style="width:<?php echo $actionslogwidth; ?>%">
    <h3 class="module-title nav-header">
    <i class="fa fa-list-alt"></i>
-   <?php echo JText::_('JOOMLA_ADMIN_ACTIONLOGS_BLOCK_NAME'); ?> : </h3>
+   <?php echo JText::_('MOD_DASHBOARD_ACTIONLOGS_BLOCK_NAME'); ?> : </h3>
    <?php		$show_all_link = 'index.php?option=com_actionlogs'; ?>
    <div style='text-align:right;'>
    <a href='<?php echo $show_all_link ?>' class='adminlink'>
    <?php
-   echo JText::_( 'JOOMLA_ADMIN_ALL' );
+   echo JText::_( 'MOD_DASHBOARD_ALL' );
    echo "</a></div>";	?>
 <div class="row-striped">
 	<?php if (count($actionlist)) : ?>
@@ -630,15 +630,15 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
    <div style='text-align:right;'>
    <a href='<?php echo $show_all_link ?>' class='adminlink'>
    <?php
-   echo JText::_( 'JOOMLA_ADMIN_ALL' );
+   echo JText::_( 'MOD_DASHBOARD_ALL' );
    echo "</a></div>";	?>
    <div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
       <table class="table table-hover">
          <thead>
             <tr>
-            <th><?php echo JText::_( 'JOOMLA_ADMIN_TITLE' ); ?></th>
-            <?php if ($customblock->displautblock) : ?><th><?php echo JText::_( 'JOOMLA_ADMIN_AUTHOR' ); ?></th><?php endif; ?>
-            <?php if ($customblock->displdateblock) : ?><th><?php echo JText::_( 'JOOMLA_ADMIN_DATE' ); ?></th><?php endif; ?>
+            <th><?php echo JText::_( 'MOD_DASHBOARD_TITLE' ); ?></th>
+            <?php if ($customblock->displautblock) : ?><th><?php echo JText::_( 'MOD_DASHBOARD_AUTHOR' ); ?></th><?php endif; ?>
+            <?php if ($customblock->displdateblock) : ?><th><?php echo JText::_( 'MOD_DASHBOARD_DATE' ); ?></th><?php endif; ?>
             </tr>
          </thead>
 
@@ -652,7 +652,7 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
                <span class="small">
                   <i class="icon-user"></i>
 
-                  <small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('JOOMLA_ADMIN_MODIFIED_BY')." ". $customblock->listitems->name; ?>"><?php echo $customblock->listitems->name;?> </small>
+                  <small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $customblock->listitems->name; ?>"><?php echo $customblock->listitems->name;?> </small>
                </span>
             </td>
             <?php endif; ?>

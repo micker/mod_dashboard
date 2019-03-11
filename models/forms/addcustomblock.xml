@@ -2,17 +2,17 @@
 <form>
   <field name="nameblockcustom"
     type="text"
-    label="JOOMLA_ADMIN_BLOCKCUSTOM"
-    description="JOOMLA_ADMIN_BLOCKCUSTOM_DESC"/>
+    label="MOD_DASHBOARD_BLOCKCUSTOM"
+    description="MOD_DASHBOARD_BLOCKCUSTOM_DESC"/>
     <field name="catidlist"
       type="category"
       extension="com_content"
       multiple="false"
-      label="JOOMLA_ADMIN_CAT"
-      description="JOOMLA_ADMIN_CAT_DESC"
+      label="MOD_DASHBOARD_CAT"
+      description="MOD_DASHBOARD_CAT_DESC"
 	  class="advancedSelect" />
   <field name="displautblock"
-    label="JOOMLA_ADMIN_DISPLAY_AUTHOR"
+    label="MOD_DASHBOARD_DISPLAY_AUTHOR"
     type="radio"
     default="1"
     class="btn-group">
@@ -20,7 +20,7 @@
     <option value="0">JNO</option>
   </field>
   <field name="displdateblock"
-    label="JOOMLA_ADMIN_DISPLAY_DATE"
+    label="MOD_DASHBOARD_DISPLAY_DATE"
     type="radio"
     default="1"
     class="btn-group">
@@ -30,8 +30,8 @@
   <field name="width"
 	type="number"
 	default="45"
-	label="JOOMLA_ADMIN_WIDTHCOL"
-	description="JOOMLA_ADMIN_WIDTHCOL_DESC"
+	label="MOD_DASHBOARD_WIDTHCOL"
+	description="MOD_DASHBOARD_WIDTHCOL_DESC"
 	min="0" max="100"
 	step="5" />
 </form>

@@ -15,7 +15,7 @@
 
 //blocage des accés directs sur ce script
 defined('_JEXEC') or die('Accés interdit');
-abstract class modJoomadminHelper
+abstract class modDashboardHelper
 {
 	public static function getFeatured(&$params)
 	{

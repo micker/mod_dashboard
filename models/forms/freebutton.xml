@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-<field name="freenametab" type="text"  default="JOOMLA_ADMIN_FREE_TAB_NAME" label="JOOMLA_ADMIN_FREE_TAB_NAME_2" description="JOOMLA_ADMIN_FREE_TAB_NAME_2_DESC" />
+<field name="freenametab" type="text"  default="MOD_DASHBOARD_FREE_TAB_NAME" label="MOD_DASHBOARD_FREE_TAB_NAME_2" description="MOD_DASHBOARD_FREE_TAB_NAME_2_DESC" />
   <field name="free_button"
-			 description= "JOOMLA_ADMIN_FREE_BUTTON_DESC"
+			 description= "MOD_DASHBOARD_FREE_BUTTON_DESC"
 			 type= "subform"
-			 label= "JOOMLA_ADMIN_FREE_BUTTON"
+			 label= "MOD_DASHBOARD_FREE_BUTTON"
 			 min= "0"
 			 max= "1000"
 			 required= "false"

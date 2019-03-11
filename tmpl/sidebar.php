@@ -41,7 +41,7 @@ $list_freebuttons = $params->get('free_button');
 
 
 //customtab
-$nametab = $params->get('nametab', 'JOOMLA_ADMIN_CUSTOM_TAB_NAME' );
+$nametab = $params->get('nametab', 'MOD_DASHBOARD_CUSTOM_TAB_NAME' );
 
 
 //Get Buttom Sections
@@ -63,7 +63,7 @@ $hiddebuttonaddgroup         = $params->get('hiddebuttonaddgroup'        , '1');
 $hiddebuttonadmin        = $params->get('hiddebuttonadmin'        , '1');
 
 //freetab
-$freenametab = $params->get('freenametab', 'JOOMLA_ADMIN_FREE_TAB_NAME' );
+$freenametab = $params->get('freenametab', 'MOD_DASHBOARD_FREE_TAB_NAME' );
 
 //
 $user = JFactory::getUser();
@@ -84,9 +84,9 @@ jimport( 'joomla.application.component.controller' );
 	<?php if ($tabmodsidebar) : ?>
 	<ul class="nav nav-tabs" role="tablist" id="myTab2<?php echo $module->id;?>">
 	<?php if ($displaycustomtab) : ?><li class="active"><a href="#custom<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($nametab); ?></a></li> <?php endif; ?>
-	<?php if ($displaycreattab) : ?><li class=""><a href="#create<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_CREATE_D'); ?></a></li>  <?php endif; ?>
-	<?php if ($displaymanagetab) : ?><li class=""><a href="#manage<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_MANAGE_D'); ?></a></li>  <?php endif; ?>
-	<?php if ($displayadmintab) : ?><li class=""><a href="#admin<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('JOOMLA_ADMIN_TAB_ADMIN_D'); ?></a></li>  <?php endif; ?>
+	<?php if ($displaycreattab) : ?><li class=""><a href="#create<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('MOD_DASHBOARD_TAB_CREATE_D'); ?></a></li>  <?php endif; ?>
+	<?php if ($displaymanagetab) : ?><li class=""><a href="#manage<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('MOD_DASHBOARD_TAB_MANAGE_D'); ?></a></li>  <?php endif; ?>
+	<?php if ($displayadmintab) : ?><li class=""><a href="#admin<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_('MOD_DASHBOARD_TAB_ADMIN_D'); ?></a></li>  <?php endif; ?>
 	<?php if ($displayfreetab) : ?><li class=""><a href="#free<?php echo $module->id;?>" data-toggle="tab"><?php echo JText::_($freenametab); ?></a></li> <?php endif; ?>
 	</ul>
 	<?php endif; ?>
@@ -145,14 +145,14 @@ jimport( 'joomla.application.component.controller' );
 			<div class="tab-pane " id="create<?php echo $module->id;?>">
 			<ul class="j-links-group nav nav-list">
 			<?php if ($tabmodsidebar == 0) : ?>
-			<li><h2 class="nav-header"><?php echo JText::_('JOOMLA_ADMIN_TAB_CREATE_D'); ?></h2></li>
+			<li><h2 class="nav-header"><?php echo JText::_('MOD_DASHBOARD_TAB_CREATE_D'); ?></h2></li>
 			<?php endif; ?>
 			<?php if($hiddebuttonadditem): ?>
 			<li>
         <a href="index.php?option=com_content&task=article.add">
 
 														<i class="fa fa-plus-circle <?php echo $iconsize; ?> "></i>
-													<?php echo JText::_( 'JOOMLA_ADMIN_ADDITEM' ); ?>
+													<?php echo JText::_( 'MOD_DASHBOARD_ADDITEM' ); ?>
 
 											</a>
 			</li>
@@ -161,7 +161,7 @@ jimport( 'joomla.application.component.controller' );
           <li>
           <a href="index.php?option=com_categories&task=category.add&extension=com_content">
       												<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i>
-      												<?php echo JText::_( 'JOOMLA_ADMIN_ADDCATEGORY' ); ?>
+      												<?php echo JText::_( 'MOD_DASHBOARD_ADDCATEGORY' ); ?>
       											</a>
                           </li>
 				<?php endif; ?>
@@ -170,7 +170,7 @@ jimport( 'joomla.application.component.controller' );
           <a href="index.php?option=com_tags&view=tag&task=tag.add">
 
     												<i class="fa fa-tags <?php echo $iconsize; ?> "></i>
-    												<?php echo JText::_( 'JOOMLA_ADMIN_ADDTAG' ); ?>
+    												<?php echo JText::_( 'MOD_DASHBOARD_ADDTAG' ); ?>
 
     											</a>
                         </li>
@@ -179,7 +179,7 @@ jimport( 'joomla.application.component.controller' );
           <li>
           <a href="index.php?option=com_users&task=user.add">
         												<i class="fa fa-user <?php echo $iconsize; ?> "></i>
-        												<?php echo JText::_( 'JOOMLA_ADMIN_ADDAUTHOR' ); ?>
+        												<?php echo JText::_( 'MOD_DASHBOARD_ADDAUTHOR' ); ?>
         											</a>
                             </li>
 				<?php endif; ?>
@@ -187,7 +187,7 @@ jimport( 'joomla.application.component.controller' );
 <li>
           <a href="index.php?option=com_users&task=group.add">
     												<i class="fa fa-users <?php echo $iconsize; ?> "></i>
-    												<?php echo JText::_( 'JOOMLA_ADMIN_ADDGROUPS' ); ?>
+    												<?php echo JText::_( 'MOD_DASHBOARD_ADDGROUPS' ); ?>
     											</a>
                         </li>
 				<?php endif; ?>
@@ -198,13 +198,13 @@ jimport( 'joomla.application.component.controller' );
 			<div class="tab-pane " id="manage<?php echo $module->id;?>">
 			<ul class="j-links-group nav nav-list">
 			<?php if ($tabmodsidebar == 0) : ?>
-			<li><h2 class="nav-header"><?php echo JText::_('JOOMLA_ADMIN_TAB_MANAGE_D'); ?></h2></li>
+			<li><h2 class="nav-header"><?php echo JText::_('MOD_DASHBOARD_TAB_MANAGE_D'); ?></h2></li>
 			<?php endif; ?>
 				<?php if($hiddebuttonmanageitems): ?>
           <li>
           <a href="index.php?option=com_content&view=articles">
     														<i class="fa fa-th-list <?php echo $iconsize; ?> "></i>
-    														<?php echo JText::_( 'JOOMLA_ADMIN_ITEMLIST' ); ?>
+    														<?php echo JText::_( 'MOD_DASHBOARD_ITEMLIST' ); ?>
     												</a>
                           </li>
 				<?php endif;?>
@@ -212,7 +212,7 @@ jimport( 'joomla.application.component.controller' );
           <li>
           <a href="index.php?option=com_categories&extension=com_content">
   														<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i>
-  														<?php echo JText::_( 'JOOMLA_ADMIN_CATLIST' ); ?>
+  														<?php echo JText::_( 'MOD_DASHBOARD_CATLIST' ); ?>
   												</a>
                         </li>
 					<?php endif; ?>
@@ -220,7 +220,7 @@ jimport( 'joomla.application.component.controller' );
 <li>
           <a href="index.php?option=com_tags">
   										<i class="fa fa-tags <?php echo $iconsize; ?> "></i>
-  										<?php echo JText::_( 'JOOMLA_ADMIN_TAGLIST' ); ?>
+  										<?php echo JText::_( 'MOD_DASHBOARD_TAGLIST' ); ?>
 
   								</a>
                 </li>
@@ -229,7 +229,7 @@ jimport( 'joomla.application.component.controller' );
     <li>
     <a href="index.php?option=com_users&view=users">
     										<i class="fa fa-user <?php echo $iconsize; ?> "></i>
-    										<?php echo JText::_( 'JOOMLA_ADMIN_AUTHORLIST' ); ?>
+    										<?php echo JText::_( 'MOD_DASHBOARD_AUTHORLIST' ); ?>
     								</a>
                   </li>
 	<?php endif; ?>
@@ -239,7 +239,7 @@ jimport( 'joomla.application.component.controller' );
 	<a href="index.php?option=com_flexicontent&view=groups">
 
 			<i class="fa fa-user <?php echo $iconsize; ?> "></i>
-			<?php echo JText::_( 'JOOMLA_ADMIN_GROUPSLIST' ); ?>
+			<?php echo JText::_( 'MOD_DASHBOARD_GROUPSLIST' ); ?>
 
 	</a>
 	</li>
@@ -249,7 +249,7 @@ jimport( 'joomla.application.component.controller' );
 <li>
     <a href="index.php?option=com_media">
     										<i class="fa fa-upload <?php echo $iconsize; ?> "></i>
-    										<?php echo JText::_( 'JOOMLA_ADMIN_FILEMANAGER' ); ?>
+    										<?php echo JText::_( 'MOD_DASHBOARD_FILEMANAGER' ); ?>
 
     								</a>
                   </li>
@@ -262,13 +262,13 @@ jimport( 'joomla.application.component.controller' );
 
 			<ul class="j-links-group nav nav-list">
 			<?php if ($tabmodsidebar == 0) : ?>
-			<li><h2 class="nav-header"><?php echo JText::_('JOOMLA_ADMIN_TAB_ADMIN_D'); ?></h2></li>
+			<li><h2 class="nav-header"><?php echo JText::_('MOD_DASHBOARD_TAB_ADMIN_D'); ?></h2></li>
 			<?php endif; ?>
       <?php if($hiddebuttonprivacy): ?>
         <li>
                 <a href="index.php?option=com_privacy">
                     <i class="fa fa-lock <?php echo $iconsize; ?> "></i>
-                    <?php echo JText::_( 'JOOMLA_ADMIN_PRIVACY' ); ?>
+                    <?php echo JText::_( 'MOD_DASHBOARD_PRIVACY' ); ?>
 
                 </a>
               </li>
@@ -277,7 +277,7 @@ jimport( 'joomla.application.component.controller' );
                 <li>
               <a href="index.php?option=com_actionlogs">
                 <i class="fa fa-list-alt <?php echo $iconsize; ?> "></i>
-                <?php echo JText::_( 'JOOMLA_ADMIN_LOGS' ); ?>
+                <?php echo JText::_( 'MOD_DASHBOARD_LOGS' ); ?>
 
               </a>
             </li>
@@ -286,7 +286,7 @@ jimport( 'joomla.application.component.controller' );
                 <li>
       									<a href="index.php?option=com_fields&context=com_users.user">
       											<i class="fa fa-user <?php echo $iconsize; ?> "></i>
-      											<?php echo JText::_( 'JOOMLA_ADMIN_FIELDLIST_USER' ); ?>
+      											<?php echo JText::_( 'MOD_DASHBOARD_FIELDLIST_USER' ); ?>
       									</a>
                       </li>
       									<?php endif; ?>
@@ -294,7 +294,7 @@ jimport( 'joomla.application.component.controller' );
                           <li>
       									<a href="index.php?option=com_fields&context=com_content.article">
       										<i class="fa fa-th-list <?php echo $iconsize; ?> "></i>
-      										<?php echo JText::_( 'JOOMLA_ADMIN_FIELDLIST_ARTICLE' ); ?>
+      										<?php echo JText::_( 'MOD_DASHBOARD_FIELDLIST_ARTICLE' ); ?>
       									</a>
                       </li>
       									<?php endif; ?>
@@ -302,7 +302,7 @@ jimport( 'joomla.application.component.controller' );
                     <li>
       					<a href="index.php?option=com_config">
       							<i class="fa fa-cogs <?php echo $iconsize; ?> "></i>
-      						<?php echo JText::_( 'JOOMLA_ADMIN_GEN' ); ?>
+      						<?php echo JText::_( 'MOD_DASHBOARD_GEN' ); ?>
       					</a>
               </li>
       				<?php endif; ?>
