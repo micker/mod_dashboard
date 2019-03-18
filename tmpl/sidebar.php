@@ -19,7 +19,7 @@ defined('_JEXEC') or die('Accés interdit');
 JHtml::_('bootstrap.tooltip');
 JHTML::_('behavior.modal');
 $document = JFactory::getDocument();
-$document->addStyleSheet(JUri::base(true)."/modules/mod_joomadmin/assets/css/style.css",'text/css',"screen");
+$document->addStyleSheet(JUri::base(true)."/modules/mod_dashboard/assets/css/style.css",'text/css',"screen");
 
 //module config
 $hiddepending        = $params->get('hiddepending', '1' );
