@@ -20,7 +20,7 @@ JHtml::_('bootstrap.tooltip');
 JHTML::_('behavior.modal');
 JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 $document = JFactory::getDocument();
-$document->addStyleSheet(JUri::base(true)."/modules/mod_joomadmin/assets/css/style.css",'text/css',"screen");
+$document->addStyleSheet(JUri::base(true)."/modules/mod_moddashboard/assets/css/style.css",'text/css',"screen");
 JHtml::_('stylesheet', 'media/mod_joomadmin/css/bootstrap-iconpicker.css');
 
 
