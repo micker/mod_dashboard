@@ -33,10 +33,10 @@ class JFormFieldIconpicker extends JFormField {
                        JHtml::_('bootstrap.framework');
                        JHtml::_('stylesheet', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
-                       JHtml::_('stylesheet', 'media/mod_joomadmin/css/bootstrap-iconpicker.min.css');
-                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap.min.js');
-                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap-iconpicker-iconset-all.min.js');
-                       JHtml::_('script', 'media/mod_joomadmin/js/bootstrap-iconpicker.min.js');
+                       JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.min.css');
+                       JHtml::_('script', 'media/mod_dashboard/js/bootstrap.min.js');
+                       JHtml::_('script', 'media/mod_dashboard/js/bootstrap-iconpicker-iconset-all.min.js');
+                       JHtml::_('script', 'media/mod_dashboard/js/bootstrap-iconpicker.min.js');
 
 
                        //LOADING VIA CDN
