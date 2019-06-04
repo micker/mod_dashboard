@@ -8,7 +8,7 @@
 			 min= "0"
 			 max= "1000"
 			 required= "false"
-			 formsource= "administrator/modules/mod_joomadmin/models/forms/freebuttonchild.xml"
+			 formsource= "administrator/modules/mod_dashboard/models/forms/freebuttonchild.xml"
 			 multiple= "true"
 			 buttons= "add,remove,move"
 			layout="joomla.form.field.subform.repeatable-table"
