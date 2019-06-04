@@ -84,7 +84,7 @@ jimport( 'joomla.application.component.controller' );
 ?>
 
 
-<div class="row-fluid">
+<div class="row-fluid <?php echo $moduleclass_sfx; ?>">
 
 <?php if ($displayinfosystem || $displayconfigmodule ) : ?>
 	<div class="info-bar top">

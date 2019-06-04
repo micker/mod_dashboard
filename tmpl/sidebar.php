@@ -71,7 +71,7 @@ $user = JFactory::getUser();
 jimport( 'joomla.application.component.controller' );
 ?>
 
-<div class="row-fluid">
+<div class="row-fluid <?php echo $moduleclass_sfx; ?>">
 <?php if ($displaycustomtab || $displaycreattab || $displaymanagetab || $displayadmintab || $displayfreetab) : ?>
     <div class="sidebar-nav quick-icons">
 	<?php if ($displayconfigmodule) : ?>
