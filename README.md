@@ -46,5 +46,7 @@ Think to publish it in **`cpanel position`** after installation.
 
 
 ## Change Log
+  - v1.2.2 small correction on css
+  - v1.0 first stable relase
   - v0.5.0 First beta
   - v0.1.0 init version
