@@ -56,3 +56,8 @@ h2.nav-header {
 .control-label .hasPopover, .control-label .hasTooltip {
     display: block !important;
 }
+/** css for tab display **/
+.quick-icons h2.nav-header {
+    border-bottom: 1px solid #ccc;
+    padding-top: 30px;
+}

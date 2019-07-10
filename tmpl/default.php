@@ -20,8 +20,8 @@ JHtml::_('bootstrap.tooltip');
 JHTML::_('behavior.modal');
 JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 $document = JFactory::getDocument();
-$document->addStyleSheet(JUri::base(true)."/modules/mod_dashboard/assets/css/style.css",'text/css',"screen");
-JHtml::_('stylesheet', 'media/mod_joomadmin/css/bootstrap-iconpicker.css');
+JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
+JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
 
 
 //module config
@@ -332,6 +332,7 @@ jimport( 'joomla.application.component.controller' );
 			<?php endif; ?>
 			<!-- end of admin tabs-->
 			<?php if ($displayfreetab) : ?>
+				<?php if ($list_freebuttons) : ?>
 				<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
 			<div class="tab-pane fade" id="free<?php $tabname = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $free_buttons->freenametab)); echo $module->id.''.$tabname;?>">
 					<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
@@ -345,6 +346,7 @@ jimport( 'joomla.application.component.controller' );
          <?php endforeach; ?>
 			</div>
 			<?php endforeach; ?>
+			<?php endif; ?>
 			<?php endif; ?>
 
 

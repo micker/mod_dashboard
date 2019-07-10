@@ -19,7 +19,9 @@ defined('_JEXEC') or die('Accés interdit');
 JHtml::_('bootstrap.tooltip');
 JHTML::_('behavior.modal');
 $document = JFactory::getDocument();
-$document->addStyleSheet(JUri::base(true)."/modules/mod_dashboard/assets/css/style.css",'text/css',"screen");
+JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
+JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
 
 //module config
 $hiddepending        = $params->get('hiddepending', '1' );
@@ -314,6 +316,7 @@ jimport( 'joomla.application.component.controller' );
 			<?php endif;?>
 
 			<?php if ($displayfreetab) : ?>
+			<?php if ($list_freebuttons) : ?>
 				<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
 
 
@@ -329,8 +332,8 @@ jimport( 'joomla.application.component.controller' );
 <?php if ($free_button->displayline) : ?><hr /><?php endif; ?>
          <?php endforeach; ?>
 			</ul>
-
 			<?php endforeach; ?>
+			<?php endif; ?>
 			<?php endif; ?>
 			<?php if ($tabmodsidebar) : ?>
 			</div>
