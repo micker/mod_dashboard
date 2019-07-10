@@ -62,3 +62,6 @@ h2.nav-header {
 ul.j-links-group.nav.nav-list {
     padding-top: 13px;
 }
+.hasPopover {
+    display: inline-block !important;
+}
