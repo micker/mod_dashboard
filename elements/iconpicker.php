@@ -31,6 +31,7 @@ class JFormFieldIconpicker extends JFormField {
 	public function getInput() {
                        JHtml::_('jquery.framework');
                        JHtml::_('bootstrap.framework');
+					   JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
                        JHtml::_('stylesheet', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
                        JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.min.css');
