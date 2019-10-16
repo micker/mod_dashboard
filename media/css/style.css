@@ -53,7 +53,7 @@ h2.nav-header {
     margin-right: -14px;
 }
 /** correction for advanced module manager and popover***/
-.control-label .hasPopover, .control-label .hasTooltip {
+.control-label .hasPopover, .control-label .hasTooltip, #module-form .nav-tabs > li > a {
     display: block !important;
 }
 /** css for tab display **/
