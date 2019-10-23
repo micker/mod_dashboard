@@ -359,7 +359,6 @@ jimport( 'joomla.application.component.controller' );
 	<!-- end tabs zone -->
 </div>
 </div>
-</div>
 
 
 
