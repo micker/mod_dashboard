@@ -190,7 +190,7 @@ abstract class modDashboardHelper
 
 		// Set the Start and Limit
 		$model->setState('list.start', 0);
-		$model->setState('list.limit', $params->get('count', 5));
+		$model->setState('list.limit', $params->get('countaction', 5));
 		$model->setState('list.ordering', 'a.id');
 		$model->setState('list.direction', 'DESC');
 

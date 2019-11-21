@@ -140,6 +140,20 @@
 									<option value="1">JYES</option>
 								</field>
 								<field name="actionslogwidth" type="number" default="45" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="actionsloglist:1" />
+								<field
+								name="countaction" type="list"
+								default="5" label="MOD_DASHBOARD_NBITEM"
+								description="MOD_DASHBOARD_NBITEM" showon="actionsloglist:1">
+								<option	value="1">1</option>
+								<option	value="3">3</option>
+								<option	value="5">5</option>
+								<option	value="10">10</option>
+								<option	value="15">15</option>
+								<option	value="20">20</option>
+								<option	value="50">50</option>
+								<option	value="100">100</option>
+								</field>
+								
 								<field name="forceheightblock" type="text" default="" size="50" label="MOD_DASHBOARD_BLOCKHEIGHT" description="MOD_DASHBOARD_BLOCKHEIGHT_DESC"/>
 								<field name= "add_customblock"
 								 description= "MOD_DASHBOARD_ADD_CUSTOMBLOCK_DESC"
