@@ -12,8 +12,10 @@ button.itemlist {
 }
 .block {
 min-height:155px !important;
-margin-left: -1px !important;
-    margin-right: 15px !important;
+/*margin-left: -1px !important;
+    margin-right: 15px !important;*/
+	flex: 1 1 auto;
+	
 }
 .block > .row-striped{
 	overflow-y: auto;
