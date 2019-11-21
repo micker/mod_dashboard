@@ -119,7 +119,14 @@ abstract class modDashboardHelper
 			$itemsCustomlist = $db->loadObjectList();
 			//print_r ($itemsCustomlist) ;
 			foreach ($itemsCustomlist as &$itemCustomlist) {
+				if ($user->authorise('core.edit', 'com_content.article.' . $itemCustomlist->id))
+				{
 				$itemCustomlist->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemCustomlist->id);
+				}
+				else
+				{
+				$itemCustomlist->link = '';
+			}
 			}
 			$customblock->listitems = $itemCustomlist;
 		}
