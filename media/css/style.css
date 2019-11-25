@@ -1,5 +1,6 @@
 .action{
     width:98% !important;
+	margin-top: 20px;
 }
 .action.span12, .modulemessage.span12 {
     margin-left: 0 !important;
@@ -11,8 +12,10 @@ button.itemlist {
 }
 .block {
 min-height:155px !important;
-margin-left: -1px !important;
-    margin-right: 15px !important;
+/*margin-left: -1px !important;
+    margin-right: 15px !important;*/
+	flex: 1 1 auto;
+	
 }
 .block > .row-striped{
 	overflow-y: auto;
@@ -22,24 +25,6 @@ margin-left: -1px !important;
   color:#000;
   font-weight:bold;
 }
-.pending.well.well-small.span12 {
-  margin-left: 0;
-}
-.revised.well.well-small.span12 {
-  margin-left: 0;
-}
-.youritems.well.well-small.span12 {
-  margin-left: 0;
-}
-.trashed.well.well-small.span12 {
-  margin-left: 0;
-}
-.inprogress.well.well-small.span12 {
-  margin-left: 0;
-}
-.inprogress.well.well-small.span6 {
-  margin-left: 0;
-}
 h2.nav-header {
     border-bottom: 1px solid #E3E3E3;
 }
@@ -48,16 +33,37 @@ h2.nav-header {
     max-height: 80px !important;
 }
 .info-bar {
-    float: right;
-    margin-top: -33px;
-    margin-right: -14px;
+
 }
-/** correction for advanced module manager and popover***/
-.control-label .hasPopover, .control-label .hasTooltip, #module-form .nav-tabs > li > a {
-    display: block !important;
+.contentbloc{
+  display: flex;
+  flex-wrap: wrap;
+  align-content:space-between;
 }
-/** css for tab display **/
-.quick-icons h2.nav-header {
-    border-bottom: 1px solid #ccc;
-    padding-top: 30px;
+.block.well.well-small {
+    margin-right: 1%;
+}
+.action .btn.btn-default.btn-lg.itemlist {
+    width: 107px;
+    min-height: 75px;
+    color: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+.action .btn.btn-default.btn-lg.itemlist:hover {
+    box-shadow: 0 1px 2px rgba(0,0,0,1);
+}
+.btn.btn-secondary.iconpicker {
+    display: inline !important;
+}
+.modulemessage {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+ul.j-links-group.nav.nav-list {
+    padding-top: 13px;
+}
+.hasPopover {
+    display: inline-block !important;
 }

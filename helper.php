@@ -28,7 +28,7 @@ abstract class modDashboardHelper
 		$itemsFeatured = $db->loadObjectList();
 		//print_r ($itemsRevised) ;
 		foreach ($itemsFeatured as &$itemFeatured) {
-			if ($user->authorise('core.edit', 'com_content.article.' . $itemFeatured->id)){
+			if ($user->authorise('core.edit', 'com_content.article.'.$itemFeatured->id)){
 			$itemFeatured->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemFeatured->id);
 		}
 		else
@@ -48,7 +48,7 @@ abstract class modDashboardHelper
 		$db->setQuery( $queryPublished );
 		$itemsPublished = $db->loadObjectList();
 		foreach ($itemsPublished as &$itemPublished) {
-			if ($user->authorise('core.edit', 'com_content.article.' . $itemPublished->id)){
+			if ($user->authorise('core.edit', 'com_content.article.'.$itemPublished->id)){
 			$itemPublished->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemPublished->id);
 			}
 			else
@@ -68,7 +68,7 @@ abstract class modDashboardHelper
 		$db->setQuery( $queryUnpublished );
 		$itemsUnpublished = $db->loadObjectList();
 		foreach ($itemsUnpublished as &$itemUnpublished) {
-			if ($user->authorise('core.edit', 'com_content.article.' . $itemUnpublished->id)){
+			if ($user->authorise('core.edit', 'com_content.article.'.$itemUnpublished->id)){
 			$itemUnpublished->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemUnpublished->id);
 			}
 			else
@@ -88,7 +88,7 @@ abstract class modDashboardHelper
 		$db->setQuery( $queryArchived );
 		$itemsArchived = $db->loadObjectList();
 		foreach ($itemsArchived as &$itemArchived) {
-			if ($user->authorise('core.edit', 'com_content.article.' . $itemArchived->id)){
+			if ($user->authorise('core.edit', 'com_content.article.'.$itemArchived->id)){
 			$itemArchived->link = JRoute::_('index.php?option=com_flexicontent&task=article.edit&id='.$itemArchived->id);
 		}
 		else
@@ -108,7 +108,7 @@ abstract class modDashboardHelper
 		$db->setQuery( $queryTrashed );
 		$itemsTrashed = $db->loadObjectList();
 		foreach ($itemsTrashed as &$itemTrashed) {
-			if ($user->authorise('core.edit', 'com_content.article.' . $itemTrashed->id)){
+			if ($user->authorise('core.edit', 'com_content.article.'.$itemTrashed->id)){
 			$itemTrashed->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemTrashed->id);
 			}
 			else
@@ -128,7 +128,7 @@ abstract class modDashboardHelper
 		$db->setQuery( $queryUseritem );
 		$itemsUseritem = $db->loadObjectList();
 		foreach ($itemsUseritem as &$itemUseritem) {
-			if ($user->authorise('core.edit', 'com_content.article.' . $itemUseritem->id))
+			if ($user->authorise('core.edit', 'com_content.article.'.$itemUseritem->id))
 				{
 			$itemUseritem->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemUseritem->id);
 		}
@@ -167,7 +167,7 @@ abstract class modDashboardHelper
 			$db->setQuery( $queryCustomlist );
 			$itemsCustomlist = $db->loadObjectList();
 			foreach ($itemsCustomlist as &$itemCustomlist) {
-				if ($user->authorise('core.edit', 'com_content.article.' . $itemCustomlist->id))
+				if ($user->authorise('core.edit', 'com_content.article.'.$itemCustomlist->id))
 				{
 					$itemCustomlist->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemCustomlist->id);
 				}
