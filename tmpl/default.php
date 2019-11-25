@@ -15,11 +15,10 @@
 
 //blocage des accés directs sur ce script
 defined('_JEXEC') or die('Accés interdit');
-
+$document = JFactory::getDocument();
 JHtml::_('bootstrap.tooltip');
 JHTML::_('behavior.modal');
 JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-$document = JFactory::getDocument();
 JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
 JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
 
@@ -622,7 +621,7 @@ jimport( 'joomla.application.component.controller' );
 
 <?php if($listCustomlist) : ?>
 <?php
-foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
+foreach( $listCustomlist as $listCustomlist_idx => $customblock ) : ?>
 <div class="block <?php echo $customblock->catidlist; ?> well well-small"  style="width:<?php echo $customblock->width; ?>%">
    <h3 class="module-title nav-header">
    <i class="fa fa-user"></i>
@@ -642,30 +641,30 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) :?>
             <?php if ($customblock->displdateblock) : ?><th><?php echo JText::_( 'MOD_DASHBOARD_DATE' ); ?></th><?php endif; ?>
             </tr>
          </thead>
-
+				<?php foreach ($customblock->listitems as $itemcustomblock) :?>
          <tbody>
             <tr>
             <td>
-               <a href="<?php echo $customblock->listitems->link; ?>"><?php echo $customblock->listitems->title; ?>
+               <a href="<?php echo $itemcustomblock->link; ?>"><?php echo $itemcustomblock->title; ?>
                <i class="icon-large icon-edit"></i></a>
             </td>
             <?php if ($customblock->displautblock) : ?><td>
                <span class="small">
                   <i class="icon-user"></i>
 
-                  <small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $customblock->listitems->name; ?>"><?php echo $customblock->listitems->name;?> </small>
+                  <small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemcustomblock->name; ?>"><?php echo $itemcustomblock->name;?> </small>
                </span>
             </td>
             <?php endif; ?>
             <?php if ($customblock->displdateblock) : ?>
             <td>
             <span class="small">
-               <i class="icon-calendar"></i> <?php echo JHtml::date($customblock->listitems->modified, 'd M Y'); ?>
+               <i class="icon-calendar"></i> <?php echo JHtml::date($itemcustomblock->modified, 'd M Y'); ?>
             </span>
             </td>
             <?php endif; ?>
          </tr>
-      <?php/* endforeach; */?>
+      <?php endforeach; ?>
                   </tbody>
       </table>
 </div>

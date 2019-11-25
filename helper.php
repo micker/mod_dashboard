@@ -19,6 +19,8 @@ abstract class modDashboardHelper
 {
 	public static function getFeatured(&$params)
 	{
+		$user = JFactory::getUser();
+		$userid = $user->id;
 		// recupere la connexion à la BD
 		$db = JFactory::getDbo();
 		$queryFeatured = 'SELECT a.id, a.title, b.name , a.catid, a.created, a.created_by, a.modified, a.modified_by, a.featured FROM #__content  AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE featured = 1 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
@@ -26,55 +28,93 @@ abstract class modDashboardHelper
 		$itemsFeatured = $db->loadObjectList();
 		//print_r ($itemsRevised) ;
 		foreach ($itemsFeatured as &$itemFeatured) {
+			if ($user->authorise('core.edit', 'com_content.article.' . $itemFeatured->id)){
 			$itemFeatured->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemFeatured->id);
 		}
+		else
+			{
+				$itemFeatured->link = '';
+		}
+	}
 		return $itemsFeatured;
 	}
 	public static function getPublished(&$params)
 	{
+		$user = JFactory::getUser();
+		$userid = $user->id;
 		// recupere la connexion à la BD
 		$db = JFactory::getDbo();
 		$queryPublished = 'SELECT a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE state = 1 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
 		$db->setQuery( $queryPublished );
 		$itemsPublished = $db->loadObjectList();
 		foreach ($itemsPublished as &$itemPublished) {
+			if ($user->authorise('core.edit', 'com_content.article.' . $itemPublished->id)){
 			$itemPublished->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemPublished->id);
+			}
+			else
+			{
+				$itemPublished->link = '';
+		}
 		}
 		return $itemsPublished;
 	}
 	public static function getUnpublished(&$params)
 	{
+		$user = JFactory::getUser();
+		$userid = $user->id;
 		// recupere la connexion à la BD
 		$db = JFactory::getDbo();
 		$queryUnpublished = 'SELECT a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE state = 0 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
 		$db->setQuery( $queryUnpublished );
 		$itemsUnpublished = $db->loadObjectList();
 		foreach ($itemsUnpublished as &$itemUnpublished) {
+			if ($user->authorise('core.edit', 'com_content.article.' . $itemUnpublished->id)){
 			$itemUnpublished->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemUnpublished->id);
+			}
+			else
+			{
+				$itemUnpublished->link = '';
+		}
 		}
 		return $itemsUnpublished;
 	}
 	public static function getArchived(&$params)
 	{
+		$user = JFactory::getUser();
+		$userid = $user->id;
 		// recupere la connexion à la BD
 		$db = JFactory::getDbo();
 		$queryArchived = 'SELECT a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE state = 2 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
 		$db->setQuery( $queryArchived );
 		$itemsArchived = $db->loadObjectList();
 		foreach ($itemsArchived as &$itemArchived) {
+			if ($user->authorise('core.edit', 'com_content.article.' . $itemArchived->id)){
 			$itemArchived->link = JRoute::_('index.php?option=com_flexicontent&task=article.edit&id='.$itemArchived->id);
 		}
+		else
+			{
+				$itemArchived->link = '';
+		}
+	}
 		return $itemsArchived;
 	}
 	public static function getTrashed(&$params)
 	{
+		$user = JFactory::getUser();
+		$userid = $user->id;
 		// recupere la connexion à la BD
 		$db = JFactory::getDbo();
 		$queryTrashed = 'SELECT a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE state = -2 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
 		$db->setQuery( $queryTrashed );
 		$itemsTrashed = $db->loadObjectList();
 		foreach ($itemsTrashed as &$itemTrashed) {
+			if ($user->authorise('core.edit', 'com_content.article.' . $itemTrashed->id)){
 			$itemTrashed->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemTrashed->id);
+			}
+			else
+			{
+				$itemTrashed->link = '';
+		}
 		}
 		return $itemsTrashed;
 	}
@@ -88,7 +128,14 @@ abstract class modDashboardHelper
 		$db->setQuery( $queryUseritem );
 		$itemsUseritem = $db->loadObjectList();
 		foreach ($itemsUseritem as &$itemUseritem) {
+			if ($user->authorise('core.edit', 'com_content.article.' . $itemUseritem->id))
+				{
 			$itemUseritem->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemUseritem->id);
+		}
+		else
+		{
+			$itemUseritem->link = '';
+	}
 			switch ($itemUseritem->state){
 				case 0:
 					$itemUseritem->state=JText::_('JUNPUBLISHED');
@@ -109,6 +156,8 @@ abstract class modDashboardHelper
 	public static function getCustomlist(&$params)
 	{
 		$list_customblocks = $params->get('add_customblock');
+		$user = JFactory::getUser();
+		$userid = $user->id;
 		if ($list_customblocks){
 		$db = JFactory::getDbo();
 		// loop your result
@@ -117,18 +166,17 @@ abstract class modDashboardHelper
 			$queryCustomlist = 'SELECT a.id, a.title, b.name , a.catid, a.created, a.created_by, a.modified, a.modified_by, a.featured FROM #__content  AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE catid= '. $customblock->catidlist .' AND state = 1 ORDER BY modified DESC LIMIT '. (int) $params->get('count');
 			$db->setQuery( $queryCustomlist );
 			$itemsCustomlist = $db->loadObjectList();
-			//print_r ($itemsCustomlist) ;
 			foreach ($itemsCustomlist as &$itemCustomlist) {
 				if ($user->authorise('core.edit', 'com_content.article.' . $itemCustomlist->id))
 				{
-				$itemCustomlist->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemCustomlist->id);
+					$itemCustomlist->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemCustomlist->id);
 				}
 				else
 				{
-				$itemCustomlist->link = '';
+					$itemCustomlist->link = '';
 			}
 			}
-			$customblock->listitems = $itemCustomlist;
+			$customblock->listitems = $itemsCustomlist;
 		}
 	}
 		return $list_customblocks;
