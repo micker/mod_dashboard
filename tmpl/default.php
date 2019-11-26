@@ -16,6 +16,9 @@
 //blocage des accés directs sur ce script
 defined('_JEXEC') or die('Accés interdit');
 $document = JFactory::getDocument();
+$app       = JFactory::getApplication();
+$user      = JFactory::getUser();
+$userId    = $user->get('id');
 JHtml::_('bootstrap.tooltip');
 JHTML::_('behavior.modal');
 JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -641,7 +644,13 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) : ?>
             <?php if ($customblock->displdateblock) : ?><th><?php echo JText::_( 'MOD_DASHBOARD_DATE' ); ?></th><?php endif; ?>
             </tr>
          </thead>
-				<?php foreach ($customblock->listitems as $itemcustomblock) :?>
+				<?php foreach ($customblock->listitems as $itemcustomblock) :
+					$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemcustomblock->id);
+					$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemcustomblock->checked_out == $userId || $itemcustomblock->checked_out == 0;
+					$canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemcustomblock->id) && $itemcustomblock->created_by == $userId;
+					$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemcustomblock->id) && $canCheckin;
+					if ($canChange):
+				?>
          <tbody>
             <tr>
             <td>
@@ -664,6 +673,7 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) : ?>
             </td>
             <?php endif; ?>
          </tr>
+              <?php endif; ?>
       <?php endforeach; ?>
                   </tbody>
       </table>
