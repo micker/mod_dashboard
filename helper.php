@@ -28,7 +28,6 @@ abstract class modDashboardHelper
 		foreach ($itemsFeatured as &$itemFeatured) {
 			$itemFeatured->link = JRoute::_('index.php?option=com_content&task=article.edit&id='.$itemFeatured->id);
 		}
-	}
 		return $itemsFeatured;
 	}
 	public static function getPublished(&$params)
