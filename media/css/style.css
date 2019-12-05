@@ -67,3 +67,10 @@ ul.j-links-group.nav.nav-list {
 .hasPopover {
     display: inline-block !important;
 }
+/** correction for advanced module manager and popover***/
+.control-label .hasPopover, .control-label .hasTooltip {
+    display: block !important;
+} 
+.nav-tabs > li > a {
+    display: block !important;
+}
