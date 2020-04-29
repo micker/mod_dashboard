@@ -492,7 +492,7 @@ jimport( 'joomla.application.component.controller' );
 							<?php foreach ($listUnpublished as $itemUnpublished) : 
 							 			$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemUnpublished->id);
 										 $canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemUnpublished->checked_out == $userId || $itemUnpublished->checked_out == 0;
-										 $canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemUnpublished->id) && $$itemUnpublished->created_by == $userId;
+										// $canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemUnpublished->id) && $$itemUnpublished->created_by == $userId;
 										 $canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemUnpublished->id) && $canCheckin;
 									 if ($canChange):	
 					?>
