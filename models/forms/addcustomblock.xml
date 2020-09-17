@@ -15,7 +15,7 @@
     label="MOD_DASHBOARD_DISPLAY_AUTHOR"
     type="radio"
     default="1"
-    class="btn-group">
+    class="btn-group btn-group-yesno">
     <option value="1">JYES</option>
     <option value="0">JNO</option>
   </field>
@@ -23,7 +23,7 @@
     label="MOD_DASHBOARD_DISPLAY_DATE"
     type="radio"
     default="1"
-    class="btn-group">
+    class="btn-group btn-group-yesno">
     <option value="1">JYES</option>
     <option value="0">JNO</option>
   </field>

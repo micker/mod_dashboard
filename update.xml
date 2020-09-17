@@ -6,7 +6,7 @@
 		<element>mod_dashboard</element>
 		<type>module</type>
 		<client>administrator</client>
-		<version>1.7</version>
+		<version>2.0</version>
 
 		<infourl title="FAQ">
 			https://github.com/micker/mod_dashboard/wiki
@@ -17,12 +17,12 @@
 		</downloads>
 
 		<tags>
-			<tag>stable</tag>
+			<tag>beta</tag>
 		</tags>
 
 		<maintainer>Yannick berges</maintainer>
 		<maintainerurl>http://www.com3elles.org</maintainerurl>
-		<targetplatform name="joomla" version="3" />
+		<targetplatform name="joomla" version="4" />
 
 	</update>
 </updates>

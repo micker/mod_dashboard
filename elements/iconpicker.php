@@ -24,13 +24,20 @@ jimport('cms.html.select');    // JHtmlSelect
 
 jimport('joomla.form.helper'); // JFormHelper
 JFormHelper::loadFieldClass('list');   // JFormFieldList
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Associations;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Router\Route;
+use Joomla\Registry\Registry;
 
 class JFormFieldIconpicker extends JFormField {
                        protected $type = 'Iconpicker';
 	// getLabel() left out
 	public function getInput() {
                        JHtml::_('jquery.framework');
-                       JHtml::_('bootstrap.framework');
+                       //JHtml::_('bootstrap.framework');
 					   JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
                        JHtml::_('stylesheet', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
@@ -38,6 +45,8 @@ class JFormFieldIconpicker extends JFormField {
                        JHtml::_('script', 'media/mod_dashboard/js/bootstrap.min.js');
                        JHtml::_('script', 'media/mod_dashboard/js/bootstrap-iconpicker-iconset-all.min.js');
                        JHtml::_('script', 'media/mod_dashboard/js/bootstrap-iconpicker.min.js');
+                      // $document = Factory::getDocument();
+                        //$document->addScript('https://code.jquery.com/jquery-3.3.1.min.js');
 
 
                        //LOADING VIA CDN

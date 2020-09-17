@@ -15,12 +15,20 @@
 
 //blocage des accés directs sur ce script
 defined('_JEXEC') or die('Accés interdit');
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Associations;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Router\Route;
+use Joomla\Registry\Registry;
 $document = JFactory::getDocument();
 $app       = JFactory::getApplication();
 $user      = JFactory::getUser();
 $userId    = $user->get('id');
-JHtml::_('bootstrap.tooltip');
-JHTML::_('behavior.modal');
+
+
+//JHTML::_('behavior.modal');
 JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
 JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
@@ -87,13 +95,14 @@ jimport( 'joomla.application.component.controller' );
 
 
 <div class="row-fluid <?php echo $moduleclass_sfx; ?>">
+<div class="headerblock">
 
 	<?php if ($displayinfosystem || $displayconfigmodule ) : ?>
 	<div class="info-bar top">
 		<ul class="breadcrumb">
 			<?php if ($displayinfosystem) : ?>
 			<?php foreach ($systme_buttons as $sys_buttons) :?>
-			<?php //echo '<pre>' ,print_r($sys_buttons),'</pre>';?>
+			<?php echo '<pre>' ,print_r($sys_buttons),'</pre>';?>
 			<?php foreach ($sys_buttons as $sys_button) :?>
 			<li id="<?php echo $sys_button['id']; ?>" class="list-group-item">
 				<a href="<?php echo $sys_button['link']; ?>">
@@ -128,252 +137,365 @@ jimport( 'joomla.application.component.controller' );
 	<?php if ($displaycustomtab || $displaycreattab || $displaymanagetab || $displayadmintab || $displayfreetab) : ?>
 	<div class="action">
 
-		<ul class="nav nav-tabs" role="tablist" id="myTab<?php echo $module->id;?>">
-			<?php if ($displaycustomtab) : ?><li class=""><a href="#custom<?php echo $module->id;?>"
-					data-toggle="tab"><?php echo JText::_($nametab); ?></a></li> <?php endif; ?>
-			<?php if ($displaycreattab) : ?><li class=""><a href="#create<?php echo $module->id;?>"
-					data-toggle="tab"><?php echo JText::_('MOD_DASHBOARD_TAB_CREATE_D'); ?></a></li> <?php endif; ?>
-			<?php if ($displaymanagetab) : ?><li class=""><a href="#manage<?php echo $module->id;?>"
-					data-toggle="tab"><?php echo JText::_('MOD_DASHBOARD_TAB_MANAGE_D'); ?></a></li> <?php endif; ?>
-			<?php if ($displayadmintab) : ?><li class=""><a href="#admin<?php echo $module->id;?>"
-					data-toggle="tab"><?php echo JText::_('MOD_DASHBOARD_TAB_ADMIN_D'); ?></a></li> <?php endif; ?>
-			<?php if ($displayfreetab) : ?>
-			<?php $list_freebuttons = $params->get('free_button');
-		if ($list_freebuttons): ?>
-			<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
-			<li class=""><a
-					href="#free<?php $tabname = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $free_buttons->freenametab)); echo $module->id.''.$tabname;?>"
-					data-toggle="tab"><?php echo JText::_($free_buttons->freenametab); ?></a></li>
-			<?php endforeach; ?>
-			<?php endif; ?>
-			<?php endif; ?>
-		</ul>
-
-		<div class="tab-content">
-			<?php if ($displaycustomtab) : ?>
-			<div class="tab-pane fade in active" id="custom<?php echo $module->id;?>">
+	<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'general')); ?>
+		<?php if ($displaycustomtab) : ?>
+		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'custom', Text::_($nametab)); ?>
+		<div class="row">
+			<div class="col-lg-12">
+			<nav class="quick-icons dashboard" aria-label="Quick custom link">
+					<ul class="nav flex-wrap">
 				<?php
-								$list_buttons = $params->get('add_button');
-								if ($list_buttons): ?>
+				$list_buttons = $params->get('add_button');
+				if ($list_buttons): ?>
+				
 				<?php foreach( $list_buttons as $list_buttons_idx => $add_button ) :?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_content&view=article&layout=edit&catid=<?php echo $add_button->catid; ?>&language=<?php echo $add_button->button_lang; ?>"
 					target="<?php echo $add_button->targetlink; ?>">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa <?php echo $add_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br />
+					<div class="quickicon-icon d-flex align-items-end big">
+					<i class="fa 
+						<?php if (!empty($add_button->iconbutton)){
+							echo $add_button->iconbutton;;
+						}else{
+								echo 'fa-plus-circle';}
+								?> <?php echo $iconsize; ?> 
+								"></i></div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_($add_button->button_name); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php if ($add_button->displayline) : ?>
-				<hr /><?php endif; ?>
+				<hr class="mt-3 mb-3"/>
+				<?php endif; ?>
 				<?php endforeach; ?>
 				<?php endif; ?>
 				<?php $list_catbuttons = $params->get('add_cat_button');
 							if ($list_catbuttons): ?>
 				<?php foreach( $list_catbuttons as $list_catbuttons_idx => $cat_button ) :?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_content&view=articles&filter[category_id]=<?php echo $cat_button->catidlist; ?>&filter[language]=<?php echo $cat_button->button_lang; ?>"
 					target="<?php echo $cat_button->targetlink; ?>">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa <?php echo $cat_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br />
+					<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa 
+						<?php if (!empty($cat_button->iconbutton)){
+							echo $cat_button->iconbutton;
+						}else{
+								echo 'fa-th-list';}
+								?> <?php echo $iconsize; ?> 
+								"></i></div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_($cat_button->namecatfilter); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php if ($cat_button->displayline) : ?>
-				<hr /><?php endif; ?>
+				<hr class="mt-3 mb-3"/><?php endif; ?>
 				<?php endforeach; ?>
 				<?php endif; ?>
 				<?php $list_edititembuttons = $params->get('edit_item_button');
 							if ($list_edititembuttons): ?>
 				<?php foreach( $list_edititembuttons as $list_edititembuttons_idx => $edit_item_button ) :?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_content&task=article.edit&id=<?php echo $edit_item_button->itemid; ?>">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa <?php echo $edit_item_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa 
+						<?php if (!empty($edit_item_button->iconbutton)){
+							echo $edit_item_button->iconbutton;
+						}else{
+								echo 'fa-edit';}
+								?> <?php echo $iconsize; ?> 
+								"></i></div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_($edit_item_button->nameitemedit); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php if ($edit_item_button->displayline) : ?>
-				<hr /><?php endif; ?>
+				<hr class="mt-3 mb-3"/><?php endif; ?>
 				<?php endforeach; ?>
 				<?php endif; ?>
+				</ul>
+					</nav>
 			</div>
-			<?php endif; ?>
-			<?php if ($displaycreattab) : ?>
-			<div class="tab-pane fade" id="create<?php echo $module->id;?>">
-				<?php if($hiddebuttonadditem): ?>
+		</div>
+		<?php echo HTMLHelper::_('uitab.endTab'); ?>
+		<?php endif; ?>
+		<?php if ($displaycreattab) : ?>
+		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'create', Text::_('MOD_DASHBOARD_TAB_CREATE_D')); ?>
+		<div class="row">
+			<div class="col-lg-12">
+				<nav class="quick-icons dashboard" aria-label="Quick links creation">
+					<ul class="nav flex-wrap">
+						<?php if($hiddebuttonadditem): ?>
+						<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_content&task=article.add">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-plus-circle <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-plus-circle <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDITEM' ); ?>
-					</button>
+						</div>
 				</a>
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonaddcategory): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_categories&task=category.add&extension=com_content">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDCATEGORY' ); ?>
-					</button>
+						</div>
 				</a>
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonaddtag): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_tags&view=tag&task=tag.add">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-tags <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-tags <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDTAG' ); ?>
-					</button>
+						</div>
 				</a>
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonadduser): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_users&task=user.add">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-user <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-user <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDAUTHOR' ); ?>
-					</button>
+						</div>
 				</a>
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonaddgroup): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_users&task=group.add">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-users <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-users <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDGROUPS' ); ?>
-					</button>
+						</div>
 				</a>
+				</li>
 				<?php endif; ?>
-
-			</div>
-			<?php endif; ?>
-			<?php if ($displaymanagetab) : ?>
-			<div class="tab-pane fade" id="manage<?php echo $module->id;?>">
-				<?php if($hiddebuttonmanageitems): ?>
+					</ul>
+					</nav>
+		</div>
+		<?php echo HTMLHelper::_('uitab.endTab'); ?>
+		<?php endif; ?>
+		<?php if ($displaymanagetab) : ?>
+		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'manage', Text::_('MOD_DASHBOARD_TAB_MANAGE_D')); ?>
+		<div class="row">
+			<div class="col-lg-12">
+			<nav class="quick-icons dashboard" aria-label="Quick links creation">
+					<ul class="nav flex-wrap">
+						<?php if($hiddebuttonmanageitems): ?>
+							<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_content&view=articles">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-th-list <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-th-list <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ITEMLIST' ); ?>
-					</button>
+						</div>
 				</a>
+				</li>
 				<?php endif;?>
 				<?php if($hiddebuttonmanagecategories): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_categories&extension=com_content">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_CATLIST' ); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonmanagetags): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_tags">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-tags <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-tags <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_TAGLIST' ); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonmanageauthors): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_users&view=users">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-user <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-user <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_AUTHORLIST' ); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php endif; ?>
 
 				<?php if($hiddebuttonmanagegroups): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_users&view=groups">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-users <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-users <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_GROUPSLIST' ); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php endif; ?>
 
 				<?php if($hiddebuttonmanagefiles): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_media">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-upload <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-upload <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_FILEMANAGER' ); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php endif; ?>
-
+				</ul>
+					</nav>
 			</div>
-			<?php endif; ?>
-			<?php if ($displayadmintab) : ?>
-			<!-- start admin tabs-->
-			<div class="tab-pane fade" id="admin<?php echo $module->id;?>">
-				<?php if($hiddebuttonprivacy): ?>
+		</div>
+		<?php echo HTMLHelper::_('uitab.endTab'); ?>
+		<?php endif; ?>
+		<?php if ($displayadmintab) : ?>
+		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'admin', Text::_('MOD_DASHBOARD_TAB_ADMIN_D')); ?>
+		<div class="row">
+		<div class="col-lg-12">
+			<nav class="quick-icons dashboard" aria-label="Quick links creation">
+					<ul class="nav flex-wrap">
+						<?php if($hiddebuttonprivacy): ?>
+							<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_privacy">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-lock <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-lock <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_PRIVACY' ); ?>
-					</button>
+						</div>
 				</a>
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonlogs): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_actionlogs">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-list-alt <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-list-alt <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_LOGS' ); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php endif; ?>
 
 				<?php if($hiddebuttonprivacy || $hiddebuttonlogs): ?>
-				<hr>
+				<hr class="mt-3 mb-3">
 				<?php endif; ?>
 				<?php if($hiddebuttonmanagefieldsuser): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_fields&context=com_users.user">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-user <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-user <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_FIELDLIST_USER' ); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonmanagefieldsarticle): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_fields&context=com_content.article">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-th-list <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-th-list <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_FIELDLIST_ARTICLE' ); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonadmin): ?>
+					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_config">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa fa-cogs <?php echo $iconsize; ?> "></i><br />
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa fa-cogs <?php echo $iconsize; ?> "></i>
+						</div>
+						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_GEN' ); ?>
-					</button>
+					</div>
 				</a>
+				</li>
 				<?php endif; ?>
+						</ul>
+					</nav>
 			</div>
-			<?php endif; ?>
-			<!-- end of admin tabs-->
-			<?php if ($displayfreetab) : ?>
-			<?php if ($list_freebuttons) : ?>
-			<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
-			<div class="tab-pane fade"
-				id="free<?php $tabname = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $free_buttons->freenametab)); echo $module->id.''.$tabname;?>">
-				<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
-				<a href="<?php echo $free_button->linkbutton; ?>" target="<?php echo $free_button->targetlink; ?>">
-					<button type="button" class="btn btn-default btn-lg itemlist">
-						<i class="fa <?php echo $free_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br />
-						<?php echo JText::_($free_button->freebutton); ?>
-					</button>
-				</a>
-				<?php if ($free_button->displayline) : ?>
-				<hr /><?php endif; ?>
-				<?php endforeach; ?>
-			</div>
-			<?php endforeach; ?>
-			<?php endif; ?>
-			<?php endif; ?>
-
-
 		</div>
+		<?php echo HTMLHelper::_('uitab.endTab'); ?>
 		<?php endif; ?>
-		<!-- end tabs -->
 
+		<?php if ($displayfreetab) : ?>
+		<?php 
+		$list_freebuttons = $params->get('free_button');
+		if ($list_freebuttons): ?>
+		<?php foreach( $list_freebuttons as $list_freebuttons_idx => $free_buttons ) :?>
+		<?php $tabname = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $free_buttons->freenametab)); ?>
+		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', $tabname, Text::_($free_buttons->freenametab)); ?>
+		<div class="row">
+		<div class="col-lg-12">
+			<nav class="quick-icons dashboard" aria-label="Quick links creation">
+					<ul class="nav flex-wrap">
+						<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
+							<li class="quickicon quickicon-single col mb-3">
+				<a href="<?php echo $free_button->linkbutton; ?>" target="<?php echo $free_button->targetlink; ?>">
+				<div class="quickicon-icon d-flex align-items-end big">
+						<i class="fa 
+						<?php if (!empty($free_button->iconbutton)){
+							echo $free_button->iconbutton;
+						}else{
+								echo 'fa-edit';}
+								?> <?php echo $iconsize; ?> 
+								"></i></div>
+								<div class="quickicon-name d-flex align-items-center">
+						<?php echo JText::_($free_button->freebutton); ?>
+						</div>
+				</a>
+						</li>
+				<?php if ($free_button->displayline) : ?>
+				<hr class="mt-3 mb-3"/><?php endif; ?>
+				<?php endforeach; ?>
+				</ul>
+					</nav>
+			</div>
+		</div>
+		<?php echo HTMLHelper::_('uitab.endTab'); ?>
+		<?php endforeach; ?>
+		<?php endif; ?>
+		<?php endif; ?>
+		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
+<?php endif; ?>
 
-	</div>
-	<!-- end tabs zone -->
 </div>
 </div>
 
@@ -385,8 +507,8 @@ jimport( 'joomla.application.component.controller' );
 <div class="contentbloc">
 
 	<?php if ($hiddefeatured) : ?>
-	<div class="block featured well well-small" style="width:<?php echo $featurewidth; ?>%">
-		<h3 class="module-title nav-header"><i class="icon-large icon-featured"></i>
+	<div class="block featured card-body" style="width:<?php echo $featurewidth; ?>%">
+		<h3 class="module-title nav-header"><i class="fas fa-star featured"></i>
 			<?php echo JText::_( 'MOD_DASHBOARD_FEATURED' ); ?></h3>
 
 		<?php $show_all_link = 'index.php?option=com_content&amp;view=featured'; ?>
@@ -395,7 +517,17 @@ jimport( 'joomla.application.component.controller' );
 				<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
-				<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
+									<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+
+<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
+<thead>
+<tr>
+<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
+</tr>
+</thead>
+<tbody>
 					<?php foreach ($listFeatured as $itemFeatured) : 
 						$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemFeatured->id);
 						$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemFeatured->checked_out == $userId || $itemFeatured->checked_out == 0;
@@ -403,35 +535,35 @@ jimport( 'joomla.application.component.controller' );
 						$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemFeatured->id) && $canCheckin;
 						if ($canChange):
 					?>
-					<div class="row-fluid">
-						<div class="span12">
-							<div class="span6">
+					<tr>
+						<td>
 								<a href="<?php echo $itemFeatured->link; ?>"><?php echo $itemFeatured->title; ?>
-									<i class="icon-large icon-edit"></i></a>
-							</div>
-							<div class="span3" style="margin-left: 0 !important;">
+									<i class="fa fa-edit"></i></a>
+						</td>
+							<td>
 								<span class="small">
-									<i class="icon-user"></i>
-									<small class="hasTooltip" title=""
-										data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemFeatured->name; ?>"><?php echo $itemFeatured->name;?>
+									<i class="fa fa-user"></i>
+									<?php echo $itemFeatured->name;?>
 									</small>
 								</span>
-							</div>
-							<div class="span3">
+						</td>
+							<td>
 								<span class="small">
 									<i class="icon-calendar"></i>
 									<?php echo JHtml::date($itemFeatured->modified, 'd M Y'); ?>
 								</span>
-							</div>
-						</div>
-					</div>
+						</td>
+						</tr>
+					
 					<?php endif; ?>
 					<?php endforeach; ?>
+						</tbody>
+						</table>
 				</div>
 		</div>
 		<?php endif; ?>
 		<?php if ($hiddepublished) : ?>
-		<div class="block published well well-small" style="width:<?php echo $publishedwidth; ?>%">
+		<div class="block published card-body" style="width:<?php echo $publishedwidth; ?>%">
 			<h3 class="module-title nav-header"><i class="fa fa-check"></i>
 				<?php echo JText::_( 'MOD_DASHBOARD_PUBLISHED' ); ?></h3>
 
@@ -441,7 +573,17 @@ jimport( 'joomla.application.component.controller' );
 					<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
-					<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
+					<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+
+<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
+<thead>
+<tr>
+<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
+</tr>
+</thead>
+<tbody>
 						<?php foreach ($listPublished as $itemPublished) : 
 					$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemPublished->id);
 					$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemPublished->checked_out == $userId || $itemPublished->checked_out == 0;
@@ -449,37 +591,37 @@ jimport( 'joomla.application.component.controller' );
 					$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemPublished->id) && $canCheckin;
 					if ($canChange):						
 					?>
-						<div class="row-fluid">
-							<div class="span12">
-								<div class="span6">
+						<tr>
+							<td>
 									<a href="<?php echo $itemPublished->link; ?>"><?php echo $itemPublished->title; ?>
-										<i class="icon-large icon-edit"></i></a>
-								</div>
-								<div class="span3" style="margin-left: 0 !important;">
+										<i class="fa fa-edit"></i></a>
+					</td>
+								<td>
 									<span class="small">
-										<i class="icon-user"></i>
-										<small class="hasTooltip" title=""
-											data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemPublished->name; ?>"><?php echo $itemPublished->name;?>
+										<i class="fa fa-user"></i>
+										<?php echo $itemPublished->name;?>
 										</small>
 									</span>
-								</div>
-								<div class="span3">
+					</td>
+								<td>
 									<span class="small">
 										<i class="icon-calendar"></i>
 										<?php echo JHtml::date($itemPublished->modified, 'd M Y'); ?>
 									</span>
-								</div>
-							</div>
-						</div>
+					</td>
+							
+					</tr>
 						<?php endif; ?>
 						<?php endforeach; ?>
+					</tbody>
+					</table>
 					</div>
 			</div>
 			<?php endif; ?>
 
 			<?php if ($hiddeunpublished) : ?>
 
-			<div class="block unpublished well well-small" style="width:<?php echo $unpublishedwidth; ?>%">
+			<div class="block unpublished card-body" style="width:<?php echo $unpublishedwidth; ?>%">
 				<h3 class="module-title nav-header"><i class="fa fa-thumbs-down"></i>
 					<?php echo JText::_( 'MOD_DASHBOARD_UNPUBLISHED' ); ?></h3>
 				<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=0'; ?>
@@ -488,7 +630,17 @@ jimport( 'joomla.application.component.controller' );
 						<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
-						<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
+													<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+
+<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
+<thead>
+<tr>
+<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
+</tr>
+</thead>
+<tbody>
 							<?php foreach ($listUnpublished as $itemUnpublished) : 
 							 			$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemUnpublished->id);
 										 $canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemUnpublished->checked_out == $userId || $itemUnpublished->checked_out == 0;
@@ -496,34 +648,32 @@ jimport( 'joomla.application.component.controller' );
 										 $canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemUnpublished->id) && $canCheckin;
 									 if ($canChange):	
 					?>
-							<div class="row-fluid">
-								<div class="span12">
-									<div class="span6">
+							<tr>
+									 <td>
 										<a href="<?php echo $itemUnpublished->link; ?>"><?php echo $itemUnpublished->title; ?>
-											<i class="icon-large icon-edit"></i></a>
-									</div>
-									<div class="span3" style="margin-left: 0 !important;">
+											<i class="fa fa-edit"></i></a>
+									 </td>
+									<td>
 										<span class="small">
-											<small class="hasTooltip" title=""
-												data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemUnpublished->name; ?>"><i
-													class="icon-user"></i> <?php echo $itemUnpublished->name; ?></small>
+											<i class="fa fa-user"></i> <?php echo $itemUnpublished->name; ?></small>
 										</span>
-									</div>
-									<div class="span3">
+									 </td>
+									<td>
 										<span class="small">
 											<i class="icon-calendar"></i>
 											<?php echo JHtml::date($itemUnpublished->modified, 'd M Y'); ?>
 										</span>
-									</div>
-								</div>
-							</div>
+									 </td>
+									 </tr>
 							<?php endif; ?>
 							<?php endforeach; ?>
+							<tbody>
+									 </table>
 						</div>
 				</div>
 				<?php endif; ?>
 				<?php if ($hiddearchived) : ?>
-				<div class="block archived well well-small" style="width:<?php echo $archivedwidth; ?>%">
+				<div class="block archived card-body" style="width:<?php echo $archivedwidth; ?>%">
 					<h3 class="module-title nav-header"><i class="fa fa-archive"></i>
 						<?php echo JText::_( 'MOD_DASHBOARD_ARCHIVED' ); ?></h3>
 					<?php		$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=2'; ?>
@@ -532,7 +682,17 @@ jimport( 'joomla.application.component.controller' );
 							<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
-							<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
+							<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+
+<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
+<thead>
+<tr>
+<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
+</tr>
+</thead>
+<tbody>
 								<?php foreach ($listArchived as $itemArchived) : 
 		 			$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemArchived->id);
 					 $canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemArchived->checked_out == $userId || $itemArchived->checked_out == 0;
@@ -540,33 +700,32 @@ jimport( 'joomla.application.component.controller' );
 					 $canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemArchived->id) && $canCheckin;
 				 if ($canChange):										
 					?>
-								<div class="row-fluid">
-									<div class="span12">
-										<div class="span6">
+								<tr>
+									<td>
 											<a href="<?php echo $itemArchived->link; ?>"><?php echo $itemArchived->title; ?>
-												<i class="icon-large icon-edit"></i></a>
-										</div>
-										<div class="span3" style="margin-left: 0 !important;">
+												<i class="fa fa-edit"></i></a>
+				 </td>
+										<td>
 											<span class="small">
-												<i class="icon-user"></i>
-												<small class="hasTooltip" title=""
-													data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemArchived->name; ?>"><?php echo $itemArchived->name;?>
-												</small>
+												<i class="fa fa-user"></i>
+												<?php echo $itemArchived->name;?>
 											</span>
-										</div>
-										<div class="span3">
+				 </td>
+										<td>
 											<span class="small"> <i class="icon-calendar"></i>
 												<?php echo JHtml::date($itemArchived->modified, 'd M Y'); ?></span>
-										</div>
-									</div>
+				 </td>
+				 </tr>
 								</div>
 								<?php endif; ?>
 								<?php endforeach; ?>
+								</tbody>
+				 </table>
 							</div>
 					</div>
 					<?php endif; ?>
 					<?php if ($hiddeyouritem) : ?>
-					<div class="block youritems well well-small" style="width:<?php echo $youritemwidth; ?>%">
+					<div class="block youritems card-body" style="width:<?php echo $youritemwidth; ?>%">
 						<?php $user = JFactory::getUser();		?>
 						<h3 class="module-title nav-header">
 							<i class="fa fa-user"></i>
@@ -577,7 +736,18 @@ jimport( 'joomla.application.component.controller' );
 								<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
-								<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
+																	<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+
+<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
+<thead>
+<tr>
+<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JSTATES'); ?></th>
+<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
+</tr>
+</thead>
+<tbody>
 									<?php foreach ($listUseritem as $itemUseritem) : 
 		 			$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemUseritem->id);
 					 $canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemUseritem->checked_out == $userId || $itemUseritem->checked_out == 0;
@@ -586,37 +756,40 @@ jimport( 'joomla.application.component.controller' );
 				 if ($canChange):				
 				
 				?>
-									<div class="row-fluid">
-										<div class="span12">
-											<div class="span6">
+									<tr>
+										<td>
 												<a href="<?php echo $itemUseritem->link; ?>"><?php echo $itemUseritem->title; ?>
-													<i class="icon-large icon-edit"></i></a>
-											</div>
-											<div class="span3" style="margin-left: 0 !important;">
+													<i class="fa fa-edit"></i></a>
+				 </td>
+											<td>
 												<span class="small">
-													<i class="icon-user"></i>
+													<i class="fa fa-user"></i>
 
 													<small class="hasTooltip" title=""
 														data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_CREATED_BY')." ". $user->name; ?>"><?php echo $user->name; ?>
 													</small>
 												</span>
-											</div>
-											<div class="span3">
+				 </td>
+											<td>
 												<?php echo $itemUseritem->state;?>
+				 </td>
+				 <td>
 												<span class="small">
 													<i class="icon-calendar"></i>
 													<?php echo JHtml::date($itemUseritem->modified, 'd M Y'); ?>
 												</span>
-											</div>
-										</div>
-									</div>
+											</td>
+										
+				 </tr>
 									<?php endif; ?>
 									<?php endforeach; ?>
+				 </tbody>
+				 </table>
 								</div>
 						</div>
 						<?php endif; ?>
 						<?php if ($hiddetrashed) : ?>
-						<div class="block trashed well well-small" style="width:<?php echo $trashedwidth; ?>%">
+						<div class="block trashed card-body" style="width:<?php echo $trashedwidth; ?>%">
 							<h3 class="module-title nav-header"><i class="fa fa-trash"></i>
 								<?php echo JText::_( 'MOD_DASHBOARD_TRASHED' ); ?></h3>
 							<?php
@@ -626,7 +799,16 @@ jimport( 'joomla.application.component.controller' );
 									<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
-									<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
+									<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+
+									<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
+				<thead>
+		<tr>
+			<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
+			<th scope="col" class="w-40"><?php echo Text::_('JAUTHOR'); ?></th>
+		</tr>
+	</thead>
+	<tbody>
 										<?php foreach ($listTrashed as $itemTrashed) :
 		 			$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemTrashed->id);
 					$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemTrashed->checked_out == $userId || $itemTrashed->checked_out == 0;
@@ -634,38 +816,33 @@ jimport( 'joomla.application.component.controller' );
 					$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemTrashed->id) && $canCheckin;
 				if ($canChange):
 		 ?>
-										<div class="row-fluid">
-											<div class="span12">
-												<div class="span6">
+										<tr>
+				<td>
 													<a href="<?php echo $itemTrashed->link; ?>"><?php echo $itemTrashed->title; ?>
-														<i class="icon-large icon-edit"></i></a>
-												</div>
-												<div class="span3" style="margin-left: 0 !important;">
+														<i class="fa fa-edit"></i></a>
+				</td>
+				<td>
 													<span class="small">
-														<i class="icon-user"></i>
-
-														<small class="hasTooltip" title=""
-															data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_CREATED_BY')." ". $user->name; ?>"><?php echo $user->name; ?>
-														</small>
+														<i class="fa fa-user"></i><?php echo $user->name; ?>
 													</span>
-												</div>
-												<div class="span3">
-													<?php //echo $itemTrashed->state;?>
+				</td>
+												<td>
 													<span class="small">
 														<i class="icon-calendar"></i>
 														<?php echo JHtml::date($itemTrashed->modified, 'd M Y'); ?>
 													</span>
-												</div>
-											</div>
-										</div>
+				</td>
+				</tr>
 										<?php endif; ?>
 										<?php endforeach; ?>
-									</div>
-							</div>
+										</tbody>
+											</table>
+				</div>
+				</div>
 							<?php endif; ?>
 
 							<?php if($actionsloglist) : ?>
-							<div class="block actionlog well well-small" style="width:<?php echo $actionslogwidth; ?>%">
+							<div class="block actionlog card-body" style="width:<?php echo $actionslogwidth; ?>%">
 								<h3 class="module-title nav-header">
 									<i class="fa fa-list-alt"></i>
 									<?php echo JText::_('MOD_DASHBOARD_ACTIONLOGS_BLOCK_NAME'); ?> : </h3>
@@ -675,22 +852,34 @@ jimport( 'joomla.application.component.controller' );
 										<?php
    echo JText::_( 'MOD_DASHBOARD_ALL' );
    echo "</a></div>";	?>
-										<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
+										<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+
+
 											<?php if (count($actionlist)) : ?>
+												<table class="table">
+				<thead>
+		<tr>
+			<th scope="col" class="w-80"><?php echo Text::_('MOD_LATESTACTIONS_ACTION'); ?></th>
+			<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
+		</tr>
+	</thead>
+	<tbody>
 											<?php foreach ($actionlist as $i => $item) : ?>
-											<div class="row-fluid">
-												<div class="span8 truncate">
+												<tr>
+				<td>
 													<?php echo $item->message; ?>
-												</div>
-												<div class="span4">
-													<div class="small pull-right hasTooltip"
-														title="<?php echo JHtml::_('tooltipText', 'JGLOBAL_FIELD_CREATED_LABEL'); ?>">
+											</td>
+												<td>
+													<div class="small">
 														<span class="icon-calendar" aria-hidden="true"></span>
 														<?php echo JHtml::_('date', $item->log_date, JText::_('DATE_FORMAT_LC5')); ?>
 													</div>
-												</div>
-											</div>
+											</td>
+											</tr>
+											
 											<?php endforeach; ?>
+											</tbody>
+											</table>
 											<?php else : ?>
 											<div class="row-fluid">
 												<div class="span12">
@@ -709,7 +898,7 @@ jimport( 'joomla.application.component.controller' );
 								<?php if($listCustomlist) : ?>
 								<?php
 foreach( $listCustomlist as $listCustomlist_idx => $customblock ) : ?>
-								<div class="block <?php echo $customblock->catidlist; ?> well well-small"
+								<div class="block <?php echo $customblock->catidlist; ?> card-body"
 									style="width:<?php echo $customblock->width; ?>%">
 									<h3 class="module-title nav-header">
 										<i class="fa fa-user"></i>
@@ -720,7 +909,21 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) : ?>
 											<?php
    echo JText::_( 'MOD_DASHBOARD_ALL' );
    echo "</a></div>";	?>
-											<div class="row-striped" style="height:<?php echo $forceheightblock; ?>">
+											<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+
+											<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
+				<thead>
+		<tr>
+			<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
+			<?php if ($customblock->displautblock) : ?>
+			<th scope="col" class="w-40"><?php echo Text::_('JAUTHOR'); ?></th>
+			<?php endif; ?>
+			<?php if ($customblock->displdateblock) : ?>
+			<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
+			<?php endif; ?>
+		</tr>
+	</thead>
+	<tbody>
 
 												<?php foreach ($customblock->listitems as $itemcustomblock) :
 					$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemcustomblock->id);
@@ -729,47 +932,46 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) : ?>
 					$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemcustomblock->id) && $canCheckin;
 					if ($canChange):
 				?>
-												<div class="row-fluid">
-													<div class="span12">
-														<div class="span6">
+				<tr>
+				<td>
 															<a href="<?php echo $itemcustomblock->link; ?>"><?php echo $itemcustomblock->title; ?>
-																<i class="icon-large icon-edit"></i></a>
-														</div>
+																<i class="fa fa-edit"></i></a>
+																</td>
 														<?php if ($customblock->displautblock) : ?>
-														<div class="span3" style="margin-left: 0 !important;">
+														<td>
 															<span class="small">
-																<i class="icon-user"></i>
+																<i class="fa fa-user"></i>
 
-																<small class="hasTooltip" title=""
-																	data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_MODIFIED_BY')." ". $itemcustomblock->name; ?>"><?php echo $itemcustomblock->name;?>
+																<small><?php echo $itemcustomblock->name;?>
 																</small>
 															</span>
-														</div>
+															</td>
 														<?php endif; ?>
 														<?php if ($customblock->displdateblock) : ?>
-														<div class="span3">
+														<td>
 															<span class="small">
 																<i class="icon-calendar"></i>
 																<?php echo JHtml::date($itemcustomblock->modified, 'd M Y'); ?>
 															</span>
-														</div>
+															</td>
 														<?php endif; ?>
-													</div>
-													</div>
 													<?php endif; ?>
 													<?php endforeach; ?>
+												</tr>
+												</tbody>
+												</table>
 												</div>
 												</div>
-												
 												<?php endforeach; ?>
 												<?php endif; ?>
 											</div>
 
+											</div>
 
 
 
 											<script type="text/javascript">
-												jQuery(document).ready(function ($) {
-													$('#myTab<?php echo $module->id;?> a:first').tab('show');
-												});
+												//jQuery(document).ready(function ($) {
+												//	$('#myTab<?php echo $module->id;?> a:first').tab('show');
+												//});
 											</script>

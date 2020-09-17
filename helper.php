@@ -13,8 +13,21 @@
 * GNU General Public License for more details.
 **/
 
+/*namespace Joomla\Module\Dashboard\Administrator\helper;*/
+
 //blocage des accés directs sur ce script
-defined('_JEXEC') or die('Accés interdit');
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\Application\CMSApplication;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\Router\Route;
+use Joomla\CMS\Language\Text;
+use Joomla\Component\Actionlogs\Administrator\Helper\ActionlogsHelper;
+use Joomla\Component\Actionlogs\Administrator\Model\ActionlogsModel;
+use Joomla\Module\Quickicon\Administrator\Event\QuickIconsEvent;
+use Joomla\Registry\Registry;
+
 abstract class modDashboardHelper
 {
 	public static function getFeatured(&$params)
@@ -125,71 +138,61 @@ abstract class modDashboardHelper
 	}
 		return $list_customblocks;
 	}
-	/**
-	 * getIconFromPlugins
-	 *
-	 * @param \JRegistry $params
-	 *
-	 * @return  array
-	 */
-	public static function getIconFromPlugins($params)
+
+	public static function getIconFromPlugins(Registry $params, CMSApplication $application = null)
 	{
-		// Include buttons defined by published quickicon plugins
-		//$keys = array_keys($buttons);
-		JPluginHelper::importPlugin('quickicon');
-		$app    = JFactory::getApplication();
-		$arrays = (array) $app->triggerEvent('onGetIcons', array('mod_quickicon'));
-		// Extensions plugin image map
-		foreach ($arrays as $response)
-		{
-			foreach ($response as $icon)
+		$key     = (string) $params;
+		$context = (string) $params->get('context', 'mod_quickicon');
+		$application = Factory::getApplication();
+		PluginHelper::importPlugin('quickicon');
+		$buttons[$key] = [];
+			$arrays = (array) $application->triggerEvent(
+				'onGetIcons',
+				new QuickIconsEvent('onGetIcons', ['context' => $context])
+			);
+
+			foreach ($arrays as $response)
 			{
-				$default = array(
-					'link'   => null,
-					'text'   => null,
-					'image'  => 'joomla',
-					'access' => true,
-					'class'  => 'ak-icon-item'
-				);
-				$icon = array_merge($default, $icon);
-				if (!is_null($icon['link']) && !is_null($icon['text']))
+				if (!\is_array($response))
 				{
-					$icon['icon_class'] = 'icon-' . $icon['image'];
-					unset($icon['image']);
-					// Set params
-					if (isset($icon['params']))
+					continue;
+				}
+
+				foreach ($response as $icon)
+				{
+					$default = array(
+						'link'    => null,
+						'image'   => null,
+						'text'    => null,
+						'name'    => null,
+						'linkadd' => null,
+						'access'  => true,
+						'class'   => null,
+						'group'   => 'MOD_QUICKICON',
+					);
+
+					$icon = array_merge($default, $icon);
+
+					if (!\is_null($icon['link']) && !\is_null($icon['text']))
 					{
-						$icon['params'] = ($icon['params'] instanceof JRegistry) ? $icon['params'] : new JRegistry();
+						$buttons[$key][] = $icon;
 					}
-					else
-					{
-						$icon['params'] = new JRegistry;
-					}
-					if (!isset ($keys[0]))
-					{
-						$keys[0] = null;
-					}
-					if (!isset ($buttons[$keys[0]]))
-					{
-						$buttons[$keys[0]] = array();
-					}
-					$systme_buttons[$keys[0]][] = $icon;
 				}
 			}
-		}
-		return $systme_buttons;
+
+		return $buttons[$key];
+
 	}
+
 	public static function getActionlogList(&$params)
 	{
-		JLoader::register('ActionlogsModelActionlogs', JPATH_ADMINISTRATOR . '/components/com_actionlogs/models/actionlogs.php');
-		JLoader::register('ActionlogsHelper', JPATH_ADMINISTRATOR . '/components/com_actionlogs/helpers/actionlogs.php');
 
-		/* @var ActionlogsModelActionlogs $model */
-		$model = JModelLegacy::getInstance('Actionlogs', 'ActionlogsModel', array('ignore_request' => true));
+		/** @var ActionlogsModelActionlogs $model */
+	$model = new ActionlogsModel(['ignore_request' => true]);
 
 		// Set the Start and Limit
 		$model->setState('list.start', 0);
-		$model->setState('list.limit', $params->get('countaction', 5));
+		$model->setState('list.limit', $params->get('count', 5));
 		$model->setState('list.ordering', 'a.id');
 		$model->setState('list.direction', 'DESC');
 
@@ -204,7 +207,7 @@ abstract class modDashboardHelper
 		}
 
 		return $rows;
-	}
+	} 
 
 
 }

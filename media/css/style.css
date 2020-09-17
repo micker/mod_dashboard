@@ -74,3 +74,12 @@ ul.j-links-group.nav.nav-list {
 .nav-tabs > li > a {
     display: block !important;
 }
+hr.mt-3.mb-3 {
+    width: 100%;
+}
+h3.module-title.nav-header {
+    float:left;
+}
+.headerblock {
+    margin-bottom: 40px;
+}
