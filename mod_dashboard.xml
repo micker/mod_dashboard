@@ -60,6 +60,8 @@
 									<option value="fa-3x">3X</option>
 									<option value="fa-4x">4X</option>
 									<option value="fa-5x">5X</option>
+									<option value="fa-7x">7X</option>
+									<option value="fa-10x">10X</option>
 								</field>
 			</fieldset>
 

@@ -18,6 +18,10 @@
       		<option value="*">JALL</option>
       </field>
 			<field name="iconbutton" type="iconpicker" default="fa-plus-circle" label="MOD_DASHBOARD_ICON" description="MOD_DASHBOARD_ICON_DESC" />
+					<field name="coloricon" type="color" default="" format="rgba"
+	label="MOD_DASHBOARD_ICON_COLOR"
+	description="MOD_DASHBOARD_ICON_COLOR_DESC" 
+	/>
 			<field name="targetlink" label="MOD_DASHBOARD_TARGETLINK" description="MOD_DASHBOARD_TARGETLINK_DESC" type="radio" default="_self" class="btn-group btn-group-yesno">
 			<option value="_self">MOD_DASHBOARD_SELF</option>
 			<option value="_blank">MOD_DASHBOARD_BLANK</option>

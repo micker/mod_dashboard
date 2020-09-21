@@ -83,3 +83,36 @@ h3.module-title.nav-header {
 .headerblock {
     margin-bottom: 40px;
 }
+.iconpicker-popover {
+    background: #fff !important;
+}
+
+.quick-icons a .fa-1x {
+    font-size: 1em !important; }
+  
+.quick-icons a .fa-2x {
+    font-size: 2em !important; }
+  
+.quick-icons a .fa-3x {
+    font-size: 3em !important; }
+  
+.quick-icons a.fa-4x {
+    font-size: 4em !important; }
+  
+.quick-icons .fa-5x {
+    font-size: 5em !important; }
+  
+.quick-icons .fa-6x {
+    font-size: 6em !important; }
+  
+.quick-icons .fa-7x {
+    font-size: 7em !important; }
+  
+.quick-icons .fa-8x {
+    font-size: 8em !important; }
+  
+.quick-icons .fa-9x {
+    font-size: 9em !important; }
+  
+.quick-icons .fa-10x {
+    font-size: 10em !important; }

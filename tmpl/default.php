@@ -29,7 +29,7 @@ $userId    = $user->get('id');
 
 
 //JHTML::_('behavior.modal');
-JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+//JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
 JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
 
@@ -61,6 +61,7 @@ $trashedwidth     = $params->get('trashedlogwidth','48');
 $archivedwidth       = $params->get('archivedwidth','48');
 $actionslogwidth     = $params->get('actionslogwidth','48');
 $iconsize     = $params->get('iconsize','fa-2x');
+
 
 //customtab
 $nametab = $params->get('nametab', 'MOD_DASHBOARD_CUSTOM_TAB_NAME' );
@@ -153,13 +154,18 @@ jimport( 'joomla.application.component.controller' );
 				<a href="index.php?option=com_content&view=article&layout=edit&catid=<?php echo $add_button->catid; ?>&language=<?php echo $add_button->button_lang; ?>"
 					target="<?php echo $add_button->targetlink; ?>">
 					<div class="quickicon-icon d-flex align-items-end big">
-					<i class="fa 
+					<i class="fas 
 						<?php if (!empty($add_button->iconbutton)){
-							echo $add_button->iconbutton;;
+							echo $add_button->iconbutton;
 						}else{
 								echo 'fa-plus-circle';}
 								?> <?php echo $iconsize; ?> 
-								"></i></div>
+								" 
+								<?php if (!empty($add_button->coloricon)){
+							echo 'style="color:'. $add_button->coloricon .';"';
+						}else{
+						}
+						?>></i></div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_($add_button->button_name); ?>
 					</div>
@@ -177,13 +183,19 @@ jimport( 'joomla.application.component.controller' );
 				<a href="index.php?option=com_content&view=articles&filter[category_id]=<?php echo $cat_button->catidlist; ?>&filter[language]=<?php echo $cat_button->button_lang; ?>"
 					target="<?php echo $cat_button->targetlink; ?>">
 					<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa 
+						<i class="fas 
 						<?php if (!empty($cat_button->iconbutton)){
 							echo $cat_button->iconbutton;
 						}else{
 								echo 'fa-th-list';}
 								?> <?php echo $iconsize; ?> 
-								"></i></div>
+							 "
+								<?php if (!empty($cat_button->coloricon)){
+							echo 'style="color:'. $cat_button->coloricon .';"';
+						}else{
+						}
+						?>>	
+							</i></div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_($cat_button->namecatfilter); ?>
 					</div>
@@ -199,13 +211,19 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_content&task=article.edit&id=<?php echo $edit_item_button->itemid; ?>">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa 
+						<i class="fas 
 						<?php if (!empty($edit_item_button->iconbutton)){
 							echo $edit_item_button->iconbutton;
 						}else{
 								echo 'fa-edit';}
-								?> <?php echo $iconsize; ?> 
-								"></i></div>
+								?> <?php echo $iconsize; ?>
+								 "
+								<?php if (!empty($edit_item_button->coloricon)){
+							echo 'style="color:'. $edit_item_button->coloricon .';"';
+						}else{
+						}
+						?>>
+							</i></div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_($edit_item_button->nameitemedit); ?>
 					</div>
@@ -231,7 +249,7 @@ jimport( 'joomla.application.component.controller' );
 						<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_content&task=article.add">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-plus-circle <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-plus-circle <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDITEM' ); ?>
@@ -243,7 +261,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_categories&task=category.add&extension=com_content">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-folder-open <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDCATEGORY' ); ?>
@@ -255,7 +273,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_tags&view=tag&task=tag.add">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-tags <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-tags <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDTAG' ); ?>
@@ -267,7 +285,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_users&task=user.add">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-user <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-user <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDAUTHOR' ); ?>
@@ -279,7 +297,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_users&task=group.add">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-users <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-users <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ADDGROUPS' ); ?>
@@ -302,7 +320,7 @@ jimport( 'joomla.application.component.controller' );
 							<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_content&view=articles">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-th-list <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-th-list <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_ITEMLIST' ); ?>
@@ -314,7 +332,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_categories&extension=com_content">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-folder-open <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-folder-open <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_CATLIST' ); ?>
@@ -326,7 +344,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_tags">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-tags <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-tags <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_TAGLIST' ); ?>
@@ -338,7 +356,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_users&view=users">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-user <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-user <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_AUTHORLIST' ); ?>
@@ -351,7 +369,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_users&view=groups">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-users <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-users <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_GROUPSLIST' ); ?>
@@ -364,7 +382,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_media">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-upload <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-upload <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_FILEMANAGER' ); ?>
@@ -388,7 +406,7 @@ jimport( 'joomla.application.component.controller' );
 							<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_privacy">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-lock <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-lock <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_PRIVACY' ); ?>
@@ -400,7 +418,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_actionlogs">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-list-alt <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-list-alt <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_LOGS' ); ?>
@@ -416,7 +434,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_fields&context=com_users.user">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-user <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-user <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_FIELDLIST_USER' ); ?>
@@ -428,7 +446,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_fields&context=com_content.article">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-th-list <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-th-list <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_FIELDLIST_ARTICLE' ); ?>
@@ -440,7 +458,7 @@ jimport( 'joomla.application.component.controller' );
 					<li class="quickicon quickicon-single col mb-3">
 				<a href="index.php?option=com_config">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa fa-cogs <?php echo $iconsize; ?> "></i>
+						<i class="fas fa-cogs <?php echo $iconsize; ?> "></i>
 						</div>
 						<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_( 'MOD_DASHBOARD_GEN' ); ?>
@@ -470,13 +488,19 @@ jimport( 'joomla.application.component.controller' );
 							<li class="quickicon quickicon-single col mb-3">
 				<a href="<?php echo $free_button->linkbutton; ?>" target="<?php echo $free_button->targetlink; ?>">
 				<div class="quickicon-icon d-flex align-items-end big">
-						<i class="fa 
+						<i class="fas 
 						<?php if (!empty($free_button->iconbutton)){
 							echo $free_button->iconbutton;
 						}else{
 								echo 'fa-edit';}
-								?> <?php echo $iconsize; ?> 
-								"></i></div>
+								?> <?php echo $iconsize; ?>  
+								"
+								   <?php if (!empty($free_button->coloricon)){
+							   echo 'style="color:'. $free_button->coloricon .';"';
+						   }else{
+						   }
+						   ?>>	   
+							</i></div>
 								<div class="quickicon-name d-flex align-items-center">
 						<?php echo JText::_($free_button->freebutton); ?>
 						</div>

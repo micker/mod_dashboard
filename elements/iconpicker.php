@@ -36,17 +36,18 @@ class JFormFieldIconpicker extends JFormField {
                        protected $type = 'Iconpicker';
 	// getLabel() left out
 	public function getInput() {
-                       JHtml::_('jquery.framework');
+                       //JHtml::_('jquery.framework');
                        //JHtml::_('bootstrap.framework');
-					   JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
-                       JHtml::_('stylesheet', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+					             JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
+                       //JHtml::_('stylesheet', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
-                       JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.min.css');
+                       //JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.min.css');
                        JHtml::_('script', 'media/mod_dashboard/js/bootstrap.min.js');
                        JHtml::_('script', 'media/mod_dashboard/js/bootstrap-iconpicker-iconset-all.min.js');
                        JHtml::_('script', 'media/mod_dashboard/js/bootstrap-iconpicker.min.js');
-                      // $document = Factory::getDocument();
-                        //$document->addScript('https://code.jquery.com/jquery-3.3.1.min.js');
+
+                       //JHtml::_('stylesheet', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
+
 
 
                        //LOADING VIA CDN
@@ -58,7 +59,7 @@ class JFormFieldIconpicker extends JFormField {
                        $iconlist = ' <button id="'. $this->id .'-wrapper" class="btn btn-secondary"/></button>';
                        $iconlist .="
                        <script>
-                       (function ($) {
+                       document.addEventListener('DOMContentLoaded', function() {
                        $('#". $this->id ."-wrapper').iconpicker({
                        align: 'left',
                        arrowClass: 'btn-success',
@@ -86,15 +87,15 @@ class JFormFieldIconpicker extends JFormField {
                        input.attr({'id': '" . $this->id . "', 'name': '" . $this->name . "'});
                        input.val('" . $this->value . "');
 
-                       })(jQuery);
+                       });
                        </script>
                       <script>
                       (function ($) {
-                      $(document).on('subform-row-add', function(event, row){
+                        document.addEventListener('DOMContentLoaded', function().on('subform-row-add', function(event, row){
                                       $(row).prev().find('button.hasPicker').iconpicker();
                                       $(row).find('button.hasPicker').iconpicker();
                           })
-                      })(jQuery);
+                      });
                       </script>
                        ";
 
