@@ -563,7 +563,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 						</td>
 							<td>
 								<span class="small">
-									<i class="icon-calendar"></i>
+									<i class="fas fa-calendar"></i>
 									<?php echo JHtml::date($itemFeatured->modified, 'd M Y'); ?>
 								</span>
 						</td>
@@ -619,7 +619,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 					</td>
 								<td>
 									<span class="small">
-										<i class="icon-calendar"></i>
+										<i class="fas fa-calendar"></i>
 										<?php echo JHtml::date($itemPublished->modified, 'd M Y'); ?>
 									</span>
 					</td>
@@ -674,7 +674,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 									 </td>
 									<td>
 										<span class="small">
-											<i class="icon-calendar"></i>
+											<i class="fas fa-calendar"></i>
 											<?php echo JHtml::date($itemUnpublished->modified, 'd M Y'); ?>
 										</span>
 									 </td>
@@ -726,7 +726,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 											</span>
 				 </td>
 										<td>
-											<span class="small"> <i class="icon-calendar"></i>
+											<span class="small"> <i class="fas fa-calendar"></i>
 												<?php echo JHtml::date($itemArchived->modified, 'd M Y'); ?></span>
 				 </td>
 				 </tr>
@@ -789,7 +789,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				 </td>
 				 <td>
 												<span class="small">
-													<i class="icon-calendar"></i>
+													<i class="fas fa-calendar"></i>
 													<?php echo JHtml::date($itemUseritem->modified, 'd M Y'); ?>
 												</span>
 											</td>
@@ -842,7 +842,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</td>
 												<td>
 													<span class="small">
-														<i class="icon-calendar"></i>
+														<i class="fas fa-calendar"></i>
 														<?php echo JHtml::date($itemTrashed->modified, 'd M Y'); ?>
 													</span>
 				</td>
@@ -885,7 +885,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 											</td>
 												<td>
 													<div class="small">
-														<span class="icon-calendar" aria-hidden="true"></span>
+														<span class="fas fa-calendar" aria-hidden="true"></span>
 														<?php echo JHtml::_('date', $item->log_date, JText::_('DATE_FORMAT_LC5')); ?>
 													</div>
 											</td>
@@ -964,7 +964,7 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) : ?>
 														<?php if ($customblock->displdateblock) : ?>
 														<td>
 															<span class="small">
-																<i class="icon-calendar"></i>
+																<i class="fas fa-calendar"></i>
 																<?php echo JHtml::date($itemcustomblock->modified, 'd M Y'); ?>
 															</span>
 															</td>
@@ -981,11 +981,3 @@ foreach( $listCustomlist as $listCustomlist_idx => $customblock ) : ?>
 											</div>
 
 											</div>
-
-
-
-											<script type="text/javascript">
-												//jQuery(document).ready(function ($) {
-												//	$('#myTab<?php echo $module->id;?> a:first').tab('show');
-												//});
-											</script>
