@@ -37,11 +37,6 @@
 			<fieldset name="basic" addfieldpath="administrator/modules/mod_dashboard/elements/">
 
 
-				<field name="displayconfigmodule" type="radio" default="1" label="MOD_DASHBOARD_DISPLAY_CONFIG_MODULE" description="MOD_DASHBOARD_DISPLAY_CONFIG_MODULE_DESC" class="btn-group btn-group-yesno">
-				<option value="0">JNO</option>
-				<option value="1">JYES</option>
-			</field>
-
 			<field name="displayinfosystem" type="radio" default="1" label="MOD_DASHBOARD_DISPLAY_SYSTEM_INFO" description="MOD_DASHBOARD_DISPLAY_SYSTEM_INFO_DESC" class="btn-group btn-group-yesno">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>

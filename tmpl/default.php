@@ -101,28 +101,18 @@ jimport( 'joomla.application.component.controller' );
 	<?php if ($displayinfosystem || $displayconfigmodule ) : ?>
 	<div class="info-bar top">
 		<ul class="breadcrumb">
-			<?php if ($displayinfosystem) : ?>
-			<?php foreach ($systme_buttons as $sys_buttons) :?>
-			<?php echo '<pre>' ,print_r($sys_buttons),'</pre>';?>
-			<?php foreach ($sys_buttons as $sys_button) :?>
-			<li id="<?php echo $sys_button['id']; ?>" class="list-group-item">
-				<a href="<?php echo $sys_button['link']; ?>">
-					<span class="<?php echo $sys_button['icon_class']; ?>" aria-hidden="true"></span> <span
-						class="j-links-link"><?php echo $sys_button['text']; ?></span>
-				</a>
-				<span class="divider">|</span>
-			</li>
-			<?php endforeach; ?>
-			<?php endforeach; ?>
-			<?php endif; ?>
-			<?php if ($displayconfigmodule) : ?>
-			<li>
-				<a href="index.php?option=com_modules&task=module.edit&id=<?php echo $module->id;?>">
-					<span class="icon-small icon-options" aria-hidden="true"></span><span
-						class="j-links-link"><?php echo JText::_('MOD_DASHBOARD_DISPLAY_CONFIG_MODULE_TEXT'); ?></span>
-				</a>
-			</li>
-			<?php endif; ?>
+		<?php if ($displayinfosystem) : ?>
+<?php foreach ($systme_buttons as $sys_buttons) :?>
+<li id="<?php echo $sys_buttons['id']; ?>" class="">
+<a href="<?php echo $sys_buttons['link']; ?>">
+<span class="<?php echo $sys_buttons['image']; ?>" aria-hidden="true"></span> <span
+class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
+</a>
+<span class="divider"> | </span>
+</li>
+<?php // endforeach; ?>
+<?php endforeach; ?>
+<?php endif; ?>
 		</ul>
 	</div>
 	<?php endif; ?>

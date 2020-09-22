@@ -142,7 +142,7 @@ abstract class modDashboardHelper
 	public static function getIconFromPlugins(Registry $params, CMSApplication $application = null)
 	{
 		$key     = (string) $params;
-		$context = (string) $params->get('context', 'mod_quickicon');
+		$context = (string) $params->get('context', 'update_quickicon');
 		$application = Factory::getApplication();
 		PluginHelper::importPlugin('quickicon');
 		$buttons[$key] = [];

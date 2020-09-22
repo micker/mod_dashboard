@@ -116,3 +116,6 @@ h3.module-title.nav-header {
   
 .quick-icons .fa-10x {
     font-size: 10em !important; }
+span.divider {
+    padding: 10px;
+}
