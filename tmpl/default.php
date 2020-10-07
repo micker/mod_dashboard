@@ -173,7 +173,7 @@ jimport( 'joomla.application.component.controller' );
 							if ($list_catbuttons): ?>
 				<?php foreach( $list_catbuttons as $list_catbuttons_idx => $cat_button ) :?>
 					<?php if ($cat_button->displayauthoronly == 1){
-						$filter_byauthor ='&amp;filter_author='.$user->id;
+						$filter_byauthor ='&amp;filter[author_id]='.$user->id;
 						} else {
 					$filter_byauthor='';
 					}
