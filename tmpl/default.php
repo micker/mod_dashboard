@@ -75,6 +75,8 @@ $hiddebuttonadduser          = $params->get('hiddebuttonadduser'         , '1');
 $hiddebuttonaddgroup         = $params->get('hiddebuttonaddgroup'        , '1');
 $hiddebuttonadmin        = $params->get('hiddebuttonadmin'        , '1');
 
+$displayauthoronly           = $params->get('displayauthoronly' , '0');
+
 //freetab
 $freenametab = $params->get('freenametab', 'MOD_DASHBOARD_FREE_TAB_NAME' );
 
@@ -170,7 +172,13 @@ jimport( 'joomla.application.component.controller' );
 				<?php $list_catbuttons = $params->get('add_cat_button');
 							if ($list_catbuttons): ?>
 				<?php foreach( $list_catbuttons as $list_catbuttons_idx => $cat_button ) :?>
-				<a href="index.php?option=com_content&view=articles&filter[category_id]=<?php echo $cat_button->catidlist; ?>&filter[language]=<?php echo $cat_button->button_lang; ?>"
+					<?php if ($cat_button->displayauthoronly == 1){
+						$filter_byauthor ='&amp;filter_author='.$user->id;
+						} else {
+					$filter_byauthor='';
+					}
+				?>
+				<a href="index.php?option=com_content&view=articles&filter[category_id]=<?php echo $cat_button->catidlist; ?>&filter[language]=<?php echo $cat_button->button_lang; ?><?php echo $filter_byauthor; ?>"
 					target="<?php echo $cat_button->targetlink; ?>">
 					<button type="button" class="btn btn-default btn-lg itemlist">
 						<i class="fa <?php echo $cat_button->iconbutton; ?> <?php echo $iconsize; ?> "></i><br />

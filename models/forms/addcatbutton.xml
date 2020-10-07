@@ -10,6 +10,10 @@
       multiple="false"
       label="MOD_DASHBOARD_CAT"
       description="MOD_DASHBOARD_CAT_DESC" />
+	  <field name="displayauthoronly" label="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY" description="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
       <field name="button_lang"
       		type="contentlanguage"
       		label="MOD_DASHBOARD_LANG"
