@@ -33,6 +33,14 @@ $userId    = $user->get('id');
 JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
 JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
 
+$force_fullwidth     = $params->get('force_fullwidth', '1' );
+
+if ($force_fullwidth){
+	$style=".card-columns {
+		grid-template-columns: 1fr !important;
+	}";
+	$document->addStyleDeclaration($style);
+}
 
 //module config
 $hiddefeatured       = $params->get('hiddefeatured', '1' );
