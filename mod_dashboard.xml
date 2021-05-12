@@ -35,60 +35,122 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="administrator/modules/mod_dashboard/elements/">
-
-
-			<field name="displayinfosystem" type="radio" default="1" label="MOD_DASHBOARD_DISPLAY_SYSTEM_INFO" description="MOD_DASHBOARD_DISPLAY_SYSTEM_INFO_DESC" class="btn-group btn-group-yesno">
+			<field 
+			name="displayinfosystem" 
+			type="radio" 
+			default="1" 
+			label="MOD_DASHBOARD_DISPLAY_SYSTEM_INFO" 
+			description="MOD_DASHBOARD_DISPLAY_SYSTEM_INFO_DESC" 
+			class="btn-group btn-group-yesno" 
+			parentclass="span-2 stack">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
-
-
-                <field name="displaycustomtext" type="radio" default="0" label="MOD_DASHBOARD_DISPLAY_CUSTOMTEXT" description="MOD_DASHBOARD_DISPLAY_CUSTOMTEXT_DESC" class="btn-group btn-group-yesno">
+                <field 
+				name="displaycustomtext" 
+				type="radio" 
+				default="0" 
+				label="MOD_DASHBOARD_DISPLAY_CUSTOMTEXT" 
+				description="MOD_DASHBOARD_DISPLAY_CUSTOMTEXT_DESC" 
+				class="btn-group btn-group-yesno" 
+				parentclass="span-2 stack">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
 			</field>
-                <field name="customtext" label ="MOD_DASHBOARD_CUSTOMTEXT" description="MOD_DASHBOARD_CUSTOMTEXT_DESC" type="editor" width="200px" height="100px"  buttons="false" filter="safehtml" showon="displaycustomtext:1"/>
-
-								<field name="iconsize" type="radio" default="fa-2x" label="JOOMLA_ICON_SIZE" description="JOOMLA_ICON_SIZE_DESC" class="btn-group btn-group-yesno">
-									<option value="fa-lg">Small</option>
-									<option value="fa-2x">2X</option>
-									<option value="fa-3x">3X</option>
-									<option value="fa-4x">4X</option>
-									<option value="fa-5x">5X</option>
-									<option value="fa-7x">7X</option>
-									<option value="fa-10x">10X</option>
-								</field>
+                <field 
+				name="customtext" 
+				label ="MOD_DASHBOARD_CUSTOMTEXT" 
+				description="MOD_DASHBOARD_CUSTOMTEXT_DESC" 
+				type="editor" 
+				width="200px" 
+				height="100px"  
+				buttons="false" 
+				filter="safehtml" 
+				showon="displaycustomtext:1"
+				parentclass="span-6 stack"/>
+			<field 
+			name="iconsize" 
+			type="radio" 
+			default="fa-2x" 
+			label="JOOMLA_ICON_SIZE" 
+			description="JOOMLA_ICON_SIZE_DESC" 
+			class="btn-group btn-group-yesno"
+			parentclass="span-2 stack">
+				<option value="fa-lg">Small</option>
+				<option value="fa-2x">2X</option>
+				<option value="fa-3x">3X</option>
+				<option value="fa-4x">4X</option>
+				<option value="fa-5x">5X</option>
+				<option value="fa-7x">7X</option>
+				<option value="fa-10x">10X</option>
+			</field>
 			</fieldset>
 
 			<fieldset name="tab_config" label="MOD_DASHBOARD_TAB_CONFIG" description="MOD_DASHBOARD_TAB_CONFIG_DESC" >
 
-				<field name="displaycustomtab" type="radio" default="1" label="MOD_DASHBOARD_TABS_CUSTOM" description="MOD_DASHBOARD_TABS_CUSTOM_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="displaycustomtab" 
+				type="radio" 
+				default="1" 
+				label="MOD_DASHBOARD_TABS_CUSTOM" 
+				description="MOD_DASHBOARD_TABS_CUSTOM_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="displaycreattab" type="radio" default="1" label="MOD_DASHBOARD_TABS_CREATE" description="MOD_DASHBOARD_TABS_CREATE_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="displaycreattab" 
+				type="radio" 
+				default="1" 
+				label="MOD_DASHBOARD_TABS_CREATE" 
+				description="MOD_DASHBOARD_TABS_CREATE_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="displaymanagetab" type="radio" default="1" label="MOD_DASHBOARD_TABS_MANAGE" description="MOD_DASHBOARD_TABS_MANAGE_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="displaymanagetab" 
+				type="radio" 
+				default="1" 
+				label="MOD_DASHBOARD_TABS_MANAGE" 
+				description="MOD_DASHBOARD_TABS_MANAGE_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="displayadmintab" type="radio" default="1" label="MOD_DASHBOARD_TABS_ADMIN" description="MOD_DASHBOARD_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="displayadmintab" 
+				type="radio" 
+				default="1" 
+				label="MOD_DASHBOARD_TABS_ADMIN" 
+				description="MOD_DASHBOARD_TABS_ADMIN_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="displayfreetab" type="radio" default="1" label="JOOMLA_FREE_TABS_ADMIN" description="JOOMLA_FREE_TABS_ADMIN_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="displayfreetab" 
+				type="radio" 
+				default="1" 
+				label="JOOMLA_FREE_TABS_ADMIN" 
+				description="JOOMLA_FREE_TABS_ADMIN_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
 			</fieldset>
 
-						<fieldset name="block_config" label="MOD_DASHBOARD_BLOCK_CONFIG" description="MOD_DASHBOARD_BLOCK_CONFIG_DESC" >
+						<fieldset name="block_config" label="MOD_DASHBOARD_BLOCK_CONFIG" description="MOD_DASHBOARD_BLOCK_CONFIG_DESC">
 							<field
 								name="count" type="list"
 								default="5" label="MOD_DASHBOARD_NBITEM"
-								description="MOD_DASHBOARD_NBITEM">
+								description="MOD_DASHBOARD_NBITEM"
+								parentclass="span-2 stack">
 								<option	value="1">1</option>
 								<option	value="3">3</option>
 								<option	value="5">5</option>
@@ -98,45 +160,46 @@
 								<option	value="50">50</option>
 								<option	value="100">100</option>
 							</field>
-							<field name="hiddefeatured" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_FEATURED" description="MOD_DASHBOARD_DISPLAYBLOCK_FEATURED_DESC" class="btn-group btn-group-yesno">
+							<field name="forceheightblock" type="text" default="" size="50" label="MOD_DASHBOARD_BLOCKHEIGHT" description="MOD_DASHBOARD_BLOCKHEIGHT_DESC" parentclass="span-2 stack"/>
+							<field name="hiddefeatured" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_FEATURED" description="MOD_DASHBOARD_DISPLAYBLOCK_FEATURED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
 								<option value="0">JNO</option>
 								<option value="1">JYES</option>
 							</field>
-							<field name="featuredwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddefeatured:1"/>
-								<field name="hiddepublished" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED" description="MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED_DESC" class="btn-group btn-group-yesno">
+							<field name="featuredwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddefeatured:1"  parentclass="span-2-inline stack"/>
+								<field name="hiddepublished" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED" description="MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
-								<field name="publishedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddepublished:1" />
-								<field name="hiddeunpublished" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_UNPUBLISHED" description="MOD_DASHBOARD_DISPLAYBLOCK_UNPUBLISHED_DESC" class="btn-group btn-group-yesno">
+								<field name="publishedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddepublished:1" parentclass="span-2-inline stack"/>
+								<field name="hiddeunpublished" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_UNPUBLISHED" description="MOD_DASHBOARD_DISPLAYBLOCK_UNPUBLISHED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
-								<field name="unpublishedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddeunpublished:1" />
-								<field name="hiddearchived" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_ARCHIVED" description="MOD_DASHBOARD_DISPLAYBLOCK_ARCHIVED_DESC" class="btn-group btn-group-yesno">
+								<field name="unpublishedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddeunpublished:1" parentclass="span-2-inline stack"/>
+								<field name="hiddearchived" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_ARCHIVED" description="MOD_DASHBOARD_DISPLAYBLOCK_ARCHIVED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
-								<field name="archivedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddearchived:1" />
-								<field name="hiddeyouritem" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_YOURITEM" description="MOD_DASHBOARD_DISPLAYBLOCK_YOURITEM_DESC" class="btn-group btn-group-yesno">
+								<field name="archivedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddearchived:1" parentclass="span-2-inline stack"/>
+								<field name="hiddeyouritem" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_YOURITEM" description="MOD_DASHBOARD_DISPLAYBLOCK_YOURITEM_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
-								<field name="youritemwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddeyouritem:1"/>
-								<field name="hiddetrashed" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_TRASHED" description="MOD_DASHBOARD_DISPLAYBLOCK_TRASHED_DESC" class="btn-group btn-group-yesno">
+								<field name="youritemwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddeyouritem:1" parentclass="span-2-inline stack"/>
+								<field name="hiddetrashed" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_TRASHED" description="MOD_DASHBOARD_DISPLAYBLOCK_TRASHED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
-								<field name="trashedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddetrashed:1"/>
-								<field name="actionsloglist" type="radio" default="0" label="MOD_DASHBOARD_ADD_ACTIONSBLOCK" description="MOD_DASHBOARD_ADD_ACTIONSBLOCK_DESC" class="btn-group btn-group-yesno">
+								<field name="trashedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddetrashed:1" parentclass="span-2-inline stack"/>
+								<field name="actionsloglist" type="radio" default="0" label="MOD_DASHBOARD_ADD_ACTIONSBLOCK" description="MOD_DASHBOARD_ADD_ACTIONSBLOCK_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
-								<field name="actionslogwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="actionsloglist:1" />
+								<field name="actionslogwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="actionsloglist:1" parentclass="span-2-inline stack"/>
 								<field
 								name="countaction" type="list"
 								default="5" label="MOD_DASHBOARD_NBITEM"
-								description="MOD_DASHBOARD_NBITEM" showon="actionsloglist:1">
+								description="MOD_DASHBOARD_NBITEM" showon="actionsloglist:1" parentclass="span-2-inline stack">
 								<option	value="1">1</option>
 								<option	value="3">3</option>
 								<option	value="5">5</option>
@@ -147,7 +210,6 @@
 								<option	value="100">100</option>
 								</field>
 								
-								<field name="forceheightblock" type="text" default="" size="50" label="MOD_DASHBOARD_BLOCKHEIGHT" description="MOD_DASHBOARD_BLOCKHEIGHT_DESC"/>
 								<field name= "add_customblock"
 								 description= "MOD_DASHBOARD_ADD_CUSTOMBLOCK_DESC"
 								 type= "subform"
@@ -159,10 +221,11 @@
 								 multiple= "true"
 								 buttons= "add,remove,move"
 								layout="joomla.form.field.subform.repeatable-table"
-								 groupByFieldset="false"/>
+								 groupByFieldset="false"
+								 parentclass="span-6 stack"/>
 			</fieldset>
 			<fieldset name="custom_tab" label="MOD_DASHBOARD_CUSTOM_TAB" description="MOD_DASHBOARD_CUSTOM_TAB_DESC" >
-				<field name="nametab" type="text"  default="MOD_DASHBOARD_CUSTOM_TAB_NAME" label="MOD_DASHBOARD_NAME_TAB" description="MOD_DASHBOARD_NAME_TAB_DESC" />
+				<field name="nametab" type="text"  default="MOD_DASHBOARD_CUSTOM_TAB_NAME" label="MOD_DASHBOARD_NAME_TAB" description="MOD_DASHBOARD_NAME_TAB_DESC" parentclass="span-2 stack"/>
 				<field name= "add_button"
 				 description= "MOD_DASHBOARD_ADD_CUSTOMBUTTON_DESC"
 				 type= "subform"
@@ -174,7 +237,8 @@
 				 multiple= "true"
 				 buttons= "add,remove,move"
 	layout="joomla.form.field.subform.repeatable-table"
-				 groupByFieldset="false"/>
+				 groupByFieldset="false"
+				 parentclass="span-6 stack"/>
 
 					<field name= "add_cat_button"
 					 description= "MOD_DASHBOARD_CAT_FILTERING_DESC"
@@ -187,7 +251,8 @@
 					 multiple= "true"
 					 buttons= "add,remove,move"
 				layout="joomla.form.field.subform.repeatable-table"
-					 groupByFieldset="false"/>
+					 groupByFieldset="false"
+					 parentclass="span-6 stack"/>
 
 					<field name= "edit_item_button"
 					 description= "MOD_DASHBOARD_ITEM_EDIT_DESC"
@@ -200,90 +265,198 @@
 					 multiple= "true"
 					 buttons= "add,remove,move"
 				layout="joomla.form.field.subform.repeatable-table"
-					 groupByFieldset="false"/>
+					 groupByFieldset="false"
+					 parentclass="span-6 stack"/>
 			</fieldset>
 			<fieldset name="creation_tab" label="MOD_DASHBOARD_CREATION_TAB" description="MOD_DASHBOARD_CREATION_TAB_DESC">
-				<field name="hiddebuttonadditem" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_ADDITEM"              description="MOD_DASHBOARD_DISPLAYBUTTON_ADDITEM_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonadditem" 
+				type="radio" 
+				default="1"
+				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDITEM"              
+				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDITEM_DESC" 
+				class="btn-group btn-group-yesno" 
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonaddcategory" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_ADDCATEGORY"              description="MOD_DASHBOARD_DISPLAYBUTTON_ADDCATEGORY_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonaddcategory"
+				type="radio"
+				default="1"
+				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDCATEGORY"
+				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDCATEGORY_DESC"
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonaddtag" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_ADDTAG"              description="MOD_DASHBOARD_DISPLAYBUTTON_ADDTAG_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonaddtag"
+				type="radio"
+				default="1"
+				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDTAG"
+				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDTAG_DESC"
+				class="btn-group btn-group-yesno" 
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonadduser" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_ADDUSER"              description="MOD_DASHBOARD_DISPLAYBUTTON_ADDUSER_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonadduser"
+				type="radio" 
+				default="1"
+				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDUSER"
+				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDUSER_DESC" 
+				class="btn-group btn-group-yesno" 
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonaddgroup" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_ADDGROUP"              description="MOD_DASHBOARD_DISPLAYBUTTON_ADDGROUP_DESC" class="btn-group btn-group-yesno">
+				<field name="hiddebuttonaddgroup"
+				type="radio" 
+				default="1"      
+				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDGROUP"              
+				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDGROUP_DESC" 
+				class="btn-group btn-group-yesno" 
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-
-
 			</fieldset>
-			<fieldset name="gestion_tab" label="MOD_DASHBOARD_GESTION_TAB" description="MOD_DASHBOARD_GESTION_TAB_DESC">
-				<field name="hiddebuttonmanageitems" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_MANAGEITEMS"              description="MOD_DASHBOARD_DISPLAYBUTTON_MANAGEITEMS_DESC" class="btn-group btn-group-yesno">
+			<fieldset 
+				name="gestion_tab" label="MOD_DASHBOARD_GESTION_TAB" description="MOD_DASHBOARD_GESTION_TAB_DESC">
+				<field name="hiddebuttonmanageitems" 
+				type="radio" 
+				default="1"      
+				label="MOD_DASHBOARD_DISPLAYBUTTON_MANAGEITEMS"              
+				description="MOD_DASHBOARD_DISPLAYBUTTON_MANAGEITEMS_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonmanagecategories" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBUTTON_BUTTONMANAGECATEGORIES"   description="MOD_DASHBOARD_DISPLAYBUTTON_BUTTONMANAGECATEGORIES_DESC" class="btn-group btn-group-yesno">
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-
-				<field name="hiddebuttonmanagetags" type="radio" default="1"       label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS"    description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-
-				<field name="hiddebuttonmanageauthors" type="radio" default="1"    label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS" description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field name="hiddebuttonmanagegroups" type="radio" default="1"     label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS"  description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS_DESC" class="btn-group btn-group-yesno">
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field name="hiddebuttonmanagefiles" type="radio" default="1"     label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES"  description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonmanagecategories" 
+				type="radio" 
+				default="1" 
+				label="MOD_DASHBOARD_DISPLAYBUTTON_BUTTONMANAGECATEGORIES"   
+				description="MOD_DASHBOARD_DISPLAYBUTTON_BUTTONMANAGECATEGORIES_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
 
+				<field 
+				name="hiddebuttonmanagetags" 
+				type="radio" 
+				default="1"       
+				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS"    
+				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
 
-
+				<field 
+				name="hiddebuttonmanageauthors" 
+				type="radio" 
+				default="1"    
+				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS" 
+				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field 
+				name="hiddebuttonmanagegroups" 
+				type="radio" 
+				default="1"     
+				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS"  
+				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field 
+				name="hiddebuttonmanagefiles" 
+				type="radio" 
+				default="1"     
+				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES"  
+				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
 			</fieldset>
 			<fieldset name="administration_tab" label="MOD_DASHBOARD_ADMIN_TAB" description="MOD_DASHBOARD_ADMIN_TAB_DESC">
-				<field name="hiddebuttonprivacy" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_PRIVACY"   description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_PRIVACY_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonprivacy" 
+				type="radio" 
+				default="1"      
+				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_PRIVACY"   
+				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_PRIVACY_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonlogs" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_LOGS"   description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_LOG_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonlogs" 
+				type="radio" 
+				default="1"      
+				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_LOGS"   
+				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_LOG_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonmanagefieldsarticle" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONU_ARTICLE_FIELD"   description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_ARTICLE_FIELdD_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonmanagefieldsarticle" 
+				type="radio" 
+				default="1"      
+				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONU_ARTICLE_FIELD"   
+				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_ARTICLE_FIELdD_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonmanagefieldsusers" type="radio" default="1"     label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONU_USER_FIELD"  description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_USER_FIELD_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonmanagefieldsusers" 
+				type="radio" 
+				default="1"     
+				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONU_USER_FIELD"  
+				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_USER_FIELD_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field name="hiddebuttonadmin" type="radio" default="1"      label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONADMIN"   description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONADMIN_DESC" class="btn-group btn-group-yesno">
+				<field 
+				name="hiddebuttonadmin" 
+				type="radio" 
+				default="1"      
+				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONADMIN"   
+				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONADMIN_DESC" 
+				class="btn-group btn-group-yesno"
+				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
 
 			</fieldset>
 			<fieldset name="free_tab" label="MOD_DASHBOARD_FREE_TAB" description="MOD_DASHBOARD_FREE_TAB_DESC" level="level1">
-			<field name="free_button"
-			 description= "MOD_DASHBOARD_FREE_BUTTON_DESC"
-			 type= "subform"
+			<field 
+			name="free_button"
+			description= "MOD_DASHBOARD_FREE_BUTTON_DESC"
+			type= "subform"
 			 label= "MOD_DASHBOARD_FREE_BUTTON"
 			 min= "0"
 			 max= "1000"
@@ -292,7 +465,8 @@
 			 multiple= "true"
 			 buttons= "add,remove,move"
 			layout="joomla.form.field.subform.repeatable-table"
-			 groupByFieldset="false"/>
+			 groupByFieldset="false"
+			 parentclass="span-6 stack"/>
 			</fieldset>
 
 			<fieldset name="advanced">

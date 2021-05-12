@@ -101,7 +101,7 @@ jimport( 'joomla.application.component.controller' );
 <div class="headerblock">
 
 	<?php if ($displayinfosystem || $displayconfigmodule ) : ?>
-	<div class="info-bar top">
+	<div class="info-bar top list-group-item">
 		<ul class="breadcrumb">
 		<?php if ($displayinfosystem) : ?>
 <?php foreach ($systme_buttons as $sys_buttons) :?>
@@ -142,7 +142,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				if ($list_buttons): ?>
 				
 				<?php foreach( $list_buttons as $list_buttons_idx => $add_button ) :?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_content&view=article&layout=edit&catid=<?php echo $add_button->catid; ?>&language=<?php echo $add_button->button_lang; ?>"
 					target="<?php echo $add_button->targetlink; ?>">
 					<div class="quickicon-icon d-flex align-items-end big">
@@ -178,7 +178,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 					$filter_byauthor='';
 					}
 				?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col">
 				<a href="index.php?option=com_content&view=articles&filter[category_id]=<?php echo $cat_button->catidlist; ?>&filter[language]=<?php echo $cat_button->button_lang; ?><?php echo $filter_byauthor; ?>"
 					target="<?php echo $cat_button->targetlink; ?>">
 					<div class="quickicon-icon d-flex align-items-end big">
@@ -207,7 +207,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				<?php $list_edititembuttons = $params->get('edit_item_button');
 							if ($list_edititembuttons): ?>
 				<?php foreach( $list_edititembuttons as $list_edititembuttons_idx => $edit_item_button ) :?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_content&task=article.edit&id=<?php echo $edit_item_button->itemid; ?>">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas 
@@ -245,7 +245,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				<nav class="quick-icons dashboard" aria-label="Quick links creation">
 					<ul class="nav flex-wrap">
 						<?php if($hiddebuttonadditem): ?>
-						<li class="quickicon quickicon-single col mb-3">
+						<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_content&task=article.add">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-plus-circle <?php echo $iconsize; ?> "></i>
@@ -257,7 +257,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonaddcategory): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_categories&task=category.add&extension=com_content">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-folder-open <?php echo $iconsize; ?> "></i>
@@ -269,7 +269,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonaddtag): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_tags&view=tag&task=tag.add">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-tags <?php echo $iconsize; ?> "></i>
@@ -281,7 +281,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonadduser): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_users&task=user.add">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-user <?php echo $iconsize; ?> "></i>
@@ -293,7 +293,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonaddgroup): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_users&task=group.add">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-users <?php echo $iconsize; ?> "></i>
@@ -316,7 +316,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 			<nav class="quick-icons dashboard" aria-label="Quick links creation">
 					<ul class="nav flex-wrap">
 						<?php if($hiddebuttonmanageitems): ?>
-							<li class="quickicon quickicon-single col mb-3">
+							<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_content&view=articles">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-th-list <?php echo $iconsize; ?> "></i>
@@ -328,7 +328,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif;?>
 				<?php if($hiddebuttonmanagecategories): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_categories&extension=com_content">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-folder-open <?php echo $iconsize; ?> "></i>
@@ -340,7 +340,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonmanagetags): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col">
 				<a href="index.php?option=com_tags">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-tags <?php echo $iconsize; ?> "></i>
@@ -352,7 +352,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonmanageauthors): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_users&view=users">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-user <?php echo $iconsize; ?> "></i>
@@ -365,7 +365,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				<?php endif; ?>
 
 				<?php if($hiddebuttonmanagegroups): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_users&view=groups">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-users <?php echo $iconsize; ?> "></i>
@@ -378,7 +378,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				<?php endif; ?>
 
 				<?php if($hiddebuttonmanagefiles): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_media">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-upload <?php echo $iconsize; ?> "></i>
@@ -402,7 +402,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 			<nav class="quick-icons dashboard" aria-label="Quick links creation">
 					<ul class="nav flex-wrap">
 						<?php if($hiddebuttonprivacy): ?>
-							<li class="quickicon quickicon-single col mb-3">
+							<li class="quickicon quickicon-single col">
 				<a href="index.php?option=com_privacy">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-lock <?php echo $iconsize; ?> "></i>
@@ -414,7 +414,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonlogs): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col">
 				<a href="index.php?option=com_actionlogs">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-list-alt <?php echo $iconsize; ?> "></i>
@@ -430,7 +430,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				<hr class="mt-3 mb-3">
 				<?php endif; ?>
 				<?php if($hiddebuttonmanagefieldsuser): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_fields&context=com_users.user">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-user <?php echo $iconsize; ?> "></i>
@@ -442,7 +442,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonmanagefieldsarticle): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_fields&context=com_content.article">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-th-list <?php echo $iconsize; ?> "></i>
@@ -454,7 +454,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</li>
 				<?php endif; ?>
 				<?php if($hiddebuttonadmin): ?>
-					<li class="quickicon quickicon-single col mb-3">
+					<li class="quickicon quickicon-single col ">
 				<a href="index.php?option=com_config">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas fa-cogs <?php echo $iconsize; ?> "></i>
@@ -484,7 +484,7 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 			<nav class="quick-icons dashboard" aria-label="Quick links creation">
 					<ul class="nav flex-wrap">
 						<?php foreach( $free_buttons->free_button as $free_button_idx => $free_button ) :?>
-							<li class="quickicon quickicon-single col mb-3">
+							<li class="quickicon quickicon-single col">
 				<a href="<?php echo $free_button->linkbutton; ?>" target="<?php echo $free_button->targetlink; ?>">
 				<div class="quickicon-icon d-flex align-items-end big">
 						<i class="fas 
@@ -522,24 +522,22 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 </div>
 </div>
 
-
-
-
-
+<div class="sep"></div>
 
 <div class="contentbloc">
 
 	<?php if ($hiddefeatured) : ?>
-	<div class="block featured card-body" style="width:<?php echo $featurewidth; ?>%">
-		<h3 class="module-title nav-header"><i class="fas fa-star featured"></i>
-			<?php echo JText::_( 'MOD_DASHBOARD_FEATURED' ); ?></h3>
-
-		<?php $show_all_link = 'index.php?option=com_content&amp;view=featured'; ?>
-		<div style='text-align:right;'>
+	<div class="block featured card" style="width:<?php echo $featurewidth; ?>%">
+	<div class="card-header">
+	<?php $show_all_link = 'index.php?option=com_content&amp;view=featured'; ?>
+		<div class="module-actions">
 			<a href='<?php echo $show_all_link ?>' class='adminlink'>
 				<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
+		<h3 class="module-title"><i class="fas fa-star featured"></i>
+			<?php echo JText::_( 'MOD_DASHBOARD_FEATURED' ); ?></h3>
+			</div>
 									<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
 
 <table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
@@ -586,16 +584,20 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 		</div>
 		<?php endif; ?>
 		<?php if ($hiddepublished) : ?>
-		<div class="block published card-body" style="width:<?php echo $publishedwidth; ?>%">
-			<h3 class="module-title nav-header"><i class="fa fa-check"></i>
-				<?php echo JText::_( 'MOD_DASHBOARD_PUBLISHED' ); ?></h3>
-
-			<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=1'; ?>
-			<div style='text-align:right;'>
+		<div class="block published card" style="width:<?php echo $publishedwidth; ?>%">
+		<div class="card-header">
+	
+		<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=1'; ?>
+		<div class="module-actions">
 				<a href='<?php echo $show_all_link ?>' class='adminlink'>
 					<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
+			<h3 class="module-title "><i class="fa fa-check"></i>
+				<?php echo JText::_( 'MOD_DASHBOARD_PUBLISHED' ); ?></h3>
+
+
+		</div>
 					<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
 
 <table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
@@ -644,15 +646,19 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 
 			<?php if ($hiddeunpublished) : ?>
 
-			<div class="block unpublished card-body" style="width:<?php echo $unpublishedwidth; ?>%">
-				<h3 class="module-title nav-header"><i class="fa fa-thumbs-down"></i>
-					<?php echo JText::_( 'MOD_DASHBOARD_UNPUBLISHED' ); ?></h3>
-				<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=0'; ?>
-				<div style='text-align:right;'>
+			<div class="block unpublished card" style="width:<?php echo $unpublishedwidth; ?>%">
+			<div class="card-header">
+			<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=0'; ?>
+			<div class="module-actions">
 					<a href='<?php echo $show_all_link ?>' class='adminlink'>
 						<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
+				<h3 class="module-title"><i class="fa fa-thumbs-down"></i>
+					<?php echo JText::_( 'MOD_DASHBOARD_UNPUBLISHED' ); ?></h3>
+				
+			</div>
+				
 													<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
 
 <table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
@@ -696,15 +702,18 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				</div>
 				<?php endif; ?>
 				<?php if ($hiddearchived) : ?>
-				<div class="block archived card-body" style="width:<?php echo $archivedwidth; ?>%">
-					<h3 class="module-title nav-header"><i class="fa fa-archive"></i>
-						<?php echo JText::_( 'MOD_DASHBOARD_ARCHIVED' ); ?></h3>
-					<?php		$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=2'; ?>
-					<div style='text-align:right;'>
+				<div class="block archived card" style="width:<?php echo $archivedwidth; ?>%">
+				<div class="card-header">
+				<?php		$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=2'; ?>
+					<div class="module-actions">
 						<a href='<?php echo $show_all_link ?>' class='adminlink'>
 							<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
+					<h3 class="module-title"><i class="fa fa-archive"></i>
+						<?php echo JText::_( 'MOD_DASHBOARD_ARCHIVED' ); ?></h3>
+					
+		</div>
 							<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
 
 <table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
@@ -748,18 +757,22 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 					</div>
 					<?php endif; ?>
 					<?php if ($hiddeyouritem) : ?>
-					<div class="block youritems card-body" style="width:<?php echo $youritemwidth; ?>%">
-						<?php $user = JFactory::getUser();		?>
-						<h3 class="module-title nav-header">
-							<i class="fa fa-user"></i>
-							<?php echo JText::_( 'JOOMLA_YOUR_ITEM' ); ?> : <?php echo $user->name; ?></h3>
-						<?php		$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[author_id]='.$user->id; //TODO add user id?>
-						<div style='text-align:right;'>
+					<div class="block youritems card" style="width:<?php echo $youritemwidth; ?>%">
+					<div class="card-header">
+					<div class="module-actions">
+					<?php		$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[author_id]='.$user->id; //TODO add user id?>
 							<a href='<?php echo $show_all_link ?>' class='adminlink'>
 								<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
-																	<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+
+						<?php $user = JFactory::getUser();		?>
+						<h3 class="module-title">
+							<i class="fa fa-user"></i>
+							<?php echo JText::_( 'JOOMLA_YOUR_ITEM' ); ?> : <?php echo $user->name; ?></h3>
+
+		</div>
+		<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
 
 <table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
 <thead>
@@ -812,16 +825,21 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 						</div>
 						<?php endif; ?>
 						<?php if ($hiddetrashed) : ?>
-						<div class="block trashed card-body" style="width:<?php echo $trashedwidth; ?>%">
-							<h3 class="module-title nav-header"><i class="fa fa-trash"></i>
-								<?php echo JText::_( 'MOD_DASHBOARD_TRASHED' ); ?></h3>
+						<div class="block trashed card" style="width:<?php echo $trashedwidth; ?>%">
+						<div class="card-header">
+							
 							<?php
 	$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=-2'; ?>
-							<div style='text-align:right;'>
+<div class="module-actions">
 								<a href='<?php echo $show_all_link ?>' class='adminlink'>
 									<?php
 		echo JText::_( 'MOD_DASHBOARD_ALL' );
 		echo "</a></div>";	?>
+							
+							<h3 class="module-title "><i class="fa fa-trash"></i>
+								<?php echo JText::_( 'MOD_DASHBOARD_TRASHED' ); ?></h3>
+						
+		</div>
 									<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
 
 									<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
@@ -865,16 +883,17 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 							<?php endif; ?>
 
 							<?php if($actionsloglist) : ?>
-							<div class="block actionlog card-body" style="width:<?php echo $actionslogwidth; ?>%">
-								<h3 class="module-title nav-header">
-									<i class="fa fa-list-alt"></i>
-									<?php echo JText::_('MOD_DASHBOARD_ACTIONLOGS_BLOCK_NAME'); ?> : </h3>
-								<?php		$show_all_link = 'index.php?option=com_actionlogs'; ?>
-								<div style='text-align:right;'>
+							<div class="block actionlog card" style="width:<?php echo $actionslogwidth; ?>%">
+							<div class="card-header">
+								<div class="module-actions">							<?php		$show_all_link = 'index.php?option=com_actionlogs'; ?>
 									<a href='<?php echo $show_all_link ?>' class='adminlink'>
 										<?php
    echo JText::_( 'MOD_DASHBOARD_ALL' );
    echo "</a></div>";	?>
+								<h3 class="module-title ">
+									<i class="fa fa-list-alt"></i>
+									<?php echo JText::_('MOD_DASHBOARD_ACTIONLOGS_BLOCK_NAME'); ?> : </h3>
+   </div>
 										<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
 
 
@@ -921,17 +940,20 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 								<?php if($listCustomlist) : ?>
 								<?php
 foreach( $listCustomlist as $listCustomlist_idx => $customblock ) : ?>
-								<div class="block <?php echo $customblock->catidlist; ?> card-body"
+								<div class="block <?php echo $customblock->catidlist; ?> card"
 									style="width:<?php echo $customblock->width; ?>%">
-									<h3 class="module-title nav-header">
+									<div class="card-header">
+										<div class="module-actions">
+											<?php $show_all_link = 'index.php?option=com_content&filter_category_id='.$customblock->catidlist; ?>
+								
+								<a href='<?php echo $show_all_link ?>' class='adminlink'>
+									<?php
+echo JText::_( 'MOD_DASHBOARD_ALL' );
+echo "</a></div>";	?>
+									<h3 class="module-title ">
 										<i class="fa fa-user"></i>
 										<?php echo JText::_($customblock->nameblockcustom); ?> : </h3>
-									<?php		$show_all_link = 'index.php?option=com_content&filter_category_id='.$customblock->catidlist; ?>
-									<div style='text-align:right;'>
-										<a href='<?php echo $show_all_link ?>' class='adminlink'>
-											<?php
-   echo JText::_( 'MOD_DASHBOARD_ALL' );
-   echo "</a></div>";	?>
+   </div>
 											<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
 
 											<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
