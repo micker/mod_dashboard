@@ -45,6 +45,7 @@ background: #edf2f7;
 display: inline-flex;
 flex-wrap: wrap;
 gap: 1rem;
+width:100%;
 }
 .block.well.well-small {
 margin-right: 1%;
