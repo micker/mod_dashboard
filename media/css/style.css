@@ -63,6 +63,7 @@ box-shadow: 0 1px 2px rgba(0,0,0,1);
 }
 .btn.btn-secondary.iconpicker {
 display: inline !important;
+min-height: 33px;
 }
 .modulemessage {
 padding:.75rem 1rem;

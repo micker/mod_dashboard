@@ -41,7 +41,7 @@
 			default="1" 
 			label="MOD_DASHBOARD_DISPLAY_SYSTEM_INFO" 
 			description="MOD_DASHBOARD_DISPLAY_SYSTEM_INFO_DESC" 
-			class="btn-group btn-group-yesno" 
+			layout="joomla.form.field.radio.switcher" 
 			parentclass="span-2 stack">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
@@ -53,7 +53,7 @@
 			default="1" 
 			label="MOD_DASHBOARD_FORCE_FULLWIDTH" 
 			description="MOD_DASHBOARD_FORCE_FULLWIDTH_DESC" 
-			class="btn-group btn-group-yesno" 
+			layout="joomla.form.field.radio.switcher"
 			parentclass="span-2 stack">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
@@ -65,7 +65,7 @@
 				default="0" 
 				label="MOD_DASHBOARD_DISPLAY_CUSTOMTEXT" 
 				description="MOD_DASHBOARD_DISPLAY_CUSTOMTEXT_DESC" 
-				class="btn-group btn-group-yesno" 
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
@@ -87,7 +87,7 @@
 			default="fa-2x" 
 			label="JOOMLA_ICON_SIZE" 
 			description="JOOMLA_ICON_SIZE_DESC" 
-			class="btn-group btn-group-yesno"
+			class="btn-group"
 			parentclass="span-2 stack">
 				<option value="fa-lg">Small</option>
 				<option value="fa-2x">2X</option>
@@ -107,7 +107,7 @@
 				default="1" 
 				label="MOD_DASHBOARD_TABS_CUSTOM" 
 				description="MOD_DASHBOARD_TABS_CUSTOM_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -118,7 +118,7 @@
 				default="1" 
 				label="MOD_DASHBOARD_TABS_CREATE" 
 				description="MOD_DASHBOARD_TABS_CREATE_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -129,7 +129,7 @@
 				default="1" 
 				label="MOD_DASHBOARD_TABS_MANAGE" 
 				description="MOD_DASHBOARD_TABS_MANAGE_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -140,7 +140,7 @@
 				default="1" 
 				label="MOD_DASHBOARD_TABS_ADMIN" 
 				description="MOD_DASHBOARD_TABS_ADMIN_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -151,7 +151,7 @@
 				default="1" 
 				label="JOOMLA_FREE_TABS_ADMIN" 
 				description="JOOMLA_FREE_TABS_ADMIN_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -174,37 +174,37 @@
 								<option	value="100">100</option>
 							</field>
 							<field name="forceheightblock" type="text" default="" size="50" label="MOD_DASHBOARD_BLOCKHEIGHT" description="MOD_DASHBOARD_BLOCKHEIGHT_DESC" parentclass="span-2 stack"/>
-							<field name="hiddefeatured" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_FEATURED" description="MOD_DASHBOARD_DISPLAYBLOCK_FEATURED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
+							<field name="hiddefeatured" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_FEATURED" description="MOD_DASHBOARD_DISPLAYBLOCK_FEATURED_DESC" layout="joomla.form.field.radio.switcher" parentclass="span-2 stack">
 								<option value="0">JNO</option>
 								<option value="1">JYES</option>
 							</field>
 							<field name="featuredwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddefeatured:1"  parentclass="span-2-inline stack"/>
-								<field name="hiddepublished" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED" description="MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
+								<field name="hiddepublished" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED" description="MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED_DESC" layout="joomla.form.field.radio.switcher" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
 								<field name="publishedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddepublished:1" parentclass="span-2-inline stack"/>
-								<field name="hiddeunpublished" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_UNPUBLISHED" description="MOD_DASHBOARD_DISPLAYBLOCK_UNPUBLISHED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
+								<field name="hiddeunpublished" type="radio" default="1" label="MOD_DASHBOARD_DISPLAYBLOCK_UNPUBLISHED" description="MOD_DASHBOARD_DISPLAYBLOCK_UNPUBLISHED_DESC" layout="joomla.form.field.radio.switcher" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
 								<field name="unpublishedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddeunpublished:1" parentclass="span-2-inline stack"/>
-								<field name="hiddearchived" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_ARCHIVED" description="MOD_DASHBOARD_DISPLAYBLOCK_ARCHIVED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
+								<field name="hiddearchived" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_ARCHIVED" description="MOD_DASHBOARD_DISPLAYBLOCK_ARCHIVED_DESC" layout="joomla.form.field.radio.switcher" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
 								<field name="archivedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddearchived:1" parentclass="span-2-inline stack"/>
-								<field name="hiddeyouritem" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_YOURITEM" description="MOD_DASHBOARD_DISPLAYBLOCK_YOURITEM_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
+								<field name="hiddeyouritem" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_YOURITEM" description="MOD_DASHBOARD_DISPLAYBLOCK_YOURITEM_DESC" layout="joomla.form.field.radio.switcher" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
 								<field name="youritemwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddeyouritem:1" parentclass="span-2-inline stack"/>
-								<field name="hiddetrashed" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_TRASHED" description="MOD_DASHBOARD_DISPLAYBLOCK_TRASHED_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
+								<field name="hiddetrashed" type="radio" default="0" label="MOD_DASHBOARD_DISPLAYBLOCK_TRASHED" description="MOD_DASHBOARD_DISPLAYBLOCK_TRASHED_DESC" layout="joomla.form.field.radio.switcher" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
 								<field name="trashedwidth" type="number" default="44" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC"  min="0" max="100" step="5" showon="hiddetrashed:1" parentclass="span-2-inline stack"/>
-								<field name="actionsloglist" type="radio" default="0" label="MOD_DASHBOARD_ADD_ACTIONSBLOCK" description="MOD_DASHBOARD_ADD_ACTIONSBLOCK_DESC" class="btn-group btn-group-yesno" parentclass="span-2 stack">
+								<field name="actionsloglist" type="radio" default="0" label="MOD_DASHBOARD_ADD_ACTIONSBLOCK" description="MOD_DASHBOARD_ADD_ACTIONSBLOCK_DESC" layout="joomla.form.field.radio.switcher" parentclass="span-2 stack">
 									<option value="0">JNO</option>
 									<option value="1">JYES</option>
 								</field>
@@ -233,7 +233,7 @@
 								 formsource= "administrator/modules/mod_dashboard/models/forms/addcustomblock.xml"
 								 multiple= "true"
 								 buttons= "add,remove,move"
-								layout="joomla.form.field.subform.repeatable-table"
+								layout="joomla.form.field.subform.repeatable"
 								 groupByFieldset="false"
 								 parentclass="span-6 stack"/>
 			</fieldset>
@@ -249,7 +249,7 @@
 				 formsource= "administrator/modules/mod_dashboard/models/forms/addbutton.xml"
 				 multiple= "true"
 				 buttons= "add,remove,move"
-	layout="joomla.form.field.subform.repeatable-table"
+	layout="joomla.form.field.subform.repeatable"
 				 groupByFieldset="false"
 				 parentclass="span-6 stack"/>
 
@@ -263,7 +263,7 @@
 					 formsource= "administrator/modules/mod_dashboard/models/forms/addcatbutton.xml"
 					 multiple= "true"
 					 buttons= "add,remove,move"
-				layout="joomla.form.field.subform.repeatable-table"
+				layout="joomla.form.field.subform.repeatable"
 					 groupByFieldset="false"
 					 parentclass="span-6 stack"/>
 
@@ -277,7 +277,7 @@
 					 formsource= "administrator/modules/mod_dashboard/models/forms/edititembutton.xml"
 					 multiple= "true"
 					 buttons= "add,remove,move"
-				layout="joomla.form.field.subform.repeatable-table"
+				layout="joomla.form.field.subform.repeatable"
 					 groupByFieldset="false"
 					 parentclass="span-6 stack"/>
 			</fieldset>
@@ -288,7 +288,7 @@
 				default="1"
 				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDITEM"              
 				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDITEM_DESC" 
-				class="btn-group btn-group-yesno" 
+				layout="joomla.form.field.radio.switcher" 
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -299,7 +299,7 @@
 				default="1"
 				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDCATEGORY"
 				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDCATEGORY_DESC"
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -310,7 +310,7 @@
 				default="1"
 				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDTAG"
 				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDTAG_DESC"
-				class="btn-group btn-group-yesno" 
+				layout="joomla.form.field.radio.switcher" 
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -321,7 +321,7 @@
 				default="1"
 				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDUSER"
 				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDUSER_DESC" 
-				class="btn-group btn-group-yesno" 
+				layout="joomla.form.field.radio.switcher" 
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -331,7 +331,7 @@
 				default="1"      
 				label="MOD_DASHBOARD_DISPLAYBUTTON_ADDGROUP"              
 				description="MOD_DASHBOARD_DISPLAYBUTTON_ADDGROUP_DESC" 
-				class="btn-group btn-group-yesno" 
+				layout="joomla.form.field.radio.switcher" 
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -344,7 +344,7 @@
 				default="1"      
 				label="MOD_DASHBOARD_DISPLAYBUTTON_MANAGEITEMS"              
 				description="MOD_DASHBOARD_DISPLAYBUTTON_MANAGEITEMS_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -355,7 +355,7 @@
 				default="1" 
 				label="MOD_DASHBOARD_DISPLAYBUTTON_BUTTONMANAGECATEGORIES"   
 				description="MOD_DASHBOARD_DISPLAYBUTTON_BUTTONMANAGECATEGORIES_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -367,7 +367,7 @@
 				default="1"       
 				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS"    
 				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGETAGS_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -379,7 +379,7 @@
 				default="1"    
 				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS" 
 				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEAUTHORS_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -390,7 +390,7 @@
 				default="1"     
 				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS"  
 				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEGROUPS_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -401,7 +401,7 @@
 				default="1"     
 				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES"  
 				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONMANAGEFILES_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -414,7 +414,7 @@
 				default="1"      
 				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_PRIVACY"   
 				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_PRIVACY_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -425,7 +425,7 @@
 				default="1"      
 				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_LOGS"   
 				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_LOG_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -436,7 +436,7 @@
 				default="1"      
 				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONU_ARTICLE_FIELD"   
 				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_ARTICLE_FIELdD_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -447,7 +447,7 @@
 				default="1"     
 				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONU_USER_FIELD"  
 				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTON_USER_FIELD_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -458,7 +458,7 @@
 				default="1"      
 				label="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONADMIN"   
 				description="MOD_DASHBOARD_DISPLAYBUTTON_HIDDEBUTTONADMIN_DESC" 
-				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
 				parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
@@ -477,7 +477,7 @@
 			 formsource= "administrator/modules/mod_dashboard/models/forms/freebutton.xml"
 			 multiple= "true"
 			 buttons= "add,remove,move"
-			layout="joomla.form.field.subform.repeatable-table"
+			layout="joomla.form.field.subform.repeatable"
 			 groupByFieldset="false"
 			 parentclass="span-6 stack"/>
 			</fieldset>

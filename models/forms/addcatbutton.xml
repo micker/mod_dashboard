@@ -17,7 +17,7 @@
       		class="span12 small">
       		<option value="*">JALL</option>
       </field>
-	  <field name="displayauthoronly" label="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY" description="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
+	  <field name="displayauthoronly" label="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY" description="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY_DESC" type="radio" default="0" layout="joomla.form.field.radio.switcher">
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
 		</field>
@@ -30,7 +30,7 @@
 			<option value="_self">MOD_DASHBOARD_SELF</option>
 			<option value="_blank">MOD_DASHBOARD_BLANK</option>
 	</field>
-    <field name="displayline" label="MOD_DASHBOARD_DISPLAY_LINE" description="MOD_DASHBOARD_DISPLAY_LINE_DESC" type="radio" default="0" class="btn-group btn-group-yesno">
+    <field name="displayline" label="MOD_DASHBOARD_DISPLAY_LINE" description="MOD_DASHBOARD_DISPLAY_LINE_DESC" type="radio" default="0" layout="joomla.form.field.radio.switcher">
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
 		</field>

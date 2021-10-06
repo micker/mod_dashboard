@@ -315,8 +315,10 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 					</ul>
 					</nav>
 		</div>
+		</div>
 		<?php echo HTMLHelper::_('uitab.endTab'); ?>
 		<?php endif; ?>
+
 		<?php if ($displaymanagetab) : ?>
 		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'manage', Text::_('MOD_DASHBOARD_TAB_MANAGE_D')); ?>
 		<div class="row">
@@ -403,6 +405,8 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 		</div>
 		<?php echo HTMLHelper::_('uitab.endTab'); ?>
 		<?php endif; ?>
+
+
 		<?php if ($displayadmintab) : ?>
 		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'admin', Text::_('MOD_DASHBOARD_TAB_ADMIN_D')); ?>
 		<div class="row">
@@ -435,7 +439,6 @@ class="j-links-link"><?php echo $sys_buttons['text']; ?></span>
 				<?php endif; ?>
 
 				<?php if($hiddebuttonprivacy || $hiddebuttonlogs): ?>
-				<hr class="mt-3 mb-3">
 				<?php endif; ?>
 				<?php if($hiddebuttonmanagefieldsuser): ?>
 					<li class="quickicon quickicon-single col ">
