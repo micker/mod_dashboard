@@ -1,37 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-<field name="namecatfilter"
-  type="text"
-  label="MOD_DASHBOARD_NAME_BUTTON"
-  description="MOD_DASHBOARD_NAME_BUTTON_DESC" />
-<field name="catidlist"
-      type="category"
-      extension="com_content"
-      multiple="false"
-      label="MOD_DASHBOARD_CAT"
-      description="MOD_DASHBOARD_CAT_DESC" />
-      <field name="button_lang"
-      		type="contentlanguage"
-      		label="MOD_DASHBOARD_LANG"
-      		description="MOD_DASHBOARD_LANG_DESC"
-      		class="span12 small">
-      		<option value="*">JALL</option>
-      </field>
-	  <field name="displayauthoronly" label="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY" description="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY_DESC" type="radio" default="0" layout="joomla.form.field.radio.switcher">
-			<option value="1">JYES</option>
-			<option value="0">JNO</option>
-		</field>
-			<field name="iconbutton" type="iconpicker" default="fa-plus-circle" label="MOD_DASHBOARD_ICON" description="MOD_DASHBOARD_ICON_DESC" />
-					<field name="coloricon" type="color" default="" format="rgba"
-	label="MOD_DASHBOARD_ICON_COLOR"
-	description="MOD_DASHBOARD_ICON_COLOR_DESC" 
-	/>
-			<field name="targetlink" label="MOD_DASHBOARD_TARGETLINK" description="MOD_DASHBOARD_TARGETLINK_DESC" type="radio" default="_self" class="btn-group btn-group-yesno">
-			<option value="_self">MOD_DASHBOARD_SELF</option>
-			<option value="_blank">MOD_DASHBOARD_BLANK</option>
+	<field name="namecatfilter" type="text" label="MOD_DASHBOARD_NAME_BUTTON" description="MOD_DASHBOARD_NAME_BUTTON_DESC" />
+	<field name="catidlist" type="category" extension="com_content" multiple="false" label="MOD_DASHBOARD_CAT" description="MOD_DASHBOARD_CAT_DESC" />
+	<field name="button_lang" type="contentlanguage" label="MOD_DASHBOARD_LANG" description="MOD_DASHBOARD_LANG_DESC" class="span12 small">
+		<option value="*">JALL</option>
 	</field>
-    <field name="displayline" label="MOD_DASHBOARD_DISPLAY_LINE" description="MOD_DASHBOARD_DISPLAY_LINE_DESC" type="radio" default="0" layout="joomla.form.field.radio.switcher">
-			<option value="1">JYES</option>
-			<option value="0">JNO</option>
-		</field>
+	<field name="displayauthoronly" label="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY" description="MOD_DASHBOARD_DISPLAY_AUTHOR_ONLY_DESC" type="radio" default="0" layout="joomla.form.field.radio.switcher">
+		<option value="1">JYES</option>
+		<option value="0">JNO</option>
+	</field>
+	<field name="iconbutton" type="iconpicker" default="fa-plus-circle" label="MOD_DASHBOARD_ICON" description="MOD_DASHBOARD_ICON_DESC" />
+	<field name="coloricon" type="color" default="" format="rgba" label="MOD_DASHBOARD_ICON_COLOR" description="MOD_DASHBOARD_ICON_COLOR_DESC" />
+	<field name="targetlink" label="MOD_DASHBOARD_TARGETLINK" description="MOD_DASHBOARD_TARGETLINK_DESC" type="radio" default="_self" class="btn-group btn-group-yesno">
+		<option value="_self">MOD_DASHBOARD_SELF</option>
+		<option value="_blank">MOD_DASHBOARD_BLANK</option>
+	</field>
+	<field name="displayline" label="MOD_DASHBOARD_DISPLAY_LINE" description="MOD_DASHBOARD_DISPLAY_LINE_DESC" type="radio" default="0" layout="joomla.form.field.radio.switcher">
+		<option value="1">JYES</option>
+		<option value="0">JNO</option>
+	</field>
 </form>
