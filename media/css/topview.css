@@ -1,0 +1,39 @@
+.topview {
+	background: #fff;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+.topview .action {
+    margin: 0px;
+    padding: 0 1rem 0.75rem 1rem;
+}
+.topview .action joomla-tab>div[role=tablist] button[role=tab] {
+	font-size: 0.9rem;
+	font-weight: 400;
+}
+
+.topview .action joomla-tab>div[role=tablist] button[role=tab][aria-expanded=true] {
+	font-weight: 700;
+}
+
+.topview .action joomla-tab>joomla-tab-element {
+	margin-top: 1rem;
+	padding: 0;
+}
+@media (min-width: 1024px ) {
+	.topview .action .quick-icons .nav {
+		grid-template-columns: repeat(auto-fit, minmax(6rem, 8rem));
+	}
+}
+.topview .action .quick-icons .quickicon a {
+	align-items: center !important;
+	text-align: center;
+}
+.topview .action .quick-icons .quickicon a:active i,
+.topview .action .quick-icons .quickicon a:focus i,
+.topview .action .quick-icons .quickicon a:hover i {
+	color: #fff !important;
+}
+.topview .action hr {
+	grid-column: 1/-1;
+}
