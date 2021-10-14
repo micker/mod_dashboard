@@ -1,0 +1,27 @@
+.iconview .action {
+    margin: 0px;
+    padding: 0 1rem 0.75rem 1rem;
+}
+.iconview .action joomla-tab>div[role=tablist] button[role=tab] {
+	font-size: 0.9rem;
+	font-weight: 400;
+}
+.iconview .action joomla-tab>div[role=tablist] button[role=tab][aria-expanded=true] {
+	font-weight: 700;
+}
+.iconview .action joomla-tab>joomla-tab-element {
+	margin-top: 1rem;
+	padding: 0;
+}
+.iconview .action .quick-icons .quickicon a {
+	align-items: flex-start !important;
+	justify-content: end !important;
+}
+.iconview .action .quick-icons .quickicon a:active,
+.iconview .action .quick-icons .quickicon a:focus,
+.iconview .action .quick-icons .quickicon a:hover {
+	color: #fff !important;
+}
+.iconview .action hr {
+	grid-column: 1/-1;
+}
