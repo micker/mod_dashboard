@@ -61,9 +61,9 @@ class JFormFieldIconpicker extends JFormField
 
     $iconlist = ' <button id="' . $this->id . '-wrapper" class="btn btn-secondary"/></button>';
     $iconlist .= "
-                       <script>
-                       document.addEventListener('DOMContentLoaded', function() {
-                       $('#" . $this->id . "-wrapper').iconpicker({
+                   <script>
+                       (function ($) {
+                       $('#". $this->id ."-wrapper').iconpicker({
                        align: 'left',
                        arrowClass: 'btn-success',
                        arrowPrevIconClass: 'fa fa-arrow-left',
@@ -77,7 +77,7 @@ class JFormFieldIconpicker extends JFormField
                        labelFooter: '" . JText::sprintf('MOD_DASHBOARD_ICONLINK_ICONSINDEX', '{0}', '{1}', '{2}') . "',
                        placement: 'bottom',
                        search: true,
-                       searchText: '" . JText::_('MOD_DASHBOARD_ICONLINK_SEARCHTEXT') . "',
+                       searchText: '". JText::_('MOD_DASHBOARD_ICONLINK_SEARCHTEXT') . "',
                        selectedClass: 'btn-primary',
                        unselectedClass: 'btn-default',
                        iconClass: 'fontawesome',
@@ -90,16 +90,8 @@ class JFormFieldIconpicker extends JFormField
                        input.attr({'id': '" . $this->id . "', 'name': '" . $this->name . "'});
                        input.val('" . $this->value . "');
 
-                       });
-                       </script>
-                      <script>
-                      (function ($) {
-                        document.addEventListener('DOMContentLoaded', function().on('subform-row-add', function(event, row){
-                                      $(row).prev().find('button.hasPicker').iconpicker();
-                                      $(row).find('button.hasPicker').iconpicker();
-                          })
-                      });
-                      </script>
+                       })(jQuery);
+                     </script>
                        ";
 
     return $iconlist;
