@@ -33,8 +33,8 @@ $userId    = $user->get('id');
 
 //JHTML::_('behavior.modal');
 //JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
-JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
+JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css', array('version' => 'auto', 'relative' => true));
+JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css', array('version' => 'auto', 'relative' => true));
 
 $force_fullwidth     = $params->get('force_fullwidth', '1');
 
@@ -170,7 +170,7 @@ jimport('joomla.application.component.controller');
 									?>></i>
 													</div>
 													<div class="quickicon-name d-flex align-items-center">
-														<?php echo JText::_($add_button->button_name); ?>
+														<?php echo Text::_($add_button->button_name); ?>
 													</div>
 												</a>
 											</li>
@@ -207,7 +207,7 @@ jimport('joomla.application.component.controller');
 														</i>
 													</div>
 													<div class="quickicon-name d-flex align-items-center">
-														<?php echo JText::_($cat_button->namecatfilter); ?>
+														<?php echo Text::_($cat_button->namecatfilter); ?>
 													</div>
 												</a>
 											</li>
@@ -236,7 +236,7 @@ jimport('joomla.application.component.controller');
 														</i>
 													</div>
 													<div class="quickicon-name d-flex align-items-center">
-														<?php echo JText::_($edit_item_button->nameitemedit); ?>
+														<?php echo Text::_($edit_item_button->nameitemedit); ?>
 													</div>
 												</a>
 											</li>
@@ -263,7 +263,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-plus-circle <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_ADDITEM'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_ADDITEM'); ?>
 												</div>
 											</a>
 										</li>
@@ -275,7 +275,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-folder-open <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_ADDCATEGORY'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_ADDCATEGORY'); ?>
 												</div>
 											</a>
 										</li>
@@ -287,7 +287,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-tags <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_ADDTAG'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_ADDTAG'); ?>
 												</div>
 											</a>
 										</li>
@@ -299,7 +299,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-user <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_ADDAUTHOR'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_ADDAUTHOR'); ?>
 												</div>
 											</a>
 										</li>
@@ -311,7 +311,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-users <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_ADDGROUPS'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_ADDGROUPS'); ?>
 												</div>
 											</a>
 										</li>
@@ -336,7 +336,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-th-list <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_ITEMLIST'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_ITEMLIST'); ?>
 												</div>
 											</a>
 										</li>
@@ -348,7 +348,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-folder-open <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_CATLIST'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_CATLIST'); ?>
 												</div>
 											</a>
 										</li>
@@ -360,7 +360,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-tags <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_TAGLIST'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_TAGLIST'); ?>
 												</div>
 											</a>
 										</li>
@@ -372,7 +372,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-user <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_AUTHORLIST'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_AUTHORLIST'); ?>
 												</div>
 											</a>
 										</li>
@@ -385,7 +385,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-users <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_GROUPSLIST'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_GROUPSLIST'); ?>
 												</div>
 											</a>
 										</li>
@@ -398,7 +398,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-upload <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_FILEMANAGER'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_FILEMANAGER'); ?>
 												</div>
 											</a>
 										</li>
@@ -424,7 +424,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-lock <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_PRIVACY'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_PRIVACY'); ?>
 												</div>
 											</a>
 										</li>
@@ -436,7 +436,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-list-alt <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_LOGS'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_LOGS'); ?>
 												</div>
 											</a>
 										</li>
@@ -451,7 +451,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-user <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_FIELDLIST_USER'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_FIELDLIST_USER'); ?>
 												</div>
 											</a>
 										</li>
@@ -463,7 +463,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-th-list <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_FIELDLIST_ARTICLE'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_FIELDLIST_ARTICLE'); ?>
 												</div>
 											</a>
 										</li>
@@ -475,7 +475,7 @@ jimport('joomla.application.component.controller');
 													<i class="fas fa-cogs <?php echo $iconsize; ?> "></i>
 												</div>
 												<div class="quickicon-name d-flex align-items-center">
-													<?php echo JText::_('MOD_DASHBOARD_GEN'); ?>
+													<?php echo Text::_('MOD_DASHBOARD_GEN'); ?>
 												</div>
 											</a>
 										</li>
@@ -517,7 +517,7 @@ jimport('joomla.application.component.controller');
 															</i>
 														</div>
 														<div class="quickicon-name d-flex align-items-center">
-															<?php echo JText::_($free_button->freebutton); ?>
+															<?php echo Text::_($free_button->freebutton); ?>
 														</div>
 													</a>
 												</li>
@@ -549,10 +549,10 @@ jimport('joomla.application.component.controller');
 					<div class="module-actions">
 						<a href='<?php echo $show_all_link ?>' class='adminlink'>
 							<?php
-							echo JText::_('MOD_DASHBOARD_ALL');
+							echo Text::_('MOD_DASHBOARD_ALL');
 							echo "</a></div>";	?>
 							<h3 class="module-title"><i class="fas fa-star featured"></i>
-								<?php echo JText::_('MOD_DASHBOARD_FEATURED'); ?></h3>
+								<?php echo Text::_('MOD_DASHBOARD_FEATURED'); ?></h3>
 					</div>
 					<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
 
@@ -607,10 +607,10 @@ jimport('joomla.application.component.controller');
 						<div class="module-actions">
 							<a href='<?php echo $show_all_link ?>' class='adminlink'>
 								<?php
-								echo JText::_('MOD_DASHBOARD_ALL');
+								echo Text::_('MOD_DASHBOARD_ALL');
 								echo "</a></div>";	?>
 								<h3 class="module-title "><i class="fa fa-check"></i>
-									<?php echo JText::_('MOD_DASHBOARD_PUBLISHED'); ?></h3>
+									<?php echo Text::_('MOD_DASHBOARD_PUBLISHED'); ?></h3>
 
 
 						</div>
@@ -668,10 +668,10 @@ jimport('joomla.application.component.controller');
 							<div class="module-actions">
 								<a href='<?php echo $show_all_link ?>' class='adminlink'>
 									<?php
-									echo JText::_('MOD_DASHBOARD_ALL');
+									echo Text::_('MOD_DASHBOARD_ALL');
 									echo "</a></div>";	?>
 									<h3 class="module-title"><i class="fa fa-thumbs-down"></i>
-										<?php echo JText::_('MOD_DASHBOARD_UNPUBLISHED'); ?></h3>
+										<?php echo Text::_('MOD_DASHBOARD_UNPUBLISHED'); ?></h3>
 
 							</div>
 
@@ -724,10 +724,10 @@ jimport('joomla.application.component.controller');
 								<div class="module-actions">
 									<a href='<?php echo $show_all_link ?>' class='adminlink'>
 										<?php
-										echo JText::_('MOD_DASHBOARD_ALL');
+										echo Text::_('MOD_DASHBOARD_ALL');
 										echo "</a></div>";	?>
 										<h3 class="module-title"><i class="fa fa-archive"></i>
-											<?php echo JText::_('MOD_DASHBOARD_ARCHIVED'); ?></h3>
+											<?php echo Text::_('MOD_DASHBOARD_ARCHIVED'); ?></h3>
 
 								</div>
 								<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
@@ -780,13 +780,13 @@ jimport('joomla.application.component.controller');
 									?>
 									<a href='<?php echo $show_all_link ?>' class='adminlink'>
 										<?php
-										echo JText::_('MOD_DASHBOARD_ALL');
+										echo Text::_('MOD_DASHBOARD_ALL');
 										echo "</a></div>";	?>
 
 										<?php $user = JFactory::getUser();		?>
 										<h3 class="module-title">
 											<i class="fa fa-user"></i>
-											<?php echo JText::_('JOOMLA_YOUR_ITEM'); ?> : <?php echo $user->name; ?>
+											<?php echo Text::_('JOOMLA_YOUR_ITEM'); ?> : <?php echo $user->name; ?>
 										</h3>
 
 								</div>
@@ -850,11 +850,11 @@ jimport('joomla.application.component.controller');
 									<div class="module-actions">
 										<a href='<?php echo $show_all_link ?>' class='adminlink'>
 											<?php
-											echo JText::_('MOD_DASHBOARD_ALL');
+											echo Text::_('MOD_DASHBOARD_ALL');
 											echo "</a></div>";	?>
 
 											<h3 class="module-title "><i class="fa fa-trash"></i>
-												<?php echo JText::_('MOD_DASHBOARD_TRASHED'); ?></h3>
+												<?php echo Text::_('MOD_DASHBOARD_TRASHED'); ?></h3>
 
 									</div>
 									<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
@@ -905,11 +905,11 @@ jimport('joomla.application.component.controller');
 										<div class="module-actions"> <?php $show_all_link = 'index.php?option=com_actionlogs'; ?>
 											<a href='<?php echo $show_all_link ?>' class='adminlink'>
 												<?php
-												echo JText::_('MOD_DASHBOARD_ALL');
+												echo Text::_('MOD_DASHBOARD_ALL');
 												echo "</a></div>";	?>
 												<h3 class="module-title ">
 													<i class="fa fa-list-alt"></i>
-													<?php echo JText::_('MOD_DASHBOARD_ACTIONLOGS_BLOCK_NAME'); ?> :
+													<?php echo Text::_('MOD_DASHBOARD_ACTIONLOGS_BLOCK_NAME'); ?> :
 												</h3>
 										</div>
 										<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
@@ -932,7 +932,7 @@ jimport('joomla.application.component.controller');
 																<td>
 																	<div class="small">
 																		<span class="fas fa-calendar" aria-hidden="true"></span>
-																		<?php echo JHtml::_('date', $item->log_date, JText::_('DATE_FORMAT_LC5')); ?>
+																		<?php echo JHtml::_('date', $item->log_date, Text::_('DATE_FORMAT_LC5')); ?>
 																	</div>
 																</td>
 															</tr>
@@ -944,7 +944,7 @@ jimport('joomla.application.component.controller');
 												<div class="row-fluid">
 													<div class="span12">
 														<div class="alert">
-															<?php echo JText::_('MOD_LATEST_ACTIONS_NO_MATCHING_RESULTS'); ?>
+															<?php echo Text::_('MOD_LATEST_ACTIONS_NO_MATCHING_RESULTS'); ?>
 														</div>
 													</div>
 												</div>
@@ -965,11 +965,11 @@ jimport('joomla.application.component.controller');
 
 													<a href='<?php echo $show_all_link ?>' class='adminlink'>
 														<?php
-														echo JText::_('MOD_DASHBOARD_ALL');
+														echo Text::_('MOD_DASHBOARD_ALL');
 														echo "</a></div>";	?>
 														<h3 class="module-title ">
 															<i class="fa fa-user"></i>
-															<?php echo JText::_($customblock->nameblockcustom); ?> :
+															<?php echo Text::_($customblock->nameblockcustom); ?> :
 														</h3>
 												</div>
 												<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
@@ -1030,3 +1030,4 @@ jimport('joomla.application.component.controller');
 										</div>
 
 								</div>
+
