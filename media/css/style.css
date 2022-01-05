@@ -16,6 +16,9 @@ margin: 4px;
 max-width: 116px;
 min-height: 66px;
 }
+.quickicon-name.d-flex.align-items-center {
+    text-align: center;
+}
 .block {
 min-height:155px !important;
 /*margin-left: -1px !important;
