@@ -139,6 +139,9 @@ height: 2rem;
 /*background: #edf2f7;*/
 background:var(--template-bg-dark-5);
 }
+.card-body{
+    overflow-y: auto !important;
+}
 @media (max-width: 952px){
     .contentbloc > .card {
         width: 100% !important;
