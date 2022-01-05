@@ -3,12 +3,12 @@
   <field name="nameblockcustom" type="text" label="MOD_DASHBOARD_BLOCKCUSTOM" description="MOD_DASHBOARD_BLOCKCUSTOM_DESC"/>
   <field name="catidlist" type="category" extension="com_content" multiple="false" label="MOD_DASHBOARD_CAT" description="MOD_DASHBOARD_CAT_DESC" class="advancedSelect" />
   <field name="displautblock" label="MOD_DASHBOARD_DISPLAY_AUTHOR" type="radio" default="1" layout="joomla.form.field.radio.switcher">
-    <option value="1">JYES</option>
     <option value="0">JNO</option>
+        <option value="1">JYES</option>
   </field>
   <field name="displdateblock" label="MOD_DASHBOARD_DISPLAY_DATE" type="radio" default="1" layout="joomla.form.field.radio.switcher">
-    <option value="1">JYES</option>
     <option value="0">JNO</option>
+        <option value="1">JYES</option>
   </field>
   <field name="width" type="number" default="45" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC" min="0" max="100" step="5" />
 </form>
