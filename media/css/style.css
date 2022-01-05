@@ -44,7 +44,8 @@ border-right: 0;
 }
 .contentbloc{
 align-content:space-between;
-background: #edf2f7;
+/*background: #edf2f7;*/
+background:var(--template-bg-dark-5);
 display: inline-flex;
 flex-wrap: wrap;
 gap: 1rem;
@@ -135,7 +136,8 @@ justify-content: center;
 }
 .sep{
 height: 2rem;
-    background: #ebf0f6;
+/*background: #edf2f7;*/
+background:var(--template-bg-dark-5);
 }
 @media (max-width: 952px){
     .contentbloc > .card {
