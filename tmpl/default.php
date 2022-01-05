@@ -33,8 +33,8 @@ $userId    = $user->get('id');
 
 //JHTML::_('behavior.modal');
 //JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css', array('version' => 'auto', 'relative' => true));
-JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css', array('version' => 'auto', 'relative' => true));
+JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
+JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
 
 $force_fullwidth     = $params->get('force_fullwidth', '1');
 
@@ -111,7 +111,7 @@ jimport('joomla.application.component.controller');
 <div class="row-fluid <?php echo $moduleclass_sfx; ?>">
 	<div class="headerblock">
 
-		<?php if ($displayinfosystem || $displayconfigmodule) : ?>
+		<?php if ($displayinfosystem && $displayconfigmodule) : ?>
 			<div class="info-bar top list-group-item">
 				<ul class="breadcrumb">
 					<?php if ($displayinfosystem) : ?>
