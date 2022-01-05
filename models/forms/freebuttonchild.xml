@@ -9,7 +9,7 @@
 		<option value="_blank">MOD_DASHBOARD_BLANK</option>
 	</field>
 	<field name="displayline" label="MOD_DASHBOARD_DISPLAY_LINE" description="MOD_DASHBOARD_DISPLAY_LINE_DESC" type="radio" default="0" layout="joomla.form.field.radio.switcher">
-		<option value="1">JYES</option>
 		<option value="0">JNO</option>
+				<option value="1">JYES</option>
 	</field>
 </form>
