@@ -2,10 +2,10 @@
 <extension type="module" version="3.0" client="administrator" method="upgrade">
 	<name>Admin Dashboard by Com3elles</name>
 	<author>Berges Yannick</author>
-	<creationDate>dec 2021</creationDate>
+	<creationDate>janvier 2022</creationDate>
 	<authorEmail>yannick@com3elles.com</authorEmail>
 	<authorUrl>www.com3elles.com</authorUrl>
-	<version>2.3</version>
+	<version>2.4</version>
 	<copyright>Copyright (C) 2008 - 2019 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<description>MOD_DASHBOARD_INTRO</description>
