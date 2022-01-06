@@ -4,6 +4,9 @@
 .modulemessage {
     padding: 1.5rem;
 }
+.quick-icons .nav {
+    display: flex;
+}
 .action{
     margin-top: 20px;
     padding: .75rem 1rem;
