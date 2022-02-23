@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="3.0" client="administrator" method="upgrade">
+<extension type="module" version="4.0" client="administrator" method="upgrade">
 	<name>Admin Dashboard by Com3elles</name>
 	<author>Berges Yannick</author>
 	<creationDate>janvier 2022</creationDate>
 	<authorEmail>yannick@com3elles.com</authorEmail>
 	<authorUrl>www.com3elles.com</authorUrl>
-	<version>2.4</version>
+	<version>2.5</version>
 	<copyright>Copyright (C) 2008 - 2019 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<description>MOD_DASHBOARD_INTRO</description>
@@ -77,6 +77,10 @@
 					<option value="1">JYES</option>
 				</field>
 				<field name="displayfreetab" type="radio" default="1" label="JOOMLA_FREE_TABS_ADMIN" description="JOOMLA_FREE_TABS_ADMIN_DESC" layout="joomla.form.field.radio.switcher" parentclass="span-2 stack">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="displayanalytics" type="radio" default="1" label="MOD_DASHBOARD_ANALYTICS_TABS_ADMIN" description="MOD_DASHBOARD_ANALYTICS_TABS_ADMIN_DESC" layout="joomla.form.field.radio.switcher" parentclass="span-2 stack">
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
@@ -222,6 +226,16 @@
 					<option value="1">JYES</option>
 				</field>
 
+			</fieldset>
+
+			<fieldset name="analytics_config" label="MOD_DASHBOARD_ANALYTICS_CONFIG" description="MOD_DASHBOARD_ANALYTICS_CONFIG_DESC">
+			<field name="analytics_tabname" type="text" default="MOD_DASHBOARD_TAB_ANALYTICS" label="MOD_DASHBOARD_ANALYTICS_TAB_NAME" description="MOD_DASHBOARD_ANALYTICS_TAB_NAME_DESC" parentclass="span-5 stack"/>
+				<field name="analytics_siteid" type="text" default="1" label="MOD_DASHBOARD_SITEID" description="MOD_DASHBOARD_SITEID_DESC" parentclass="span-2 stack"/>
+				<field name="analytics_siteurl" type="text" default="https://www.yourmatomositeurl.com" label="MOD_DASHBOARD_SITEURL" description="MOD_DASHBOARD_SITEURL_DESC" parentclass="span-2 stack"/>
+				<field name="analytics_period" type="text" default="week" label="MOD_DASHBOARD_ANALYTICS_PERIOD" description="MOD_DASHBOARD_ANALYTICS_PERIOD_DESC" parentclass="span-2 stack"/>
+				<field name="analytics_date" type="text" default="yesterday" label="MOD_DASHBOARD_ANALYTICS_DATE" description="MOD_DASHBOARD_ANALYTICS_DATE_DESC" parentclass="span-2 stack"/>
+				<field name="analytics_height" type="text" default="500" label="MOD_DASHBOARD_ANALYTICS_HEIGHT" description="MOD_DASHBOARD_ANALYTICS_HEIGHT_DESC" parentclass="span-2 stack"/>
+				<field name="analytics_button" type="text" default="MOD_DASHBOARD_LINK_ANALYTICS" label="MOD_DASHBOARD_ANALYTICS_LINK" description="MOD_DASHBOARD_ANALYTICS_LINK_DESC" parentclass="span-5 stack"/>
 			</fieldset>
 			<fieldset name="free_tab" label="MOD_DASHBOARD_FREE_TAB" description="MOD_DASHBOARD_FREE_TAB_DESC" level="level1">
 				<field name="free_button" description= "MOD_DASHBOARD_FREE_BUTTON_DESC" type= "subform" label= "MOD_DASHBOARD_FREE_BUTTON" min= "0" max= "1000" required= "false" formsource= "administrator/modules/mod_dashboard/models/forms/freebutton.xml" multiple= "true" buttons= "add,remove,move" layout="joomla.form.field.subform.repeatable" groupByFieldset="false" parentclass="span-6 stack"/>
