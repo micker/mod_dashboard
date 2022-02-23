@@ -1,4 +1,4 @@
-Dashboard Admin module by Com3elles for Joomla 3.x
+Dashboard Admin module by Com3elles for Joomla 3.x (master branch) and Joomla 4 (v2 branch)
 ==============
 mod_dashboard
 
