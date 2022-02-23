@@ -1,4 +1,4 @@
-Dashboard Admin module by Com3elles for Joomla 3.x
+Dashboard Admin module by Com3elles for Joomla 3.x (master) and joomla 4 (v2)
 ==============
 mod_dashboard
 
@@ -8,7 +8,7 @@ mod_dashboard
 Dashboard admin module is a lighter and flexible module admin for Joomla!. No need component or big framwork. All is in module, with font-icon. You can display it in cpanel position for icon and custom list of article OR AND icon position for a vertical list of action link. With Joomla! admin module you can easly do a powerfull admin for your user.
 
 Joomla **module dashboard** for cpanel position.
- Compatibilty : joomla 3 and isis template
+ Compatibilty : joomla 3 / 4 and isis template and atumn
 
 Think to publish it in **`cpanel position`** after installation.
 
@@ -18,6 +18,7 @@ Think to publish it in **`cpanel position`** after installation.
   - Manage tab to access on list of content (article, categorie, tag, user, group, access, filemanager)
   - Admin tab for specific action (Privacy, actions log, fields, global config)
   - Free tab in order to add specific action to direct url (commponent module plugin url...)
+  - Matomo dashboard integration
 
 - **Unlimited Action button to view management** :
   - Article list => go to article list with specific category filtering
