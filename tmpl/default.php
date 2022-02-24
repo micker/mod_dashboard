@@ -102,7 +102,7 @@ $freenametab = $params->get('freenametab', 'MOD_DASHBOARD_FREE_TAB_NAME');
 
 //Analytics tab
 $displayanalytics      = $params->get('displayanalytics', '1');
-$analytics_url = $params->get('analytics_url', 'https://stats.com3elles.com/'); 
+$analytics_url = $params->get('analytics_site_url', ''); 
 $analytics_siteid =  $params->get('analytics_siteid', '2');
 $analytics_period = $params->get('analytics_period', 'week');
 $analytics_date = $params->get('analytics_date', 'yesterday');
@@ -543,12 +543,12 @@ jimport('joomla.application.component.controller');
 					<?php endif; ?>
 				<?php endif; ?>
 
-				<?php if ($displayanalytics) : ?>
+				<?php if ($displayanalytics && $analytics_url) : ?>
 					<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'create', Text::_($analytics_tab_name)); ?>
 					<div class="row">
 						<div class="col-lg-12">
 							<div style="float:right"><a href="<?php echo $analytics_url; ?>" target="_blank" class="btn btn-primary"><?php echo Text::_($analytics_button_name); ?></a></div>
-						<iframe src="<?php echo $analytics_url; ?>index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo $analytics_siteid; ?>&period=<?php echo $analytics_period; ?>&date=<?php echo $analytics_date; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="<?php echo $analytics_height;?>px"></iframe>
+						<iframe src="<?php echo $analytics_url; ?>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo $analytics_siteid; ?>&period=<?php echo $analytics_period; ?>&date=<?php echo $analytics_date; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="<?php echo $analytics_height;?>px"></iframe>
 						</div>
 							</div>
 							<?php echo HTMLHelper::_('uitab.endTab'); ?>
