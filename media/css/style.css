@@ -4,9 +4,12 @@
 .modulemessage {
     padding: 1.5rem;
 }
-.quick-icons .nav {
+.quick-icons .flex-wrap, .quick-icons .flex-wrap2 {
     display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-gap: 1rem;
 }
+
 .action{
     margin-top: 20px;
     padding: .75rem 1rem;

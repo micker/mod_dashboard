@@ -157,7 +157,7 @@ jimport('joomla.application.component.controller');
 					<div class="row">
 						<div class="col-lg-12">
 							<nav class="quick-icons dashboard" aria-label="Quick custom link">
-								<ul class="nav flex-wrap">
+								<ul class="flex-wrap2">
 									<?php
 									$list_buttons = $params->get('add_button');
 									if ($list_buttons) : ?>
@@ -265,7 +265,7 @@ jimport('joomla.application.component.controller');
 					<div class="row">
 						<div class="col-lg-12">
 							<nav class="quick-icons dashboard" aria-label="Quick links creation">
-								<ul class="nav flex-wrap">
+								<ul class="flex-wrap">
 									<?php if ($hiddebuttonadditem) : ?>
 										<li class="quickicon quickicon-single col ">
 											<a href="index.php?option=com_content&task=article.add">
@@ -338,7 +338,7 @@ jimport('joomla.application.component.controller');
 					<div class="row">
 						<div class="col-lg-12">
 							<nav class="quick-icons dashboard" aria-label="Quick links creation">
-								<ul class="nav flex-wrap">
+								<ul class="flex-wrap">
 									<?php if ($hiddebuttonmanageitems) : ?>
 										<li class="quickicon quickicon-single col ">
 											<a href="index.php?option=com_content&view=articles">
@@ -426,7 +426,7 @@ jimport('joomla.application.component.controller');
 					<div class="row">
 						<div class="col-lg-12">
 							<nav class="quick-icons dashboard" aria-label="Quick links creation">
-								<ul class="nav flex-wrap">
+								<ul class="flex-wrap">
 									<?php if ($hiddebuttonprivacy) : ?>
 										<li class="quickicon quickicon-single col">
 											<a href="index.php?option=com_privacy">
@@ -507,7 +507,7 @@ jimport('joomla.application.component.controller');
 							<div class="row">
 								<div class="col-lg-12">
 									<nav class="quick-icons dashboard" aria-label="Quick links creation">
-										<ul class="nav flex-wrap">
+										<ul class="flex-wrap">
 											<?php foreach ($free_buttons->free_button as $free_button_idx => $free_button) : ?>
 												<li class="quickicon quickicon-single col">
 													<a href="<?php echo $free_button->linkbutton; ?>" target="<?php echo $free_button->targetlink; ?>">
