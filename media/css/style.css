@@ -4,7 +4,7 @@
 .modulemessage {
     padding: 1.5rem;
 }
-.quick-icons .flex-wrap, .quick-icons .flex-wrap2 {
+.quick-icons .flex-wrap, .quick-icons .flex-wrap2, .quick-icons ul {
     display: flex;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     grid-gap: 1rem;

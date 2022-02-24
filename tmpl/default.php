@@ -157,7 +157,7 @@ jimport('joomla.application.component.controller');
 					<div class="row">
 						<div class="col-lg-12">
 							<nav class="quick-icons dashboard" aria-label="Quick custom link">
-								<ul class="flex-wrap2">
+								<ul>
 									<?php
 									$list_buttons = $params->get('add_button');
 									if ($list_buttons) : ?>
