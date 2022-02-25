@@ -110,6 +110,7 @@ $analytics_height = $params->get('analytics_height', '500');
 $analytics_tab_name = $params->get('analytics_tab_name', 'MOD_DASHBOARD_TAB_ANALYTICS');
 $analytics_button_name = $params->get('analytics_button', 'MOD_DASHBOARD_LINK_ANALYTICS');
 $analytics_token_auth = $params->get('analytics_site_token_auth', '');
+$analytics_use_token_auth = $params->get('analytics_use_token', '0');
 
 //
 $user = JFactory::getUser();
@@ -548,10 +549,12 @@ jimport('joomla.application.component.controller');
 					<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'create', Text::_($analytics_tab_name)); ?>
 					<div class="row">
 						<div class="col-lg-12">
-							<?php if($analytics_token_auth) : ?>
-							<div style="float:right"><a href="<?php echo $analytics_url; ?>" target="_blank" class="btn btn-primary"><?php echo Text::_($analytics_button_name); ?></a></div>
+						<div style="float:right"><a href="<?php echo $analytics_url; ?>" target="_blank" class="btn btn-primary"><?php echo Text::_($analytics_button_name); ?></a></div>
+							<?php if($analytics_token_auth && $analytics_use_token_auth == 1 ) : ?>
 						<iframe src="<?php echo $analytics_url; ?>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo $analytics_siteid; ?>&period=<?php echo $analytics_period; ?>&date=<?php echo $analytics_date; ?>&token_auth=<?php echo $analytics_token_auth; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="<?php echo $analytics_height;?>px"></iframe>
-						<?php else: ?>
+						<?php elseif ($analytics_use_token_auth == 0 ) : ?>
+							<iframe src="<?php echo $analytics_url; ?>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo $analytics_siteid; ?>&period=<?php echo $analytics_period; ?>&date=<?php echo $analytics_date; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="<?php echo $analytics_height;?>px"></iframe>
+							<?php else : ?>
 							<?php echo Text::_('MOD_DASHBOARD_TOKEN_MESSAGE'); ?>
 						<?php endif; ?>
 
