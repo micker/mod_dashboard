@@ -232,6 +232,7 @@
 			<field name="analytics_tabname" type="text" default="MOD_DASHBOARD_TAB_ANALYTICS" label="MOD_DASHBOARD_ANALYTICS_TAB_NAME" description="MOD_DASHBOARD_ANALYTICS_TAB_NAME_DESC" parentclass="span-5 stack"/>
 				<field name="analytics_siteid" type="text" default="1" label="MOD_DASHBOARD_SITEID" description="MOD_DASHBOARD_SITEID_DESC" parentclass="span-2 stack"/>
 				<field name="analytics_site_url" type="text" default="" label="MOD_DASHBOARD_SITEURL" description="MOD_DASHBOARD_SITEURL_DESC" parentclass="span-2 stack"/>
+				<field name="analytics_site_token_auth" type="text" default="" label="MOD_DASHBOARD_TOKEN" description="MOD_DASHBOARD_TOKEN_DESC" parentclass="span-2 stack"/>
 				<field name="analytics_period" type="text" default="week" label="MOD_DASHBOARD_ANALYTICS_PERIOD" description="MOD_DASHBOARD_ANALYTICS_PERIOD_DESC" parentclass="span-2 stack"/>
 				<field name="analytics_date" type="text" default="yesterday" label="MOD_DASHBOARD_ANALYTICS_DATE" description="MOD_DASHBOARD_ANALYTICS_DATE_DESC" parentclass="span-2 stack"/>
 				<field name="analytics_height" type="text" default="500" label="MOD_DASHBOARD_ANALYTICS_HEIGHT" description="MOD_DASHBOARD_ANALYTICS_HEIGHT_DESC" parentclass="span-2 stack"/>
