@@ -4,12 +4,6 @@
 .modulemessage {
     padding: 1.5rem;
 }
-.quick-icons .flex-wrap, .quick-icons .flex-wrap2, .quick-icons ul {
-    display: flex;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    grid-gap: 1rem;
-}
-
 .action{
     margin-top: 20px;
     padding: .75rem 1rem;
@@ -155,4 +149,4 @@ background:var(--template-bg-dark-5);
     .contentbloc > .card {
         width: 100% !important;
     }
-    }
+}
