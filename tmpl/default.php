@@ -148,7 +148,7 @@ jimport('joomla.application.component.controller');
 
 
 
-		<?php if ($displaycustomtab || $displaycreattab || $displaymanagetab || $displayadmintab || $displayfreetab) : ?>
+		<?php if ($displaycustomtab || $displaycreattab || $displaymanagetab || $displayadmintab || $displayfreetab || $displayanalytics) : ?>
 			<div class="action">
 
 				<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'general')); ?>
