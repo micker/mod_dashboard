@@ -165,7 +165,7 @@ jimport('joomla.application.component.controller');
 									if ($list_buttons) : ?>
 
 										<?php foreach ($list_buttons as $list_buttons_idx => $add_button) : ?>
-											<li class="quickicon quickicon-single col ">
+											<li class="quickicon quickicon-single col <?php echo $add_button->displayline ? 'newlinegrid' : ''; ?>"">
 												<a href="index.php?option=com_content&view=article&layout=edit&catid=<?php echo $add_button->catid; ?>&language=<?php echo $add_button->button_lang; ?>" target="<?php echo $add_button->targetlink; ?>">
 													<div class="quickicon-icon d-flex align-items-end big">
 														<i class="fas 
@@ -186,9 +186,7 @@ jimport('joomla.application.component.controller');
 													</div>
 												</a>
 											</li>
-											<?php if ($add_button->displayline) : ?>
-												<hr class="mt-3 mb-3" />
-											<?php endif; ?>
+											
 										<?php endforeach; ?>
 									<?php endif; ?>
 									<?php $list_catbuttons = $params->get('add_cat_button');
@@ -201,7 +199,7 @@ jimport('joomla.application.component.controller');
 												$filter_byauthor = '';
 											}
 											?>
-											<li class="quickicon quickicon-single col">
+											<li class="quickicon quickicon-single col <?php echo $cat_button->displayline ? 'newlinegrid' : ''; ?>"">
 												<a href="index.php?option=com_content&view=articles&filter[category_id]=<?php echo $cat_button->catidlist; ?>&filter[language]=<?php echo $cat_button->button_lang; ?><?php echo $filter_byauthor; ?>" target="<?php echo $cat_button->targetlink; ?>">
 													<div class="quickicon-icon d-flex align-items-end big">
 														<i class="fas 
@@ -223,14 +221,13 @@ jimport('joomla.application.component.controller');
 													</div>
 												</a>
 											</li>
-											<?php if ($cat_button->displayline) : ?>
-												<hr class="mt-3 mb-3" /><?php endif; ?>
+											
 										<?php endforeach; ?>
 									<?php endif; ?>
 									<?php $list_edititembuttons = $params->get('edit_item_button');
 									if ($list_edititembuttons) : ?>
 										<?php foreach ($list_edititembuttons as $list_edititembuttons_idx => $edit_item_button) : ?>
-											<li class="quickicon quickicon-single col ">
+											<li class="quickicon quickicon-single col <?php echo $edit_item_button->displayline ? 'newlinegrid' : ''; ?>"">
 												<a href="index.php?option=com_content&task=article.edit&id=<?php echo $edit_item_button->itemid; ?>">
 													<div class="quickicon-icon d-flex align-items-end big">
 														<i class="fas 
@@ -252,8 +249,7 @@ jimport('joomla.application.component.controller');
 													</div>
 												</a>
 											</li>
-											<?php if ($edit_item_button->displayline) : ?>
-												<hr class="mt-3 mb-3" /><?php endif; ?>
+											
 										<?php endforeach; ?>
 									<?php endif; ?>
 								</ul>
@@ -511,7 +507,7 @@ jimport('joomla.application.component.controller');
 									<nav class="quick-icons dashboard" aria-label="Quick links creation">
 										<ul class="nav flex-wrap">
 											<?php foreach ($free_buttons->free_button as $free_button_idx => $free_button) : ?>
-												<li class="quickicon quickicon-single col">
+												<li class="quickicon quickicon-single col <?php echo $free_button->displayline ? 'newlinegrid' : ''; ?>">
 													<a href="<?php echo $free_button->linkbutton; ?>" target="<?php echo $free_button->targetlink; ?>">
 														<div class="quickicon-icon d-flex align-items-end big">
 															<i class="fas 
@@ -533,8 +529,7 @@ jimport('joomla.application.component.controller');
 														</div>
 													</a>
 												</li>
-												<?php if ($free_button->displayline) : ?>
-													<hr class="mt-3 mb-3" /><?php endif; ?>
+												
 											<?php endforeach; ?>
 										</ul>
 									</nav>
