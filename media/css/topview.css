@@ -1,0 +1,55 @@
+.topview {
+	background: #fff;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+.topview .action {
+    margin: 0px;
+    padding: 0 1rem 0.75rem 1rem;
+}
+.topview .action joomla-tab>div[role=tablist] button[role=tab] {
+	font-size: 0.9rem;
+	font-weight: 400;
+}
+
+.topview .action joomla-tab>div[role=tablist] button[role=tab][aria-expanded=true] {
+	font-weight: 700;
+}
+
+.topview .action joomla-tab>joomla-tab-element {
+	margin-top: 1rem;
+	padding: 0;
+}
+@media (min-width: 1024px ) {
+	.topview .action .quick-icons .nav {
+		grid-template-columns: repeat(auto-fit, minmax(6rem, 7rem));
+	}
+}
+.topview .action .quick-icons .quickicon-group,
+.topview .action .quick-icons .quickicon-single {
+	min-height: 5.5rem;
+	transition: all 0.25s ease-in-out;
+}
+.topview .action .quick-icons .quickicon-single:hover {
+	border-color: var(--template-bg-dark);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.topview .action .quick-icons .quickicon a {
+	align-items: center !important;
+	justify-content: flex-start;
+	text-align: center;
+}
+.topview .action .quick-icons .quickicon a .quickicon-icon {
+    margin-top: 0.75rem;
+	margin-bottom: 0.2rem;
+    margin-inline-start: 0;
+	-webkit-margin-start: 0;
+}
+.topview .action .quick-icons .quickicon a:active i,
+.topview .action .quick-icons .quickicon a:focus i,
+.topview .action .quick-icons .quickicon a:hover i {
+	color: #fff !important;
+}
+.topview .action hr {
+	grid-column: 1/-1;
+}

@@ -1,6 +1,6 @@
 <?php
 /**
-* @version 0.5.0 stable $Id: default.php yannick berges
+* @version 2.6 stable $Id: default.php yannick berges
 * @package Joomla
 * @copyright (C) 2018 Berges Yannick - www.com3elles.com
 * @license GNU/GPL v2
