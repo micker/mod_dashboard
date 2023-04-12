@@ -17,8 +17,7 @@
 
 defined('JPATH_PLATFORM') or die;
 
-jimport('joomla.filesystem.folder');  // JFolder
-jimport('joomla.filesystem.file');    // JFile
+
 
 jimport('cms.html.html');      // JHtml
 jimport('cms.html.select');    // JHtmlSelect
@@ -63,7 +62,7 @@ class JFormFieldIconpicker extends JFormField
     $iconlist .= "
                    <script>
                        (function ($) {
-                       $('#". $this->id ."-wrapper').iconpicker({
+                       $('#" . $this->id . "-wrapper').iconpicker({
                        align: 'left',
                        arrowClass: 'btn-success',
                        arrowPrevIconClass: 'fa fa-arrow-left',
@@ -77,7 +76,7 @@ class JFormFieldIconpicker extends JFormField
                        labelFooter: '" . JText::sprintf('MOD_DASHBOARD_ICONLINK_ICONSINDEX', '{0}', '{1}', '{2}') . "',
                        placement: 'bottom',
                        search: true,
-                       searchText: '". JText::_('MOD_DASHBOARD_ICONLINK_SEARCHTEXT') . "',
+                       searchText: '" . JText::_('MOD_DASHBOARD_ICONLINK_SEARCHTEXT') . "',
                        selectedClass: 'btn-primary',
                        unselectedClass: 'btn-default',
                        iconClass: 'fontawesome',

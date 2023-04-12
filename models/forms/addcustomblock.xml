@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-  <field name="nameblockcustom" type="text" label="MOD_DASHBOARD_BLOCKCUSTOM" description="MOD_DASHBOARD_BLOCKCUSTOM_DESC"/>
-  <field name="catidlist" type="category" extension="com_content" multiple="false" label="MOD_DASHBOARD_CAT" description="MOD_DASHBOARD_CAT_DESC" class="advancedSelect" />
-  <field name="displautblock" label="MOD_DASHBOARD_DISPLAY_AUTHOR" type="radio" default="1" layout="joomla.form.field.radio.switcher">
-    <option value="0">JNO</option>
-        <option value="1">JYES</option>
+  <field name="TypofBlock" label="Type of block" description="" type="list" default="0">
+    <option value="fb">MOD_DASHBOARD_DISPLAYBLOCK_FEATURED</option>
+    <option value="pb">MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED</option>
+    <option value="cb">MOD_DASHBOARD_BLOCKCUSTOM_DESC</option>
+    <option value="ub">MOD_DASHBOARD_DISPLAYBLOCK_YOURITEM</option>
+    <option value="upb">MOD_DASHBOARD_DISPLAYBLOCK_UNPUBLISHED</option>
+    <option value="ab">MOD_DASHBOARD_DISPLAYBLOCK_ARCHIVED</option>
+    <option value="tb">MOD_DASHBOARD_DISPLAYBLOCK_TRASHED</option>
+    <option value="alb">MOD_DASHBOARD_ADD_ACTIONSBLOCK</option>
   </field>
-  <field name="displdateblock" label="MOD_DASHBOARD_DISPLAY_DATE" type="radio" default="1" layout="joomla.form.field.radio.switcher">
+
+
+  <!-- Valeur par defaut -->
+  <field name="nameblockcustom" type="text" label="MOD_DASHBOARD_BLOCKCUSTOM"
+    description="MOD_DASHBOARD_BLOCKCUSTOM_DESC" />
+  <field name="catidlist" type="category" extension="com_content" multiple="true"
+    label="MOD_DASHBOARD_CAT" description="MOD_DASHBOARD_CAT_DESC"
+    layout="joomla.form.field.list-fancy-select" showon="TypofBlock:cb" />
+  <field name="displautblock" label="MOD_DASHBOARD_DISPLAY_AUTHOR" type="radio" default="1"
+    layout="joomla.form.field.radio.switcher">
     <option value="0">JNO</option>
-        <option value="1">JYES</option>
+    <option value="1">JYES</option>
   </field>
-  <field name="width" type="number" default="45" label="MOD_DASHBOARD_WIDTHCOL" description="MOD_DASHBOARD_WIDTHCOL_DESC" min="0" max="100" step="5" />
+  <field name="displdateblock" label="MOD_DASHBOARD_DISPLAY_DATE" type="radio" default="1"
+    layout="joomla.form.field.radio.switcher">
+    <option value="0">JNO</option>
+    <option value="1">JYES</option>
+  </field>
+  <field name="iconbutton" type="iconpicker" default="" label="MOD_DASHBOARD_ICON"
+    description="MOD_DASHBOARD_ICON_DESC" />
+  <field name="coloricon" type="color" default="" format="rgba" label="MOD_DASHBOARD_ICON_COLOR"
+    description="MOD_DASHBOARD_ICON_COLOR_DESC" />
+  <field name="count" type="list" default="5" label="MOD_DASHBOARD_NBITEM"
+    description="MOD_DASHBOARD_NBITEM" parentclass="span-2 stack">
+    <option value="1">1</option>
+    <option value="3">3</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+  </field>
+  <field name="forceheightblock" type="text" default="" size="50" label="MOD_DASHBOARD_BLOCKHEIGHT"
+    description="MOD_DASHBOARD_BLOCKHEIGHT_DESC" parentclass="span-2 stack" />
+  <field name="width" type="number" default="45" label="MOD_DASHBOARD_WIDTHCOL"
+    description="MOD_DASHBOARD_WIDTHCOL_DESC" min="0" max="100" step="5" />
 </form>

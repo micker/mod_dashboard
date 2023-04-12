@@ -1,12 +1,13 @@
 <?php
 
 /**
- * @version 0.5.0 stable $Id: default.php yannick berges
+ * @version 3 stable $Id: default.php yannick berges
  * @package Joomla
  * @copyright (C) 2018 Berges Yannick - www.com3elles.com
  * @license GNU/GPL v2
 
  * special thanks to my master Marc Studer
+ * special thanks to Shane for helping
 
  * JOOMLA Admin module by Com3elles is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -24,6 +25,10 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\Registry\Registry;
+use Joomla\CMS\Helper\ModuleHelper;
+
+define('DS', DIRECTORY_SEPARATOR);
+const BASE_PATH_SITE = JPATH_ADMINISTRATOR . DS . 'modules' . DS . 'mod_dashboard';
 
 $document = JFactory::getDocument();
 $app       = JFactory::getApplication();
@@ -33,8 +38,13 @@ $userId    = $user->get('id');
 
 //JHTML::_('behavior.modal');
 //JHtml::_('stylesheet', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
-JHtml::_('stylesheet', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
+
+$wa = \Joomla\CMS\Factory::getApplication()->getDocument()->getWebAssetManager();
+$wa->registerStyle('mod_dashboard.style', 'media/mod_dashboard/css/style.css');
+$wa->registerStyle('mod_dashboard.style2', 'media/mod_dashboard/css/bootstrap-iconpicker.css');
+$wa->useStyle('mod_dashboard.style');
+
+
 
 $force_fullwidth     = $params->get('force_fullwidth', '1');
 
@@ -46,14 +56,6 @@ if ($force_fullwidth) {
 }
 
 //module config
-$hiddefeatured       = $params->get('hiddefeatured', '1');
-$hiddepublished      = $params->get('hiddepublished', '1');
-$hiddeunpublished    = $params->get('hiddeunpublished', '1');
-$hiddearchived       = $params->get('hiddearchived', '1');
-$hiddeyouritem       = $params->get('hiddeyouritem', '1');
-$hiddetrashed        = $params->get('hiddetrashed', '1');
-$actionsloglist	     = $params->get('actionsloglist', '1');
-$column              = $params->get('column', '4');
 $displaycustomtab    = $params->get('displaycustomtab', '1');
 $displaycreattab     = $params->get('displaycreattab', '1');
 $displaymanagetab    = $params->get('displaymanagetab', '1');
@@ -64,14 +66,10 @@ $forceheightblock    = $params->get('forceheightblock', '');
 $displaycustomtext   = $params->get('displaycustomtext', '');
 $customtext          = $params->get('customtext', '');
 $displayinfosystem   = $params->get('displayinfosystem', '1');
-$featurewidth      = $params->get('featuredwidth', '48');
-$publishedwidth      = $params->get('publishedwidth', '48');
-$unpublishedwidth    = $params->get('unpublishedwidth', '48');
-$youritemwidth       = $params->get('youritemwidth', '48');
-$trashedwidth     = $params->get('trashedlogwidth', '48');
-$archivedwidth       = $params->get('archivedwidth', '48');
-$actionslogwidth     = $params->get('actionslogwidth', '48');
 $iconsize     = $params->get('iconsize', 'fa-2x');
+$moduleclass_sfx = $params->get('moduleclass_sfx');
+
+$blockwidth = '45';
 
 
 //customtab
@@ -102,7 +100,7 @@ $freenametab = $params->get('freenametab', 'MOD_DASHBOARD_FREE_TAB_NAME');
 
 //Analytics tab
 $displayanalytics      = $params->get('displayanalytics');
-$analytics_url = $params->get('analytics_site_url'); 
+$analytics_url = $params->get('analytics_site_url');
 $analytics_siteid =  $params->get('analytics_siteid');
 $analytics_period = $params->get('analytics_period', 'week');
 $analytics_date = $params->get('analytics_date', 'yesterday');
@@ -155,7 +153,8 @@ jimport('joomla.application.component.controller');
 
 				<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'general')); ?>
 				<?php if ($displaycustomtab) : ?>
-					<?php //echo HTMLHelper::_('uitab.addTab', 'myTab', 'custom', Text::_($nametab)); ?>
+					<?php //echo HTMLHelper::_('uitab.addTab', 'myTab', 'custom', Text::_($nametab)); 
+					?>
 					<?php
 					$list_freebuttons = $params->get('free_tab');
 					if ($list_freebuttons) : ?>
@@ -168,30 +167,30 @@ jimport('joomla.application.component.controller');
 										<ul class="nav flex-wrap">
 											<?php foreach ($free_tab->free_button as $free_button_idx => $free_button) : ?>
 												<li class="quickicon quickicon-single col <?php echo $free_button->displayline ? 'newlinegrid' : ''; ?>">
-												<!-- ici boucle de calcul des liens -->
-												<?php if ($free_button->displayauthoronly == 1) {
-												$filter_byauthor = '&amp;filter[author_id]=' . $user->id;
-											} else {
-												$filter_byauthor = '';
-											}
-											?>
-												<?php 
-												switch ($free_button->displayButtonTypeOption) {
-													case 1://add item
-														$url_button ="index.php?option=com_content&view=article&layout=edit&catid=$free_button->catid&language=$free_button->button_lang";
-													break;
-													case 2://edit item
-														$url_button ="index.php?option=com_content&task=article.edit&id=$free_button->itemid";
-													break;
-													case 3://cat link
-														$url_button ="index.php?option=com_content&view=articles&filter[category_id]=$free_button->catidlist&filter[language]=$free_button->button_lang $filter_byauthor";
-													break;
-													case 4://custom link
-														$url_button = $free_button->linkbutton;
-													break;
-												}
-												?>
-												<a href="<?php echo $url_button; ?>" target="<?php echo $free_button->targetlink; ?>">
+													<!-- ici boucle de calcul des liens -->
+													<?php if ($free_button->displayauthoronly == 1) {
+														$filter_byauthor = '&amp;filter[author_id]=' . $user->id;
+													} else {
+														$filter_byauthor = '';
+													}
+													?>
+													<?php
+													switch ($free_button->displayButtonTypeOption) {
+														case 1: //add item
+															$url_button = "index.php?option=com_content&view=article&layout=edit&catid=$free_button->catid&language=$free_button->button_lang";
+															break;
+														case 2: //edit item
+															$url_button = "index.php?option=com_content&task=article.edit&id=$free_button->itemid";
+															break;
+														case 3: //cat link
+															$url_button = "index.php?option=com_content&view=articles&filter[category_id]=$free_button->catidlist&filter[language]=$free_button->button_lang $filter_byauthor";
+															break;
+														case 4: //custom link
+															$url_button = $free_button->linkbutton;
+															break;
+													}
+													?>
+													<a href="<?php echo $url_button; ?>" target="<?php echo $free_button->targetlink; ?>">
 														<div class="quickicon-icon d-flex align-items-end big">
 															<i class="fas 
 						<?php if (!empty($free_button->iconbutton)) {
@@ -212,7 +211,7 @@ jimport('joomla.application.component.controller');
 														</div>
 													</a>
 												</li>
-												
+
 											<?php endforeach; ?>
 										</ul>
 									</nav>
@@ -221,7 +220,8 @@ jimport('joomla.application.component.controller');
 							<?php echo HTMLHelper::_('uitab.endTab'); ?>
 						<?php endforeach; ?>
 					<?php endif; ?>
-					<?php //echo HTMLHelper::_('uitab.endTab'); ?>
+					<?php //echo HTMLHelper::_('uitab.endTab'); 
+					?>
 				<?php endif; ?>
 				<?php if ($displaycreattab) : ?>
 					<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'create', Text::_('MOD_DASHBOARD_TAB_CREATE_D')); ?>
@@ -461,26 +461,26 @@ jimport('joomla.application.component.controller');
 				<?php endif; ?>
 
 				<?php if ($displayfreetab) : ?>
-					
+
 				<?php endif; ?>
 
 				<?php if ($displayanalytics && $analytics_url) : ?>
 					<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'create', Text::_($analytics_tab_name)); ?>
 					<div class="row">
 						<div class="col-lg-12">
-						<div style="float:right"><a href="<?php echo $analytics_url; ?>" target="_blank" class="btn btn-primary"><?php echo Text::_($analytics_button_name); ?></a></div>
-							<?php if($analytics_token_auth && $analytics_use_token_auth == 1 ) : ?>
-						<iframe src="<?php echo $analytics_url; ?>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo $analytics_siteid; ?>&period=<?php echo $analytics_period; ?>&date=<?php echo $analytics_date; ?>&token_auth=<?php echo $analytics_token_auth; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="<?php echo $analytics_height;?>px"></iframe>
-						<?php elseif ($analytics_use_token_auth == 0 ) : ?>
-							<iframe src="<?php echo $analytics_url; ?>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo $analytics_siteid; ?>&period=<?php echo $analytics_period; ?>&date=<?php echo $analytics_date; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="<?php echo $analytics_height;?>px"></iframe>
+							<div style="float:right"><a href="<?php echo $analytics_url; ?>" target="_blank" class="btn btn-primary"><?php echo Text::_($analytics_button_name); ?></a></div>
+							<?php if ($analytics_token_auth && $analytics_use_token_auth == 1) : ?>
+								<iframe src="<?php echo $analytics_url; ?>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo $analytics_siteid; ?>&period=<?php echo $analytics_period; ?>&date=<?php echo $analytics_date; ?>&token_auth=<?php echo $analytics_token_auth; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="<?php echo $analytics_height; ?>px"></iframe>
+							<?php elseif ($analytics_use_token_auth == 0) : ?>
+								<iframe src="<?php echo $analytics_url; ?>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo $analytics_siteid; ?>&period=<?php echo $analytics_period; ?>&date=<?php echo $analytics_date; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="<?php echo $analytics_height; ?>px"></iframe>
 							<?php else : ?>
-							<?php echo Text::_('MOD_DASHBOARD_TOKEN_MESSAGE'); ?>
-						<?php endif; ?>
-
-					</div>
-							</div>
-							<?php echo HTMLHelper::_('uitab.endTab'); ?>
+								<?php echo Text::_('MOD_DASHBOARD_TOKEN_MESSAGE'); ?>
 							<?php endif; ?>
+
+						</div>
+					</div>
+					<?php echo HTMLHelper::_('uitab.endTab'); ?>
+				<?php endif; ?>
 
 
 				<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
@@ -488,497 +488,194 @@ jimport('joomla.application.component.controller');
 
 			</div>
 	</div>
+	<?php if (!empty($params->get('add_customblock'))) : ?>
+		<div class="sep"></div>
 
-	<div class="sep"></div>
+		<div class="contentbloc">
 
-	<div class="contentbloc">
+			<?php foreach ($params->get('add_customblock') as $block) : ?>
 
-		<?php if ($hiddefeatured) : ?>
-			<div class="block featured card" style="width:<?php echo $featurewidth; ?>%">
-				<div class="card-header">
-					<?php $show_all_link = 'index.php?option=com_content&amp;view=featured'; ?>
-					<div class="module-actions">
-						<a href='<?php echo $show_all_link ?>' class='adminlink'>
-							<?php
-							echo Text::_('MOD_DASHBOARD_ALL');
-							echo "</a></div>";	?>
-							<h3 class="module-title"><i class="fas fa-star featured"></i>
-								<?php echo Text::_('MOD_DASHBOARD_FEATURED'); ?></h3>
-					</div>
-					<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
-
-						<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
-							<thead>
-								<tr>
-									<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
-									<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
-									<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php foreach ($listFeatured as $itemFeatured) :
-									$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemFeatured->id);
-									$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemFeatured->checked_out == $userId || $itemFeatured->checked_out == 0;
-									$canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemFeatured->id) && $itemFeatured->created_by == $userId;
-									$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemFeatured->id) && $canCheckin;
-									if ($canChange) :
-								?>
-										<tr>
-											<td>
-												<a href="<?php echo $itemFeatured->link; ?>"><?php echo $itemFeatured->title; ?>
-													<i class="fa fa-edit"></i></a>
-											</td>
-											<td>
-												<span class="small">
-													<i class="fa fa-user"></i>
-													<?php echo $itemFeatured->name; ?>
-													</small>
-												</span>
-											</td>
-											<td>
-												<span class="small">
-													<i class="fas fa-calendar"></i>
-													<?php echo JHtml::date($itemFeatured->modified, 'd M Y'); ?>
-												</span>
-											</td>
-										</tr>
-
-									<?php endif; ?>
-								<?php endforeach; ?>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			<?php endif; ?>
-			<?php if ($hiddepublished) : ?>
-				<div class="block published card" style="width:<?php echo $publishedwidth; ?>%">
-					<div class="card-header">
-
-						<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=1'; ?>
-						<div class="module-actions">
-							<a href='<?php echo $show_all_link ?>' class='adminlink'>
-								<?php
-								echo Text::_('MOD_DASHBOARD_ALL');
-								echo "</a></div>";	?>
-								<h3 class="module-title "><i class="fa fa-check"></i>
-									<?php echo Text::_('MOD_DASHBOARD_PUBLISHED'); ?></h3>
-
-
-						</div>
-						<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
-
-							<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
-								<thead>
-									<tr>
-										<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
-										<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
-										<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php foreach ($listPublished as $itemPublished) :
-										$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemPublished->id);
-										$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemPublished->checked_out == $userId || $itemPublished->checked_out == 0;
-										$canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemPublished->id) && $itemPublished->created_by == $userId;
-										$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemPublished->id) && $canCheckin;
-										if ($canChange) :
-									?>
-											<tr>
-												<td>
-													<a href="<?php echo $itemPublished->link; ?>"><?php echo $itemPublished->title; ?>
-														<i class="fa fa-edit"></i></a>
-												</td>
-												<td>
-													<span class="small">
-														<i class="fa fa-user"></i>
-														<?php echo $itemPublished->name; ?>
-														</small>
-													</span>
-												</td>
-												<td>
-													<span class="small">
-														<i class="fas fa-calendar"></i>
-														<?php echo JHtml::date($itemPublished->modified, 'd M Y'); ?>
-													</span>
-												</td>
-
-											</tr>
-										<?php endif; ?>
-									<?php endforeach; ?>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				<?php endif; ?>
-
-				<?php if ($hiddeunpublished) : ?>
-
-					<div class="block unpublished card" style="width:<?php echo $unpublishedwidth; ?>%">
+				<?php if ($block->TypofBlock != 'alb') : ?>
+					<div class="block <?php echo $block->nameblockcustom; ?> card" style="width:<?php echo $block->width; ?>%">
 						<div class="card-header">
-							<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=0'; ?>
+							<?php
+							//var_dump($block->catidlist);
+							//$catidslist = implode(",", $block->catidlist );
+							foreach ($block->catidlist as $catidfilter) {
+								$catidslist[] = '&filter[category_id][]=' . $catidfilter;
+							}
+							//var_dump($catidslist);die;
+							switch ($block->TypofBlock) {
+								case ('fb'):
+									$show_all_link = 'index.php?option=com_content&view=featured' . implode('', $catidslist);
+									break;
+								case ('pb'):
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=1' . implode('', $catidslist);
+									break;
+								case ('upb'):
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=0' . implode('', $catidslist);
+									break;
+								case ('ab'):
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=2' . implode('', $catidslist);
+									break;
+								case ('tb'):
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=-2' . implode('', $catidslist);
+									break;
+								case ('ub'):
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[author_id]=' . $user->id . implode('', $catidslist);
+									break;
+								case ('cb'):
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[author_id]=' . $user->id . implode('', $catidslist);
+									break;
+							}
+
+							?>
 							<div class="module-actions">
 								<a href='<?php echo $show_all_link ?>' class='adminlink'>
 									<?php
 									echo Text::_('MOD_DASHBOARD_ALL');
-									echo "</a></div>";	?>
-									<h3 class="module-title"><i class="fa fa-thumbs-down"></i>
-										<?php echo Text::_('MOD_DASHBOARD_UNPUBLISHED'); ?></h3>
-
+									echo "</a></div>";    ?>
+									<h3 class="module-title">
+										<i class="fas 
+						<?php if (!empty($block->iconbutton)) {
+							echo $block->iconbutton;
+						} else {
+							echo 'fa-star';
+						}
+						?>  
+								" <?php if (!empty($block->coloricon)) {
+										echo 'style="color:' . $block->coloricon . ';"';
+									} else {
+									}
+									?>></i>
+										<?php echo $block->nameblockcustom; ?>
+									</h3>
 							</div>
+							<div class="card-body" style="height:<?php echo $block->forceheightblock; ?>">
 
-							<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
-
-								<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
+								<table class="table" id="<?php echo str_replace(' ', '', $block->nameblockcustom); ?>">
 									<thead>
 										<tr>
 											<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
+											<th scope="col" class="w-20"><?php echo Text::_('JCATEGORY'); ?></th>
 											<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
 											<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
 										</tr>
 									</thead>
 									<tbody>
-										<?php foreach ($listUnpublished as $itemUnpublished) :
-											$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemUnpublished->id);
-											$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemUnpublished->checked_out == $userId || $itemUnpublished->checked_out == 0;
-											// $canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemUnpublished->id) && $$itemUnpublished->created_by == $userId;
-											$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemUnpublished->id) && $canCheckin;
+										<?php foreach ($block->items as $item) :
+											$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $item->id);
+											$canCheckin = $user->authorise('core.manage',     'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
+											$canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $item->id) && $item->created_by == $userId;
+											$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $item->id) && $canCheckin;
 											if ($canChange) :
 										?>
 												<tr>
 													<td>
-														<a href="<?php echo $itemUnpublished->link; ?>"><?php echo $itemUnpublished->title; ?>
+														<a href="<?php echo $item->link; ?>"><?php echo $item->title; ?>
 															<i class="fa fa-edit"></i></a>
 													</td>
 													<td>
 														<span class="small">
-															<i class="fa fa-user"></i> <?php echo $itemUnpublished->name; ?></small>
+															<i class="fa fa-folder"></i>
+															<?php echo $item->title; ?>
+															</small>
+														</span>
+													</td>
+
+													<td>
+														<span class="small">
+															<i class="fa fa-user"></i>
+															<?php echo $item->name; ?>
+															</small>
 														</span>
 													</td>
 													<td>
 														<span class="small">
 															<i class="fas fa-calendar"></i>
-															<?php echo JHtml::date($itemUnpublished->modified, 'd M Y'); ?>
+															<?php echo JHtml::date($item->modified, 'd M Y'); ?>
 														</span>
 													</td>
 												</tr>
+
 											<?php endif; ?>
 										<?php endforeach; ?>
-									<tbody>
+									</tbody>
 								</table>
 							</div>
 						</div>
+
 					<?php endif; ?>
-					<?php if ($hiddearchived) : ?>
-						<div class="block archived card" style="width:<?php echo $archivedwidth; ?>%">
+					<?php if ($block->TypofBlock == 'alb') : ?>
+						<div class="block actionlog card" style="width:<?php echo $block->width; ?>%">
 							<div class="card-header">
-								<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=2'; ?>
-								<div class="module-actions">
+								<div class="module-actions"> <?php $show_all_link = 'index.php?option=com_actionlogs'; ?>
 									<a href='<?php echo $show_all_link ?>' class='adminlink'>
 										<?php
 										echo Text::_('MOD_DASHBOARD_ALL');
 										echo "</a></div>";	?>
-										<h3 class="module-title"><i class="fa fa-archive"></i>
-											<?php echo Text::_('MOD_DASHBOARD_ARCHIVED'); ?></h3>
-
-								</div>
-								<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
-
-									<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
-										<thead>
-											<tr>
-												<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
-												<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
-												<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php foreach ($listArchived as $itemArchived) :
-												$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemArchived->id);
-												$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemArchived->checked_out == $userId || $itemArchived->checked_out == 0;
-												$canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemArchived->id) && $itemArchived->created_by == $userId;
-												$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemArchived->id) && $canCheckin;
-												if ($canChange) :
-											?>
-													<tr>
-														<td>
-															<a href="<?php echo $itemArchived->link; ?>"><?php echo $itemArchived->title; ?>
-																<i class="fa fa-edit"></i></a>
-														</td>
-														<td>
-															<span class="small">
-																<i class="fa fa-user"></i>
-																<?php echo $itemArchived->name; ?>
-															</span>
-														</td>
-														<td>
-															<span class="small"> <i class="fas fa-calendar"></i>
-																<?php echo JHtml::date($itemArchived->modified, 'd M Y'); ?></span>
-														</td>
-													</tr>
-								</div>
-							<?php endif; ?>
-						<?php endforeach; ?>
-						</tbody>
-						</table>
-							</div>
-						</div>
-					<?php endif; ?>
-					<?php if ($hiddeyouritem) : ?>
-						<div class="block youritems card" style="width:<?php echo $youritemwidth; ?>%">
-							<div class="card-header">
-								<div class="module-actions">
-									<?php $show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[author_id]=' . $user->id; //TODO add user id
-									?>
-									<a href='<?php echo $show_all_link ?>' class='adminlink'>
-										<?php
-										echo Text::_('MOD_DASHBOARD_ALL');
-										echo "</a></div>";	?>
-
-										<?php $user = JFactory::getUser();		?>
-										<h3 class="module-title">
-											<i class="fa fa-user"></i>
-											<?php echo Text::_('JOOMLA_YOUR_ITEM'); ?> : <?php echo $user->name; ?>
+										<h3 class="module-title ">
+											<i class="fas 
+						<?php if (!empty($block->iconbutton)) {
+							echo $block->iconbutton;
+						} else {
+							echo 'fa-star';
+						}
+						?>  
+								" <?php if (!empty($block->coloricon)) {
+										echo 'style="color:' . $block->coloricon . ';"';
+									} else {
+									}
+									?>></i>
+											<?php echo $block->nameblockcustom; ?>
 										</h3>
-
 								</div>
-								<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
+								<div class="card-body" style="height:<?php echo $block->forceheightblock; ?>">
 
-									<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
-										<thead>
-											<tr>
-												<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
-												<th scope="col" class="w-20"><?php echo Text::_('JAUTHOR'); ?></th>
-												<th scope="col" class="w-20"><?php echo Text::_('JSTATES'); ?></th>
-												<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php foreach ($listUseritem as $itemUseritem) :
-												$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemUseritem->id);
-												$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemUseritem->checked_out == $userId || $itemUseritem->checked_out == 0;
-												$canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemUseritem->id) && $itemUseritem->created_by == $userId;
-												$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemUseritem->id) && $canCheckin;
-												if ($canChange) :
 
-											?>
-													<tr>
-														<td>
-															<a href="<?php echo $itemUseritem->link; ?>"><?php echo $itemUseritem->title; ?>
-																<i class="fa fa-edit"></i></a>
-														</td>
-														<td>
-															<span class="small">
-																<i class="fa fa-user"></i>
-
-																<small class="hasTooltip" title="" data-original-title="<?php echo JHtml::tooltipText('MOD_DASHBOARD_CREATED_BY') . " " . $user->name; ?>"><?php echo $user->name; ?>
-																</small>
-															</span>
-														</td>
-														<td>
-															<?php echo $itemUseritem->state; ?>
-														</td>
-														<td>
-															<span class="small">
-																<i class="fas fa-calendar"></i>
-																<?php echo JHtml::date($itemUseritem->modified, 'd M Y'); ?>
-															</span>
-														</td>
-
-													</tr>
-												<?php endif; ?>
-											<?php endforeach; ?>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						<?php endif; ?>
-						<?php if ($hiddetrashed) : ?>
-							<div class="block trashed card" style="width:<?php echo $trashedwidth; ?>%">
-								<div class="card-header">
-
-									<?php
-									$show_all_link = 'index.php?option=com_content&amp;view=articles&amp;filter[published]=-2'; ?>
-									<div class="module-actions">
-										<a href='<?php echo $show_all_link ?>' class='adminlink'>
-											<?php
-											echo Text::_('MOD_DASHBOARD_ALL');
-											echo "</a></div>";	?>
-
-											<h3 class="module-title "><i class="fa fa-trash"></i>
-												<?php echo Text::_('MOD_DASHBOARD_TRASHED'); ?></h3>
-
-									</div>
-									<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
-
-										<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
+									<?php if (count($actionlist)) : ?>
+										<table class="table">
 											<thead>
 												<tr>
-													<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
-													<th scope="col" class="w-40"><?php echo Text::_('JAUTHOR'); ?></th>
+													<th scope="col" class="w-80"><?php echo Text::_('MOD_LATESTACTIONS_ACTION'); ?></th>
+													<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
 												</tr>
 											</thead>
 											<tbody>
-												<?php foreach ($listTrashed as $itemTrashed) :
-													$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemTrashed->id);
-													$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemTrashed->checked_out == $userId || $itemTrashed->checked_out == 0;
-													$canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemTrashed->id) && $itemTrashed->created_by == $userId;
-													$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemTrashed->id) && $canCheckin;
-													if ($canChange) :
-												?>
-														<tr>
-															<td>
-																<a href="<?php echo $itemTrashed->link; ?>"><?php echo $itemTrashed->title; ?>
-																	<i class="fa fa-edit"></i></a>
-															</td>
-															<td>
-																<span class="small">
-																	<i class="fa fa-user"></i><?php echo $user->name; ?>
-																</span>
-															</td>
-															<td>
-																<span class="small">
-																	<i class="fas fa-calendar"></i>
-																	<?php echo JHtml::date($itemTrashed->modified, 'd M Y'); ?>
-																</span>
-															</td>
-														</tr>
-													<?php endif; ?>
+												<?php foreach ($actionlist as $i => $item) : ?>
+													<tr>
+														<td>
+															<?php echo $item->message; ?>
+														</td>
+														<td>
+															<div class="small">
+																<span class="fas fa-calendar" aria-hidden="true"></span>
+																<?php echo JHtml::_('date', $item->log_date, Text::_('DATE_FORMAT_LC5')); ?>
+															</div>
+														</td>
+													</tr>
+
 												<?php endforeach; ?>
 											</tbody>
 										</table>
-									</div>
-								</div>
-							<?php endif; ?>
-
-							<?php if ($actionsloglist) : ?>
-								<div class="block actionlog card" style="width:<?php echo $actionslogwidth; ?>%">
-									<div class="card-header">
-										<div class="module-actions"> <?php $show_all_link = 'index.php?option=com_actionlogs'; ?>
-											<a href='<?php echo $show_all_link ?>' class='adminlink'>
-												<?php
-												echo Text::_('MOD_DASHBOARD_ALL');
-												echo "</a></div>";	?>
-												<h3 class="module-title ">
-													<i class="fa fa-list-alt"></i>
-													<?php echo Text::_('MOD_DASHBOARD_ACTIONLOGS_BLOCK_NAME'); ?> :
-												</h3>
-										</div>
-										<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
-
-
-											<?php if (count($actionlist)) : ?>
-												<table class="table">
-													<thead>
-														<tr>
-															<th scope="col" class="w-80"><?php echo Text::_('MOD_LATESTACTIONS_ACTION'); ?></th>
-															<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
-														</tr>
-													</thead>
-													<tbody>
-														<?php foreach ($actionlist as $i => $item) : ?>
-															<tr>
-																<td>
-																	<?php echo $item->message; ?>
-																</td>
-																<td>
-																	<div class="small">
-																		<span class="fas fa-calendar" aria-hidden="true"></span>
-																		<?php echo JHtml::_('date', $item->log_date, Text::_('DATE_FORMAT_LC5')); ?>
-																	</div>
-																</td>
-															</tr>
-
-														<?php endforeach; ?>
-													</tbody>
-												</table>
-											<?php else : ?>
-												<div class="row-fluid">
-													<div class="span12">
-														<div class="alert">
-															<?php echo Text::_('MOD_LATEST_ACTIONS_NO_MATCHING_RESULTS'); ?>
-														</div>
-													</div>
-												</div>
-											<?php endif; ?>
-										</div>
-									</div>
-								<?php endif; ?>
-
-
-
-								<?php if ($listCustomlist) : ?>
-									<?php
-									foreach ($listCustomlist as $listCustomlist_idx => $customblock) : ?>
-										<div class="block <?php echo $customblock->catidlist; ?> card" style="width:<?php echo $customblock->width; ?>%">
-											<div class="card-header">
-												<div class="module-actions">
-													<?php $show_all_link = 'index.php?option=com_content&filter_category_id=' . $customblock->catidlist; ?>
-
-													<a href='<?php echo $show_all_link ?>' class='adminlink'>
-														<?php
-														echo Text::_('MOD_DASHBOARD_ALL');
-														echo "</a></div>";	?>
-														<h3 class="module-title ">
-															<i class="fa fa-user"></i>
-															<?php echo Text::_($customblock->nameblockcustom); ?> :
-														</h3>
-												</div>
-												<div class="card-body" style="height:<?php echo $forceheightblock; ?>">
-
-													<table class="table" id="<?php echo str_replace(' ', '', $module->title) . $module->id; ?>">
-														<thead>
-															<tr>
-																<th scope="col" class="w-40"><?php echo Text::_('JGLOBAL_TITLE'); ?></th>
-																<?php if ($customblock->displautblock) : ?>
-																	<th scope="col" class="w-40"><?php echo Text::_('JAUTHOR'); ?></th>
-																<?php endif; ?>
-																<?php if ($customblock->displdateblock) : ?>
-																	<th scope="col" class="w-20"><?php echo Text::_('JDATE'); ?></th>
-																<?php endif; ?>
-															</tr>
-														</thead>
-														<tbody>
-
-															<?php foreach ($customblock->listitems as $itemcustomblock) :
-																$canEdit    = $user->authorise('core.edit',       'com_content.article.' . $itemcustomblock->id);
-																$canCheckin = $user->authorise('core.manage',     'com_checkin') || $itemcustomblock->checked_out == $userId || $itemcustomblock->checked_out == 0;
-																$canEditOwn = $user->authorise('core.edit.own',   'com_content.article.' . $itemcustomblock->id) && $itemcustomblock->created_by == $userId;
-																$canChange  = $user->authorise('core.edit.state', 'com_content.article.' . $itemcustomblock->id) && $canCheckin;
-																if ($canChange) :
-															?>
-																	<tr>
-																		<td>
-																			<a href="<?php echo $itemcustomblock->link; ?>"><?php echo $itemcustomblock->title; ?>
-																				<i class="fa fa-edit"></i></a>
-																		</td>
-																		<?php if ($customblock->displautblock) : ?>
-																			<td>
-																				<span class="small">
-																					<i class="fa fa-user"></i>
-
-																					<small><?php echo $itemcustomblock->name; ?>
-																					</small>
-																				</span>
-																			</td>
-																		<?php endif; ?>
-																		<?php if ($customblock->displdateblock) : ?>
-																			<td>
-																				<span class="small">
-																					<i class="fas fa-calendar"></i>
-																					<?php echo JHtml::date($itemcustomblock->modified, 'd M Y'); ?>
-																				</span>
-																			</td>
-																		<?php endif; ?>
-																	<?php endif; ?>
-																<?php endforeach; ?>
-																	</tr>
-														</tbody>
-													</table>
+									<?php else : ?>
+										<div class="row-fluid">
+											<div class="span12">
+												<div class="alert">
+													<?php echo Text::_('MOD_LATEST_ACTIONS_NO_MATCHING_RESULTS'); ?>
 												</div>
 											</div>
-										<?php endforeach; ?>
-									<?php endif; ?>
 										</div>
-
+									<?php endif; ?>
 								</div>
+							</div>
 
+						<?php endif; ?>
+
+
+					<?php endforeach; ?>
+
+						</div>
+
+					</div>
+				<?php endif; ?>

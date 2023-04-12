@@ -1,12 +1,13 @@
 <?php
 
 /**
- * @version 0.5.0 stable $Id: default.php yannick berges
+ * @version 3.0 stable $Id: default.php yannick berges
  * @package Joomla
  * @copyright (C) 2018 Berges Yannick - www.com3elles.com
  * @license GNU/GPL v2
 
  * special thanks to my master Marc Studer
+ ** special thanks to Shane for helping
 
  * JOOMLA admin module by Com3elles is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -14,7 +15,6 @@
  * GNU General Public License for more details.
  **/
 
-/*namespace Joomla\Module\Dashboard\Administrator\helper;*/
 
 //blocage des accés directs sur ce script
 \defined('_JEXEC') or die;
@@ -28,77 +28,95 @@ use Joomla\Component\Actionlogs\Administrator\Helper\ActionlogsHelper;
 use Joomla\Component\Actionlogs\Administrator\Model\ActionlogsModel;
 use Joomla\Module\Quickicon\Administrator\Event\QuickIconsEvent;
 use Joomla\Registry\Registry;
+use Joomla\Database\ParameterType;
 
 abstract class modDashboardHelper
 {
-	public static function getFeatured(&$params)
+
+	public static function getItems($data)
 	{
+		//var_dump($data);die;
+		//	recuperation utilisateur connecter	
+		$user = JFactory::getUser();
+		$userid = $user->id;
+		$catids = $data->catidlist;
+		$limit = $data->count;
+		$nom_statut = $data->TypofBlock;
 		// recupere la connexion à la BD
 		$db = JFactory::getDbo();
-		$queryFeatured = 'SELECT a.id, a.title, b.name , a.catid, a.created, a.created_by, a.modified, a.modified_by, a.featured FROM #__content  AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE featured = 1 ORDER BY modified DESC LIMIT ' . (int) $params->get('count');
-		$db->setQuery($queryFeatured);
-		$itemsFeatured = $db->loadObjectList();
-		//print_r ($itemsRevised) ;
-		foreach ($itemsFeatured as &$itemFeatured) {
-			$itemFeatured->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $itemFeatured->id);
+		$query = $db->getQuery(true);
+		$query->select($db->quoteName(array('a.id', 'a.title', 'a.created', 'a.created_by', 'a.modified', 'a.modified_by', 'a.featured', 'a.state', 'a.catid', 'b.name', 'c.title')))
+			->from($db->quoteName('#__content', 'a'))
+			->join(
+				'LEFT',
+				$db->quoteName('#__users', 'b') . 'ON' . $db->quoteName('a.created_by') . '=' . $db->quoteName('b.id')
+			) // recup utilisateur
+			->join(
+				'LEFT',
+				$db->quoteName('#__categories', 'c') . 'ON' . $db->quoteName('a.catid') . '=' . $db->quoteName('c.id') // recup categorie
+			);
+		// ici en fonction du statut
+		switch ($nom_statut) {
+
+			case ('fb'):
+				$featured = 1;
+				$query
+					->where($db->quoteName('a.featured') . '= :feature')
+					->bind(':feature', $featured, ParameterType::INTEGER);
+				break;
+
+			case ('pb'):
+				$state = 1;
+				$query
+					->where($db->quoteName('a.state') . '= :state')
+					->bind(':state', $state, ParameterType::INTEGER);
+				break;
+
+			case ('upb'):
+				$state = 0;
+				$query
+					->where($db->quoteName('a.state') . '= :state')
+					->bind(':state', $state, ParameterType::INTEGER);
+				break;
+
+			case ('ab'):
+				$state = 2;
+				$query
+					->where($db->quoteName('a.state') . '= :state')
+					->bind(':state', $state, ParameterType::INTEGER);
+				break;
+
+			case ('tb'):
+				$state = -2;
+				$query
+					->where($db->quoteName('a.state') . '= :state')
+					->bind(':state', $state, ParameterType::INTEGER);
+				break;
 		}
-		return $itemsFeatured;
-	}
-	public static function getPublished(&$params)
-	{
-		// recupere la connexion à la BD
-		$db = JFactory::getDbo();
-		$queryPublished = 'SELECT a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE state = 1 ORDER BY modified DESC LIMIT ' . (int) $params->get('count');
-		$db->setQuery($queryPublished);
-		$itemsPublished = $db->loadObjectList();
-		foreach ($itemsPublished as &$itemPublished) {
-			$itemPublished->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $itemPublished->id);
+		//ici la categorie
+		$query->whereIn($db->quoteName('a.catid'), $catids, ParameterType::LARGE_OBJECT)
+		//ici order
+		->order('a.modified DESC')
+
+		//ici la limite
+		->setLimit($limit);
+
+		$db->setQuery($query);
+		$items = $db->loadObjectList();
+
+		foreach ($items as &$item) {
+			$item->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $item->id);
 		}
-		return $itemsPublished;
+		return $items;
 	}
-	public static function getUnpublished(&$params)
-	{
-		// recupere la connexion à la BD
-		$db = JFactory::getDbo();
-		$queryUnpublished = 'SELECT a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE state = 0 ORDER BY modified DESC LIMIT ' . (int) $params->get('count');
-		$db->setQuery($queryUnpublished);
-		$itemsUnpublished = $db->loadObjectList();
-		foreach ($itemsUnpublished as &$itemUnpublished) {
-			$itemUnpublished->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $itemUnpublished->id);
-		}
-		return $itemsUnpublished;
-	}
-	public static function getArchived(&$params)
-	{
-		// recupere la connexion à la BD
-		$db = JFactory::getDbo();
-		$queryArchived = 'SELECT a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE state = 2 ORDER BY modified DESC LIMIT ' . (int) $params->get('count');
-		$db->setQuery($queryArchived);
-		$itemsArchived = $db->loadObjectList();
-		foreach ($itemsArchived as &$itemArchived) {
-			$itemArchived->link = JRoute::_('index.php?option=com_flexicontent&task=article.edit&id=' . $itemArchived->id);
-		}
-		return $itemsArchived;
-	}
-	public static function getTrashed(&$params)
-	{
-		// recupere la connexion à la BD
-		$db = JFactory::getDbo();
-		$queryTrashed = 'SELECT a.id,b.name, a.title, a.catid, a.created, a.created_by, a.modified, a.modified_by FROM #__content AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE state = -2 ORDER BY modified DESC LIMIT ' . (int) $params->get('count');
-		$db->setQuery($queryTrashed);
-		$itemsTrashed = $db->loadObjectList();
-		foreach ($itemsTrashed as &$itemTrashed) {
-			$itemTrashed->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $itemTrashed->id);
-		}
-		return $itemsTrashed;
-	}
+
 	public static function getUseritem(&$params)
 	{
 		$user = JFactory::getUser();
 		$userid = $user->id;
 		//recupére la connexion à la BD
 		$db = JFactory::getDbo();
-		$queryUseritem = 'SELECT id, title, catid, created, created_by, modified, modified_by, state FROM #__content WHERE created_by = ' . $user->id . ' ORDER BY modified DESC LIMIT ' . (int) $params->get('count');
+		$queryUseritem = 'SELECT id, title, catid, created, created_by, modified, modified_by, state FROM #__content WHERE created_by = ' . $user->id . ' ORDER BY modified DESC LIMIT 50';
 		$db->setQuery($queryUseritem);
 		$itemsUseritem = $db->loadObjectList();
 		foreach ($itemsUseritem as &$itemUseritem) {
@@ -120,25 +138,7 @@ abstract class modDashboardHelper
 		}
 		return $itemsUseritem;
 	}
-	public static function getCustomlist(&$params)
-	{
-		$list_customblocks = $params->get('add_customblock');
-		if ($list_customblocks) {
-			$db = JFactory::getDbo();
-			// loop your result
-			foreach ($list_customblocks as $list_customblocks_idx => $customblock) {
-				//$catid = $customblock->catidlist;
-				$queryCustomlist = 'SELECT a.id, a.title, b.name , a.catid, a.created, a.created_by, a.modified, a.modified_by, a.featured FROM #__content  AS a LEFT JOIN #__users AS b ON a.created_by = b.id WHERE catid= ' . $customblock->catidlist . ' AND state = 1 ORDER BY modified DESC LIMIT ' . (int) $params->get('count');
-				$db->setQuery($queryCustomlist);
-				$itemsCustomlist = $db->loadObjectList();
-				foreach ($itemsCustomlist as &$itemCustomlist) {
-					$itemCustomlist->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $itemCustomlist->id);
-				}
-				$customblock->listitems = $itemsCustomlist;
-			}
-		}
-		return $list_customblocks;
-	}
+
 
 	public static function getIconFromPlugins(Registry $params, CMSApplication $application = null)
 	{

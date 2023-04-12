@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-	<field name="freenametab" type="text" default="MOD_DASHBOARD_FREE_TAB_NAME" label="MOD_DASHBOARD_FREE_TAB_NAME_2" description="MOD_DASHBOARD_FREE_TAB_NAME_2_DESC" />
-	<field name="free_button" description="Add button" type= "subform" label="Add button" min="0" max="1000" required="false" formsource="administrator/modules/mod_dashboard/models/forms/freebuttonchild.xml" multiple="true" buttons="add,remove,move" layout="joomla.form.field.subform.repeatable" groupByFieldset="false"/>
+	<field name="freenametab" type="text" default="MOD_DASHBOARD_FREE_TAB_NAME"
+		label="MOD_DASHBOARD_FREE_TAB_NAME_2" description="MOD_DASHBOARD_FREE_TAB_NAME_2_DESC" />
+	<field name="free_button" description="Add button" type="subform" label="Add button" min="0"
+		max="1000" required="false"
+		formsource="administrator/modules/mod_dashboard/models/forms/freebuttonchild.xml"
+		multiple="true" buttons="add,remove,move" layout="joomla.form.field.subform.repeatable"
+		groupByFieldset="false" />
 </form>
