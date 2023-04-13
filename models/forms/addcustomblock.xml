@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-  <field name="TypofBlock" label="Type of block" description="" type="list" default="0">
+  <field name="TypofBlock" label="MOD_DASHBOARD_TYPE_OF_BLOCK" description="MOD_DASHBOARD_TYPE_OF_BLOCK_DESC" type="list" default="0">
     <option value="fb">MOD_DASHBOARD_DISPLAYBLOCK_FEATURED</option>
     <option value="pb">MOD_DASHBOARD_DISPLAYBLOCK_PUBLISHED</option>
     <option value="cb">MOD_DASHBOARD_BLOCKCUSTOM_DESC</option>

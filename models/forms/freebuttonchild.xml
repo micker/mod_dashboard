@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-	<field name="displayButtonTypeOption" label="Type of button"
-		description="MOD_DASHBOARD_DISPLAY_LINE_DESC" type="list" default="0" class="">
-		<option value="1">Add item</option>
-		<option value="2">Edit item</option>
-		<option value="3">Link to categorie</option>
-		<option value="4">Custom button</option>
+	<field name="displayButtonTypeOption" label="MOD_DASHBOARD_TYPE_OF_BUTTON"
+		description="MOD_DASHBOARD_TYPE_OF_BUTTON_DESC" type="list" default="0" class="">
+		<option value="1">MOD_DASHBOARD_DISPLAYBUTTON_ADDITEM</option>
+		<option value="2">MOD_DASHBOARD_ITEM</option>
+		<option value="3">MOD_DASHBOARD_DISPLAYBUTTON_ADDCATEGORY</option>
+		<option value="4">MOD_DASHBOARD_FREE_BUTTON</option>
 
 	</field>
 	<!--Add
