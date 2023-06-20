@@ -5,7 +5,7 @@
 	<creationDate>2023</creationDate>
 	<authorEmail>yannick@com3elles.com</authorEmail>
 	<authorUrl>www.com3elles.com</authorUrl>
-	<version>3.0</version>
+	<version>3.1</version>
 	<copyright>Copyright (C) 2008 - 2022 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<description>MOD_DASHBOARD_INTRO</description>
@@ -309,6 +309,6 @@
 
 	<updateservers>
 		<server type="extension" priority="1" name="Dashboard module update">
-			https://raw.githubusercontent.com/micker/mod_dashboard/v2/update.xml</server>
+			https://raw.githubusercontent.com/micker/mod_dashboard/v3/update.xml</server>
 	</updateservers>
 </extension>
