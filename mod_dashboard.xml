@@ -27,6 +27,7 @@
 		<folder>icons-libraries</folder>
 		<folder>images</folder>
 		<folder>stylesheets</folder>
+		<folder>webfonts</folder>
 	</media>
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.mod_dashboard.ini</language>

@@ -39,8 +39,9 @@ $userId    = $user->get('id');
 
 $wa = \Joomla\CMS\Factory::getApplication()->getDocument()->getWebAssetManager();
 $wa->registerStyle('mod_dashboard.style', 'media/mod_dashboard/css/style.css');
-$wa->registerStyle('mod_dashboard.style', 'media/mod_dashboard/css/font-awesome.min.css');
+$wa->registerStyle('mod_dashboard.style2', 'media/mod_dashboard/css/font-awesome.min.css');
 $wa->useStyle('mod_dashboard.style');
+$wa->useStyle('mod_dashboard.style2');
 
 
 
