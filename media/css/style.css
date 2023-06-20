@@ -53,6 +53,7 @@ max-height: 80px !important;
 .info-bar.top.list-group-item {
 border-left: 0;
 border-right: 0;
+padding: 0 1rem;
 }
 .contentbloc{
 align-content:space-between;

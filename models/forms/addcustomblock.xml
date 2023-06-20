@@ -17,7 +17,7 @@
     description="MOD_DASHBOARD_BLOCKCUSTOM_DESC" />
   <field name="catidlist" type="category" extension="com_content" multiple="true"
     label="MOD_DASHBOARD_CAT" description="MOD_DASHBOARD_CAT_DESC"
-    layout="joomla.form.field.list-fancy-select" showon="TypofBlock:cb" />
+    layout="joomla.form.field.list-fancy-select" />
   <field name="displautblock" label="MOD_DASHBOARD_DISPLAY_AUTHOR" type="radio" default="1"
     layout="joomla.form.field.radio.switcher">
     <option value="0">JNO</option>
