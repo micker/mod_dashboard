@@ -2,10 +2,10 @@
 <form>
 	<field name="displayButtonTypeOption" label="Type of button"
 		description="MOD_DASHBOARD_DISPLAY_LINE_DESC" type="list" default="0" class="">
-		<option value="1">Add item</option>
-		<option value="2">Edit item</option>
-		<option value="3">Link to categorie</option>
-		<option value="4">Custom button</option>
+		<option value="1">MOD_DASHBOARD_ADD_ITEM</option>
+		<option value="2">MOD_DASHBOARD_EDIT_ITEM</option>
+		<option value="3">MOD_DASHBOARD_LINK_CAT</option>
+		<option value="4">MOD_DASHBOARD_CUSTOM_BTN</option>
 
 	</field>
 	<!--Add
