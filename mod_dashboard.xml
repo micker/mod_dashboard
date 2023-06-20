@@ -304,6 +304,6 @@
 
 	<updateservers>
 		<server type="extension" priority="1" name="Dashboard module update">
-			https://raw.githubusercontent.com/micker/mod_dashboard/v3/update.xml</server>
+			https://raw.githubusercontent.com/micker/mod_dashboard/v2/update.xml</server>
 	</updateservers>
 </extension>
