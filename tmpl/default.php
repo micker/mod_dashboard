@@ -506,25 +506,25 @@ jimport('joomla.application.component.controller');
 							//var_dump($catidslist);die;
 							switch ($block->TypofBlock) {
 								case ('fb'):
-									$show_all_link = 'index.php?option=com_content&view=featured' . implode('', $catidslist);
+									$show_all_link = 'index.php?option=com_content&view=featured' . empty($catidslist)  ? '' : implode('', $catidslist);
 									break;
 								case ('pb'):
-									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=1' . implode('', $catidslist);
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=1' . empty($catidslist)  ? '' : implode('', $catidslist);
 									break;
 								case ('upb'):
-									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=0' . implode('', $catidslist);
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=0' . empty($catidslist)  ? '' : implode('', $catidslist);
 									break;
 								case ('ab'):
-									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=2' . implode('', $catidslist);
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=2' . empty($catidslist)  ? '' : implode('', $catidslist);
 									break;
 								case ('tb'):
-									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=-2' . implode('', $catidslist);
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[published]=-2' . empty($catidslist)  ? '' : implode('', $catidslist);
 									break;
 								case ('ub'):
-									$show_all_link = 'index.php?option=com_content&view=articles&filter[author_id]=' . $user->id . implode('', $catidslist);
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[author_id]=' . $user->id . empty($catidslist)  ? '' : implode('', $catidslist);
 									break;
 								case ('cb'):
-									$show_all_link = 'index.php?option=com_content&view=articles&filter[author_id]=' . $user->id . implode('', $catidslist);
+									$show_all_link = 'index.php?option=com_content&view=articles&filter[author_id]=' . $user->id . empty($catidslist)  ? '' : implode('', $catidslist);
 									break;
 							}
 
