@@ -94,9 +94,11 @@ abstract class modDashboardHelper
 				break;
 		}
 		//ici la categorie
-		$query->whereIn($db->quoteName('a.catid'), $catids, ParameterType::LARGE_OBJECT)
-		//ici order
-		->order('a.modified DESC')
+		if(!empty($catids)){
+			$query->whereIn($db->quoteName('a.catid'), $catids, ParameterType::LARGE_OBJECT);
+			  }
+			//ici order
+			$query->order('a.modified DESC')
 
 		//ici la limite
 		->setLimit($limit);
