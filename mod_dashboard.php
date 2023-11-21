@@ -16,18 +16,12 @@
  **/
 
 //blocage des accés directs sur ce script
-defined('_JEXEC') or die('Accés interdit');
+defined('_JEXEC') or die('Accès interdit');
 jimport('joomla.application.component.controller');
 JLoader::register('ModLatestActionsHelper', __DIR__ . '/helper.php');
 
 // Inclut les méthodes du script de soutien
 require_once dirname(__FILE__) . '/helper.php';
-//$listFeatured     = modDashboardHelper::getFeatured($params);
-//$listPublished    = modDashboardHelper::getPublished($params);
-//$listUnpublished  = modDashboardHelper::getUnpublished($params);
-//$listArchived     = modDashboardHelper::getArchived($params);
-//$listTrashed      = modDashboardHelper::getTrashed($params);
-//$listUseritem     = modDashboardHelper::getUseritem($params);
 
 foreach ($params->get('add_customblock') as $customBlock) {
     $items = modDashboardHelper::getItems($customBlock) ?? [];
@@ -39,7 +33,7 @@ foreach ($params->get('add_customblock') as $customBlock) {
 
 //$listCustomlist   = modDashboardHelper::getCustomlist($params);
 //$moduleclass_sfx  = htmlspecialchars($params->get('moduleclass_sfx'));
-$systme_buttons   = modDashboardHelper::getIconFromPlugins($params);
+$system_buttons   = modDashboardHelper::getIconFromPlugins($params);
 $actionlist       = modDashboardHelper::getActionlogList($params);
 
 // Get Joomla Layout
