@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @version 3.0 stable $Id: default.php yannick berges
- * @package Joomla
+ * @version       3.0 stable $Id: default.php yannick berges
+ * @package       Joomla
  * @copyright (C) 2018 Berges Yannick - www.com3elles.com
- * @license GNU/GPL v2
-
+ * @license       GNU/GPL v2
+ *
  * special thanks to my master Marc Studer
  ** special thanks to Shane for helping
-
+ *
  * JOOMLA admin module by Com3elles is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
@@ -16,47 +16,64 @@
  **/
 
 
-//blocage des accés directs sur ce script
+//blocage des accès directs sur ce script
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Plugin\PluginHelper;
-use Joomla\CMS\Router\Route;
-use Joomla\CMS\Language\Text;
 use Joomla\Component\Actionlogs\Administrator\Helper\ActionlogsHelper;
 use Joomla\Component\Actionlogs\Administrator\Model\ActionlogsModel;
+use Joomla\Database\ParameterType;
 use Joomla\Module\Quickicon\Administrator\Event\QuickIconsEvent;
 use Joomla\Registry\Registry;
-use Joomla\Database\ParameterType;
 
 abstract class modDashboardHelper
 {
 
 	public static function getItems($data)
 	{
-		//var_dump($data);die;
-		//	recuperation utilisateur connecter	
-		$user = JFactory::getUser();
-		$userid = $user->id;
-		$catids = $data->catidlist;
-		$limit = $data->count;
+		//	recuperation utilisateur connecté
+		$user       = JFactory::getUser();
+		$userid     = $user->id;
+		$catids     = $data->catidlist ?? [];
+		$limit      = $data->count;
 		$nom_statut = $data->TypofBlock;
 		// recupere la connexion à la BD
-		$db = JFactory::getDbo();
+		$db    = JFactory::getDbo();
 		$query = $db->getQuery(true);
-		$query->select($db->quoteName(array('a.id', 'a.title', 'a.created', 'a.created_by', 'a.modified', 'a.modified_by', 'a.featured', 'a.state', 'a.catid', 'b.name', 'c.title')))
+
+		$query
+			->select(
+				$db->quoteName(
+					array(
+						'a.id',
+						'a.title',
+						'a.created',
+						'a.created_by',
+						'a.modified',
+						'a.modified_by',
+						'a.featured',
+						'a.state',
+						'a.catid',
+						'b.name'
+					)
+				)
+			)
+			->select($db->quoteName('c.title', 'category'))
 			->from($db->quoteName('#__content', 'a'))
 			->join(
 				'LEFT',
 				$db->quoteName('#__users', 'b') . 'ON' . $db->quoteName('a.created_by') . '=' . $db->quoteName('b.id')
-			) // recup utilisateur
+			) // récup utilisateur
 			->join(
 				'LEFT',
-				$db->quoteName('#__categories', 'c') . 'ON' . $db->quoteName('a.catid') . '=' . $db->quoteName('c.id') // recup categorie
+				$db->quoteName('#__categories', 'c') . 'ON' . $db->quoteName('a.catid') . '=' . $db->quoteName('c.id') // récup catégorie
 			);
+
 		// ici en fonction du statut
-		switch ($nom_statut) {
+		switch ($nom_statut)
+		{
 
 			case ('fb'):
 				$featured = 1;
@@ -93,37 +110,44 @@ abstract class modDashboardHelper
 					->bind(':state', $state, ParameterType::INTEGER);
 				break;
 		}
-		//ici la categorie
-		if(!empty($catids)){
-			$query->whereIn($db->quoteName('a.catid'), $catids, ParameterType::LARGE_OBJECT);
-			  }
-			//ici order
-			$query->order('a.modified DESC')
 
-		//ici la limite
-		->setLimit($limit);
+		//ici la catégorie
+		if (!empty($catids))
+		{
+			$query->whereIn($db->quoteName('a.catid'), $catids, ParameterType::LARGE_OBJECT);
+		}
+
+		//ici order
+		$query->order('a.modified DESC')
+
+			//ici la limite
+			->setLimit($limit);
 
 		$db->setQuery($query);
 		$items = $db->loadObjectList();
 
-		foreach ($items as &$item) {
+		foreach ($items as $item)
+		{
 			$item->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $item->id);
 		}
+
 		return $items;
 	}
 
 	public static function getUseritem(&$params)
 	{
-		$user = JFactory::getUser();
+		$user   = JFactory::getUser();
 		$userid = $user->id;
 		//recupére la connexion à la BD
-		$db = JFactory::getDbo();
+		$db            = JFactory::getDbo();
 		$queryUseritem = 'SELECT id, title, catid, created, created_by, modified, modified_by, state FROM #__content WHERE created_by = ' . $user->id . ' ORDER BY modified DESC LIMIT 50';
 		$db->setQuery($queryUseritem);
 		$itemsUseritem = $db->loadObjectList();
-		foreach ($itemsUseritem as &$itemUseritem) {
+		foreach ($itemsUseritem as &$itemUseritem)
+		{
 			$itemUseritem->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $itemUseritem->id);
-			switch ($itemUseritem->state) {
+			switch ($itemUseritem->state)
+			{
 				case 0:
 					$itemUseritem->state = JText::_('JUNPUBLISHED');
 					break;
@@ -138,28 +162,32 @@ abstract class modDashboardHelper
 					break;
 			}
 		}
+
 		return $itemsUseritem;
 	}
 
 
 	public static function getIconFromPlugins(Registry $params, CMSApplication $application = null)
 	{
-		$key     = (string) $params;
-		$context = (string) $params->get('context', 'update_quickicon');
+		$key         = (string) $params;
+		$context     = (string) $params->get('context', 'update_quickicon');
 		$application = Factory::getApplication();
 		PluginHelper::importPlugin('quickicon');
 		$buttons[$key] = [];
-		$arrays = (array) $application->triggerEvent(
+		$arrays        = (array) $application->triggerEvent(
 			'onGetIcons',
 			new QuickIconsEvent('onGetIcons', ['context' => $context])
 		);
 
-		foreach ($arrays as $response) {
-			if (!\is_array($response)) {
+		foreach ($arrays as $response)
+		{
+			if (!\is_array($response))
+			{
 				continue;
 			}
 
-			foreach ($response as $icon) {
+			foreach ($response as $icon)
+			{
 				$default = array(
 					'link'    => null,
 					'image'   => null,
@@ -173,7 +201,8 @@ abstract class modDashboardHelper
 
 				$icon = array_merge($default, $icon);
 
-				if (!\is_null($icon['link']) && !\is_null($icon['text'])) {
+				if (!\is_null($icon['link']) && !\is_null($icon['text']))
+				{
 					$buttons[$key][] = $icon;
 				}
 			}
@@ -199,7 +228,8 @@ abstract class modDashboardHelper
 		// Load all actionlog plugins language files
 		ActionlogsHelper::loadActionLogPluginsLanguage();
 
-		foreach ($rows as $row) {
+		foreach ($rows as $row)
+		{
 			$row->message = ActionlogsHelper::getHumanReadableLogMessage($row);
 		}
 
