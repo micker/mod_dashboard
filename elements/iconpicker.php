@@ -23,16 +23,12 @@ jimport('cms.html.html');      // JHtml
 jimport('cms.html.select');    // JHtmlSelect
 
 jimport('joomla.form.helper'); // JFormHelper
-JFormHelper::loadFieldClass('list');   // JFormFieldList
-use Joomla\CMS\Factory;
-use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Language\Associations;
-use Joomla\CMS\Language\Text;
-use Joomla\CMS\Layout\LayoutHelper;
-use Joomla\CMS\Router\Route;
-use Joomla\Registry\Registry;
+use \Joomla\CMS\HTML\HTMLHelper;
+use \Joomla\CMS\Form\FormHelper;
+use \Joomla\CMS\Form\FormField;
+FormHelper::loadFieldClass('list');   // JFormFieldList
 
-class JFormFieldIconpicker extends JFormField
+class FormFieldIconpicker extends FormField
 {
   protected $type = 'Iconpicker';
   // getLabel() left out
@@ -41,8 +37,8 @@ class JFormFieldIconpicker extends JFormField
 // joomla font '../../../media/vendor/fontawesome-free/css/fontawesome.min.css',
 
   {
-    JHtml::_('stylesheet', 'media/mod_dashboard/css/style.css');
-    JHtml::_('script', 'media/mod_dashboard/js/universal-icon-picker.min.js');
+    HTMLHelper::_('stylesheet', 'media/mod_dashboard/css/style.css');
+    HTMLHelper::_('script', 'media/mod_dashboard/js/universal-icon-picker.min.js');
 
 
     $iconlist = ' <div class="input-group mb-3">

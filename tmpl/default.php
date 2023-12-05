@@ -18,20 +18,21 @@
 //blocage des accès directs sur ce script
 defined('_JEXEC') or die('Accès interdit');
 
-use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Language\Text;
-use Joomla\CMS\Router\Route;
+use \Joomla\CMS\HTML\HTMLHelper;
+use \Joomla\CMS\Language\Text;
+use \Joomla\CMS\Router\Route;
+use \Joomla\CMS\Factory;
 
 define('DS', DIRECTORY_SEPARATOR);
 const BASE_PATH_SITE = JPATH_ADMINISTRATOR . DS . 'modules' . DS . 'mod_dashboard';
 
-$document = JFactory::getDocument();
-$app      = JFactory::getApplication();
-$user     = JFactory::getUser();
+$document = Factory::getDocument();
+$app      = Factory::getApplication();
+$user     = Factory::getUser();
 $userId   = $user->get('id');
 
 
-$wa = \Joomla\CMS\Factory::getApplication()->getDocument()->getWebAssetManager();
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
 $wa->registerStyle('mod_dashboard.style', 'media/mod_dashboard/css/style.css');
 $wa->registerStyle('mod_dashboard.style2', 'media/mod_dashboard/css/font-awesome.min.css');
 $wa->useStyle('mod_dashboard.style');
