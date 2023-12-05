@@ -159,3 +159,11 @@ background:var(--template-bg-dark-5);
         width: 100% !important;
     }
 }
+@media (prefers-color-scheme: dark) {
+    .headerblock .breadcrumb {
+        background: none;
+    }
+    .sep, .contentbloc {
+    background-color: var(--template-bg-dark-90);
+    }
+}
