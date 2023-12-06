@@ -28,7 +28,7 @@ use \Joomla\CMS\Form\FormHelper;
 use \Joomla\CMS\Form\FormField;
 FormHelper::loadFieldClass('list');   // JFormFieldList
 
-class FormFieldIconpicker extends FormField
+class JFormFieldIconpicker extends FormField
 {
   protected $type = 'Iconpicker';
   // getLabel() left out
