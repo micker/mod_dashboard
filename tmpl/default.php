@@ -591,7 +591,7 @@ jimport('joomla.application.component.controller');
                                         <td>
                                             <span class="small">
                                                 <i class="fa fa-calendar"></i>
-                                                <?php echo JHtml::date($item->modified, 'd M Y'); ?>
+                                                <?php echo HTMLHelper::date($item->modified, 'd M Y'); ?>
                                             </span>
                                         </td>
                                     </tr>

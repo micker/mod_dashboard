@@ -27,6 +27,7 @@ use Joomla\Component\Actionlogs\Administrator\Model\ActionlogsModel;
 use Joomla\Database\ParameterType;
 use Joomla\Module\Quickicon\Administrator\Event\QuickIconsEvent;
 use Joomla\Registry\Registry;
+use Joomla\CMS\Router\Route;
 
 abstract class modDashboardHelper
 {
@@ -34,13 +35,13 @@ abstract class modDashboardHelper
 	public static function getItems($data)
 	{
 		//	recuperation utilisateur connecté
-		$user       = JFactory::getUser();
+		$user       = Factory::getUser();
 		$userid     = $user->id;
 		$catids     = $data->catidlist ?? [];
 		$limit      = $data->count;
 		$nom_statut = $data->TypofBlock;
 		// recupere la connexion à la BD
-		$db    = JFactory::getDbo();
+		$db    = Factory::getDbo();
 		$query = $db->getQuery(true);
 
 		$query
@@ -128,7 +129,7 @@ abstract class modDashboardHelper
 
 		foreach ($items as $item)
 		{
-			$item->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $item->id);
+			$item->link = Route::_('index.php?option=com_content&task=article.edit&id=' . $item->id);
 		}
 
 		return $items;
@@ -136,16 +137,16 @@ abstract class modDashboardHelper
 
 	public static function getUseritem(&$params)
 	{
-		$user   = JFactory::getUser();
+		$user   = Factory::getUser();
 		$userid = $user->id;
 		//recupére la connexion à la BD
-		$db            = JFactory::getDbo();
+		$db            = Factory::getDbo();
 		$queryUseritem = 'SELECT id, title, catid, created, created_by, modified, modified_by, state FROM #__content WHERE created_by = ' . $user->id . ' ORDER BY modified DESC LIMIT 50';
 		$db->setQuery($queryUseritem);
 		$itemsUseritem = $db->loadObjectList();
 		foreach ($itemsUseritem as &$itemUseritem)
 		{
-			$itemUseritem->link = JRoute::_('index.php?option=com_content&task=article.edit&id=' . $itemUseritem->id);
+			$itemUseritem->link = Route::_('index.php?option=com_content&task=article.edit&id=' . $itemUseritem->id);
 			switch ($itemUseritem->state)
 			{
 				case 0:

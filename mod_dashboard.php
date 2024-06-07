@@ -19,6 +19,7 @@
 defined('_JEXEC') or die('Accès interdit');
 jimport('joomla.application.component.controller');
 JLoader::register('ModLatestActionsHelper', __DIR__ . '/helper.php');
+use Joomla\CMS\Helper\ModuleHelper;
 
 // Inclut les méthodes du script de soutien
 require_once dirname(__FILE__) . '/helper.php';
@@ -37,4 +38,4 @@ $system_buttons   = modDashboardHelper::getIconFromPlugins($params);
 $actionlist       = modDashboardHelper::getActionlogList($params);
 
 // Get Joomla Layout
-require JModuleHelper::getLayoutPath('mod_dashboard', $params->get('layout', 'default'));
+require ModuleHelper::getLayoutPath('mod_dashboard', $params->get('layout', 'default'));
