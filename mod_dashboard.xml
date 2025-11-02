@@ -123,7 +123,7 @@
 				<field name="add_customblock" description="MOD_DASHBOARD_ADD_CUSTOMBLOCK_DESC"
 					type="subform" label="MOD_DASHBOARD_ADD_CUSTOMBLOCK" min="0" max="1000"
 					required="false"
-					formsource="administrator/modules/mod_dashboard/models/forms/addcustomblock.xml"
+					formsource="administrator/modules/mod_dashboard/forms/addcustomblock.xml"
 					multiple="true" buttons="add,remove,move"
 					layout="joomla.form.field.subform.repeatable" groupByFieldset="false"
 					parentclass="span-6 stack" />
@@ -132,7 +132,7 @@
 				description="MOD_DASHBOARD_CUSTOM_TAB_DESC">
 				<field name="free_tab" description="Add tab" type="subform" label="Add tab" min="0"
 					max="1000" required="false"
-					formsource="administrator/modules/mod_dashboard/models/forms/freebutton.xml"
+					formsource="administrator/modules/mod_dashboard/forms/freebutton.xml"
 					multiple="true" buttons="add,remove,move"
 					layout="joomla.form.field.subform.repeatable" groupByFieldset="false"
 					parentclass="span-6 stack" />
